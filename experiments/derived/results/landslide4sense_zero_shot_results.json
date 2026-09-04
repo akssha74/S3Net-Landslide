@@ -1,0 +1,51 @@
+{
+  "dataset": "Landslide4Sense (Sentinel-2 10m GSD)",
+  "num_patches": 245,
+  "evaluation_protocol": "Zero-shot cross-sensor transfer without fine-tuning",
+  "results_by_arm": {
+    "unet": {
+      "micro_f1_mean": 0.14260243344741763,
+      "micro_f1_std": 0.05890447771451427,
+      "macro_f1_mean": 0.17497110487794218,
+      "macro_f1_std": 0.06433772579406075,
+      "iou_mean": 0.07784481716116469,
+      "precision_mean": 0.10036386859984903,
+      "recall_mean": 0.2518195262685405,
+      "bg_fpr_mean": 0.036575347847521096
+    },
+    "resunet": {
+      "micro_f1_mean": 0.09995080683753842,
+      "micro_f1_std": 0.012731394991951374,
+      "macro_f1_mean": 0.14478529281629524,
+      "macro_f1_std": 0.006224806034412141,
+      "iou_mean": 0.0526516869425813,
+      "precision_mean": 0.07624285435107765,
+      "recall_mean": 0.17417024268429113,
+      "bg_fpr_mean": 0.03851029126804178
+    },
+    "s3net_ablation": {
+      "micro_f1_mean": 0.11310612823408267,
+      "micro_f1_std": 0.01582869639628863,
+      "macro_f1_mean": 0.14710793499494954,
+      "macro_f1_std": 0.02623036238926962,
+      "iou_mean": 0.06001782488777418,
+      "precision_mean": 0.09455885781248508,
+      "recall_mean": 0.1434383106649972,
+      "bg_fpr_mean": 0.024766802650049508
+    },
+    "s3net": {
+      "micro_f1_mean": 0.0991170782289647,
+      "micro_f1_std": 0.044534847531105794,
+      "macro_f1_mean": 0.14269382735596298,
+      "macro_f1_std": 0.03781261411930013,
+      "iou_mean": 0.05272835262598383,
+      "precision_mean": 0.07901218663032435,
+      "recall_mean": 0.19342497636188913,
+      "bg_fpr_mean": 0.034510039493900094
+    }
+  },
+  "delta_s3net_vs_unet_micro": -0.043485355218452926,
+  "delta_s3net_vs_unet_macro": -0.0322772775219792,
+  "delta_s3net_vs_resunet_micro": -0.0008337286085737111,
+  "delta_s3net_vs_resunet_macro": -0.002091465460332259
+}

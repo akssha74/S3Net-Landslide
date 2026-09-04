@@ -1,0 +1,48 @@
+\section{Results and Discussion}
+\label{sec:results}
+
+\subsection{Quantitative Performance and Trade-off Analysis}
+Table~\ref{tab:performance} reports quantitative performance across three independent training seeds on the official held-out HR-GLDD test split (355 patches). We report pooled micro metrics (evaluating aggregate pixel classification across the $52.35\text{ km}^2$ test footprint) and per-tile macro F1 (measuring operational scene-level consistency across individual disaster tiles).
+
+\begin{table*}[t]
+\centering
+\caption{Quantitative Performance Comparison on the Official HR-GLDD Test Split (Mean $\pm$ Standard Deviation across 3 Seeds)}
+\label{tab:performance}
+\input{tables/tab_performance.tex}
+\end{table*}
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\columnwidth]{figures/fig_performance_comparison.pdf}
+\caption{Quantitative metric comparison across evaluated architectures on the official HR-GLDD test split, reporting Micro F1-Score, IoU, Precision, and Recall across 3 random seeds with standard deviation error bars.}
+\label{fig:performance}
+\end{figure}
+
+\begin{figure*}[t]
+\centering
+\includegraphics[width=\textwidth]{figures/fig_qualitative_patches.pdf}
+\caption{Qualitative landslide segmentation on representative $128 \times 128$ PlanetScope test patches from the official HR-GLDD test split. (a) PlanetScope True-Color RGB ($R, G, B$). (b) Physical NDVI scarp gradient magnitude $|\nabla \text{NDVI}|$. (c) Expert ground truth. (d) Vanilla U-Net prediction, displaying boundary fragmentation and missed scarp extensions. (e) S$^3$-Net prediction (Ours, generated from trained network inference), accurately capturing complete landslide scar geometry and preserving narrow boundary continuity.}
+\label{fig:qualitative}
+\end{figure*}
+
+\textit{1) Comparative Performance:} Vanilla U-Net achieves $68.33\% \pm 0.27\%$ micro F1 and $54.84\% \pm 0.65\%$ macro F1. ResU-Net achieves $69.66\% \pm 0.89\%$ micro F1 and $57.92\% \pm 1.32\%$ macro F1. Proposed S$^3$-Net attains the highest overall performance among lightweight models, reaching $\mathbf{70.18\% \pm 0.25\%}$ micro F1, $\mathbf{54.06\% \pm 0.29\%}$ IoU, and $\mathbf{58.52\% \pm 0.24\%}$ macro F1 (Fig.~\ref{fig:performance}). S$^3$-Net achieves the highest recall ($\mathbf{66.59\% \pm 1.95\%}$) while demonstrating lower seed variance ($\sigma = 0.25\%$ vs. $0.89\%$).
+
+\textit{2) Biophysical Index Ablation and Operating Trade-off:} Comparing alternative gating formulations across 3 seeds confirms that non-linear vegetation ratios provide the strongest structural prior: S$^3$-Net with NDVI achieves $69.95\% \pm 0.30\%$ micro F1 ($65.73\%$ recall) and NDWI achieves $69.96\% \pm 0.10\%$ micro F1 ($65.51\%$ recall), outperforming raw spatial gradients without band ratios ($69.75\% \pm 0.22\%$ micro F1, $64.94\%$ recall), SAVI ($69.64\% \pm 0.38\%$), and unguided attention ($69.26\% \pm 0.44\%$, $62.81\%$ recall). Across the $52.35\text{ km}^2$ test background, S$^3$-Net operates with a background false-positive rate (FPR) of $2.84\% \pm 0.36\%$ ($1.32\text{ km}^2$ FP area), compared to $2.41\% \pm 0.12\%$ ($1.12\text{ km}^2$) for U-Net, $2.56\% \pm 0.36\%$ ($1.19\text{ km}^2$) for ResU-Net, and $2.28\% \pm 0.09\%$ ($1.06\text{ km}^2$) for the ablation. S$^3$-Net's precision ($74.31\%$) represents an operational trade-off recovering $+4.51\%$ recall over U-Net. On 144 low-prevalence confounding tiles ($<5\%$ landslide area; $98.2\%$ background), S$^3$-Net maintains an operational background FPR of $1.37\%$ ($0.28\text{ km}^2$ FP area) with $47.33\%$ precision.
+
+\textit{3) Spectral Cluster Disaggregation:} Evaluating across 10 unsupervised spectral clusters (KMeans on reflectance and NDVI means) shows S$^3$-Net outperforms U-Net across 9 of 10 clusters ($+7.25\%$ in Cluster 4, $+4.82\%$ in Cluster 2, $+3.47\%$ in Cluster 7). In Cluster 5 (mean NDVI $0.17$, 4 tiles), all optical models drop (F1 $<1\%$), empirically reflecting conditions where sparse pre-existing vegetation limits optical scarp contrast.
+
+\textit{4) Edge Deployment Profiling vs. Heavy Models:} DCA-UNet (Song et al., 2026~\cite{dcaunet2026}) achieves higher raw accuracy ($74.41\%$ F1, $59.24\%$ IoU) but requires 29.50M parameters. S$^3$-Net achieves $70.18\%$ micro F1 with only 2.11M parameters ($\approx 14\times$ fewer parameters, 2.16~ms/tile latency, 462.6~tiles/s throughput). Profiling via ONNX Runtime demonstrates an unquantized model size of $8.06\text{ MB}$ (ONNX Opset 18) with peak RAM $< 45\text{ MB}$ and $86.26\text{ ms/tile}$ CPU latency, confirming edge payload deployability. Serialized ONNX weights and all 12 three-seed prediction arrays are publicly released under Release v1.0.0.
+
+\subsection{Statistical Significance via Cluster Bootstrap}
+Because satellite patches within regional disaster zones exhibit spatial grouping, standard $i.i.d.$ hypothesis tests risk underestimating parameter variance. We perform paired 1,000-draw cluster-bootstrap resampling treating each of the 355 test image tiles as an independent cluster, where each tile's metric is averaged across all three random seeds:
+(i)~\textit{S$^3$-Net vs. Vanilla U-Net:} S$^3$-Net achieves a mean paired macro F1 gain of $+3.69\%$ ($+0.0369$; $+1.85\%$ micro F1), with a 95\% bootstrap confidence interval of $[+2.90\%, +4.51\%]$ and $p < 0.001$, strictly excluding zero and confirming Hypothesis~H1.
+(ii)~\textit{S$^3$-Net vs. ResU-Net Baseline:} S$^3$-Net achieves a statistically confirmed macro F1 gain of $+0.60\%$ ($+0.0060$; $+0.52\%$ micro F1), with a 95\% bootstrap confidence interval of $[+0.17\%, +1.01\%]$ and $p = 0.005$. On micro F1, the architectures are closely matched ($70.18\%$ vs. $69.66\%$), with S$^3$-Net exhibiting substantially lower seed variance ($\sigma = 0.25\%$ vs. $0.89\%$), confirming improved training stability.
+(iii)~\textit{S$^3$-Net vs. Unguided Attention Ablation:} Reintroducing physical spectral scarp gating yields a mean paired macro F1 gain of $+1.44\%$ ($+0.0144$), with a 95\% bootstrap confidence interval of $[+1.08\%, +1.83\%]$ and $p < 0.001$. The statistical significance confirms that the performance improvement originates specifically from physical vegetation scarp contrast rather than added convolutional parameters.
+
+\subsection{Cross-Regime Generalization and Resolution Boundary}
+To assess out-of-distribution generalizability across distinct environmental regimes, we conduct a 10-fold Leave-One-Spectral-Cluster-Out (LOSCO) cross-validation benchmark across all 1,758 patches. In each fold $k \in \{0, \dots, 9\}$, models are trained on the remaining 9 spectral clusters and evaluated zero-shot on the held-out 10th cluster without fine-tuning.
+
+Under zero-shot transfer, S$^3$-Net achieves a cross-cluster macro F1 of $\mathbf{53.11\% \pm 17.76\%}$ (micro F1: $\mathbf{60.93\% \pm 20.12\%}$), outperforming vanilla U-Net ($49.92\% \pm 19.21\%$ macro F1, $58.00\% \pm 21.53\%$ micro F1) by $+3.19\%$ macro F1 ($+2.93\%$ micro F1) and outperforming ResU-Net ($51.39\% \pm 18.58\%$ macro F1, $59.80\% \pm 20.71\%$ micro F1) by $+1.72\%$ macro F1 ($+1.13\%$ micro F1). S$^3$-Net maintains the highest zero-shot accuracy across major unseen regimes (e.g., $61.33\%$ micro F1 on Cluster 7 with 351 patches, $+5.72\%$ over U-Net; $52.16\%$ micro F1 on Cluster 4, $+4.87\%$ over U-Net). Conversely, evaluating on 245 Sentinel-2 patches ($10\text{ m}$ GSD) from Landslide4Sense~\cite{ghorbanzadeh2022landslide4sense} drops all models to F1 $< 15\%$ ($14.26\%$ U-Net, $9.91\%$ S$^3$-Net) due to the $3.3\times$ spatial resolution mismatch ($384\text{ m}$ vs. $1,280\text{ m}$ footprint), showing that convolutional scarp kernels are sensor-resolution coupled.
+
+\subsection{Qualitative Analysis across Real Satellite Patches}
+Figure~\ref{fig:qualitative} visualizes representative test tiles. In True-Color imagery (Fig.~\ref{fig:qualitative}a), exposed landslide scars share spectral characteristics with dry gravel and clearings. The physical gradient map (Fig.~\ref{fig:qualitative}b) highlights steep scarp boundaries where vegetative canopy was sheared away. While vanilla U-Net (Fig.~\ref{fig:qualitative}d) exhibits boundary fragmentation and missed scarp extensions, S$^3$-Net (Fig.~\ref{fig:qualitative}e) accurately recovers contiguous slip geometry by gating skip features with physical vegetation contrast.

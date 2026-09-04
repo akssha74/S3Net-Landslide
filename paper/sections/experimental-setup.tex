@@ -1,0 +1,24 @@
+\section{Experimental Setup}
+\label{sec:setup}
+
+\subsection{Benchmark Dataset: HR-GLDD}
+Experiments are conducted on the official High-Resolution Global Landslide Detector Database (HR-GLDD)~\cite{meena2023hrgldd}, hosted openly on Zenodo (DOI: 10.5281/zenodo.7189381). The benchmark comprises 1,758 non-overlapping image patches ($128 \times 128$ pixels at 3~m GSD) extracted from PlanetScope satellite imagery across 10 distinct physiographic regions worldwide:
+(i)~\textit{Five Rainfall-Triggered Disaster Regions:} Kodagu (Western Ghats, India), Rolante (Brazil), Rasuwa (Nepal; multi-hazard co-seismic and monsoon reactivation), Porgera (Papua New Guinea), and Hpa-An (Myanmar);
+(ii)~\textit{Five Earthquake-Triggered Disaster Regions:} Hokkaido (Japan, 2018 Iburi earthquake), Tiburon Peninsula (Haiti, 2021 earthquake), Kaikōura (New Zealand, 2016 earthquake), Wenchuan (China, 2008 earthquake), and Longchuan (China, 2019 earthquake).
+Each tile provides calibrated top-of-atmosphere surface reflectance across four spectral bands (Blue, Green, Red, NIR) and an expert-digitized binary ground-truth mask ($1 = \text{landslide}, 0 = \text{background}$). Landslide pixels occupy $10.09\%$ of training, $10.17\%$ of validation, and $10.92\%$ of test splits.
+
+\subsection{Data Partitioning and Training Protocol}
+We strictly adhere to the official frozen partition established by Meena et al.~\cite{meena2023hrgldd}:
+(1)~Training set of 1,119 patches (`trainX.npy`, `trainY.npy`);
+(2)~Validation set of 284 patches (`valX.npy`, `valY.npy`), utilized exclusively for model selection and early stopping;
+(3)~Held-out test set of 355 patches (`testX.npy`, `testY.npy`), evaluated once after training is finalized.
+
+All models are implemented in PyTorch and trained on an Apple M4 Max workstation (64~GB unified memory, Metal Performance Shaders backend). Optimization uses AdamW with an initial learning rate of $1.5 \times 10^{-3}$, cosine annealing learning rate scheduling decay down to $1 \times 10^{-5}$, weight decay of $1 \times 10^{-4}$, and a mini-batch size of 32 over 15 epochs. Each architecture is trained across three independent random seeds (42, 43, 44), and all quantitative results report the seed mean and population standard deviation ($\pm \sigma$).
+
+\subsection{Comparative Benchmark Arms}
+We benchmark four competitive architectures under identical data splits and training schedules:
+(1)~\textbf{Vanilla U-Net (Meena et al., 2023~\cite{meena2023hrgldd}, Ronneberger et al.~\cite{ronneberger2015unet}):} Standard 4-band convolutional encoder-decoder with plain skip connections (1.93M parameters, 1.18~ms/tile latency).
+(2)~\textbf{ResU-Net Baseline (Zhang et al.~\cite{zhang2018resunet}, Meena et al.~\cite{meena2023hrgldd}):} U-Net topology with residual convolutional blocks and identity shortcuts in encoder and decoder (2.01M parameters, 1.77~ms/tile latency).
+(3)~\textbf{S$^3$-Net Ablation (w/o Physical Gating):} S$^3$-Net architecture equipped with spatial self-attention, but with explicit NDVI and gradient magnitude tensors ($\mathbf{V}, \mathbf{G}$) removed from the gating input (2.11M parameters, 2.14~ms/tile latency).
+(4)~\textbf{Proposed S$^3$-Net:} Full physics-guided spectral-spatial scarp network with physical NDVI gradient injection (2.11M parameters, 2.16~ms/tile latency).
+We additionally compare against published results from DCA-UNet (Song et al., 2026~\cite{dcaunet2026}) to contextualize accuracy against heavy attention models.

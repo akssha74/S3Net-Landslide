@@ -1,0 +1,8 @@
+\section{Conclusion}
+\label{sec:conclusion}
+This letter introduced S$^3$-Net, an ultra-lightweight (2.11M parameters), physics-guided architecture that decouples vegetation scarp contrast in high-resolution PlanetScope satellite imagery. Explicitly formulating physical NDVI scarp gradients and coupling them into residual spatial attention gates significantly enhances detection recall along narrow slip boundaries without requiring auxiliary elevation data.
+
+Evaluated on the official HR-GLDD benchmark across 1,758 real satellite patches, S$^3$-Net achieves $70.18\% \pm 0.25\%$ micro F1, $54.06\% \pm 0.29\%$ IoU, and $58.52\% \pm 0.24\%$ macro F1 across three independent seeds. Paired 1,000-draw cluster-bootstrap tests confirm statistically significant macro F1 improvements of $+3.69\%$ ($p < 0.001$) over vanilla U-Net, $+0.60\%$ ($p = 0.005$) over ResU-Net, and $+1.44\%$ ($p < 0.001$) over an unguided ablation. S$^3$-Net operates with a background FPR of $2.84\%$, trading minor precision for a $+4.51\%$ recall gain. In 10-fold Leave-One-Spectral-Cluster-Out testing, S$^3$-Net achieves $53.11\% \pm 17.76\%$ zero-shot macro F1 ($+3.19\%$ over U-Net). Operating with 2.16~ms/tile latency (462.6~tiles/s) and $\approx 14\times$ fewer parameters than DCA-UNet, S$^3$-Net offers an accurate, lightweight framework for rapid post-disaster triage.
+
+\section*{Data and Code Availability}
+The HR-GLDD benchmark is openly available on Zenodo (DOI: 10.5281/zenodo.7189381). All training code, evaluation scripts, and replication artifacts are accessible at \url{https://github.com/akssha74/S3Net-Landslide}, with serialized ONNX weights and 3-seed prediction arrays published under Release v1.0.0.

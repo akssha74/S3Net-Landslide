@@ -1,0 +1,41 @@
+\section{Methodology}
+\label{sec:method}
+
+\subsection{Physical Scarp Gradient Formulation}
+Let $\mathbf{X} \in \mathbb{R}^{B \times 4 \times H \times W}$ denote a batch of high-resolution satellite imagery with four spectral bands: Blue ($B_1$), Green ($B_2$), Red ($B_3$), and Near-Infrared ($B_4$). In vegetated ecosystems, intact vegetation exhibits low reflectance in the Red band due to photosynthetic chlorophyll absorption and high reflectance in the NIR band due to internal leaf mesophyll scattering. Slope failures physically displace this canopy, exposing sheared rock and mineral subsoil where the ratio of NIR to Red reflectance drops precipitously.
+
+We explicitly derive the normalized vegetation index tensor $\mathbf{V} \in \mathbb{R}^{B \times 1 \times H \times W}$:
+\begin{equation}
+\mathbf{V} = \frac{\mathbf{X}_{NIR} - \mathbf{X}_{Red}}{\mathbf{X}_{NIR} + \mathbf{X}_{Red} + \epsilon}
+\end{equation}
+where $\epsilon = 10^{-6}$ prevents numerical division by zero. To identify the physical morphological boundaries of slope failures (the crown scarp and lateral flanks), we compute the 2D spatial gradient magnitude tensor $\mathbf{G} \in \mathbb{R}^{B \times 1 \times H \times W}$:
+\begin{equation}
+\mathbf{G}_{i,j} = \sqrt{(\mathbf{V}_{i+1,j} - \mathbf{V}_{i-1,j})^2 + (\mathbf{V}_{i,j+1} - \mathbf{V}_{i,j-1})^2 + \epsilon}
+\end{equation}
+The gradient $\mathbf{G}$ peaks sharply at the transition between intact forest canopy and exposed slip surfaces, while remaining near zero across broad, homogeneous bare surfaces (such as flat agricultural fields or open sandy floodplains).
+
+\subsection{Spectral-Spatial Scarp Attention (SSSA)}
+Standard encoder-decoder networks pass intermediate encoder feature representations $\mathbf{F}_l \in \mathbb{R}^{B \times C_l \times H_l \times W_l}$ directly to the decoder via identity skip connections~\cite{ronneberger2015unet}. In complex terrain, these skip connections transfer spurious high-frequency clutter from riverbeds and roads.
+
+We formulate the Spectral-Spatial Scarp Attention (SSSA) module to gate skip features at each resolution scale $l \in \{1, 2, 3\}$. The physical tensors $\mathbf{V}$ and $\mathbf{G}$ are bilinearly downsampled to match the spatial resolution $(H_l, W_l)$ of feature map $\mathbf{F}_l$:
+\begin{equation}
+\mathbf{V}_l = \text{Interp}(\mathbf{V}, (H_l, W_l)), \quad \mathbf{G}_l = \text{Interp}(\mathbf{G}, (H_l, W_l))
+\end{equation}
+The gated attention weight map $\mathbf{M}_l \in \mathbb{R}^{B \times 1 \times H_l \times W_l}$ is computed by projecting the concatenated feature representation:
+\begin{equation}
+\mathbf{M}_l = \sigma \left( \text{Conv}_{1 \times 1} \left( \delta \left( \text{BN} \left( \text{Conv}_{3 \times 3} ([\mathbf{F}_l, \mathbf{V}_l, \mathbf{G}_l]) \right) \right) \right) \right)
+\end{equation}
+where $[\cdot]$ denotes channel-wise concatenation, $\text{BN}$ represents batch normalization, $\delta$ is the ReLU activation function, and $\sigma$ is the sigmoid gating function. The attention-modulated skip feature is then constructed via residual scaling:
+\begin{equation}
+\mathbf{F}_{l, \text{out}} = \mathbf{F}_l \odot \mathbf{M}_l + \mathbf{F}_l
+\end{equation}
+This formulation ensures that if spectral gating is neutral ($\mathbf{M}_l \approx 0$), the network safely preserves the underlying feature flow, while positive scarp evidence enhances features corresponding to true structural slope failures.
+
+\subsection{Network Architecture and Loss Function}
+S$^3$-Net adopts a residual encoder-decoder topology. The encoder comprises an initial $3 \times 3$ convolutional block followed by three residual stages ($C_1 = 32, C_2 = 64, C_3 = 128, C_4 = 256$), each using residual bottleneck blocks with identity skip connections~\cite{he2016resnet}. The decoder uses transposed convolutions for spatial upsampling ($2 \times 2$ stride), concatenating upsampled features with SSSA-modulated skip features $\mathbf{F}_{l, \text{out}}$.
+
+Because landslides represent a localized hazard occupying approximately $10\%$ of spatial pixels in affected tiles, training with standard cross-entropy biases gradients toward background terrain. We optimize S$^3$-Net using a composite loss function combining binary cross-entropy with Focal Loss~\cite{lin2017focal}:
+\begin{equation}
+\mathcal{L} = \frac{1}{2} \mathcal{L}_{\text{BCE}} + \frac{1}{2} \left[ -\alpha_t (1 - p_t)^\gamma \log(p_t) \right]
+\end{equation}
+with focusing parameter $\gamma = 2.0$ and weighting factor $\alpha_t = 0.35$.

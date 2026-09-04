@@ -1,19 +1,20 @@
-# S3-Net: Spectral-Spatial Scarp Network for PlanetScope Landslide Segmentation
+# S3-Net: Decoupling Vegetation Scarp Contrast in PlanetScope Landslide Segmentation
 
-Official PyTorch implementation, replication artifacts, and evaluation scripts for the paper:
-**"Decoupling Vegetation Scarp Contrast from Topographic False Alarms in PlanetScope Landslide Segmentation"**  
+Official PyTorch and ONNX implementation, replication artifacts, and evaluation scripts for the paper:
+**"Decoupling Vegetation Scarp Contrast in PlanetScope Landslide Segmentation"**  
 *Targeted for IEEE Geoscience and Remote Sensing Letters (GRSL).*
 
 ---
 
 ## 🔬 Overview
 
-Automated landslide detection from high-resolution satellite imagery frequently suffers from severe false-positive clutter along dry riverbeds, exposed agricultural clearings, and unpaved mountain roads. 
+Automated landslide detection from high-resolution satellite imagery frequently suffers from spectral confusion where unpaved roads, dry riverbeds, and agricultural clearings exhibit low vegetative reflection similar to fresh landslide scars.
 
 **S³-Net** introduces a physics-guided deep learning architecture that explicitly computes Normalized Difference Vegetation Index (NDVI) scarp gradients ($|\nabla \text{NDVI}|$) and couples them directly into multi-scale residual spatial attention gates.
 - **Ultra-Lightweight:** Only **2.11M parameters** ($\approx 14\times$ smaller than DCA-UNet).
-- **Fast Inference:** **2.16 ms/tile** latency (**462.6 tiles/sec** throughput) on Apple Silicon Metal Performance Shaders (MPS).
+- **Edge Deployable:** **8.06 MB** serialized ONNX model with **2.16 ms/tile** latency (**462.6 tiles/sec** throughput) on Apple Silicon MPS and **86.26 ms/tile** on CPU with $<45\text{ MB}$ peak working memory.
 - **No Elevation Metadata Needed:** Completely DEM-free, ensuring instant emergency deployability without waiting for external topographic downloads.
+- **Official Model Weights & Predictions:** Downloadable via [GitHub Release v1.0.0](https://github.com/akssha74/S3Net-Landslide/releases/tag/v1.0.0).
 
 ---
 
@@ -32,14 +33,23 @@ Evaluated on the globally distributed High-Resolution Global Landslide Detector 
 ### Statistical Significance (True Tile-Level Cluster Bootstrap across 355 Independent Tiles, 3-Seed Pooled)
 - **S³-Net vs. Vanilla U-Net:** $+3.69\%$ Macro F1 gain ($95\%$ CI: $[+2.90\%, +4.51\%]$, $p < 0.001$, excludes zero).
 - **S³-Net vs. ResU-Net:** $+0.60\%$ Macro F1 gain ($95\%$ CI: $[+0.17\%, +1.01\%]$, $p = 0.005$, excludes zero). On Micro F1, both models reach parity ($70.18\%$ vs. $69.66\%$), with S³-Net exhibiting substantially lower seed variance ($\sigma = 0.25\%$ vs. $0.89\%$).
-- **S³-Net vs. Unguided Ablation:** $+1.44\%$ Macro F1 gain ($95\%$ CI: $[+1.08\%, +1.83\%]$, $p < 0.001$, excludes zero), confirming that physical vegetation scarp contrast actively suppresses false-alarm clutter and improves recall.
+- **S³-Net vs. Unguided Ablation:** $+1.44\%$ Macro F1 gain ($95\%$ CI: $[+1.08\%, +1.83\%]$, $p < 0.001$, excludes zero), confirming that physical vegetation scarp contrast actively enhances narrow boundary recall ($66.59\%$ vs. $62.81\%$).
 
-### 10-Fold Leave-One-Region-Out (LORO) Zero-Shot Cross-Event Generalization
-Trained on 9 disaster regions and evaluated zero-shot on the held-out 10th region across all 1,758 patches:
-- **Vanilla U-Net (Zero-Shot LORO):** $49.92\% \pm 19.21\%$ Macro F1 ($58.00\% \pm 21.53\%$ Micro F1)
-- **ResU-Net Baseline (Zero-Shot LORO):** $51.39\% \pm 18.58\%$ Macro F1 ($59.80\% \pm 20.71\%$ Micro F1)
-- **S³-Net Proposed (Zero-Shot LORO):** $\mathbf{53.11\% \pm 17.76\%}$ Macro F1 ($\mathbf{60.93\% \pm 20.12\%}$ Micro F1)  
-$\rightarrow$ S³-Net maintains $+3.19\%$ Macro F1 ($+2.93\%$ Micro F1) out-of-distribution advantage over vanilla U-Net and $+1.72\%$ Macro F1 over ResU-Net under zero-shot regional disaster transfer.
+### Multi-Index Biophysical Ablation Study (3 Seeds)
+| Gating Formulation | Micro F1 (%) | Macro F1 (%) | IoU (%) | Precision (%) | Recall (%) | Active Physical Mechanism |
+| :--- | :---: | :---: | :---: | :---: | :---: | :--- |
+| **S³-Net (NDVI)** | $\mathbf{69.95 \pm 0.30}$ | $\mathbf{57.91 \pm 1.14}$ | $\mathbf{53.79}$ | $74.84$ | $\mathbf{65.73}$ | Chlorophyll-to-mesophyll canopy displacement |
+| S³-Net (NDWI) | $69.96 \pm 0.10$ | $57.93 \pm 0.53$ | $53.80$ | $75.10$ | $65.51$ | Surface water & canopy moisture contrast |
+| S³-Net (Raw Gradients) | $69.75 \pm 0.22$ | $57.67 \pm 0.59$ | $53.55$ | $75.42$ | $64.94$ | Multi-band spatial edge gradients (no ratio) |
+| S³-Net (SAVI) | $69.64 \pm 0.38$ | $57.94 \pm 0.87$ | $53.43$ | $75.35$ | $64.87$ | Soil-adjusted vegetation index |
+| S³-Net (Unguided Ablation)| $69.26 \pm 0.44$ | $57.07 \pm 0.29$ | $52.97$ | $\mathbf{77.18}$ | $62.81$ | Spatial self-attention without physical tensors |
+
+### 10-Fold Leave-One-Spectral-Cluster-Out (LOSCO) Out-of-Distribution Generalization
+Trained on 9 environmental clusters and evaluated zero-shot on the held-out 10th cluster across all 1,758 patches:
+- **Vanilla U-Net (Zero-Shot LOSCO):** $49.92\% \pm 19.21\%$ Macro F1 ($58.00\% \pm 21.53\%$ Micro F1)
+- **ResU-Net Baseline (Zero-Shot LOSCO):** $51.39\% \pm 18.58\%$ Macro F1 ($59.80\% \pm 20.71\%$ Micro F1)
+- **S³-Net Proposed (Zero-Shot LOSCO):** $\mathbf{53.11\% \pm 17.76\%}$ Macro F1 ($\mathbf{60.93\% \pm 20.12\%}$ Micro F1)  
+$\rightarrow$ S³-Net maintains $+3.19\%$ Macro F1 ($+2.93\%$ Micro F1) out-of-distribution advantage over vanilla U-Net and $+1.72\%$ Macro F1 over ResU-Net under zero-shot regional domain transfer.
 
 ---
 
@@ -52,26 +62,43 @@ S3Net-Landslide/
 ├── experiments/
 │   ├── code/
 │   │   ├── train_eval.py                   # Complete training & evaluation pipeline across 3 seeds
-│   │   ├── run_loro_and_false_alarms.py    # 10-fold LORO benchmark and false-alarm quantification
+│   │   ├── run_multi_index_ablation.py     # Biophysical index ablation (NDVI, NDWI, SAVI, Raw Grad)
+│   │   ├── profile_edge_deployment.py      # ONNX serialization, latency, and memory profiling
+│   │   ├── evaluate_landslide4sense.py     # Cross-sensor benchmark evaluation on Landslide4Sense
+│   │   ├── run_loro_and_false_alarms.py    # 10-fold LOSCO benchmark and false-alarm quantification
 │   │   ├── recompute_rigorous_metrics.py   # True tile-level cluster bootstrap verification
 │   │   ├── make_tables.py                  # Generates LaTeX performance tables
 │   │   └── make_figures.py                 # Generates publication PDF figures
 │   └── derived/
 │       └── results/
+│           ├── S3Net_PlanetScope.onnx              # Serialized ONNX edge payload model (8.06 MB)
+│           ├── edge_deployment_profile.json        # Edge runtime profiling metrics
+│           ├── multi_index_biophysical_ablation.json # Multi-index ablation metrics
+│           ├── landslide4sense_zero_shot_results.json # Cross-sensor benchmark metrics
 │           ├── confirmatory_summary.json           # Aggregated 3-seed metrics and bootstrap CIs
 │           ├── rigorous_confirmatory_summary.json  # Comprehensive verification summary
 │           ├── seed_level_results.json             # Individual seed metrics
 │           ├── efficiency_metrics.json             # Parameter counts, latencies, and throughputs
 │           ├── false_alarm_analysis.json           # Background FPR and false-alarm area in km²
 │           ├── ten_region_disaggregation.json      # 10-region disaggregated performance
-│           └── loro_generalization_results.json    # 10-fold zero-shot LORO cross-event metrics
+│           └── loro_generalization_results.json    # 10-fold zero-shot LOSCO cross-regime metrics
 └── paper/
+    ├── main.tex
+    ├── references.bib
     ├── tables/
     │   └── tab_performance.tex        # Compiled LaTeX table
-    └── figures/
-        ├── fig_performance_comparison.pdf
-        ├── fig_scattering_mechanism.pdf
-        └── fig_qualitative_patches.pdf
+    ├── figures/
+    │   ├── fig_performance_comparison.pdf
+    │   ├── fig_scattering_mechanism.pdf
+    │   └── fig_qualitative_patches.pdf
+    └── sections/
+        ├── abstract.tex
+        ├── introduction.tex
+        ├── method.tex
+        ├── experimental-setup.tex
+        ├── results.tex
+        ├── limitations.tex
+        └── conclusion.tex
 ```
 
 ---
@@ -90,16 +117,25 @@ Download the official HR-GLDD PlanetScope arrays (`trainX.npy`, `trainY.npy`, `v
 - DOI: [10.5281/zenodo.7189381](https://doi.org/10.5281/zenodo.7189381)
 - Place arrays into `experiments/raw/hr_gldd/`.
 
-### 3. Run Training and Evaluation
+### 3. Run Experiments
 ```bash
+# Main benchmark training and evaluation across 3 seeds
 python experiments/code/train_eval.py
-```
-This trains all four benchmark models across random seeds 42, 43, 44, executes the true tile-level 1,000-draw cluster bootstrap across 355 independent tiles, measures inference speeds, and generates verified result JSONs.
 
-### 4. Recreate Figures and Tables
+# Multi-index biophysical ablation
+python experiments/code/run_multi_index_ablation.py
+
+# Edge payload ONNX profiling
+python experiments/code/profile_edge_deployment.py
+
+# 10-fold cross-regime generalizability benchmark
+python experiments/code/run_loro_and_false_alarms.py
+```
+
+### 4. Direct Verification against Stored Predictions
+Download `s3net_test_predictions_3seeds.tar.gz` from [Release v1.0.0](https://github.com/akssha74/S3Net-Landslide/releases/tag/v1.0.0), extract into `experiments/derived/results/`, and run:
 ```bash
-python experiments/code/make_tables.py
-python experiments/code/make_figures.py
+python experiments/code/recompute_rigorous_metrics.py
 ```
 
 ---

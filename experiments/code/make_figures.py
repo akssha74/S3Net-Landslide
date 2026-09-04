@@ -88,7 +88,7 @@ def make_mechanism_diagram():
     ax.annotate("Toe Boundary\n(High |∇NDVI|)", xy=(x_terrain[70], y_terrain[70]), xytext=(0.65, 0.58),
                 arrowprops=dict(arrowstyle="->", color="#d62728", lw=1.0), fontsize=6, weight="bold")
                 
-    # SSRA block formula exactly matching Equations (4) and (5)
+    # SSSA block formula exactly matching Equations (4) and (5)
     formula_str = r"$\mathbf{M}_l = \sigma(\text{Conv}_{1 \times 1}(\delta(\text{BN}(\text{Conv}_{3 \times 3}([\mathbf{F}_l, \mathbf{V}_l, \mathbf{G}_l]))))); \quad \mathbf{F}_{l,\text{out}} = \mathbf{F}_l \odot \mathbf{M}_l + \mathbf{F}_l$"
     ax.text(0.5, 0.04, formula_str,
             ha="center", fontsize=5.8, bbox=dict(boxstyle="round,pad=0.2", fc="#f0f0f0", ec="#aaaaaa", lw=0.5))

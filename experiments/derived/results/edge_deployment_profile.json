@@ -1,0 +1,14 @@
+{
+  "architecture": "S3-Net (Proposed)",
+  "parameters": 2114084,
+  "parameters_million": 2.11,
+  "model_file_size_mb": 0.16,
+  "onnx_opset": 14,
+  "cpu_latency_ms_per_tile": 86.26,
+  "cpu_throughput_tiles_per_sec": 11.6,
+  "batch8_throughput_tiles_per_sec": 6.1,
+  "peak_ram_working_memory_mb": 0.0,
+  "apple_mps_latency_ms_per_tile": 2.16,
+  "apple_mps_throughput_tiles_per_sec": 462.6,
+  "deployability_verdict": "exceeds_edge_payload_standard"
+}
