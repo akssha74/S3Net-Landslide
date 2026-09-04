@@ -1,0 +1,46 @@
+{
+  "num_shadow_tiles": 89,
+  "num_sunlit_tiles": 266,
+  "shadow_radiance_threshold": 0.1643,
+  "shadowed_regime": {
+    "unet": {
+      "micro_f1_mean": 0.5787923853363367,
+      "micro_f1_std": 0.0032692649377609917
+    },
+    "resunet": {
+      "micro_f1_mean": 0.5940670343991433,
+      "micro_f1_std": 0.02281049437983961
+    },
+    "s3net_ablation": {
+      "micro_f1_mean": 0.5937941907773047,
+      "micro_f1_std": 0.007817670473412723
+    },
+    "s3net": {
+      "micro_f1_mean": 0.6087035366959331,
+      "micro_f1_std": 0.016213442325952402
+    }
+  },
+  "sunlit_regime": {
+    "unet": {
+      "micro_f1_mean": 0.7057397950341393,
+      "micro_f1_std": 0.0031479313640599945
+    },
+    "resunet": {
+      "micro_f1_mean": 0.7189980610999914,
+      "micro_f1_std": 0.006151956644627677
+    },
+    "s3net_ablation": {
+      "micro_f1_mean": 0.7147140183654743,
+      "micro_f1_std": 0.0045214440446025685
+    },
+    "s3net": {
+      "micro_f1_mean": 0.7224389046139811,
+      "micro_f1_std": 0.0005230783415012614
+    }
+  },
+  "shadow_gain_s3net_vs_unet": 0.029911151359596433,
+  "shadow_gain_s3net_vs_ablation": 0.01490934591862847,
+  "sunlit_gain_s3net_vs_unet": 0.016699109579841775,
+  "sunlit_gain_s3net_vs_ablation": 0.007724886248506757,
+  "empirical_invariance_ratio": 1.7911813384283723
+}

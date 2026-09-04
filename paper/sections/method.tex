@@ -2,17 +2,15 @@
 \label{sec:method}
 
 \subsection{Physical Scarp Gradient Formulation}
-Let $\mathbf{X} \in \mathbb{R}^{B \times 4 \times H \times W}$ denote a batch of high-resolution satellite imagery with four spectral bands: Blue ($B_1$), Green ($B_2$), Red ($B_3$), and Near-Infrared ($B_4$). In vegetated ecosystems, intact vegetation exhibits low reflectance in the Red band due to photosynthetic chlorophyll absorption and high reflectance in the NIR band due to internal leaf mesophyll scattering. Slope failures physically displace this canopy, exposing sheared rock and mineral subsoil where the ratio of NIR to Red reflectance drops precipitously.
-
-We explicitly derive the normalized vegetation index tensor $\mathbf{V} \in \mathbb{R}^{B \times 1 \times H \times W}$:
+Let $\mathbf{X} \in \mathbb{R}^{B \times 4 \times H \times W}$ denote satellite imagery with Blue, Green, Red, and Near-Infrared ($B_4$) bands. In vegetated terrain, slope failures shear the vegetative canopy, exposing mineral subsoil where the ratio of NIR to Red reflectance drops sharply. We derive the normalized vegetation index tensor $\mathbf{V} \in \mathbb{R}^{B \times 1 \times H \times W}$:
 \begin{equation}
 \mathbf{V} = \frac{\mathbf{X}_{NIR} - \mathbf{X}_{Red}}{\mathbf{X}_{NIR} + \mathbf{X}_{Red} + \epsilon}
 \end{equation}
-where $\epsilon = 10^{-6}$ prevents numerical division by zero. To identify the physical morphological boundaries of slope failures (the crown scarp and lateral flanks), we compute the 2D spatial gradient magnitude tensor $\mathbf{G} \in \mathbb{R}^{B \times 1 \times H \times W}$:
+where $\epsilon = 10^{-6}$. Under Lambertian topographic irradiance, observed radiance is $\mathbf{X}_c(p) = E_p R_c(p)$ with spatially varying solar factor $E_p = E_{\text{sun}}\cos(i_p) + E_{\text{sky}}$. Linear convolutions $\sum_c \mathbf{W}_c * \mathbf{X}_c$ cannot factor out $E_p$, conflating hill-shadow boundaries $\nabla E_p$ with true slope failures. The normalized difference ratio algebraically cancels multiplicative irradiance: $\mathbf{V}(p) = \frac{E_p(R_{NIR} - R_{Red})}{E_p(R_{NIR} + R_{Red})} = \frac{R_{NIR} - R_{Red}}{R_{NIR} + R_{Red}}$. Morphological scarp boundaries are extracted via spatial gradient magnitude:
 \begin{equation}
 \mathbf{G}_{i,j} = \sqrt{(\mathbf{V}_{i+1,j} - \mathbf{V}_{i-1,j})^2 + (\mathbf{V}_{i,j+1} - \mathbf{V}_{i,j-1})^2 + \epsilon}
 \end{equation}
-The gradient $\mathbf{G}$ peaks sharply at the transition between intact forest canopy and exposed slip surfaces, while remaining near zero across broad, homogeneous bare surfaces (such as flat agricultural fields or open sandy floodplains).
+Thus, $\mathbf{G} = |\nabla \mathbf{V}|$ provides an illumination-invariant morphological operator isolating true biophysical discontinuities.
 
 \subsection{Spectral-Spatial Scarp Attention (SSSA)}
 Standard encoder-decoder networks pass intermediate encoder feature representations $\mathbf{F}_l \in \mathbb{R}^{B \times C_l \times H_l \times W_l}$ directly to the decoder via identity skip connections~\cite{ronneberger2015unet}. In complex terrain, these skip connections transfer spurious high-frequency clutter from riverbeds and roads.
