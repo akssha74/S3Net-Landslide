@@ -11,7 +11,7 @@ Official PyTorch implementation, replication artifacts, and evaluation scripts f
 Automated landslide detection from high-resolution satellite imagery frequently suffers from severe false-positive clutter along dry riverbeds, exposed agricultural clearings, and unpaved mountain roads. 
 
 **S³-Net** introduces a physics-guided deep learning architecture that explicitly computes Normalized Difference Vegetation Index (NDVI) scarp gradients ($|\nabla \text{NDVI}|$) and couples them directly into multi-scale residual spatial attention gates.
-- **Ultra-Lightweight:** Only **2.11M parameters** ($14.0\times$ smaller than DCA-UNet).
+- **Ultra-Lightweight:** Only **2.11M parameters** ($\approx 14\times$ smaller than DCA-UNet).
 - **Fast Inference:** **2.16 ms/tile** latency (**462.6 tiles/sec** throughput) on Apple Silicon Metal Performance Shaders (MPS).
 - **No Elevation Metadata Needed:** Completely DEM-free, ensuring instant emergency deployability without waiting for external topographic downloads.
 
@@ -44,12 +44,14 @@ S3Net-Landslide/
 ├── requirements.txt
 ├── experiments/
 │   ├── code/
-│   │   ├── train_eval.py               # Complete training & evaluation pipeline across 3 seeds
-│   │   ├── make_tables.py              # Generates LaTeX performance tables
-│   │   └── make_figures.py             # Generates publication PDF figures
+│   │   ├── train_eval.py                   # Complete training & evaluation pipeline across 3 seeds
+│   │   ├── recompute_rigorous_metrics.py   # True tile-level cluster bootstrap verification
+│   │   ├── make_tables.py                  # Generates LaTeX performance tables
+│   │   └── make_figures.py                 # Generates publication PDF figures
 │   └── derived/
 │       └── results/
-│           ├── rigorous_confirmatory_summary.json  # Complete 3-seed micro/macro metrics & bootstrap
+│           ├── confirmatory_summary.json           # Aggregated 3-seed metrics and bootstrap CIs
+│           ├── rigorous_confirmatory_summary.json  # Comprehensive verification summary
 │           ├── seed_level_results.json             # Individual seed metrics
 │           └── efficiency_metrics.json             # Parameter counts, latencies, and throughputs
 └── paper/
