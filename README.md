@@ -34,6 +34,13 @@ Evaluated on the globally distributed High-Resolution Global Landslide Detector 
 - **S³-Net vs. ResU-Net:** $+0.60\%$ Macro F1 gain ($95\%$ CI: $[+0.17\%, +1.01\%]$, $p = 0.005$, excludes zero). On Micro F1, both models reach parity ($70.18\%$ vs. $69.66\%$), with S³-Net exhibiting substantially lower seed variance ($\sigma = 0.25\%$ vs. $0.89\%$).
 - **S³-Net vs. Unguided Ablation:** $+1.44\%$ Macro F1 gain ($95\%$ CI: $[+1.08\%, +1.83\%]$, $p < 0.001$, excludes zero), confirming that physical vegetation scarp contrast actively suppresses false-alarm clutter and improves recall.
 
+### 10-Fold Leave-One-Region-Out (LORO) Zero-Shot Cross-Event Generalization
+Trained on 9 disaster regions and evaluated zero-shot on the held-out 10th region across all 1,758 patches:
+- **Vanilla U-Net (Zero-Shot LORO):** $49.92\% \pm 19.21\%$ Macro F1 ($58.00\% \pm 21.53\%$ Micro F1)
+- **ResU-Net Baseline (Zero-Shot LORO):** $51.39\% \pm 18.58\%$ Macro F1 ($59.80\% \pm 20.71\%$ Micro F1)
+- **S³-Net Proposed (Zero-Shot LORO):** $\mathbf{53.11\% \pm 17.76\%}$ Macro F1 ($\mathbf{60.93\% \pm 20.12\%}$ Micro F1)  
+$\rightarrow$ S³-Net maintains $+3.19\%$ Macro F1 ($+2.93\%$ Micro F1) out-of-distribution advantage over vanilla U-Net and $+1.72\%$ Macro F1 over ResU-Net under zero-shot regional disaster transfer.
+
 ---
 
 ## 🛠️ Repository Structure
@@ -45,6 +52,7 @@ S3Net-Landslide/
 ├── experiments/
 │   ├── code/
 │   │   ├── train_eval.py                   # Complete training & evaluation pipeline across 3 seeds
+│   │   ├── run_loro_and_false_alarms.py    # 10-fold LORO benchmark and false-alarm quantification
 │   │   ├── recompute_rigorous_metrics.py   # True tile-level cluster bootstrap verification
 │   │   ├── make_tables.py                  # Generates LaTeX performance tables
 │   │   └── make_figures.py                 # Generates publication PDF figures
@@ -53,7 +61,10 @@ S3Net-Landslide/
 │           ├── confirmatory_summary.json           # Aggregated 3-seed metrics and bootstrap CIs
 │           ├── rigorous_confirmatory_summary.json  # Comprehensive verification summary
 │           ├── seed_level_results.json             # Individual seed metrics
-│           └── efficiency_metrics.json             # Parameter counts, latencies, and throughputs
+│           ├── efficiency_metrics.json             # Parameter counts, latencies, and throughputs
+│           ├── false_alarm_analysis.json           # Background FPR and false-alarm area in km²
+│           ├── ten_region_disaggregation.json      # 10-region disaggregated performance
+│           └── loro_generalization_results.json    # 10-fold zero-shot LORO cross-event metrics
 └── paper/
     ├── tables/
     │   └── tab_performance.tex        # Compiled LaTeX table
