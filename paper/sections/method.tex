@@ -6,7 +6,7 @@ Let $\mathbf{X} \in \mathbb{R}^{B \times 4 \times H \times W}$ denote satellite 
 \begin{equation}
 \mathbf{V} = \frac{\mathbf{X}_{NIR} - \mathbf{X}_{Red}}{\mathbf{X}_{NIR} + \mathbf{X}_{Red} + \epsilon}
 \end{equation}
-where $\epsilon = 10^{-6}$. Under Lambertian topographic irradiance, observed radiance is $\mathbf{X}_c(p) = E_p R_c(p)$ with spatially varying solar factor $E_p = E_{\text{sun}}\cos(i_p) + E_{\text{sky}}$. Linear convolutions $\sum_c \mathbf{W}_c * \mathbf{X}_c$ cannot factor out $E_p$, conflating hill-shadow boundaries $\nabla E_p$ with true slope failures. The normalized difference ratio algebraically cancels multiplicative irradiance: $\mathbf{V}(p) = \frac{E_p(R_{NIR} - R_{Red})}{E_p(R_{NIR} + R_{Red})} = \frac{R_{NIR} - R_{Red}}{R_{NIR} + R_{Red}}$. Morphological scarp boundaries are extracted via spatial gradient magnitude:
+where $\epsilon = 10^{-6}$. Under Lambertian topographic irradiance, observed radiance is $\mathbf{X}_c(p) = E_p R_c(p)$ with spatially varying solar factor $E_p = E_{\text{sun}}\cos(i_p) + E_{\text{sky}}$. Linear convolutions $\sum_c \mathbf{W}_c * \mathbf{X}_c$ cannot factor out $E_p$, conflating hill-shadow boundaries $\nabla E_p$ with true slope failures. Following classical optical band-ratio formulations, the normalized difference ratio algebraically cancels multiplicative irradiance: $\mathbf{V}(p) = \frac{E_p(R_{NIR} - R_{Red})}{E_p(R_{NIR} + R_{Red})} = \frac{R_{NIR} - R_{Red}}{R_{NIR} + R_{Red}}$. Morphological scarp boundaries are extracted via spatial gradient magnitude:
 \begin{equation}
 \mathbf{G}_{i,j} = \sqrt{(\mathbf{V}_{i+1,j} - \mathbf{V}_{i-1,j})^2 + (\mathbf{V}_{i,j+1} - \mathbf{V}_{i,j-1})^2 + \epsilon}
 \end{equation}
@@ -30,7 +30,7 @@ where $[\cdot]$ denotes channel-wise concatenation, $\text{BN}$ represents batch
 This formulation ensures that if spectral gating is neutral ($\mathbf{M}_l \approx 0$), the network safely preserves the underlying feature flow, while positive scarp evidence enhances features corresponding to true structural slope failures.
 
 \subsection{Network Architecture and Loss Function}
-S$^3$-Net adopts a residual encoder-decoder topology. The encoder comprises an initial $3 \times 3$ convolutional block followed by three residual stages ($C_1 = 32, C_2 = 64, C_3 = 128, C_4 = 256$), each using residual bottleneck blocks with identity skip connections~\cite{he2016resnet}. The decoder uses transposed convolutions for spatial upsampling ($2 \times 2$ stride), concatenating upsampled features with SSSA-modulated skip features $\mathbf{F}_{l, \text{out}}$.
+S$^3$-Net adopts a residual encoder-decoder topology with three residual stages ($C_1 = 32, C_2 = 64, C_3 = 128, C_4 = 256$) using residual bottleneck blocks with identity skip connections~\cite{he2016resnet}. The decoder uses transposed convolutions for spatial upsampling ($2 \times 2$ stride), concatenating upsampled features with SSSA-modulated skip features $\mathbf{F}_{l, \text{out}}$.
 
 Because landslides represent a localized hazard occupying approximately $10\%$ of spatial pixels in affected tiles, training with standard cross-entropy biases gradients toward background terrain. We optimize S$^3$-Net using a composite loss function combining binary cross-entropy with Focal Loss~\cite{lin2017focal}:
 \begin{equation}
