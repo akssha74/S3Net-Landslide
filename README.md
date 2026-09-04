@@ -51,8 +51,7 @@ S3Net-Landslide/
 │       └── results/
 │           ├── rigorous_confirmatory_summary.json  # Complete 3-seed micro/macro metrics & bootstrap
 │           ├── seed_level_results.json             # Individual seed metrics
-│           ├── efficiency_metrics.json             # Parameter counts, latencies, and throughputs
-│           └── test_preds_*.npy                    # Stored test prediction arrays across all 3 seeds
+│           └── efficiency_metrics.json             # Parameter counts, latencies, and throughputs
 └── paper/
     ├── tables/
     │   └── tab_performance.tex        # Compiled LaTeX table
