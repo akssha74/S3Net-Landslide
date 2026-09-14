@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Independently recompute the preregistered CAS confirmation metrics."""
+"""Independently recompute the local-protocol CAS confirmation metrics."""
 
 from __future__ import annotations
 

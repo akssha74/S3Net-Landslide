@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Preregistered event-held-out CAS confirmation of generic boundary weighting."""
+"""Local-protocol event-held-out CAS confirmation of generic boundary weighting."""
 
 from __future__ import annotations
 

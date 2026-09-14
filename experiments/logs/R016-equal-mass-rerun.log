@@ -1,0 +1,8 @@
+Device=mps; epochs=15; batch=32; bands=('red', 'green', 'blue', 'nir')
+Training s3_ndvi_biophysical, seed 42
+  F1=0.6997; boundary=0.5658; FPR=0.0257; 131.4s
+Training s3_ndvi_biophysical, seed 43
+  F1=0.7058; boundary=0.5682; FPR=0.0253; 1111.6s
+Training s3_ndvi_biophysical, seed 44
+  F1=0.6817; boundary=0.5562; FPR=0.0231; 126.5s
+Saved /Users/akshay.sharma/Projects/paper-activities/studies/disaster-hrgldd-landslide/experiments/derived/results/reviewer_remediation/reviewer_remediation_summary.json

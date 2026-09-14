@@ -486,9 +486,15 @@ def main() -> None:
 
     targets_val = tensor_data["y_val"].numpy()
     targets_test = tensor_data["y_test"].numpy()
-    recall_reference_arm = (
-        "unet_base" if "unet_base" in ACTIVE_ARMS else ACTIVE_ARMS[0]
-    )
+    recall_reference_arm = "unet_base"
+    if not all(
+        (
+            RESULTS_DIR
+            / f"val_probabilities_{recall_reference_arm}_seed{seed}.npy"
+        ).is_file()
+        for seed in SEEDS
+    ):
+        recall_reference_arm = ACTIVE_ARMS[0]
     for seed in SEEDS:
         reference_val = np.load(
             RESULTS_DIR

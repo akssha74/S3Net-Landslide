@@ -11,8 +11,10 @@ controls; NDVI-modulated weighting does not improve F1 over the plain control.
 The released HR-GLDD arrays are interpreted as RGBN from the pinned official
 notebook that loads the arrays and renders channels 0--2 directly as RGB.
 
-A preregistered event-held-out CAS experiment separately tests whether the generic
-boundary-weighting result replicates in RGB imagery. CAS imagery is not redistributed.
+A prospectively specified local event-held-out CAS experiment separately tests
+whether the generic boundary-weighting result replicates in RGB imagery. The local
+protocol was first committed after execution and is not described as a preregistration.
+CAS imagery is not redistributed.
 
 ## Reproduce
 
@@ -25,9 +27,11 @@ boundary-weighting result replicates in RGB imagery. CAS imagery is not redistri
 ```bash
 python experiments/code/test_data_semantics.py
 python experiments/code/test_revised_models.py
+python experiments/code/test_equal_mass_dataset.py
 python experiments/code/test_reviewer_remediation_metrics.py
 python experiments/code/run_reviewer_remediation.py
 python experiments/code/make_reviewer_remediation_artifacts.py
+python experiments/code/build_frozen_output_inventory.py
 ```
 
 To reproduce the external confirmation, download the eight CAS archives named in
@@ -43,3 +47,8 @@ python reviews/verify_cas_boundary_confirmation.py
 The released HR-GLDD arrays do not include event IDs or coordinates. The study
 therefore reports descriptive multi-seed results and makes no tile-independence,
 event-held-out, or geographic-transfer inference.
+
+`experiments/derived/results/frozen-output-inventory.json` records SHA-256
+identities for all 138 retained per-seed probability arrays and checkpoints.
+The binaries are not redistributed; the run logs and deterministic generators
+needed to regenerate them are included.

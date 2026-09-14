@@ -1,0 +1,107 @@
+device=mps; config_id=916ec7321afd7a8c
+base seed=42 epoch=1 loss=0.124327 val_f1=0.088341
+base seed=42 epoch=2 loss=0.090620 val_f1=0.112009
+base seed=42 epoch=3 loss=0.085776 val_f1=0.278328
+base seed=42 epoch=4 loss=0.083828 val_f1=0.205461
+base seed=42 epoch=5 loss=0.082764 val_f1=0.275356
+base seed=42 epoch=6 loss=0.080132 val_f1=0.218395
+base seed=42 epoch=7 loss=0.078955 val_f1=0.096847
+base seed=42 epoch=8 loss=0.075979 val_f1=0.153074
+base seed=42 epoch=9 loss=0.076161 val_f1=0.168491
+base seed=42 epoch=10 loss=0.073826 val_f1=0.154008
+base seed=42 epoch=11 loss=0.072866 val_f1=0.197568
+base seed=42 epoch=12 loss=0.071555 val_f1=0.173533
+base seed=42 epoch=13 loss=0.069550 val_f1=0.167891
+base seed=42 epoch=14 loss=0.069050 val_f1=0.169693
+base seed=42 epoch=15 loss=0.067921 val_f1=0.184286
+base seed=43 epoch=1 loss=0.130460 val_f1=0.203176
+base seed=43 epoch=2 loss=0.090644 val_f1=0.081366
+base seed=43 epoch=3 loss=0.086814 val_f1=0.135222
+base seed=43 epoch=4 loss=0.082751 val_f1=0.111180
+base seed=43 epoch=5 loss=0.082970 val_f1=0.171518
+base seed=43 epoch=6 loss=0.079529 val_f1=0.194334
+base seed=43 epoch=7 loss=0.079282 val_f1=0.221813
+base seed=43 epoch=8 loss=0.077493 val_f1=0.162875
+base seed=43 epoch=9 loss=0.075446 val_f1=0.163573
+base seed=43 epoch=10 loss=0.074357 val_f1=0.211989
+base seed=43 epoch=11 loss=0.073270 val_f1=0.198593
+base seed=43 epoch=12 loss=0.072433 val_f1=0.184600
+base seed=43 epoch=13 loss=0.071248 val_f1=0.214525
+base seed=43 epoch=14 loss=0.069857 val_f1=0.197973
+base seed=43 epoch=15 loss=0.069128 val_f1=0.197433
+base seed=44 epoch=1 loss=0.104097 val_f1=0.121835
+base seed=44 epoch=2 loss=0.088424 val_f1=0.202257
+base seed=44 epoch=3 loss=0.085422 val_f1=0.237110
+base seed=44 epoch=4 loss=0.083933 val_f1=0.163035
+base seed=44 epoch=5 loss=0.081533 val_f1=0.053593
+base seed=44 epoch=6 loss=0.080191 val_f1=0.193049
+base seed=44 epoch=7 loss=0.078668 val_f1=0.162354
+base seed=44 epoch=8 loss=0.076521 val_f1=0.130869
+base seed=44 epoch=9 loss=0.074805 val_f1=0.159667
+base seed=44 epoch=10 loss=0.072515 val_f1=0.248513
+base seed=44 epoch=11 loss=0.070870 val_f1=0.185980
+base seed=44 epoch=12 loss=0.069423 val_f1=0.258001
+base seed=44 epoch=13 loss=0.068358 val_f1=0.272906
+base seed=44 epoch=14 loss=0.068090 val_f1=0.228007
+base seed=44 epoch=15 loss=0.067452 val_f1=0.230886
+boundary seed=42 epoch=1 loss=0.144093 val_f1=0.116721
+boundary seed=42 epoch=2 loss=0.111399 val_f1=0.098180
+boundary seed=42 epoch=3 loss=0.106186 val_f1=0.251658
+boundary seed=42 epoch=4 loss=0.103824 val_f1=0.211885
+boundary seed=42 epoch=5 loss=0.102054 val_f1=0.290466
+boundary seed=42 epoch=6 loss=0.099700 val_f1=0.223130
+boundary seed=42 epoch=7 loss=0.098322 val_f1=0.176549
+boundary seed=42 epoch=8 loss=0.094894 val_f1=0.202230
+boundary seed=42 epoch=9 loss=0.095373 val_f1=0.169868
+boundary seed=42 epoch=10 loss=0.093276 val_f1=0.195564
+boundary seed=42 epoch=11 loss=0.092079 val_f1=0.241079
+boundary seed=42 epoch=12 loss=0.090953 val_f1=0.233187
+boundary seed=42 epoch=13 loss=0.088823 val_f1=0.206820
+boundary seed=42 epoch=14 loss=0.088556 val_f1=0.198615
+boundary seed=42 epoch=15 loss=0.087579 val_f1=0.210304
+boundary seed=43 epoch=1 loss=0.150722 val_f1=0.196589
+boundary seed=43 epoch=2 loss=0.111246 val_f1=0.092409
+boundary seed=43 epoch=3 loss=0.107805 val_f1=0.184877
+boundary seed=43 epoch=4 loss=0.104058 val_f1=0.160926
+boundary seed=43 epoch=5 loss=0.103263 val_f1=0.168602
+boundary seed=43 epoch=6 loss=0.099691 val_f1=0.257853
+boundary seed=43 epoch=7 loss=0.098923 val_f1=0.280658
+boundary seed=43 epoch=8 loss=0.097374 val_f1=0.189085
+boundary seed=43 epoch=9 loss=0.095331 val_f1=0.148989
+boundary seed=43 epoch=10 loss=0.093605 val_f1=0.226040
+boundary seed=43 epoch=11 loss=0.092558 val_f1=0.197580
+boundary seed=43 epoch=12 loss=0.091474 val_f1=0.181425
+boundary seed=43 epoch=13 loss=0.090572 val_f1=0.202427
+boundary seed=43 epoch=14 loss=0.088935 val_f1=0.182547
+boundary seed=43 epoch=15 loss=0.088434 val_f1=0.183150
+boundary seed=44 epoch=1 loss=0.125817 val_f1=0.151972
+boundary seed=44 epoch=2 loss=0.109217 val_f1=0.270373
+boundary seed=44 epoch=3 loss=0.105861 val_f1=0.204911
+boundary seed=44 epoch=4 loss=0.103898 val_f1=0.179248
+boundary seed=44 epoch=5 loss=0.101828 val_f1=0.076975
+boundary seed=44 epoch=6 loss=0.100444 val_f1=0.179314
+boundary seed=44 epoch=7 loss=0.098560 val_f1=0.171554
+boundary seed=44 epoch=8 loss=0.096265 val_f1=0.104392
+boundary seed=44 epoch=9 loss=0.094514 val_f1=0.211406
+boundary seed=44 epoch=10 loss=0.092205 val_f1=0.239281
+boundary seed=44 epoch=11 loss=0.090510 val_f1=0.196860
+boundary seed=44 epoch=12 loss=0.089234 val_f1=0.252998
+boundary seed=44 epoch=13 loss=0.088074 val_f1=0.273192
+boundary seed=44 epoch=14 loss=0.087616 val_f1=0.211366
+boundary seed=44 epoch=15 loss=0.086810 val_f1=0.220107
+{
+  "verdict": "failed-confirmation",
+  "mean_event_macro_delta_f1": -0.02193092678247501,
+  "mean_event_macro_delta_boundary_f1": -0.018632558550188187,
+  "event_mean_boundary_effects": {
+    "Mengdong": -0.003934221040968504,
+    "Moxi-UAV-1m": -0.05143269638260393,
+    "Tiburon-Planet": -0.0005307582269921304
+  },
+  "pass_conditions": {
+    "mean_event_macro_boundary_f1_gain_ge_0_015": false,
+    "all_test_events_positive_boundary_effect": false,
+    "event_macro_f1_noninferior_ge_minus_0_010": false,
+    "at_least_two_seeds_nonnegative_f1_effect": true
+  }
+}

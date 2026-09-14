@@ -12,12 +12,20 @@ import numpy as np
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 
+matplotlib.rcParams["pdf.fonttype"] = 42
+matplotlib.rcParams["ps.fonttype"] = 42
+
 from data_semantics import BLUE, GREEN, RED
 
 
 SCRIPT_DIR = Path(__file__).resolve().parent
 STUDY_DIR = SCRIPT_DIR.parent.parent
 RESULTS_DIR = STUDY_DIR / "experiments/derived/results/reviewer_remediation"
+CAS_SUMMARY = (
+    STUDY_DIR
+    / "experiments/derived/results/cas_boundary_confirmation/"
+    "cas_boundary_confirmation_summary.json"
+)
 PAPER_TABLES = STUDY_DIR / "paper/tables"
 PAPER_FIGURES = STUDY_DIR / "paper/figures"
 DATA_DIR = STUDY_DIR / "experiments/raw/hr_gldd"
@@ -173,10 +181,12 @@ def write_contrasts(payload: dict) -> str:
         "recommended_arm_by_mean_f1_then_boundary_f1": recommended,
         "contrasts": contrasts,
         "interpretation_rule": (
-            "NDVI specificity is supported only if NDVI exceeds the raw-edge "
-            "control; biophysical loss specificity is supported only if it "
-            "exceeds plain boundary weighting. No tile-level inferential "
-            "statistics are reported because event/spatial IDs are absent."
+            "Input specificity requires NDVI to exceed the raw-edge control on "
+            "the same endpoint. Segmentation-F1 loss specificity requires the "
+            "NDVI-modulated arm to exceed plain boundary weighting on F1; "
+            "boundary F1 is reported separately. No equivalence margin or "
+            "tile-level inference is used because it was not prespecified and "
+            "event/spatial IDs are absent."
         ),
     }
     (RESULTS_DIR / "mechanism_contrasts.json").write_text(
@@ -189,6 +199,55 @@ def normalize_rgb(image: np.ndarray) -> np.ndarray:
     rgb = image[..., [RED, GREEN, BLUE]].astype(float)
     low, high = np.percentile(rgb, [2, 98])
     return np.clip((rgb - low) / (high - low + 1e-12), 0, 1)
+
+
+def write_cas_seed_table() -> None:
+    payload = json.loads(CAS_SUMMARY.read_text())
+    display_names = {
+        "Mengdong": "Mengdong",
+        "Moxi-UAV-1m": "Moxi town",
+        "Tiburon-Planet": "Tiburon Peninsula",
+    }
+
+    def pair(f1: float, boundary_f1: float) -> str:
+        return f"${100*f1:+.2f}/{100*boundary_f1:+.2f}$"
+
+    lines = [
+        r"\small",
+        r"\begin{tabular}{lccc}",
+        r"\toprule",
+        r"Region & Seed 42 & Seed 43 & Seed 44 \\",
+        r"\midrule",
+    ]
+    for event, label in display_names.items():
+        cells = [
+            pair(
+                payload["effects"][str(seed)]["per_event"][event]["delta_f1"],
+                payload["effects"][str(seed)]["per_event"][event][
+                    "delta_boundary_f1"
+                ],
+            )
+            for seed in (42, 43, 44)
+        ]
+        lines.append(f"{label} & {' & '.join(cells)} " + r"\\")
+    lines.extend([r"\midrule"])
+    macro_cells = [
+        pair(
+            payload["effects"][str(seed)]["event_macro_delta_f1"],
+            payload["effects"][str(seed)]["event_macro_delta_boundary_f1"],
+        )
+        for seed in (42, 43, 44)
+    ]
+    lines.extend(
+        [
+            f"Event macro & {' & '.join(macro_cells)} " + r"\\",
+            r"\bottomrule",
+            r"\end{tabular}",
+        ]
+    )
+    (PAPER_TABLES / "tab_cas_seed_effects.tex").write_text(
+        "\n".join(lines) + "\n"
+    )
 
 
 def make_false_positive_atlas(payload: dict, arm: str) -> None:
@@ -212,10 +271,9 @@ def make_false_positive_atlas(payload: dict, arm: str) -> None:
         np.argsort(false_positive_counts[eligible])[-4:][::-1]
     ]
 
-    figure, axes = plt.subplots(2, 8, figsize=(11.5, 4.2), dpi=220)
+    figure, axes = plt.subplots(4, 4, figsize=(6.27, 7.0), dpi=220)
     for position, index in enumerate(selected):
-        row = position // 2
-        start_column = (position % 2) * 4
+        row = position
         rgb = normalize_rgb(np.asarray(test_x[index]))
         truth = test_y[index]
         prediction = predictions[index]
@@ -232,24 +290,23 @@ def make_false_positive_atlas(payload: dict, arm: str) -> None:
             f"False positives: {false_positive.sum()} px",
         )
         for offset, (image, title) in enumerate(zip(images, titles)):
-            column = start_column + offset
+            column = offset
             axes[row, column].imshow(
                 image,
-                cmap="gray" if column in (1, 2) else None,
-                vmin=0 if column in (1, 2) else None,
-                vmax=1 if column in (1, 2) else None,
+                cmap="gray" if offset in (1, 2) else None,
+                vmin=0 if offset in (1, 2) else None,
+                vmax=1 if offset in (1, 2) else None,
             )
-            axes[row, column].set_title(title, fontsize=6.5)
+            axes[row, column].set_title(title, fontsize=8)
             axes[row, column].axis("off")
     figure.suptitle(
         "High-false-positive, low-prevalence HR-GLDD tiles at validation-matched recall\n"
         "Red overlay marks false-positive pixels; background categories are not annotated.",
-        fontsize=10,
+        fontsize=9,
     )
-    figure.tight_layout()
+    figure.tight_layout(rect=(0, 0, 1, 0.95))
     figure.savefig(
         PAPER_FIGURES / "fig_false_positive_atlas.pdf",
-        bbox_inches="tight",
         metadata={"CreationDate": None, "ModDate": None},
     )
     plt.close(figure)
@@ -262,6 +319,7 @@ def main() -> None:
     if len(payload["protocol"]["seeds"]) < 3:
         raise RuntimeError("Refusing publication artifacts from fewer than 3 seeds")
     write_table(payload)
+    write_cas_seed_table()
     recommended = write_contrasts(payload)
     make_false_positive_atlas(payload, recommended)
     print(f"Generated remediation artifacts; recommended arm: {recommended}")

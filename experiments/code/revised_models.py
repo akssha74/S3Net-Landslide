@@ -245,6 +245,20 @@ class ControlledPixelLoss(nn.Module):
         eroded = -F.max_pool2d(-target, 3, stride=1, padding=1)
         return (dilated - eroded).squeeze(1)
 
+    @staticmethod
+    def match_boundary_mass(
+        boundary: torch.Tensor, signal: torch.Tensor
+    ) -> torch.Tensor:
+        """Match per-image mean mass, falling back to plain boundaries safely."""
+        target_mass = boundary.mean(dim=(1, 2), keepdim=True)
+        signal_mass = signal.mean(dim=(1, 2), keepdim=True)
+        informative = signal_mass > 1e-6
+        safe_mass = torch.where(
+            informative, signal_mass, torch.ones_like(signal_mass)
+        )
+        scaled = signal * (target_mass / safe_mass)
+        return torch.where(informative, scaled, boundary)
+
     def forward(
         self, logits: torch.Tensor, targets: torch.Tensor, images: torch.Tensor
     ) -> torch.Tensor:
@@ -261,8 +275,6 @@ class ControlledPixelLoss(nn.Module):
             gradient = torch.sqrt(gx.square() + gy.square() + 1e-8).squeeze(1)
             maxima = gradient.amax(dim=(1, 2), keepdim=True).clamp_min(1e-6)
             signal = boundary * (gradient / maxima)
-            target_mass = boundary.mean(dim=(1, 2), keepdim=True)
-            signal_mass = signal.mean(dim=(1, 2), keepdim=True).clamp_min(1e-6)
-            modulation = signal * (target_mass / signal_mass)
+            modulation = self.match_boundary_mass(boundary, signal)
         weights = 1.0 + self.boundary_gamma * modulation.detach()
         return (losses * weights).mean()

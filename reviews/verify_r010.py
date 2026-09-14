@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Independent recomputation of all final R010 RGBN metrics."""
+"""Independent recomputation of all final R016 RGBN metrics."""
 
 from __future__ import annotations
 
@@ -202,7 +202,7 @@ def main() -> None:
 
     failed = [check for check in checks if not check["matched"]]
     output = {
-        "run": "R010-factorial-rgbn",
+        "run": "R016-corrected-rgbn",
         "probability_precision": "float32 saved; tolerance 1e-10",
         "coverage": (
             "default, matched-recall, controlled-resolution, threshold-selection, "
@@ -217,7 +217,7 @@ def main() -> None:
     )
     if failed:
         raise SystemExit(f"{len(failed)} metric checks failed")
-    print(f"PASS: {len(checks)} R010 metrics independently recomputed")
+    print(f"PASS: {len(checks)} R016 metrics independently recomputed")
 
 
 if __name__ == "__main__":

@@ -1,6 +1,10 @@
-# Preregistered CAS external confirmation
+# Prospectively specified local CAS external-confirmation protocol
 
-Frozen: 2026-09-14T17:59:00Z, before archive extraction or label inspection.
+Local protocol timestamp: 2026-09-14T17:59:00Z, recorded before archive
+extraction or label inspection. This artifact was first committed after the
+external run and therefore is not an independently timestamp-verifiable
+preregistration. The manuscript describes it as a prospectively specified
+local protocol.
 
 ## Question
 

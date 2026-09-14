@@ -8,8 +8,8 @@
     "zero_control_boundary_vs_base_f1": 0.011144537048289549,
     "raw_edge_boundary_vs_base_f1": 0.008282168815260227,
     "ndvi_boundary_vs_raw_boundary_f1": 0.0010446664518588555,
-    "biophysical_vs_plain_boundary_f1": -0.0010698676215330494,
-    "biophysical_vs_plain_boundary_boundary_f1": 0.00349055740729598,
+    "biophysical_vs_plain_boundary_f1": -0.004062174516744399,
+    "biophysical_vs_plain_boundary_boundary_f1": 0.003830729679567546,
     "unet_base_controlled_resolution_f1_drop": -0.050749800341537754,
     "resunet_base_controlled_resolution_f1_drop": -0.043298849639493375,
     "s3_none_base_controlled_resolution_f1_drop": -0.05168156902381982,
@@ -18,7 +18,7 @@
     "s3_ndvi_boundary_controlled_resolution_f1_drop": -0.04843552874604118,
     "s3_none_boundary_controlled_resolution_f1_drop": -0.04638461777278935,
     "s3_raw_boundary_controlled_resolution_f1_drop": -0.045052136251307995,
-    "s3_ndvi_biophysical_controlled_resolution_f1_drop": -0.048125444116546845
+    "s3_ndvi_biophysical_controlled_resolution_f1_drop": -0.04512550567285034
   },
-  "interpretation_rule": "NDVI specificity is supported only if NDVI exceeds the raw-edge control; biophysical loss specificity is supported only if it exceeds plain boundary weighting. No tile-level inferential statistics are reported because event/spatial IDs are absent."
+  "interpretation_rule": "Input specificity requires NDVI to exceed the raw-edge control on the same endpoint. Segmentation-F1 loss specificity requires the NDVI-modulated arm to exceed plain boundary weighting on F1; boundary F1 is reported separately. No equivalence margin or tile-level inference is used because it was not prespecified and event/spatial IDs are absent."
 }
