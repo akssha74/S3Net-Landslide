@@ -1,0 +1,5 @@
+__pycache__/
+*.pyc
+experiments/raw/
+experiments/derived/checkpoints/
+experiments/derived/results/reviewer_remediation/*probabilities*.npy

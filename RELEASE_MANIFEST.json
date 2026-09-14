@@ -1,9 +1,13 @@
 {
   "schema_version": 1,
   "source_repository": "akssha74/paper-activities",
-  "source_scientific_commit": "749fa90732aa1a9b06882fbca1f918e055528521",
+  "source_scientific_commit": "675826d21bc3791019a9df76cfdf190495b2264f",
   "study": "studies/disaster-hrgldd-landslide",
   "files": [
+    {
+      "path": ".gitignore",
+      "sha256": "e6863bec7633fcce78dc8c121faf7a09f8ddd9434c2ff0a54153fa48ca6bae0f"
+    },
     {
       "path": "README.md",
       "sha256": "feb15fefb1a638dd95ca52025dbf2ee87ad3fef33d7dbeacb95c62ded3a8cfe4"
