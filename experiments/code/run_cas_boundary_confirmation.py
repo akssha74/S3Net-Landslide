@@ -362,9 +362,20 @@ def event_metrics(
 
 
 def canonical_config(folds: dict[str, object]) -> dict[str, object]:
+    execution_folds = {
+        key: folds[key]
+        for key in (
+            "salt",
+            "independence_unit",
+            "development_events",
+            "validation_events",
+            "protected_test_events",
+            "hash_order",
+        )
+    }
     return {
         "dataset": "CAS Zenodo 10294997",
-        "folds": folds,
+        "folds": execution_folds,
         "model": "ControlledS3Net(in_ch=3,gating_mode=none)",
         "losses": list(LOSSES),
         "seeds": list(SEEDS),
@@ -387,7 +398,20 @@ def main() -> None:
     config_id = hashlib.sha256(config_text.encode()).hexdigest()[:16]
     (OUTPUT_ROOT / "frozen_config.json").write_text(
         json.dumps(
-            {"config_id": config_id, **config}, indent=2
+            {
+                "schema_version": 2,
+                "artifact_status": (
+                    "post-execution record of the executed configuration; "
+                    "filename retained for compatibility"
+                ),
+                "config_id": config_id,
+                "config_identity_scope": (
+                    "Execution-only fields; post-run provenance prose is "
+                    "excluded from the hash."
+                ),
+                **config,
+            },
+            indent=2,
         )
         + "\n",
         encoding="utf-8",
@@ -528,9 +552,24 @@ def main() -> None:
         )
         >= 2,
     }
+    process_condition = {
+        "condition": (
+            "No post-access code, threshold, or reporting-rule change."
+        ),
+        "status": "not-independently-time-verifiable",
+        "reason": (
+            "The only surviving protocol was first committed after execution; "
+            "run logs are retained but cannot establish a pre-run immutable lock."
+        ),
+        "included_in_quantitative_verdict": False,
+    }
     payload = {
         "schema_version": 1,
         "config_id": config_id,
+        "config_identity_scope": (
+            "Execution-only fields; post-run provenance prose is excluded "
+            "from the hash."
+        ),
         "config": config,
         "archive_hashes": {
             event: sha256(CAS_ROOT / EVENT_ARCHIVES[event])
@@ -542,8 +581,14 @@ def main() -> None:
         "mean_event_macro_delta_f1": mean_delta_f1,
         "mean_event_macro_delta_boundary_f1": mean_delta_boundary,
         "pass_conditions": pass_conditions,
+        "pass_conditions_scope": "four quantitative conditions",
+        "process_condition": process_condition,
         "verdict": (
             "pass" if all(pass_conditions.values()) else "failed-confirmation"
+        ),
+        "verdict_basis": (
+            "Three of four quantitative conditions failed; the separate "
+            "process condition is not independently time-verifiable."
         ),
         "scope": (
             "Bounded replication on three held CAS regions; no population, "
@@ -561,6 +606,7 @@ def main() -> None:
                 "mean_event_macro_delta_boundary_f1": mean_delta_boundary,
                 "event_mean_boundary_effects": event_mean_boundary_effects,
                 "pass_conditions": pass_conditions,
+                "process_condition": process_condition,
             },
             indent=2,
         ),

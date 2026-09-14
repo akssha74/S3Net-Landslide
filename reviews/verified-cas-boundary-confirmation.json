@@ -6,6 +6,15 @@
     "Moxi-UAV-1m",
     "Tiburon-Planet"
   ],
+  "metadata_checks": {
+    "config_id_recomputes": true,
+    "frozen_config_id_matches": true,
+    "train_tile_limit_is_80": true,
+    "eval_tile_limit_is_160": true,
+    "four_quantitative_conditions": true,
+    "process_condition_not_time_verifiable": true,
+    "fold_provenance_is_post_execution": true
+  },
   "checks": [
     {
       "loss_mode": "base",

@@ -1,10 +1,9 @@
-# Prospectively specified local CAS external-confirmation protocol
+# Post-execution-documented CAS external check
 
-Local protocol timestamp: 2026-09-14T17:59:00Z, recorded before archive
-extraction or label inspection. This artifact was first committed after the
-external run and therefore is not an independently timestamp-verifiable
-preregistration. The manuscript describes it as a prospectively specified
-local protocol.
+Local notes carry a 2026-09-14T17:59:00Z timestamp, but this protocol was first
+committed after the external run and its earlier version misstated the sampling
+limits. It is therefore a corrected post-execution record, not independently
+verifiable evidence of prospective specification or preregistration.
 
 ## Question
 
@@ -21,7 +20,7 @@ tests only the generic boundary-weighting finding.
 - Dataset: CAS Landslide Dataset, Zenodo record 10294997, record licence
   CC BY-NC 4.0. Source-specific restrictions remain binding; no imagery is
   redistributed.
-- Frozen event allocation:
+- Executed event allocation:
   `research/dataset-metadata/cas-boundary-confirmation/folds.json`.
 - Independence unit: CAS subdataset region/event, never crop or tile.
 - Development: Lombok, Moxitaidi-UAV-1m, Hokkaido, Wenchuan.
@@ -44,9 +43,10 @@ early-stopping rule, and seeds are identical. Seeds are 42, 43, and 44.
 ## Sampling and image semantics
 
 Only RGB image files and binary masks are used. Every 512x512 CAS tile is
-partitioned into fixed non-overlapping 128x128 crops. At most 160 source tiles
-per development event and 240 per validation/test event are selected by salted
-SHA-256 filename order, which does not read image or mask values. Empty-mask
+partitioned into fixed non-overlapping 128x128 crops. The executed limits are
+80 source tiles per development event and 160 per validation/test event,
+selected by salted SHA-256 filename order, which does not read image or mask
+values. Empty-mask
 crops remain included so false-positive behaviour is measurable.
 
 ## Outcomes
@@ -69,16 +69,19 @@ crop, or stopping point.
 
 ## Pass/kill rule
 
-External confirmation passes only if:
+The post-run record lists four quantitative conditions:
 
 1. mean event-macro boundary-F1 gain is at least +0.015;
 2. all three protected events have a positive mean boundary-F1 effect;
 3. event-macro F1 is non-inferior within -0.010;
-4. at least two of three seeds have non-negative event-macro F1 effect; and
-5. no post-access code, threshold, or reporting rule is changed.
+4. at least two of three seeds have non-negative event-macro F1 effect.
 
-Any other outcome is reported as a failed external confirmation. It cannot be
-used to strengthen novelty or generalization claims.
+A fifth process condition in the original note required no post-access change
+to code, thresholds, or reporting. Because the protocol was first committed
+after execution, that process condition is not independently time-verifiable
+and is recorded as such rather than passed. The reported failed-confirmation
+verdict follows from three failures among the four quantitative conditions. It
+cannot strengthen novelty or generalization claims.
 
 ## Deviations log
 
@@ -92,13 +95,14 @@ The first training attempt was stopped during development seed 42, epoch 5,
 before any protected event was opened. Code review found that an imported
 HR-GLDD confusion helper attached false-positive area using a fixed 3 m pixel
 area, which is invalid for mixed-resolution CAS. The metric was removed and the
-frozen model/loss/data/threshold configuration was restarted from seed 42.
+executed model/loss/data/threshold configuration was restarted from seed 42.
 
 The second attempt was stopped during development seed 42, epoch 3, again
 before protected access. The validation-F1 helper was made independent of the
 HR-GLDD confusion routine so the executed and released CAS code are
-byte-identical and contain no discarded 3 m area calculation. The F1 equation,
-frozen configuration, and all scientific decisions were unchanged.
+byte-identical and contain no discarded 3 m area calculation. The retained
+logs record no later change to the F1 equation or executed configuration; this
+is not used as independently timestamped prospective evidence.
 
 ## Scope
 

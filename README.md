@@ -11,10 +11,10 @@ controls; NDVI-modulated weighting does not improve F1 over the plain control.
 The released HR-GLDD arrays are interpreted as RGBN from the pinned official
 notebook that loads the arrays and renders channels 0--2 directly as RGB.
 
-A prospectively specified local event-held-out CAS experiment separately tests
-whether the generic boundary-weighting result replicates in RGB imagery. The local
-protocol was first committed after execution and is not described as a preregistration.
-CAS imagery is not redistributed.
+A post-execution-documented event-held-out CAS check separately assesses whether
+the generic boundary-weighting result replicates in RGB imagery. The corrected
+record reports the executed 80/160 source-tile limits and carries no prospective
+or preregistration credit. CAS imagery is not redistributed.
 
 ## Reproduce
 
@@ -34,7 +34,7 @@ python experiments/code/make_reviewer_remediation_artifacts.py
 python experiments/code/build_frozen_output_inventory.py
 ```
 
-To reproduce the external confirmation, download the eight CAS archives named in
+To reproduce the external check, download the eight CAS archives named in
 `run_cas_boundary_confirmation.py` from
 https://doi.org/10.5281/zenodo.10294997, place them under
 `experiments/raw/external/cas/`, then run:

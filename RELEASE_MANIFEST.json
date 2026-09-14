@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "source_repository": "akssha74/paper-activities",
-  "source_scientific_commit": "9ca0ded98cd4817bbc99f5cf0401873a146f6a37",
+  "source_scientific_commit": "2b08627b4ce5b005c06d98c688c82d40b094494e",
   "study": "studies/disaster-hrgldd-landslide",
   "files": [
     {
@@ -10,7 +10,7 @@
     },
     {
       "path": "README.md",
-      "sha256": "aaabf692f9f55c75933f0d3e44b10e773fa2ec098bf69ceb25b2813452abf4fd"
+      "sha256": "de409b8ae4407ccb249862465582d68173b610623d053f836b633297394ae7e4"
     },
     {
       "path": "environment/README.md",
@@ -23,6 +23,10 @@
     {
       "path": "experiments/code/build_frozen_output_inventory.py",
       "sha256": "407b4c4d60575955373ed806de3ab3444f523c5892face1e4b09307576853d70"
+    },
+    {
+      "path": "experiments/code/correct_cas_metadata.py",
+      "sha256": "fd84fba1988c5714ca7be5d085b78efb14fef94080985ef36ae8ff694cdd26fc"
     },
     {
       "path": "experiments/code/data_semantics.py",
@@ -38,7 +42,7 @@
     },
     {
       "path": "experiments/code/run_cas_boundary_confirmation.py",
-      "sha256": "b52c824bdca2e895c082eb982af2cf0065b4195ba711250708bfaf650956dedd"
+      "sha256": "2e406b6aaeb3c281b1dd2f257539bf8540bbf9e4c44e3a526898b51323cb14d9"
     },
     {
       "path": "experiments/code/run_reviewer_remediation.py",
@@ -62,11 +66,11 @@
     },
     {
       "path": "experiments/derived/results/cas_boundary_confirmation/cas_boundary_confirmation_summary.json",
-      "sha256": "697bd1985081aa459faa240f2b34a10a5273a09371ec962f9a35bb4663f801f7"
+      "sha256": "a339e01e34db1734cc07995f50ed15ea47b54647b682ac4bb8277a7e21fdcdb6"
     },
     {
       "path": "experiments/derived/results/cas_boundary_confirmation/frozen_config.json",
-      "sha256": "059461c37d52a7968764714889f4cb1ceaef3052460758878c668674e3f7e91d"
+      "sha256": "0e5e0797b34eb14ea85478b5f9a32706b416eb525e7d6c701c0c6f0944f7b30e"
     },
     {
       "path": "experiments/derived/results/frozen-output-inventory.json",
@@ -117,6 +121,14 @@
       "sha256": "4311a5df2db7b5c2326be8e00fe429d924a1d5ddb2587a8263be9ed8dd0a7794"
     },
     {
+      "path": "experiments/logs/R018-cas-metadata-correction.log",
+      "sha256": "0aa96f62da245c5b134a95fd383519d07290c2bbd78356c156e2f0682514a60a"
+    },
+    {
+      "path": "experiments/logs/R018b-cas-independent-verification.log",
+      "sha256": "4311a5df2db7b5c2326be8e00fe429d924a1d5ddb2587a8263be9ed8dd0a7794"
+    },
+    {
       "path": "paper/figures/fig_false_positive_atlas.pdf",
       "sha256": "084f61852763b063068d50889662590d3f9f34c81a868df59a30f2df4f6d4f4b"
     },
@@ -138,7 +150,7 @@
     },
     {
       "path": "research/dataset-metadata/cas-boundary-confirmation/folds.json",
-      "sha256": "bc7e6e62f73610810cebdb3d73b7d06c140e9fda0c0b6868a57141c40beaf808"
+      "sha256": "c903805745141aa3b968ade00b70a1e7d4ff2c3dbf7e675f6273d459a787d40a"
     },
     {
       "path": "research/dataset-metadata/hrgldd-official/Unet_v1.ipynb",
@@ -150,11 +162,11 @@
     },
     {
       "path": "research/external-confirmation-protocol.md",
-      "sha256": "5193bb2c38f9b8b5aa69fcdbb946372c6817298993bafbb48f8b9b79783af71e"
+      "sha256": "98c677e8606e47d97907f64531a97a1072f93213bb6f89c486bd3a8f4b36a307"
     },
     {
       "path": "reviews/verified-cas-boundary-confirmation.json",
-      "sha256": "56902250b6dc97501633d20e445617da576a361dfedf7bce238a4ca0f21e4fe2"
+      "sha256": "32b1b9b17704d585bc40a52b665c4005c68cd15be88b612ff0e9c6b110c1e8ae"
     },
     {
       "path": "reviews/verified-r010.json",
@@ -162,7 +174,7 @@
     },
     {
       "path": "reviews/verify_cas_boundary_confirmation.py",
-      "sha256": "0bcb5409a2934b56289c557ddaec4c7a56d80f83a78253fd93f2defbff711a56"
+      "sha256": "4e070eb4df3c9ec9adc24d4f0cc73d7888a8aae6d1682ee6fb8de4bc52dbfcd7"
     },
     {
       "path": "reviews/verify_r010.py",

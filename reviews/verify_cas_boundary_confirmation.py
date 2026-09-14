@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Independently recompute the local-protocol CAS confirmation metrics."""
+"""Independently recompute metrics for the documented CAS external check."""
 
 from __future__ import annotations
 
@@ -20,6 +20,7 @@ RESULTS = (
     STUDY / "experiments/derived/results/cas_boundary_confirmation"
 )
 SUMMARY = RESULTS / "cas_boundary_confirmation_summary.json"
+FROZEN_CONFIG = RESULTS / "frozen_config.json"
 FOLDS = (
     STUDY
     / "research/dataset-metadata/cas-boundary-confirmation/folds.json"
@@ -132,7 +133,44 @@ def close(first: float | int, second: float | int) -> bool:
 
 def main() -> None:
     payload = json.loads(SUMMARY.read_text(encoding="utf-8"))
+    frozen_config = json.loads(FROZEN_CONFIG.read_text(encoding="utf-8"))
     folds = json.loads(FOLDS.read_text(encoding="utf-8"))
+    config_text = json.dumps(
+        payload["config"], sort_keys=True, separators=(",", ":")
+    )
+    recomputed_config_id = hashlib.sha256(config_text.encode()).hexdigest()[:16]
+    metadata_checks = {
+        "config_id_recomputes": payload["config_id"] == recomputed_config_id,
+        "frozen_config_id_matches": (
+            frozen_config["config_id"] == recomputed_config_id
+        ),
+        "train_tile_limit_is_80": (
+            payload["config"]["train_tile_limit_per_event"] == 80
+        ),
+        "eval_tile_limit_is_160": (
+            payload["config"]["eval_tile_limit_per_event"] == 160
+        ),
+        "four_quantitative_conditions": (
+            payload["pass_conditions_scope"] == "four quantitative conditions"
+            and len(payload["pass_conditions"]) == 4
+        ),
+        "process_condition_not_time_verifiable": (
+            payload["process_condition"]["status"]
+            == "not-independently-time-verifiable"
+            and payload["process_condition"]["included_in_quantitative_verdict"]
+            is False
+        ),
+        "fold_provenance_is_post_execution": (
+            folds["first_committed_after_execution"] is True
+            and folds["prospective_identity"]
+            == "not-independently-time-verifiable"
+        ),
+    }
+    failed_metadata = [
+        name for name, matched in metadata_checks.items() if not matched
+    ]
+    if failed_metadata:
+        raise RuntimeError(f"CAS metadata checks failed: {failed_metadata}")
     if set(folds["protected_test_events"]) != set(EVENT_ARCHIVES):
         raise RuntimeError("Verifier event list differs from frozen protected events")
     targets = {event: selected_masks(event) for event in EVENT_ARCHIVES}
@@ -218,6 +256,7 @@ def main() -> None:
         "run": "R011b-cas-boundary-confirmation",
         "independence_unit": "CAS subdataset region/event",
         "protected_events": list(EVENT_ARCHIVES),
+        "metadata_checks": metadata_checks,
         "checks": checks,
         "failed": failed,
         "status": "passed" if not failed else "failed",
