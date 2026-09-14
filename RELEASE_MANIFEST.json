@@ -1,0 +1,68 @@
+{
+  "schema_version": 1,
+  "source_repository": "akssha74/paper-activities",
+  "source_scientific_commit": "749fa90732aa1a9b06882fbca1f918e055528521",
+  "study": "studies/disaster-hrgldd-landslide",
+  "files": [
+    {
+      "path": "README.md",
+      "sha256": "feb15fefb1a638dd95ca52025dbf2ee87ad3fef33d7dbeacb95c62ded3a8cfe4"
+    },
+    {
+      "path": "experiments/code/data_semantics.py",
+      "sha256": "2f54aaa26e0c6fa948233817f2d4b1525e27c3b4c02e143d650366c3d1297d3a"
+    },
+    {
+      "path": "experiments/code/make_reviewer_remediation_artifacts.py",
+      "sha256": "aca607a8ef060d15c5f52be248ea6ea7a55347035d30e8e1c46fd6a2f1121fa0"
+    },
+    {
+      "path": "experiments/code/revised_models.py",
+      "sha256": "af3b6adf6118c1f31d9a2c840a4374a63c5a4c8b1a8dfdb5e7dde4885fa269ad"
+    },
+    {
+      "path": "experiments/code/run_reviewer_remediation.py",
+      "sha256": "1282741608ce53b2dbf2091b856a10ad4e02c9d1b799e70d716ae3f72627fd67"
+    },
+    {
+      "path": "experiments/code/test_data_semantics.py",
+      "sha256": "a09470fc887d426b6ba0bf525247aedb7157ce782ece35459173d820533e6a90"
+    },
+    {
+      "path": "experiments/code/test_reviewer_remediation_metrics.py",
+      "sha256": "0dfe88f7e111993239e3cf32bb64302000f8eb287a2b833122eacf436616a313"
+    },
+    {
+      "path": "experiments/code/test_revised_models.py",
+      "sha256": "0ed94f75aaae01ca1db334e4bf3daa9010ddcd446991b22d4ac3c1f76038b546"
+    },
+    {
+      "path": "experiments/derived/results/reviewer_remediation/mechanism_contrasts.json",
+      "sha256": "e9195a74a5c333421461af5ac8ca40fdbb4eb3abee01f980d517b5204387bc66"
+    },
+    {
+      "path": "experiments/derived/results/reviewer_remediation/reviewer_remediation_summary.json",
+      "sha256": "8af489fde00efce1a5de0d1b26c7a4622618293e6bd237cc707e692ce66e3628"
+    },
+    {
+      "path": "paper/figures/fig_false_positive_atlas.pdf",
+      "sha256": "a955a20da8284ac5704fbb108240c0b820dc775ce0313b0172064a06aca3ffd0"
+    },
+    {
+      "path": "paper/tables/tab_reviewer_remediation.tex",
+      "sha256": "6998c99e90e29c2f94a5d67aff1362dbc9f70ae83f1d6964c9ef80d3e2c9f1ca"
+    },
+    {
+      "path": "requirements.txt",
+      "sha256": "516760d0bf3ce3baefc382d5ad27aa4bccbaead53c838aca65766c59d7f27454"
+    },
+    {
+      "path": "research/data-schema.json",
+      "sha256": "ec8700352b89af20bfa64c6cae3a5ac984c3a623e4ccc236fa4f5b7ad23fa0e7"
+    },
+    {
+      "path": "reviews/verified-r009.json",
+      "sha256": "1c11b4817ae1aab2c52e8489393584a5ac07bf31060745d4cc083a2801432665"
+    }
+  ]
+}

@@ -1,0 +1,111 @@
+{
+  "schema_version": 1,
+  "datasets": [
+    {
+      "dataset_id": "hr-gldd-planetscope-v1",
+      "artifact_pattern": "experiments/raw/hr_gldd/{train,val,test}X.npy",
+      "version": "Zenodo record 7189381, MD5-verified local arrays",
+      "authoritative_source": "PlanetScope four-band documentation: https://docs.planet.com/data/imagery/planetscope/ (Band 1 Blue, Band 2 Green, Band 3 Red, Band 4 NIR); corroborated by natural-color rendering with [2,1,0] and stronger expected vegetation/background separation using channel 2 as Red",
+      "feature_axis": 3,
+      "fields": [
+        {
+          "name": "blue",
+          "index": 0,
+          "semantic_role": "PlanetScope blue surface reflectance",
+          "unit": "scaled surface reflectance"
+        },
+        {
+          "name": "green",
+          "index": 1,
+          "semantic_role": "PlanetScope green surface reflectance",
+          "unit": "scaled surface reflectance"
+        },
+        {
+          "name": "red",
+          "index": 2,
+          "semantic_role": "PlanetScope red surface reflectance and NDVI denominator/numerator term",
+          "unit": "scaled surface reflectance"
+        },
+        {
+          "name": "nir",
+          "index": 3,
+          "semantic_role": "PlanetScope near-infrared surface reflectance and NDVI denominator/numerator term",
+          "unit": "scaled surface reflectance"
+        }
+      ],
+      "transforms": [
+        "NHWC arrays are permuted to NCHW for PyTorch",
+        "NDVI=(NIR-Red)/(NIR+Red+1e-6)",
+        "Natural-color display uses channel order [Red,Green,Blue]=[2,1,0]"
+      ],
+      "central_semantics_path": "experiments/code/data_semantics.py",
+      "hard_coded_semantic_positions_absent": true,
+      "bindings": [
+        {
+          "path": "experiments/code/train_eval.py",
+          "locator": "S3Net.extract_scarp_features -> data_semantics.torch_ndvi",
+          "field_name": "red",
+          "position_source": "data_semantics.RED",
+          "observed_position": 2,
+          "status": "passed",
+          "evidence": [
+            "experiments/logs/R008a-data-semantics.log"
+          ]
+        },
+        {
+          "path": "experiments/code/revised_models.py",
+          "locator": "ControlledS3Net.controls and ControlledPixelLoss.forward",
+          "field_name": "red",
+          "position_source": "data_semantics.RED",
+          "observed_position": 2,
+          "status": "passed",
+          "evidence": [
+            "experiments/code/test_revised_models.py"
+          ]
+        },
+        {
+          "path": "experiments/code/run_multi_index_ablation.py",
+          "locator": "MultiIndexS3Net.extract_index_and_gradient",
+          "field_name": "red",
+          "position_source": "data_semantics.RED",
+          "observed_position": 2,
+          "status": "passed",
+          "evidence": [
+            "experiments/logs/R008a-data-semantics.log"
+          ]
+        },
+        {
+          "path": "experiments/code/run_loro_and_false_alarms.py",
+          "locator": "spectral fingerprint and numpy_ndvi construction",
+          "field_name": "red",
+          "position_source": "data_semantics.RED",
+          "observed_position": 2,
+          "status": "passed",
+          "evidence": [
+            "experiments/logs/R008a-data-semantics.log"
+          ]
+        },
+        {
+          "path": "experiments/code/make_figures.py",
+          "locator": "natural-color rendering and numpy_ndvi",
+          "field_name": "red",
+          "position_source": "data_semantics.RED",
+          "observed_position": 2,
+          "status": "passed",
+          "evidence": [
+            "experiments/logs/R008a-data-semantics.log"
+          ]
+        }
+      ],
+      "sentinel_test": {
+        "command": "/opt/homebrew/bin/python3.10 experiments/code/test_data_semantics.py",
+        "exit_code": 0,
+        "evidence": [
+          "experiments/logs/R008a-data-semantics.log",
+          "SHA-256 48dd9d365b39c7e035038d096191769732ccfeff7678c3b0b6a0399e263626df"
+        ]
+      },
+      "status": "verified"
+    }
+  ]
+}
