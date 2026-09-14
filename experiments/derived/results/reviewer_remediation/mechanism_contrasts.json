@@ -1,24 +1,24 @@
 {
-  "recommended_arm_by_mean_f1_then_boundary_f1": "s3_raw_boundary",
+  "recommended_arm_by_mean_f1_then_boundary_f1": "s3_none_boundary",
   "contrasts": {
-    "ndvi_vs_zero_control_f1": 0.0003886461337860858,
-    "ndvi_vs_raw_edge_f1": -0.0021078814293531423,
-    "plain_boundary_vs_base_f1": 0.012000585546126374,
-    "plain_boundary_vs_base_boundary_f1": 0.033703795646029655,
+    "ndvi_vs_zero_control_f1": 0.0016084186063056727,
+    "ndvi_vs_raw_edge_f1": -0.00010715106525094331,
+    "plain_boundary_vs_base_f1": 0.009433986332370026,
+    "plain_boundary_vs_base_boundary_f1": 0.031969001901398286,
     "zero_control_boundary_vs_base_f1": 0.011144537048289549,
-    "raw_edge_boundary_vs_base_f1": 0.010655266954538,
-    "ndvi_boundary_vs_raw_boundary_f1": -0.0007625628377647686,
-    "biophysical_vs_plain_boundary_f1": -0.0019268979994029323,
-    "biophysical_vs_plain_boundary_boundary_f1": 0.0008959464028136521,
+    "raw_edge_boundary_vs_base_f1": 0.008282168815260227,
+    "ndvi_boundary_vs_raw_boundary_f1": 0.0010446664518588555,
+    "biophysical_vs_plain_boundary_f1": -0.0010698676215330494,
+    "biophysical_vs_plain_boundary_boundary_f1": 0.00349055740729598,
     "unet_base_controlled_resolution_f1_drop": -0.050749800341537754,
     "resunet_base_controlled_resolution_f1_drop": -0.043298849639493375,
     "s3_none_base_controlled_resolution_f1_drop": -0.05168156902381982,
-    "s3_raw_base_controlled_resolution_f1_drop": -0.052021934496102484,
-    "s3_ndvi_base_controlled_resolution_f1_drop": -0.04808422010505409,
-    "s3_ndvi_boundary_controlled_resolution_f1_drop": -0.047897926177452366,
+    "s3_raw_base_controlled_resolution_f1_drop": -0.05129678662983139,
+    "s3_ndvi_base_controlled_resolution_f1_drop": -0.0511079944251559,
+    "s3_ndvi_boundary_controlled_resolution_f1_drop": -0.04843552874604118,
     "s3_none_boundary_controlled_resolution_f1_drop": -0.04638461777278935,
-    "s3_raw_boundary_controlled_resolution_f1_drop": -0.046329002839276656,
-    "s3_ndvi_biophysical_controlled_resolution_f1_drop": -0.045627343687056454
+    "s3_raw_boundary_controlled_resolution_f1_drop": -0.045052136251307995,
+    "s3_ndvi_biophysical_controlled_resolution_f1_drop": -0.048125444116546845
   },
   "interpretation_rule": "NDVI specificity is supported only if NDVI exceeds the raw-edge control; biophysical loss specificity is supported only if it exceeds plain boundary weighting. No tile-level inferential statistics are reported because event/spatial IDs are absent."
 }

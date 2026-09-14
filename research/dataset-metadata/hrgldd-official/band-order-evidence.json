@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "dataset": "HR-GLDD Zenodo record 7189381",
+  "conclusion": "The released NumPy image arrays are ordered Red, Green, Blue, NIR.",
+  "official_repository": "https://github.com/kushanavbhuyan/HR-GLDD-A-Global-Landslide-Mapping-Data-Repository",
+  "repository_commit": "e164986c5cd9292b76655788c68f46bf460dfb65",
+  "notebook_path": "Codes/Unet_v1.ipynb",
+  "notebook_blob": "d2434266e71521c5c90d5070a14d499053b385dd",
+  "local_snapshot": "research/dataset-metadata/hrgldd-official/Unet_v1.ipynb",
+  "local_sha256": "5fc43a5af9f97a115190d3866a6806f3445f4e8f8f66d4042aac6b4e62ad8c1a",
+  "array_binding": {
+    "load_cell": [
+      "X_train = np.load(f'data/arrays/trainX.npy')",
+      "X_val = np.load(f'data/arrays/valX.npy')",
+      "X_test = np.load(f'data/arrays/testX.npy')"
+    ],
+    "render_cell": "axarr[0].imshow(X_train[i][:,:,:3])",
+    "interpretation": "matplotlib.imshow receives the first three released array columns directly as RGB, so columns 0, 1, and 2 are Red, Green, and Blue respectively."
+  },
+  "paper_binding": {
+    "doi": "10.5194/essd-15-3283-2023",
+    "statement": "The dataset was prepared using only the red, green, blue, and NIR bands."
+  },
+  "native_product_caveat": "PlanetScope source GeoTIFFs commonly store four-band products as BGRN. The official HR-GLDD array pipeline/output is a separate representation; the array-specific notebook and paper control the released NumPy semantics.",
+  "scientific_consequence": "The prior BGRN remediation was incorrect. Every R009 spectral arm must be rerun with RED=0 and NIR=3 before reporting."
+}

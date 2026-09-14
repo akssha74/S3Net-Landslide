@@ -1,11 +1,16 @@
-"""Authoritative HR-GLDD channel semantics used by every experiment."""
+"""Authoritative HR-GLDD array semantics used by every experiment.
+
+The official notebook loads the released arrays and renders channels 0:3
+directly as RGB.  The dataset paper likewise names the prepared bands in
+Red, Green, Blue, NIR order.
+"""
 
 from __future__ import annotations
 
 from typing import Any
 
 
-BAND_ORDER = ("blue", "green", "red", "nir")
+BAND_ORDER = ("red", "green", "blue", "nir")
 BAND_INDEX = {name: index for index, name in enumerate(BAND_ORDER)}
 BLUE = BAND_INDEX["blue"]
 GREEN = BAND_INDEX["green"]

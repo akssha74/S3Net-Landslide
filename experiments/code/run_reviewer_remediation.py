@@ -537,7 +537,8 @@ def main() -> None:
                 "events or spatial blocks."
             ),
             "boundary_metric": (
-                "Per-tile boundary F1 with one-pixel symmetric matching tolerance."
+                "Per-tile boundary F1 with one-pixel Chebyshev "
+                "(3x3, 8-neighbour) symmetric matching tolerance."
             ),
             "matched_recall": (
                 "Each model threshold is selected at the exact validation-score "

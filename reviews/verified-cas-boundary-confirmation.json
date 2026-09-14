@@ -1,0 +1,1363 @@
+{
+  "run": "R011b-cas-boundary-confirmation",
+  "independence_unit": "CAS subdataset region/event",
+  "protected_events": [
+    "Mengdong",
+    "Moxi-UAV-1m",
+    "Tiburon-Planet"
+  ],
+  "checks": [
+    {
+      "loss_mode": "base",
+      "seed": 42,
+      "event": "Mengdong",
+      "metric": "threshold",
+      "reported": 0.4,
+      "recomputed": 0.4,
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 42,
+      "event": "Mengdong",
+      "metric": "f1",
+      "reported": 0.5693977718046438,
+      "recomputed": 0.5693977718046438,
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 42,
+      "event": "Mengdong",
+      "metric": "iou",
+      "reported": 0.3980126415173523,
+      "recomputed": 0.3980126415173523,
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 42,
+      "event": "Mengdong",
+      "metric": "precision",
+      "reported": 0.5841450134076511,
+      "recomputed": 0.5841450134076511,
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 42,
+      "event": "Mengdong",
+      "metric": "recall",
+      "reported": 0.5553768082026554,
+      "recomputed": 0.5553768082026554,
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 42,
+      "event": "Mengdong",
+      "metric": "background_fpr",
+      "reported": 0.04741226942530486,
+      "recomputed": 0.04741226942530486,
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 42,
+      "event": "Mengdong",
+      "metric": "false_positive_pixels",
+      "reported": 1775680,
+      "recomputed": 1775680,
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 42,
+      "event": "Mengdong",
+      "metric": "boundary_f1",
+      "reported": 0.39194609548090575,
+      "recomputed": 0.39194609548090575,
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 42,
+      "event": "Moxi-UAV-1m",
+      "metric": "threshold",
+      "reported": 0.4,
+      "recomputed": 0.4,
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 42,
+      "event": "Moxi-UAV-1m",
+      "metric": "f1",
+      "reported": 0.2732941504914226,
+      "recomputed": 0.2732941504914226,
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 42,
+      "event": "Moxi-UAV-1m",
+      "metric": "iou",
+      "reported": 0.1582748738409628,
+      "recomputed": 0.1582748738409628,
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 42,
+      "event": "Moxi-UAV-1m",
+      "metric": "precision",
+      "reported": 0.6286982695391278,
+      "recomputed": 0.6286982695391278,
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 42,
+      "event": "Moxi-UAV-1m",
+      "metric": "recall",
+      "reported": 0.17459520623240793,
+      "recomputed": 0.17459520623240793,
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 42,
+      "event": "Moxi-UAV-1m",
+      "metric": "background_fpr",
+      "reported": 0.007886532568176724,
+      "recomputed": 0.007886532568176724,
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 42,
+      "event": "Moxi-UAV-1m",
+      "metric": "false_positive_pixels",
+      "reported": 307283,
+      "recomputed": 307283,
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 42,
+      "event": "Moxi-UAV-1m",
+      "metric": "boundary_f1",
+      "reported": 0.41138393752221064,
+      "recomputed": 0.41138393752221064,
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 42,
+      "event": "Tiburon-Planet",
+      "metric": "threshold",
+      "reported": 0.4,
+      "recomputed": 0.4,
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 42,
+      "event": "Tiburon-Planet",
+      "metric": "f1",
+      "reported": 0.5949059324715075,
+      "recomputed": 0.5949059324715075,
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 42,
+      "event": "Tiburon-Planet",
+      "metric": "iou",
+      "reported": 0.4233922455582811,
+      "recomputed": 0.4233922455582811,
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 42,
+      "event": "Tiburon-Planet",
+      "metric": "precision",
+      "reported": 0.6080191454842487,
+      "recomputed": 0.6080191454842487,
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 42,
+      "event": "Tiburon-Planet",
+      "metric": "recall",
+      "reported": 0.5823464061349317,
+      "recomputed": 0.5823464061349317,
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 42,
+      "event": "Tiburon-Planet",
+      "metric": "background_fpr",
+      "reported": 0.02661803283983327,
+      "recomputed": 0.02661803283983327,
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 42,
+      "event": "Tiburon-Planet",
+      "metric": "false_positive_pixels",
+      "reported": 1042526,
+      "recomputed": 1042526,
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 42,
+      "event": "Tiburon-Planet",
+      "metric": "boundary_f1",
+      "reported": 0.4608326213672143,
+      "recomputed": 0.4608326213672143,
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 43,
+      "event": "Mengdong",
+      "metric": "threshold",
+      "reported": 0.45,
+      "recomputed": 0.45,
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 43,
+      "event": "Mengdong",
+      "metric": "f1",
+      "reported": 0.5618691307523063,
+      "recomputed": 0.5618691307523063,
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 43,
+      "event": "Mengdong",
+      "metric": "iou",
+      "reported": 0.39069402011113763,
+      "recomputed": 0.39069402011113763,
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 43,
+      "event": "Mengdong",
+      "metric": "precision",
+      "reported": 0.6210597057654847,
+      "recomputed": 0.6210597057654847,
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 43,
+      "event": "Mengdong",
+      "metric": "recall",
+      "reported": 0.5129792473209978,
+      "recomputed": 0.5129792473209978,
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 43,
+      "event": "Mengdong",
+      "metric": "background_fpr",
+      "reported": 0.03753349395353919,
+      "recomputed": 0.03753349395353919,
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 43,
+      "event": "Mengdong",
+      "metric": "false_positive_pixels",
+      "reported": 1405701,
+      "recomputed": 1405701,
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 43,
+      "event": "Mengdong",
+      "metric": "boundary_f1",
+      "reported": 0.44276084523789294,
+      "recomputed": 0.44276084523789294,
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 43,
+      "event": "Moxi-UAV-1m",
+      "metric": "threshold",
+      "reported": 0.45,
+      "recomputed": 0.45,
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 43,
+      "event": "Moxi-UAV-1m",
+      "metric": "f1",
+      "reported": 0.35485799566659776,
+      "recomputed": 0.35485799566659776,
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 43,
+      "event": "Moxi-UAV-1m",
+      "metric": "iou",
+      "reported": 0.2157005259922126,
+      "recomputed": 0.2157005259922126,
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 43,
+      "event": "Moxi-UAV-1m",
+      "metric": "precision",
+      "reported": 0.6936764797775452,
+      "recomputed": 0.6936764797775452,
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 43,
+      "event": "Moxi-UAV-1m",
+      "metric": "recall",
+      "reported": 0.23840953599218265,
+      "recomputed": 0.23840953599218265,
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 43,
+      "event": "Moxi-UAV-1m",
+      "metric": "background_fpr",
+      "reported": 0.008052228211151275,
+      "recomputed": 0.008052228211151275,
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 43,
+      "event": "Moxi-UAV-1m",
+      "metric": "false_positive_pixels",
+      "reported": 313739,
+      "recomputed": 313739,
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 43,
+      "event": "Moxi-UAV-1m",
+      "metric": "boundary_f1",
+      "reported": 0.43896587220126404,
+      "recomputed": 0.43896587220126404,
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 43,
+      "event": "Tiburon-Planet",
+      "metric": "threshold",
+      "reported": 0.45,
+      "recomputed": 0.45,
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 43,
+      "event": "Tiburon-Planet",
+      "metric": "f1",
+      "reported": 0.5716600926047858,
+      "recomputed": 0.5716600926047858,
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 43,
+      "event": "Tiburon-Planet",
+      "metric": "iou",
+      "reported": 0.4002269275296601,
+      "recomputed": 0.4002269275296601,
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 43,
+      "event": "Tiburon-Planet",
+      "metric": "precision",
+      "reported": 0.4747291877488812,
+      "recomputed": 0.4747291877488812,
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 43,
+      "event": "Tiburon-Planet",
+      "metric": "recall",
+      "reported": 0.7183297111691698,
+      "recomputed": 0.7183297111691698,
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 43,
+      "event": "Tiburon-Planet",
+      "metric": "background_fpr",
+      "reported": 0.05635184255385804,
+      "recomputed": 0.05635184255385804,
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 43,
+      "event": "Tiburon-Planet",
+      "metric": "false_positive_pixels",
+      "reported": 2207085,
+      "recomputed": 2207085,
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 43,
+      "event": "Tiburon-Planet",
+      "metric": "boundary_f1",
+      "reported": 0.407389138645017,
+      "recomputed": 0.407389138645017,
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 44,
+      "event": "Mengdong",
+      "metric": "threshold",
+      "reported": 0.45,
+      "recomputed": 0.45,
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 44,
+      "event": "Mengdong",
+      "metric": "f1",
+      "reported": 0.503964263726746,
+      "recomputed": 0.503964263726746,
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 44,
+      "event": "Mengdong",
+      "metric": "iou",
+      "reported": 0.336866460812067,
+      "recomputed": 0.336866460812067,
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 44,
+      "event": "Mengdong",
+      "metric": "precision",
+      "reported": 0.6456042216946186,
+      "recomputed": 0.6456042216946186,
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 44,
+      "event": "Mengdong",
+      "metric": "recall",
+      "reported": 0.41329166305770193,
+      "recomputed": 0.41329166305770193,
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 44,
+      "event": "Mengdong",
+      "metric": "background_fpr",
+      "reported": 0.02720574270326247,
+      "recomputed": 0.02720574270326247,
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 44,
+      "event": "Mengdong",
+      "metric": "false_positive_pixels",
+      "reported": 1018907,
+      "recomputed": 1018907,
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 44,
+      "event": "Mengdong",
+      "metric": "boundary_f1",
+      "reported": 0.46019232103769914,
+      "recomputed": 0.46019232103769914,
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 44,
+      "event": "Moxi-UAV-1m",
+      "metric": "threshold",
+      "reported": 0.45,
+      "recomputed": 0.45,
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 44,
+      "event": "Moxi-UAV-1m",
+      "metric": "f1",
+      "reported": 0.11764115313049714,
+      "recomputed": 0.11764115313049714,
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 44,
+      "event": "Moxi-UAV-1m",
+      "metric": "iou",
+      "reported": 0.062496666523571096,
+      "recomputed": 0.062496666523571096,
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 44,
+      "event": "Moxi-UAV-1m",
+      "metric": "precision",
+      "reported": 0.6695760641948982,
+      "recomputed": 0.6695760641948982,
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 44,
+      "event": "Moxi-UAV-1m",
+      "metric": "recall",
+      "reported": 0.06448546259172708,
+      "recomputed": 0.06448546259172708,
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 44,
+      "event": "Moxi-UAV-1m",
+      "metric": "background_fpr",
+      "reported": 0.0024338985772246924,
+      "recomputed": 0.0024338985772246924,
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 44,
+      "event": "Moxi-UAV-1m",
+      "metric": "false_positive_pixels",
+      "reported": 94832,
+      "recomputed": 94832,
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 44,
+      "event": "Moxi-UAV-1m",
+      "metric": "boundary_f1",
+      "reported": 0.45425126937804905,
+      "recomputed": 0.45425126937804905,
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 44,
+      "event": "Tiburon-Planet",
+      "metric": "threshold",
+      "reported": 0.45,
+      "recomputed": 0.45,
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 44,
+      "event": "Tiburon-Planet",
+      "metric": "f1",
+      "reported": 0.554600031216333,
+      "recomputed": 0.554600031216333,
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 44,
+      "event": "Tiburon-Planet",
+      "metric": "iou",
+      "reported": 0.3837000437207979,
+      "recomputed": 0.3837000437207979,
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 44,
+      "event": "Tiburon-Planet",
+      "metric": "precision",
+      "reported": 0.7332829600539105,
+      "recomputed": 0.7332829600539105,
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 44,
+      "event": "Tiburon-Planet",
+      "metric": "recall",
+      "reported": 0.4459363639473727,
+      "recomputed": 0.4459363639473727,
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 44,
+      "event": "Tiburon-Planet",
+      "metric": "background_fpr",
+      "reported": 0.011500031085512478,
+      "recomputed": 0.011500031085512478,
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 44,
+      "event": "Tiburon-Planet",
+      "metric": "false_positive_pixels",
+      "reported": 450412,
+      "recomputed": 450412,
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 44,
+      "event": "Tiburon-Planet",
+      "metric": "boundary_f1",
+      "reported": 0.4595106133197827,
+      "recomputed": 0.4595106133197827,
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 42,
+      "event": "Mengdong",
+      "metric": "threshold",
+      "reported": 0.5,
+      "recomputed": 0.5,
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 42,
+      "event": "Mengdong",
+      "metric": "f1",
+      "reported": 0.4828392208119176,
+      "recomputed": 0.4828392208119176,
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 42,
+      "event": "Mengdong",
+      "metric": "iou",
+      "reported": 0.318251847421413,
+      "recomputed": 0.318251847421413,
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 42,
+      "event": "Mengdong",
+      "metric": "precision",
+      "reported": 0.6057341600448098,
+      "recomputed": 0.6057341600448098,
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 42,
+      "event": "Mengdong",
+      "metric": "recall",
+      "reported": 0.40140067167936094,
+      "recomputed": 0.40140067167936094,
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 42,
+      "event": "Mengdong",
+      "metric": "background_fpr",
+      "reported": 0.03133047236657549,
+      "recomputed": 0.03133047236657549,
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 42,
+      "event": "Mengdong",
+      "metric": "false_positive_pixels",
+      "reported": 1173386,
+      "recomputed": 1173386,
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 42,
+      "event": "Mengdong",
+      "metric": "boundary_f1",
+      "reported": 0.40738172021048813,
+      "recomputed": 0.40738172021048813,
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 42,
+      "event": "Moxi-UAV-1m",
+      "metric": "threshold",
+      "reported": 0.5,
+      "recomputed": 0.5,
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 42,
+      "event": "Moxi-UAV-1m",
+      "metric": "f1",
+      "reported": 0.14594506589028503,
+      "recomputed": 0.14594506589028503,
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 42,
+      "event": "Moxi-UAV-1m",
+      "metric": "iou",
+      "reported": 0.07871668913648737,
+      "recomputed": 0.07871668913648737,
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 42,
+      "event": "Moxi-UAV-1m",
+      "metric": "precision",
+      "reported": 0.4544103924168754,
+      "recomputed": 0.4544103924168754,
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 42,
+      "event": "Moxi-UAV-1m",
+      "metric": "recall",
+      "reported": 0.08693284242203786,
+      "recomputed": 0.08693284242203786,
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 42,
+      "event": "Moxi-UAV-1m",
+      "metric": "background_fpr",
+      "reported": 0.007983085698423048,
+      "recomputed": 0.007983085698423048,
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 42,
+      "event": "Moxi-UAV-1m",
+      "metric": "false_positive_pixels",
+      "reported": 311045,
+      "recomputed": 311045,
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 42,
+      "event": "Moxi-UAV-1m",
+      "metric": "boundary_f1",
+      "reported": 0.3997357661774813,
+      "recomputed": 0.3997357661774813,
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 42,
+      "event": "Tiburon-Planet",
+      "metric": "threshold",
+      "reported": 0.5,
+      "recomputed": 0.5,
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 42,
+      "event": "Tiburon-Planet",
+      "metric": "f1",
+      "reported": 0.49606915463023593,
+      "recomputed": 0.49606915463023593,
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 42,
+      "event": "Tiburon-Planet",
+      "metric": "iou",
+      "reported": 0.3298483810991122,
+      "recomputed": 0.3298483810991122,
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 42,
+      "event": "Tiburon-Planet",
+      "metric": "precision",
+      "reported": 0.6537324949564859,
+      "recomputed": 0.6537324949564859,
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 42,
+      "event": "Tiburon-Planet",
+      "metric": "recall",
+      "reported": 0.3996773362958855,
+      "recomputed": 0.3996773362958855,
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 42,
+      "event": "Tiburon-Planet",
+      "metric": "background_fpr",
+      "reported": 0.015009566295185219,
+      "recomputed": 0.015009566295185219,
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 42,
+      "event": "Tiburon-Planet",
+      "metric": "false_positive_pixels",
+      "reported": 587867,
+      "recomputed": 587867,
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 42,
+      "event": "Tiburon-Planet",
+      "metric": "boundary_f1",
+      "reported": 0.4570526174307393,
+      "recomputed": 0.4570526174307393,
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 43,
+      "event": "Mengdong",
+      "metric": "threshold",
+      "reported": 0.5,
+      "recomputed": 0.5,
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 43,
+      "event": "Mengdong",
+      "metric": "f1",
+      "reported": 0.5378624631673329,
+      "recomputed": 0.5378624631673329,
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 43,
+      "event": "Mengdong",
+      "metric": "iou",
+      "reported": 0.36786037538744076,
+      "recomputed": 0.36786037538744076,
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 43,
+      "event": "Mengdong",
+      "metric": "precision",
+      "reported": 0.6448073588984806,
+      "recomputed": 0.6448073588984806,
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 43,
+      "event": "Mengdong",
+      "metric": "recall",
+      "reported": 0.46134570556948795,
+      "recomputed": 0.46134570556948795,
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 43,
+      "event": "Mengdong",
+      "metric": "background_fpr",
+      "reported": 0.03047489515153954,
+      "recomputed": 0.03047489515153954,
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 43,
+      "event": "Mengdong",
+      "metric": "false_positive_pixels",
+      "reported": 1141343,
+      "recomputed": 1141343,
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 43,
+      "event": "Mengdong",
+      "metric": "boundary_f1",
+      "reported": 0.4270393787032127,
+      "recomputed": 0.4270393787032127,
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 43,
+      "event": "Moxi-UAV-1m",
+      "metric": "threshold",
+      "reported": 0.5,
+      "recomputed": 0.5,
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 43,
+      "event": "Moxi-UAV-1m",
+      "metric": "f1",
+      "reported": 0.38989750813889645,
+      "recomputed": 0.38989750813889645,
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 43,
+      "event": "Moxi-UAV-1m",
+      "metric": "iou",
+      "reported": 0.24215694970338023,
+      "recomputed": 0.24215694970338023,
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 43,
+      "event": "Moxi-UAV-1m",
+      "metric": "precision",
+      "reported": 0.6261374330899883,
+      "recomputed": 0.6261374330899883,
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 43,
+      "event": "Moxi-UAV-1m",
+      "metric": "recall",
+      "reported": 0.2830888620137475,
+      "recomputed": 0.2830888620137475,
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 43,
+      "event": "Moxi-UAV-1m",
+      "metric": "background_fpr",
+      "reported": 0.012928084292473958,
+      "recomputed": 0.012928084292473958,
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 43,
+      "event": "Moxi-UAV-1m",
+      "metric": "false_positive_pixels",
+      "reported": 503717,
+      "recomputed": 503717,
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 43,
+      "event": "Moxi-UAV-1m",
+      "metric": "boundary_f1",
+      "reported": 0.3321119634356089,
+      "recomputed": 0.3321119634356089,
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 43,
+      "event": "Tiburon-Planet",
+      "metric": "threshold",
+      "reported": 0.5,
+      "recomputed": 0.5,
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 43,
+      "event": "Tiburon-Planet",
+      "metric": "f1",
+      "reported": 0.5973298996001755,
+      "recomputed": 0.5973298996001755,
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 43,
+      "event": "Tiburon-Planet",
+      "metric": "iou",
+      "reported": 0.4258520228169898,
+      "recomputed": 0.4258520228169898,
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 43,
+      "event": "Tiburon-Planet",
+      "metric": "precision",
+      "reported": 0.5275214180875256,
+      "recomputed": 0.5275214180875256,
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 43,
+      "event": "Tiburon-Planet",
+      "metric": "recall",
+      "reported": 0.688432182103328,
+      "recomputed": 0.688432182103328,
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 43,
+      "event": "Tiburon-Planet",
+      "metric": "background_fpr",
+      "reported": 0.04371697962181889,
+      "recomputed": 0.04371697962181889,
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 43,
+      "event": "Tiburon-Planet",
+      "metric": "false_positive_pixels",
+      "reported": 1712226,
+      "recomputed": 1712226,
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 43,
+      "event": "Tiburon-Planet",
+      "metric": "boundary_f1",
+      "reported": 0.4049521668456558,
+      "recomputed": 0.4049521668456558,
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 44,
+      "event": "Mengdong",
+      "metric": "threshold",
+      "reported": 0.45,
+      "recomputed": 0.45,
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 44,
+      "event": "Mengdong",
+      "metric": "f1",
+      "reported": 0.5213900491398877,
+      "recomputed": 0.5213900491398877,
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 44,
+      "event": "Mengdong",
+      "metric": "iou",
+      "reported": 0.3526217639997577,
+      "recomputed": 0.3526217639997577,
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 44,
+      "event": "Mengdong",
+      "metric": "precision",
+      "reported": 0.6356387841965925,
+      "recomputed": 0.6356387841965925,
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 44,
+      "event": "Mengdong",
+      "metric": "recall",
+      "reported": 0.44195393098085983,
+      "recomputed": 0.44195393098085983,
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 44,
+      "event": "Mengdong",
+      "metric": "background_fpr",
+      "reported": 0.030379492805026307,
+      "recomputed": 0.030379492805026307,
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 44,
+      "event": "Mengdong",
+      "metric": "false_positive_pixels",
+      "reported": 1137770,
+      "recomputed": 1137770,
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 44,
+      "event": "Mengdong",
+      "metric": "boundary_f1",
+      "reported": 0.4486754997198915,
+      "recomputed": 0.4486754997198915,
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 44,
+      "event": "Moxi-UAV-1m",
+      "metric": "threshold",
+      "reported": 0.45,
+      "recomputed": 0.45,
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 44,
+      "event": "Moxi-UAV-1m",
+      "metric": "f1",
+      "reported": 0.11896217632449578,
+      "recomputed": 0.11896217632449578,
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 44,
+      "event": "Moxi-UAV-1m",
+      "metric": "iou",
+      "reported": 0.06324284117373379,
+      "recomputed": 0.06324284117373379,
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 44,
+      "event": "Moxi-UAV-1m",
+      "metric": "precision",
+      "reported": 0.6175314985171613,
+      "recomputed": 0.6175314985171613,
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 44,
+      "event": "Moxi-UAV-1m",
+      "metric": "recall",
+      "reported": 0.06582101692731229,
+      "recomputed": 0.06582101692731229,
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 44,
+      "event": "Moxi-UAV-1m",
+      "metric": "background_fpr",
+      "reported": 0.00311795774268329,
+      "recomputed": 0.00311795774268329,
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 44,
+      "event": "Moxi-UAV-1m",
+      "metric": "false_positive_pixels",
+      "reported": 121485,
+      "recomputed": 121485,
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 44,
+      "event": "Moxi-UAV-1m",
+      "metric": "boundary_f1",
+      "reported": 0.41845526034062175,
+      "recomputed": 0.41845526034062175,
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 44,
+      "event": "Tiburon-Planet",
+      "metric": "threshold",
+      "reported": 0.45,
+      "recomputed": 0.45,
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 44,
+      "event": "Tiburon-Planet",
+      "metric": "f1",
+      "reported": 0.6145166431193377,
+      "recomputed": 0.6145166431193377,
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 44,
+      "event": "Tiburon-Planet",
+      "metric": "iou",
+      "reported": 0.4435395344646271,
+      "recomputed": 0.4435395344646271,
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 44,
+      "event": "Tiburon-Planet",
+      "metric": "precision",
+      "reported": 0.7244164477113094,
+      "recomputed": 0.7244164477113094,
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 44,
+      "event": "Tiburon-Planet",
+      "metric": "recall",
+      "reported": 0.5335698093367208,
+      "recomputed": 0.5335698093367208,
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 44,
+      "event": "Tiburon-Planet",
+      "metric": "background_fpr",
+      "reported": 0.014391405028142283,
+      "recomputed": 0.014391405028142283,
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 44,
+      "event": "Tiburon-Planet",
+      "metric": "false_positive_pixels",
+      "reported": 563656,
+      "recomputed": 563656,
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 44,
+      "event": "Tiburon-Planet",
+      "metric": "boundary_f1",
+      "reported": 0.4641353143746425,
+      "recomputed": 0.4641353143746425,
+      "matched": true
+    },
+    {
+      "loss_mode": "contrast",
+      "seed": 42,
+      "event": "event-macro",
+      "metric": "event_macro_delta_f1",
+      "reported": -0.10424813781171176,
+      "recomputed": -0.10424813781171176,
+      "matched": true
+    },
+    {
+      "loss_mode": "contrast",
+      "seed": 42,
+      "event": "event-macro",
+      "metric": "event_macro_delta_boundary_f1",
+      "reported": 2.4831494593498724e-06,
+      "recomputed": 2.4831494593498724e-06,
+      "matched": true
+    },
+    {
+      "loss_mode": "contrast",
+      "seed": 43,
+      "event": "event-macro",
+      "metric": "event_macro_delta_f1",
+      "reported": 0.012234217294238329,
+      "recomputed": 0.012234217294238329,
+      "matched": true
+    },
+    {
+      "loss_mode": "contrast",
+      "seed": 43,
+      "event": "event-macro",
+      "metric": "event_macro_delta_boundary_f1",
+      "reported": -0.04167078236656554,
+      "recomputed": -0.04167078236656554,
+      "matched": true
+    },
+    {
+      "loss_mode": "contrast",
+      "seed": 44,
+      "event": "event-macro",
+      "metric": "event_macro_delta_f1",
+      "reported": 0.0262211401700484,
+      "recomputed": 0.0262211401700484,
+      "matched": true
+    },
+    {
+      "loss_mode": "contrast",
+      "seed": 44,
+      "event": "event-macro",
+      "metric": "event_macro_delta_boundary_f1",
+      "reported": -0.014229376433458377,
+      "recomputed": -0.014229376433458377,
+      "matched": true
+    }
+  ],
+  "failed": [],
+  "status": "passed"
+}

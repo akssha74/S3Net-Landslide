@@ -8,6 +8,11 @@ The study does **not** claim an NDVI-specific or biophysical-loss mechanism.
 Across three seeds, raw-edge, NDVI, and zero-control residual-attention models are
 closely grouped. Ordinary boundary weighting improves boundary F1 across all three
 controls; NDVI-modulated weighting does not improve F1 over the plain control.
+The released HR-GLDD arrays are interpreted as RGBN from the pinned official
+notebook that loads the arrays and renders channels 0--2 directly as RGB.
+
+A preregistered event-held-out CAS experiment separately tests whether the generic
+boundary-weighting result replicates in RGB imagery. CAS imagery is not redistributed.
 
 ## Reproduce
 
@@ -23,6 +28,16 @@ python experiments/code/test_revised_models.py
 python experiments/code/test_reviewer_remediation_metrics.py
 python experiments/code/run_reviewer_remediation.py
 python experiments/code/make_reviewer_remediation_artifacts.py
+```
+
+To reproduce the external confirmation, download the eight CAS archives named in
+`run_cas_boundary_confirmation.py` from
+https://doi.org/10.5281/zenodo.10294997, place them under
+`experiments/raw/external/cas/`, then run:
+
+```bash
+python experiments/code/run_cas_boundary_confirmation.py
+python reviews/verify_cas_boundary_confirmation.py
 ```
 
 The released HR-GLDD arrays do not include event IDs or coordinates. The study

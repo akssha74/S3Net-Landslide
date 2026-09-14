@@ -18,13 +18,17 @@ def main() -> None:
     assert len(set(counts.values())) == 1, counts
 
     x = torch.zeros((2, 4, 16, 16), dtype=torch.float32)
-    x[:, 0] = 0.01
+    x[:, 0] = 0.20
     x[:, 1] = 0.02
-    x[:, 2] = 0.20
+    x[:, 2] = 0.01
     x[:, 3] = 0.60
     for model in models.values():
         output = model(x)
         assert output.shape == (2, 16, 16)
+
+    rgb = torch.zeros((2, 3, 16, 16), dtype=torch.float32)
+    rgb_output = ControlledS3Net(in_ch=3, gating_mode="none")(rgb)
+    assert rgb_output.shape == (2, 16, 16)
 
     targets = torch.zeros((2, 16, 16), dtype=torch.float32)
     targets[:, 4:12, 4:12] = 1.0

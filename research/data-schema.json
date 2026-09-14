@@ -5,13 +5,13 @@
       "dataset_id": "hr-gldd-planetscope-v1",
       "artifact_pattern": "experiments/raw/hr_gldd/{train,val,test}X.npy",
       "version": "Zenodo record 7189381, MD5-verified local arrays",
-      "authoritative_source": "PlanetScope four-band documentation: https://docs.planet.com/data/imagery/planetscope/ (Band 1 Blue, Band 2 Green, Band 3 Red, Band 4 NIR); corroborated by natural-color rendering with [2,1,0] and stronger expected vegetation/background separation using channel 2 as Red",
+      "authoritative_source": "Array-specific evidence: the official HR-GLDD notebook at repository commit e164986c5cd9292b76655788c68f46bf460dfb65 (blob d2434266e71521c5c90d5070a14d499053b385dd; local SHA-256 5fc43a5af9f97a115190d3866a6806f3445f4e8f8f66d4042aac6b4e62ad8c1a) loads the released trainX.npy/valX.npy/testX.npy arrays and renders X_train[i][:,:,:3] directly with matplotlib.imshow, establishing RGB for columns 0:3; the dataset paper names the prepared bands Red, Green, Blue, NIR.",
       "feature_axis": 3,
       "fields": [
         {
-          "name": "blue",
+          "name": "red",
           "index": 0,
-          "semantic_role": "PlanetScope blue surface reflectance",
+          "semantic_role": "PlanetScope red surface reflectance and NDVI denominator/numerator term",
           "unit": "scaled surface reflectance"
         },
         {
@@ -21,9 +21,9 @@
           "unit": "scaled surface reflectance"
         },
         {
-          "name": "red",
+          "name": "blue",
           "index": 2,
-          "semantic_role": "PlanetScope red surface reflectance and NDVI denominator/numerator term",
+          "semantic_role": "PlanetScope blue surface reflectance",
           "unit": "scaled surface reflectance"
         },
         {
@@ -36,7 +36,7 @@
       "transforms": [
         "NHWC arrays are permuted to NCHW for PyTorch",
         "NDVI=(NIR-Red)/(NIR+Red+1e-6)",
-        "Natural-color display uses channel order [Red,Green,Blue]=[2,1,0]"
+        "Natural-color display uses array channels 0:3 directly as [Red,Green,Blue]"
       ],
       "central_semantics_path": "experiments/code/data_semantics.py",
       "hard_coded_semantic_positions_absent": true,
@@ -46,10 +46,10 @@
           "locator": "S3Net.extract_scarp_features -> data_semantics.torch_ndvi",
           "field_name": "red",
           "position_source": "data_semantics.RED",
-          "observed_position": 2,
+          "observed_position": 0,
           "status": "passed",
           "evidence": [
-            "experiments/logs/R008a-data-semantics.log"
+            "experiments/logs/R010a-rgbn-semantics.log"
           ]
         },
         {
@@ -57,7 +57,7 @@
           "locator": "ControlledS3Net.controls and ControlledPixelLoss.forward",
           "field_name": "red",
           "position_source": "data_semantics.RED",
-          "observed_position": 2,
+          "observed_position": 0,
           "status": "passed",
           "evidence": [
             "experiments/code/test_revised_models.py"
@@ -68,10 +68,10 @@
           "locator": "MultiIndexS3Net.extract_index_and_gradient",
           "field_name": "red",
           "position_source": "data_semantics.RED",
-          "observed_position": 2,
+          "observed_position": 0,
           "status": "passed",
           "evidence": [
-            "experiments/logs/R008a-data-semantics.log"
+            "experiments/logs/R010a-rgbn-semantics.log"
           ]
         },
         {
@@ -79,10 +79,10 @@
           "locator": "spectral fingerprint and numpy_ndvi construction",
           "field_name": "red",
           "position_source": "data_semantics.RED",
-          "observed_position": 2,
+          "observed_position": 0,
           "status": "passed",
           "evidence": [
-            "experiments/logs/R008a-data-semantics.log"
+            "experiments/logs/R010a-rgbn-semantics.log"
           ]
         },
         {
@@ -90,10 +90,10 @@
           "locator": "natural-color rendering and numpy_ndvi",
           "field_name": "red",
           "position_source": "data_semantics.RED",
-          "observed_position": 2,
+          "observed_position": 0,
           "status": "passed",
           "evidence": [
-            "experiments/logs/R008a-data-semantics.log"
+            "experiments/logs/R010a-rgbn-semantics.log"
           ]
         }
       ],
@@ -101,11 +101,12 @@
         "command": "/opt/homebrew/bin/python3.10 experiments/code/test_data_semantics.py",
         "exit_code": 0,
         "evidence": [
-          "experiments/logs/R008a-data-semantics.log",
-          "SHA-256 48dd9d365b39c7e035038d096191769732ccfeff7678c3b0b6a0399e263626df"
+          "experiments/logs/R010a-rgbn-semantics.log",
+          "log SHA-256 4af6a62b39bdea2c42dcc78d9df03e751b82a9f8f0947dd85c37644bd46e3054",
+          "test SHA-256 074112c3aa5902da0bc2a162f2c6a3cf915c09fd7c7191c1c171d1fc5d8d3aff"
         ]
       },
-      "status": "verified"
+      "status": "verified-array-specific-rgbn"
     }
   ]
 }

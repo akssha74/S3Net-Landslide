@@ -169,10 +169,10 @@ class ControlledS3Net(nn.Module):
         return torch.sqrt(gx.square() + gy.square() + 1e-8)
 
     def controls(self, x: torch.Tensor) -> tuple[torch.Tensor, torch.Tensor]:
-        validate_nchw(x)
         if self.gating_mode == "none":
             zero = torch.zeros_like(x[:, :1])
             return zero, zero
+        validate_nchw(x)
         if self.gating_mode == "raw":
             red = x[:, RED : RED + 1]
             nir = x[:, NIR : NIR + 1]

@@ -1,0 +1,84 @@
+{
+  "config_id": "916ec7321afd7a8c",
+  "dataset": "CAS Zenodo 10294997",
+  "folds": {
+    "schema_version": 1,
+    "created_at": "2026-09-14T17:58:30Z",
+    "selection_basis": "Outcome-independent SHA-256 ordering of selected CAS subdataset/event names before archive extraction or label inspection.",
+    "salt": "r010-cas-boundary-2026-09-14",
+    "independence_unit": "CAS subdataset region/event",
+    "development_events": [
+      "Lombok",
+      "Moxitaidi-UAV-1m",
+      "Hokkaido",
+      "Wenchuan"
+    ],
+    "validation_events": [
+      "Palu"
+    ],
+    "protected_test_events": [
+      "Mengdong",
+      "Moxi-UAV-1m",
+      "Tiburon-Planet"
+    ],
+    "protected_test_accesses": [
+      {
+        "at": "2026-09-14T17:59:40Z",
+        "event": "Wenchuan",
+        "access": "One image, binary mask, and display-label file were opened solely to verify array shapes, dtypes, and mask values before loader implementation.",
+        "outcomes_or_model_predictions_inspected": false,
+        "disposition": "Wenchuan was removed from protected testing and reassigned to development before any model fit. Previously uninspected Moxi-UAV-1m replaced it."
+      }
+    ],
+    "hash_order": [
+      "Lombok",
+      "Moxitaidi-UAV-1m",
+      "Hokkaido",
+      "Moxi-UAV-1m",
+      "Palu",
+      "Mengdong",
+      "Wenchuan",
+      "Tiburon-Planet"
+    ],
+    "deviation_note": "The original hash allocation placed Wenchuan in protected testing. A semantic-loader access occurred before model fitting, so Wenchuan was fail-closed into development and the previously uninspected Moxi-UAV-1m event was moved to protected testing."
+  },
+  "model": "ControlledS3Net(in_ch=3,gating_mode=none)",
+  "losses": [
+    "base",
+    "boundary"
+  ],
+  "seeds": [
+    42,
+    43,
+    44
+  ],
+  "epochs": 15,
+  "batch_size": 32,
+  "learning_rate": 0.0015,
+  "weight_decay": 0.0001,
+  "crop_size": 128,
+  "train_tile_limit_per_event": 80,
+  "eval_tile_limit_per_event": 160,
+  "selection_salt": "r010-cas-boundary-crops-v1",
+  "threshold_grid": [
+    0.05,
+    0.1,
+    0.15000000000000002,
+    0.2,
+    0.25,
+    0.30000000000000004,
+    0.35000000000000003,
+    0.4,
+    0.45,
+    0.5,
+    0.55,
+    0.6000000000000001,
+    0.65,
+    0.7000000000000001,
+    0.75,
+    0.8,
+    0.8500000000000001,
+    0.9,
+    0.9500000000000001
+  ]
+}

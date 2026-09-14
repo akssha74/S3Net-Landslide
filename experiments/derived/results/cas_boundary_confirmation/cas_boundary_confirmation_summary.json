@@ -1,0 +1,938 @@
+{
+  "schema_version": 1,
+  "config_id": "916ec7321afd7a8c",
+  "config": {
+    "dataset": "CAS Zenodo 10294997",
+    "folds": {
+      "schema_version": 1,
+      "created_at": "2026-09-14T17:58:30Z",
+      "selection_basis": "Outcome-independent SHA-256 ordering of selected CAS subdataset/event names before archive extraction or label inspection.",
+      "salt": "r010-cas-boundary-2026-09-14",
+      "independence_unit": "CAS subdataset region/event",
+      "development_events": [
+        "Lombok",
+        "Moxitaidi-UAV-1m",
+        "Hokkaido",
+        "Wenchuan"
+      ],
+      "validation_events": [
+        "Palu"
+      ],
+      "protected_test_events": [
+        "Mengdong",
+        "Moxi-UAV-1m",
+        "Tiburon-Planet"
+      ],
+      "protected_test_accesses": [
+        {
+          "at": "2026-09-14T17:59:40Z",
+          "event": "Wenchuan",
+          "access": "One image, binary mask, and display-label file were opened solely to verify array shapes, dtypes, and mask values before loader implementation.",
+          "outcomes_or_model_predictions_inspected": false,
+          "disposition": "Wenchuan was removed from protected testing and reassigned to development before any model fit. Previously uninspected Moxi-UAV-1m replaced it."
+        }
+      ],
+      "hash_order": [
+        "Lombok",
+        "Moxitaidi-UAV-1m",
+        "Hokkaido",
+        "Moxi-UAV-1m",
+        "Palu",
+        "Mengdong",
+        "Wenchuan",
+        "Tiburon-Planet"
+      ],
+      "deviation_note": "The original hash allocation placed Wenchuan in protected testing. A semantic-loader access occurred before model fitting, so Wenchuan was fail-closed into development and the previously uninspected Moxi-UAV-1m event was moved to protected testing."
+    },
+    "model": "ControlledS3Net(in_ch=3,gating_mode=none)",
+    "losses": [
+      "base",
+      "boundary"
+    ],
+    "seeds": [
+      42,
+      43,
+      44
+    ],
+    "epochs": 15,
+    "batch_size": 32,
+    "learning_rate": 0.0015,
+    "weight_decay": 0.0001,
+    "crop_size": 128,
+    "train_tile_limit_per_event": 80,
+    "eval_tile_limit_per_event": 160,
+    "selection_salt": "r010-cas-boundary-crops-v1",
+    "threshold_grid": [
+      0.05,
+      0.1,
+      0.15000000000000002,
+      0.2,
+      0.25,
+      0.30000000000000004,
+      0.35000000000000003,
+      0.4,
+      0.45,
+      0.5,
+      0.55,
+      0.6000000000000001,
+      0.65,
+      0.7000000000000001,
+      0.75,
+      0.8,
+      0.8500000000000001,
+      0.9,
+      0.9500000000000001
+    ]
+  },
+  "archive_hashes": {
+    "Wenchuan": "660d6bb77b633a03cf16746cb2141987c03b0a376d7181f36e00846001f793d5",
+    "Tiburon-Planet": "195104fb034d159b8d0e73463d67b88abed60a429f36f3c7b1690adcc2006549",
+    "Lombok": "5028f482adeab16c97759d1f18ae55fb608f3fdcf6b74914255e1b572e49cf25",
+    "Palu": "4d869ac9ded04a7ce295b4055ccd1f10d8e187e09b32ec7aadec7123daabf8af",
+    "Moxi-UAV-1m": "e34904400905ff57fdb65d97bd705d12ad493f465d79a0768493cdf00ec349f4",
+    "Moxitaidi-UAV-1m": "1c4cb55ba84fcc8d080a53aa741de3b32471fa857818dfe2b12748aa27d5e4fe",
+    "Hokkaido": "9b0e0d288350700062b43648412c971cf151fc7e99a493f3a86df6ad89ed0a22",
+    "Mengdong": "a2d9a0b5c84b85443d16c7773ab275bbb26c6417aec1a14db1da389458e59e90"
+  },
+  "training_records": [
+    {
+      "loss_mode": "base",
+      "seed": 42,
+      "parameter_count": 2113764,
+      "best_epoch": 3,
+      "validation_f1_at_0_5": 0.2783281468215921,
+      "validation_threshold": 0.4,
+      "history": [
+        {
+          "epoch": 1,
+          "train_loss": 0.12432731178123504,
+          "validation_f1_at_0_5": 0.08834070877372636
+        },
+        {
+          "epoch": 2,
+          "train_loss": 0.09061960827093571,
+          "validation_f1_at_0_5": 0.11200916254086536
+        },
+        {
+          "epoch": 3,
+          "train_loss": 0.08577597716357559,
+          "validation_f1_at_0_5": 0.2783281468215921
+        },
+        {
+          "epoch": 4,
+          "train_loss": 0.08382837981916964,
+          "validation_f1_at_0_5": 0.20546083140655527
+        },
+        {
+          "epoch": 5,
+          "train_loss": 0.08276356959249824,
+          "validation_f1_at_0_5": 0.2753559362554814
+        },
+        {
+          "epoch": 6,
+          "train_loss": 0.08013242750894278,
+          "validation_f1_at_0_5": 0.21839471067111108
+        },
+        {
+          "epoch": 7,
+          "train_loss": 0.07895479628350585,
+          "validation_f1_at_0_5": 0.09684671679683499
+        },
+        {
+          "epoch": 8,
+          "train_loss": 0.07597914503421635,
+          "validation_f1_at_0_5": 0.15307393303351913
+        },
+        {
+          "epoch": 9,
+          "train_loss": 0.07616141973994672,
+          "validation_f1_at_0_5": 0.16849064617436219
+        },
+        {
+          "epoch": 10,
+          "train_loss": 0.07382625269237905,
+          "validation_f1_at_0_5": 0.15400780272090198
+        },
+        {
+          "epoch": 11,
+          "train_loss": 0.07286614794284105,
+          "validation_f1_at_0_5": 0.19756819742634227
+        },
+        {
+          "epoch": 12,
+          "train_loss": 0.07155469115823507,
+          "validation_f1_at_0_5": 0.17353302839585394
+        },
+        {
+          "epoch": 13,
+          "train_loss": 0.06954974541440606,
+          "validation_f1_at_0_5": 0.1678907543741952
+        },
+        {
+          "epoch": 14,
+          "train_loss": 0.0690500176511705,
+          "validation_f1_at_0_5": 0.16969335955694517
+        },
+        {
+          "epoch": 15,
+          "train_loss": 0.06792079980950802,
+          "validation_f1_at_0_5": 0.18428632738042305
+        }
+      ],
+      "checkpoint": "experiments/derived/checkpoints/cas_boundary_confirmation/base_seed42.pt",
+      "elapsed_seconds": 341.9437928199768,
+      "test_events": {
+        "Mengdong": {
+          "threshold": 0.4,
+          "f1": 0.5693977718046438,
+          "iou": 0.3980126415173523,
+          "precision": 0.5841450134076511,
+          "recall": 0.5553768082026554,
+          "background_fpr": 0.04741226942530486,
+          "false_positive_pixels": 1775680,
+          "boundary_f1": 0.39194609548090575,
+          "n_crops": 2560,
+          "probabilities": "experiments/derived/results/cas_boundary_confirmation/test_probabilities_Mengdong_base_seed42.npy",
+          "crop_id_sha256": "c1e290ff07327546058d4b9de6083e58b85b2e8771ff6b143df7d2cc1bce3afa"
+        },
+        "Moxi-UAV-1m": {
+          "threshold": 0.4,
+          "f1": 0.2732941504914226,
+          "iou": 0.1582748738409628,
+          "precision": 0.6286982695391278,
+          "recall": 0.17459520623240793,
+          "background_fpr": 0.007886532568176724,
+          "false_positive_pixels": 307283,
+          "boundary_f1": 0.41138393752221064,
+          "n_crops": 2560,
+          "probabilities": "experiments/derived/results/cas_boundary_confirmation/test_probabilities_Moxi-UAV-1m_base_seed42.npy",
+          "crop_id_sha256": "bbd43162400a05ebc46e21dabbb9f456195fef00f1d7a1e789745add6b07b8ef"
+        },
+        "Tiburon-Planet": {
+          "threshold": 0.4,
+          "f1": 0.5949059324715075,
+          "iou": 0.4233922455582811,
+          "precision": 0.6080191454842487,
+          "recall": 0.5823464061349317,
+          "background_fpr": 0.02661803283983327,
+          "false_positive_pixels": 1042526,
+          "boundary_f1": 0.4608326213672143,
+          "n_crops": 2560,
+          "probabilities": "experiments/derived/results/cas_boundary_confirmation/test_probabilities_Tiburon-Planet_base_seed42.npy",
+          "crop_id_sha256": "46b1b91b8b1e98e570c17091f4e8c7256d04f8f71e2efdc311e2a7d320e5bcca"
+        }
+      }
+    },
+    {
+      "loss_mode": "base",
+      "seed": 43,
+      "parameter_count": 2113764,
+      "best_epoch": 7,
+      "validation_f1_at_0_5": 0.22181340767634855,
+      "validation_threshold": 0.45,
+      "history": [
+        {
+          "epoch": 1,
+          "train_loss": 0.13046038653701544,
+          "validation_f1_at_0_5": 0.20317607243064997
+        },
+        {
+          "epoch": 2,
+          "train_loss": 0.09064388445112855,
+          "validation_f1_at_0_5": 0.08136630994091647
+        },
+        {
+          "epoch": 3,
+          "train_loss": 0.08681431410368531,
+          "validation_f1_at_0_5": 0.13522243292400168
+        },
+        {
+          "epoch": 4,
+          "train_loss": 0.0827512786258012,
+          "validation_f1_at_0_5": 0.11118035330476032
+        },
+        {
+          "epoch": 5,
+          "train_loss": 0.08296961914747954,
+          "validation_f1_at_0_5": 0.17151756117828668
+        },
+        {
+          "epoch": 6,
+          "train_loss": 0.07952936564106494,
+          "validation_f1_at_0_5": 0.19433367701087667
+        },
+        {
+          "epoch": 7,
+          "train_loss": 0.07928154990077019,
+          "validation_f1_at_0_5": 0.22181340767634855
+        },
+        {
+          "epoch": 8,
+          "train_loss": 0.07749273818917572,
+          "validation_f1_at_0_5": 0.1628752796147951
+        },
+        {
+          "epoch": 9,
+          "train_loss": 0.0754463026067242,
+          "validation_f1_at_0_5": 0.16357348598538027
+        },
+        {
+          "epoch": 10,
+          "train_loss": 0.07435683419462294,
+          "validation_f1_at_0_5": 0.21198892319990104
+        },
+        {
+          "epoch": 11,
+          "train_loss": 0.07326978894416243,
+          "validation_f1_at_0_5": 0.19859343210282404
+        },
+        {
+          "epoch": 12,
+          "train_loss": 0.07243253320921213,
+          "validation_f1_at_0_5": 0.18460021954880482
+        },
+        {
+          "epoch": 13,
+          "train_loss": 0.0712475216947496,
+          "validation_f1_at_0_5": 0.21452537415948694
+        },
+        {
+          "epoch": 14,
+          "train_loss": 0.06985737713985145,
+          "validation_f1_at_0_5": 0.1979726214883206
+        },
+        {
+          "epoch": 15,
+          "train_loss": 0.06912835408002138,
+          "validation_f1_at_0_5": 0.19743284961487176
+        }
+      ],
+      "checkpoint": "experiments/derived/checkpoints/cas_boundary_confirmation/base_seed43.pt",
+      "elapsed_seconds": 368.6742482185364,
+      "test_events": {
+        "Mengdong": {
+          "threshold": 0.45,
+          "f1": 0.5618691307523063,
+          "iou": 0.39069402011113763,
+          "precision": 0.6210597057654847,
+          "recall": 0.5129792473209978,
+          "background_fpr": 0.03753349395353919,
+          "false_positive_pixels": 1405701,
+          "boundary_f1": 0.44276084523789294,
+          "n_crops": 2560,
+          "probabilities": "experiments/derived/results/cas_boundary_confirmation/test_probabilities_Mengdong_base_seed43.npy",
+          "crop_id_sha256": "c1e290ff07327546058d4b9de6083e58b85b2e8771ff6b143df7d2cc1bce3afa"
+        },
+        "Moxi-UAV-1m": {
+          "threshold": 0.45,
+          "f1": 0.35485799566659776,
+          "iou": 0.2157005259922126,
+          "precision": 0.6936764797775452,
+          "recall": 0.23840953599218265,
+          "background_fpr": 0.008052228211151275,
+          "false_positive_pixels": 313739,
+          "boundary_f1": 0.43896587220126404,
+          "n_crops": 2560,
+          "probabilities": "experiments/derived/results/cas_boundary_confirmation/test_probabilities_Moxi-UAV-1m_base_seed43.npy",
+          "crop_id_sha256": "bbd43162400a05ebc46e21dabbb9f456195fef00f1d7a1e789745add6b07b8ef"
+        },
+        "Tiburon-Planet": {
+          "threshold": 0.45,
+          "f1": 0.5716600926047858,
+          "iou": 0.4002269275296601,
+          "precision": 0.4747291877488812,
+          "recall": 0.7183297111691698,
+          "background_fpr": 0.05635184255385804,
+          "false_positive_pixels": 2207085,
+          "boundary_f1": 0.407389138645017,
+          "n_crops": 2560,
+          "probabilities": "experiments/derived/results/cas_boundary_confirmation/test_probabilities_Tiburon-Planet_base_seed43.npy",
+          "crop_id_sha256": "46b1b91b8b1e98e570c17091f4e8c7256d04f8f71e2efdc311e2a7d320e5bcca"
+        }
+      }
+    },
+    {
+      "loss_mode": "base",
+      "seed": 44,
+      "parameter_count": 2113764,
+      "best_epoch": 13,
+      "validation_f1_at_0_5": 0.27290604272906044,
+      "validation_threshold": 0.45,
+      "history": [
+        {
+          "epoch": 1,
+          "train_loss": 0.10409725792706012,
+          "validation_f1_at_0_5": 0.12183504893915145
+        },
+        {
+          "epoch": 2,
+          "train_loss": 0.08842416277620942,
+          "validation_f1_at_0_5": 0.2022568680746239
+        },
+        {
+          "epoch": 3,
+          "train_loss": 0.08542236832436174,
+          "validation_f1_at_0_5": 0.2371104708469179
+        },
+        {
+          "epoch": 4,
+          "train_loss": 0.08393313810229301,
+          "validation_f1_at_0_5": 0.16303468591918288
+        },
+        {
+          "epoch": 5,
+          "train_loss": 0.08153294520452618,
+          "validation_f1_at_0_5": 0.053592978606692265
+        },
+        {
+          "epoch": 6,
+          "train_loss": 0.08019103107508271,
+          "validation_f1_at_0_5": 0.19304866854291228
+        },
+        {
+          "epoch": 7,
+          "train_loss": 0.07866771994158625,
+          "validation_f1_at_0_5": 0.16235369808353425
+        },
+        {
+          "epoch": 8,
+          "train_loss": 0.07652052631601691,
+          "validation_f1_at_0_5": 0.13086934407045525
+        },
+        {
+          "epoch": 9,
+          "train_loss": 0.07480505972635001,
+          "validation_f1_at_0_5": 0.15966749875009564
+        },
+        {
+          "epoch": 10,
+          "train_loss": 0.07251542529556901,
+          "validation_f1_at_0_5": 0.24851253229195827
+        },
+        {
+          "epoch": 11,
+          "train_loss": 0.0708704822231084,
+          "validation_f1_at_0_5": 0.1859800517854318
+        },
+        {
+          "epoch": 12,
+          "train_loss": 0.0694234069203958,
+          "validation_f1_at_0_5": 0.2580008279463746
+        },
+        {
+          "epoch": 13,
+          "train_loss": 0.06835844474844635,
+          "validation_f1_at_0_5": 0.27290604272906044
+        },
+        {
+          "epoch": 14,
+          "train_loss": 0.06808998533524573,
+          "validation_f1_at_0_5": 0.22800749623803326
+        },
+        {
+          "epoch": 15,
+          "train_loss": 0.06745249181985855,
+          "validation_f1_at_0_5": 0.2308860476950324
+        }
+      ],
+      "checkpoint": "experiments/derived/checkpoints/cas_boundary_confirmation/base_seed44.pt",
+      "elapsed_seconds": 389.97422218322754,
+      "test_events": {
+        "Mengdong": {
+          "threshold": 0.45,
+          "f1": 0.503964263726746,
+          "iou": 0.336866460812067,
+          "precision": 0.6456042216946186,
+          "recall": 0.41329166305770193,
+          "background_fpr": 0.02720574270326247,
+          "false_positive_pixels": 1018907,
+          "boundary_f1": 0.46019232103769914,
+          "n_crops": 2560,
+          "probabilities": "experiments/derived/results/cas_boundary_confirmation/test_probabilities_Mengdong_base_seed44.npy",
+          "crop_id_sha256": "c1e290ff07327546058d4b9de6083e58b85b2e8771ff6b143df7d2cc1bce3afa"
+        },
+        "Moxi-UAV-1m": {
+          "threshold": 0.45,
+          "f1": 0.11764115313049714,
+          "iou": 0.062496666523571096,
+          "precision": 0.6695760641948982,
+          "recall": 0.06448546259172708,
+          "background_fpr": 0.0024338985772246924,
+          "false_positive_pixels": 94832,
+          "boundary_f1": 0.45425126937804905,
+          "n_crops": 2560,
+          "probabilities": "experiments/derived/results/cas_boundary_confirmation/test_probabilities_Moxi-UAV-1m_base_seed44.npy",
+          "crop_id_sha256": "bbd43162400a05ebc46e21dabbb9f456195fef00f1d7a1e789745add6b07b8ef"
+        },
+        "Tiburon-Planet": {
+          "threshold": 0.45,
+          "f1": 0.554600031216333,
+          "iou": 0.3837000437207979,
+          "precision": 0.7332829600539105,
+          "recall": 0.4459363639473727,
+          "background_fpr": 0.011500031085512478,
+          "false_positive_pixels": 450412,
+          "boundary_f1": 0.4595106133197827,
+          "n_crops": 2560,
+          "probabilities": "experiments/derived/results/cas_boundary_confirmation/test_probabilities_Tiburon-Planet_base_seed44.npy",
+          "crop_id_sha256": "46b1b91b8b1e98e570c17091f4e8c7256d04f8f71e2efdc311e2a7d320e5bcca"
+        }
+      }
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 42,
+      "parameter_count": 2113764,
+      "best_epoch": 5,
+      "validation_f1_at_0_5": 0.2904656509260185,
+      "validation_threshold": 0.5,
+      "history": [
+        {
+          "epoch": 1,
+          "train_loss": 0.14409273182973265,
+          "validation_f1_at_0_5": 0.11672087917971782
+        },
+        {
+          "epoch": 2,
+          "train_loss": 0.11139946742914617,
+          "validation_f1_at_0_5": 0.0981799908739625
+        },
+        {
+          "epoch": 3,
+          "train_loss": 0.10618570412043482,
+          "validation_f1_at_0_5": 0.25165826800626423
+        },
+        {
+          "epoch": 4,
+          "train_loss": 0.10382445359136909,
+          "validation_f1_at_0_5": 0.2118851579780584
+        },
+        {
+          "epoch": 5,
+          "train_loss": 0.1020537483971566,
+          "validation_f1_at_0_5": 0.2904656509260185
+        },
+        {
+          "epoch": 6,
+          "train_loss": 0.09970000626053661,
+          "validation_f1_at_0_5": 0.22313033369962287
+        },
+        {
+          "epoch": 7,
+          "train_loss": 0.09832182200625539,
+          "validation_f1_at_0_5": 0.17654934597083358
+        },
+        {
+          "epoch": 8,
+          "train_loss": 0.09489398014266044,
+          "validation_f1_at_0_5": 0.20223028046980296
+        },
+        {
+          "epoch": 9,
+          "train_loss": 0.09537300111260265,
+          "validation_f1_at_0_5": 0.1698680969160248
+        },
+        {
+          "epoch": 10,
+          "train_loss": 0.09327629464678466,
+          "validation_f1_at_0_5": 0.19556440383376725
+        },
+        {
+          "epoch": 11,
+          "train_loss": 0.09207909118849784,
+          "validation_f1_at_0_5": 0.24107876428186936
+        },
+        {
+          "epoch": 12,
+          "train_loss": 0.09095251699909568,
+          "validation_f1_at_0_5": 0.23318691195871208
+        },
+        {
+          "epoch": 13,
+          "train_loss": 0.08882293137721717,
+          "validation_f1_at_0_5": 0.20682013229258495
+        },
+        {
+          "epoch": 14,
+          "train_loss": 0.08855589583981782,
+          "validation_f1_at_0_5": 0.19861509301440583
+        },
+        {
+          "epoch": 15,
+          "train_loss": 0.08757917573675514,
+          "validation_f1_at_0_5": 0.21030401771333745
+        }
+      ],
+      "checkpoint": "experiments/derived/checkpoints/cas_boundary_confirmation/boundary_seed42.pt",
+      "elapsed_seconds": 393.47152304649353,
+      "test_events": {
+        "Mengdong": {
+          "threshold": 0.5,
+          "f1": 0.4828392208119176,
+          "iou": 0.318251847421413,
+          "precision": 0.6057341600448098,
+          "recall": 0.40140067167936094,
+          "background_fpr": 0.03133047236657549,
+          "false_positive_pixels": 1173386,
+          "boundary_f1": 0.40738172021048813,
+          "n_crops": 2560,
+          "probabilities": "experiments/derived/results/cas_boundary_confirmation/test_probabilities_Mengdong_boundary_seed42.npy",
+          "crop_id_sha256": "c1e290ff07327546058d4b9de6083e58b85b2e8771ff6b143df7d2cc1bce3afa"
+        },
+        "Moxi-UAV-1m": {
+          "threshold": 0.5,
+          "f1": 0.14594506589028503,
+          "iou": 0.07871668913648737,
+          "precision": 0.4544103924168754,
+          "recall": 0.08693284242203786,
+          "background_fpr": 0.007983085698423048,
+          "false_positive_pixels": 311045,
+          "boundary_f1": 0.3997357661774813,
+          "n_crops": 2560,
+          "probabilities": "experiments/derived/results/cas_boundary_confirmation/test_probabilities_Moxi-UAV-1m_boundary_seed42.npy",
+          "crop_id_sha256": "bbd43162400a05ebc46e21dabbb9f456195fef00f1d7a1e789745add6b07b8ef"
+        },
+        "Tiburon-Planet": {
+          "threshold": 0.5,
+          "f1": 0.49606915463023593,
+          "iou": 0.3298483810991122,
+          "precision": 0.6537324949564859,
+          "recall": 0.3996773362958855,
+          "background_fpr": 0.015009566295185219,
+          "false_positive_pixels": 587867,
+          "boundary_f1": 0.4570526174307393,
+          "n_crops": 2560,
+          "probabilities": "experiments/derived/results/cas_boundary_confirmation/test_probabilities_Tiburon-Planet_boundary_seed42.npy",
+          "crop_id_sha256": "46b1b91b8b1e98e570c17091f4e8c7256d04f8f71e2efdc311e2a7d320e5bcca"
+        }
+      }
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 43,
+      "parameter_count": 2113764,
+      "best_epoch": 7,
+      "validation_f1_at_0_5": 0.2806582808773297,
+      "validation_threshold": 0.5,
+      "history": [
+        {
+          "epoch": 1,
+          "train_loss": 0.15072200242429973,
+          "validation_f1_at_0_5": 0.19658853974762996
+        },
+        {
+          "epoch": 2,
+          "train_loss": 0.11124556353315711,
+          "validation_f1_at_0_5": 0.09240916145450476
+        },
+        {
+          "epoch": 3,
+          "train_loss": 0.10780450277961791,
+          "validation_f1_at_0_5": 0.18487660033020842
+        },
+        {
+          "epoch": 4,
+          "train_loss": 0.10405766484327614,
+          "validation_f1_at_0_5": 0.16092613530890865
+        },
+        {
+          "epoch": 5,
+          "train_loss": 0.10326299392618239,
+          "validation_f1_at_0_5": 0.16860184875361695
+        },
+        {
+          "epoch": 6,
+          "train_loss": 0.099691401864402,
+          "validation_f1_at_0_5": 0.2578529972088078
+        },
+        {
+          "epoch": 7,
+          "train_loss": 0.09892316434998065,
+          "validation_f1_at_0_5": 0.2806582808773297
+        },
+        {
+          "epoch": 8,
+          "train_loss": 0.09737388303037733,
+          "validation_f1_at_0_5": 0.1890854806783304
+        },
+        {
+          "epoch": 9,
+          "train_loss": 0.09533081306144595,
+          "validation_f1_at_0_5": 0.14898868721283157
+        },
+        {
+          "epoch": 10,
+          "train_loss": 0.0936053166165948,
+          "validation_f1_at_0_5": 0.2260395952269563
+        },
+        {
+          "epoch": 11,
+          "train_loss": 0.09255756188649684,
+          "validation_f1_at_0_5": 0.19757990188791438
+        },
+        {
+          "epoch": 12,
+          "train_loss": 0.09147385761607438,
+          "validation_f1_at_0_5": 0.18142468946711762
+        },
+        {
+          "epoch": 13,
+          "train_loss": 0.09057170981541277,
+          "validation_f1_at_0_5": 0.20242682477585558
+        },
+        {
+          "epoch": 14,
+          "train_loss": 0.08893536352552474,
+          "validation_f1_at_0_5": 0.18254727287237732
+        },
+        {
+          "epoch": 15,
+          "train_loss": 0.088434272329323,
+          "validation_f1_at_0_5": 0.18315048523027155
+        }
+      ],
+      "checkpoint": "experiments/derived/checkpoints/cas_boundary_confirmation/boundary_seed43.pt",
+      "elapsed_seconds": 386.628867149353,
+      "test_events": {
+        "Mengdong": {
+          "threshold": 0.5,
+          "f1": 0.5378624631673329,
+          "iou": 0.36786037538744076,
+          "precision": 0.6448073588984806,
+          "recall": 0.46134570556948795,
+          "background_fpr": 0.03047489515153954,
+          "false_positive_pixels": 1141343,
+          "boundary_f1": 0.4270393787032127,
+          "n_crops": 2560,
+          "probabilities": "experiments/derived/results/cas_boundary_confirmation/test_probabilities_Mengdong_boundary_seed43.npy",
+          "crop_id_sha256": "c1e290ff07327546058d4b9de6083e58b85b2e8771ff6b143df7d2cc1bce3afa"
+        },
+        "Moxi-UAV-1m": {
+          "threshold": 0.5,
+          "f1": 0.38989750813889645,
+          "iou": 0.24215694970338023,
+          "precision": 0.6261374330899883,
+          "recall": 0.2830888620137475,
+          "background_fpr": 0.012928084292473958,
+          "false_positive_pixels": 503717,
+          "boundary_f1": 0.3321119634356089,
+          "n_crops": 2560,
+          "probabilities": "experiments/derived/results/cas_boundary_confirmation/test_probabilities_Moxi-UAV-1m_boundary_seed43.npy",
+          "crop_id_sha256": "bbd43162400a05ebc46e21dabbb9f456195fef00f1d7a1e789745add6b07b8ef"
+        },
+        "Tiburon-Planet": {
+          "threshold": 0.5,
+          "f1": 0.5973298996001755,
+          "iou": 0.4258520228169898,
+          "precision": 0.5275214180875256,
+          "recall": 0.688432182103328,
+          "background_fpr": 0.04371697962181889,
+          "false_positive_pixels": 1712226,
+          "boundary_f1": 0.4049521668456558,
+          "n_crops": 2560,
+          "probabilities": "experiments/derived/results/cas_boundary_confirmation/test_probabilities_Tiburon-Planet_boundary_seed43.npy",
+          "crop_id_sha256": "46b1b91b8b1e98e570c17091f4e8c7256d04f8f71e2efdc311e2a7d320e5bcca"
+        }
+      }
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 44,
+      "parameter_count": 2113764,
+      "best_epoch": 13,
+      "validation_f1_at_0_5": 0.27319227154803005,
+      "validation_threshold": 0.45,
+      "history": [
+        {
+          "epoch": 1,
+          "train_loss": 0.1258171057095751,
+          "validation_f1_at_0_5": 0.15197239198992088
+        },
+        {
+          "epoch": 2,
+          "train_loss": 0.10921730913687497,
+          "validation_f1_at_0_5": 0.2703725865837946
+        },
+        {
+          "epoch": 3,
+          "train_loss": 0.10586107298731803,
+          "validation_f1_at_0_5": 0.2049112527005961
+        },
+        {
+          "epoch": 4,
+          "train_loss": 0.1038976131239906,
+          "validation_f1_at_0_5": 0.1792476460570931
+        },
+        {
+          "epoch": 5,
+          "train_loss": 0.10182765321806073,
+          "validation_f1_at_0_5": 0.07697547550966634
+        },
+        {
+          "epoch": 6,
+          "train_loss": 0.10044381322804838,
+          "validation_f1_at_0_5": 0.1793140813471107
+        },
+        {
+          "epoch": 7,
+          "train_loss": 0.09855992384254933,
+          "validation_f1_at_0_5": 0.1715537372380606
+        },
+        {
+          "epoch": 8,
+          "train_loss": 0.09626460298895836,
+          "validation_f1_at_0_5": 0.10439151752508463
+        },
+        {
+          "epoch": 9,
+          "train_loss": 0.09451408116146923,
+          "validation_f1_at_0_5": 0.21140559163081885
+        },
+        {
+          "epoch": 10,
+          "train_loss": 0.0922045495826751,
+          "validation_f1_at_0_5": 0.23928072862605945
+        },
+        {
+          "epoch": 11,
+          "train_loss": 0.09051003139466048,
+          "validation_f1_at_0_5": 0.19686023524179055
+        },
+        {
+          "epoch": 12,
+          "train_loss": 0.08923390782438219,
+          "validation_f1_at_0_5": 0.2529978944705
+        },
+        {
+          "epoch": 13,
+          "train_loss": 0.08807381007354706,
+          "validation_f1_at_0_5": 0.27319227154803005
+        },
+        {
+          "epoch": 14,
+          "train_loss": 0.08761611906811595,
+          "validation_f1_at_0_5": 0.21136630390243563
+        },
+        {
+          "epoch": 15,
+          "train_loss": 0.08680988883133978,
+          "validation_f1_at_0_5": 0.22010716729240473
+        }
+      ],
+      "checkpoint": "experiments/derived/checkpoints/cas_boundary_confirmation/boundary_seed44.pt",
+      "elapsed_seconds": 376.8532989025116,
+      "test_events": {
+        "Mengdong": {
+          "threshold": 0.45,
+          "f1": 0.5213900491398877,
+          "iou": 0.3526217639997577,
+          "precision": 0.6356387841965925,
+          "recall": 0.44195393098085983,
+          "background_fpr": 0.030379492805026307,
+          "false_positive_pixels": 1137770,
+          "boundary_f1": 0.4486754997198915,
+          "n_crops": 2560,
+          "probabilities": "experiments/derived/results/cas_boundary_confirmation/test_probabilities_Mengdong_boundary_seed44.npy",
+          "crop_id_sha256": "c1e290ff07327546058d4b9de6083e58b85b2e8771ff6b143df7d2cc1bce3afa"
+        },
+        "Moxi-UAV-1m": {
+          "threshold": 0.45,
+          "f1": 0.11896217632449578,
+          "iou": 0.06324284117373379,
+          "precision": 0.6175314985171613,
+          "recall": 0.06582101692731229,
+          "background_fpr": 0.00311795774268329,
+          "false_positive_pixels": 121485,
+          "boundary_f1": 0.41845526034062175,
+          "n_crops": 2560,
+          "probabilities": "experiments/derived/results/cas_boundary_confirmation/test_probabilities_Moxi-UAV-1m_boundary_seed44.npy",
+          "crop_id_sha256": "bbd43162400a05ebc46e21dabbb9f456195fef00f1d7a1e789745add6b07b8ef"
+        },
+        "Tiburon-Planet": {
+          "threshold": 0.45,
+          "f1": 0.6145166431193377,
+          "iou": 0.4435395344646271,
+          "precision": 0.7244164477113094,
+          "recall": 0.5335698093367208,
+          "background_fpr": 0.014391405028142283,
+          "false_positive_pixels": 563656,
+          "boundary_f1": 0.4641353143746425,
+          "n_crops": 2560,
+          "probabilities": "experiments/derived/results/cas_boundary_confirmation/test_probabilities_Tiburon-Planet_boundary_seed44.npy",
+          "crop_id_sha256": "46b1b91b8b1e98e570c17091f4e8c7256d04f8f71e2efdc311e2a7d320e5bcca"
+        }
+      }
+    }
+  ],
+  "effects": {
+    "42": {
+      "per_event": {
+        "Mengdong": {
+          "delta_f1": -0.08655855099272619,
+          "delta_boundary_f1": 0.015435624729582376
+        },
+        "Moxi-UAV-1m": {
+          "delta_f1": -0.12734908460113756,
+          "delta_boundary_f1": -0.011648171344729341
+        },
+        "Tiburon-Planet": {
+          "delta_f1": -0.09883677784127154,
+          "delta_boundary_f1": -0.003780003936474985
+        }
+      },
+      "event_macro_delta_f1": -0.10424813781171176,
+      "event_macro_delta_boundary_f1": 2.4831494593498724e-06
+    },
+    "43": {
+      "per_event": {
+        "Mengdong": {
+          "delta_f1": -0.024006667584973385,
+          "delta_boundary_f1": -0.015721466534680262
+        },
+        "Moxi-UAV-1m": {
+          "delta_f1": 0.035039512472298695,
+          "delta_boundary_f1": -0.10685390876565515
+        },
+        "Tiburon-Planet": {
+          "delta_f1": 0.025669806995389677,
+          "delta_boundary_f1": -0.0024369717993611983
+        }
+      },
+      "event_macro_delta_f1": 0.012234217294238329,
+      "event_macro_delta_boundary_f1": -0.04167078236656554
+    },
+    "44": {
+      "per_event": {
+        "Mengdong": {
+          "delta_f1": 0.01742578541314177,
+          "delta_boundary_f1": -0.011516821317807624
+        },
+        "Moxi-UAV-1m": {
+          "delta_f1": 0.001321023193998641,
+          "delta_boundary_f1": -0.0357960090374273
+        },
+        "Tiburon-Planet": {
+          "delta_f1": 0.05991661190300479,
+          "delta_boundary_f1": 0.004624701054859792
+        }
+      },
+      "event_macro_delta_f1": 0.0262211401700484,
+      "event_macro_delta_boundary_f1": -0.014229376433458377
+    }
+  },
+  "event_mean_boundary_effects": {
+    "Mengdong": -0.003934221040968504,
+    "Moxi-UAV-1m": -0.05143269638260393,
+    "Tiburon-Planet": -0.0005307582269921304
+  },
+  "mean_event_macro_delta_f1": -0.02193092678247501,
+  "mean_event_macro_delta_boundary_f1": -0.018632558550188187,
+  "pass_conditions": {
+    "mean_event_macro_boundary_f1_gain_ge_0_015": false,
+    "all_test_events_positive_boundary_effect": false,
+    "event_macro_f1_noninferior_ge_minus_0_010": false,
+    "at_least_two_seeds_nonnegative_f1_effect": true
+  },
+  "verdict": "failed-confirmation",
+  "scope": "Bounded replication on three held CAS regions; no population, sensor-invariant, operational, or global claim."
+}
