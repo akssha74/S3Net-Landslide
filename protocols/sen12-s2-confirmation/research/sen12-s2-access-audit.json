@@ -67,5 +67,5 @@
     "Some event dates were NDVI-assisted; a predeclared high-confidence-date sensitivity is required.",
     "The supplied random patch split is invalid for event/site inference and will not be used."
   ],
-  "status": "ten-inventory-protected-set-available-pending-corrected-v2-public-lock"
+  "status": "ten-inventory-protected-set-available-pending-corrected-v3-public-lock"
 }

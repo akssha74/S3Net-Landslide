@@ -1,20 +1,26 @@
 {
-  "schema_version": 2,
+  "schema_version": 3,
   "status": "public-pre-protected-access-lock",
-  "origin_commit": "50e9f4ac64af0e1160e75f5ff84a625bdf665218",
+  "origin_commit": "d9dc1ad1ce9b17acced99d78aaeb4b90df4bdef8",
   "dataset_revision": "40af2dd6b4e568edb6640d6e14dc67ebd01038a4",
+  "records_seen": 4988,
+  "selected_count": 2466,
+  "member_index_sha256": "d83e1f64f2d2faca17b2abff8564ff1f87775df9594251356378c320ab75e6a6",
   "protected_netCDF_accessed": false,
+  "development_extracted": false,
   "fit_executed": false,
   "source_artifacts": {
-    "research/sen12-s2-confirmation-protocol.md": "0d55a1472c90b75357e093cb85a0c0e88eb84fa94f0cdb3102f7e122b736026e",
-    "research/sen12-s2-access-audit.json": "76ce65631a25c5f603c395defc80237029c2a2e174bafe7c835ce8cf3bcecf47",
+    "research/sen12-s2-confirmation-protocol.md": "f5351382279de30296fb5ebf57802f809670d5a997118365dafc07608890c698",
+    "research/sen12-s2-access-audit.json": "e42eab443b52a91d7148c1de05f03e1b4ce252bffbc378bff04f27202156f38d",
     "research/dataset-metadata/sen12-s2-confirmation/archive_manifest.json": "bc5bb4befd74e67bd7664b3fe40d2ebd6f09f94d105e6e655234d9942e9df502",
     "research/dataset-metadata/sen12-s2-confirmation/s12ls_ld_s2_membership.json": "9d538889e86cd2e1c4c61bb7bf201ecd86765c6428b9c87833f7341fdddbec0e",
-    "experiments/code/prepare_sen12_s2.py": "ce6e626d2a30b22e4ff79e66b4a0f216a451f2fe76783e3fcfa1ec309ee75118",
-    "experiments/code/run_sen12_s2_confirmation.py": "50b6d58bdc91b6a187ae673a2a9de6359e3c667fd754881429655f092f7b3b54",
-    "experiments/code/test_sen12_s2_confirmation.py": "a0ba2aa15e81b3f124b44d0e8e841f2146dbda6dedf98fd719e6eb4056783739",
+    "research/dataset-metadata/sen12-s2-confirmation/member_index.json": "d83e1f64f2d2faca17b2abff8564ff1f87775df9594251356378c320ab75e6a6",
+    "experiments/code/prepare_sen12_s2.py": "b4bdf684c5f6bce513620b0ea135e1e4f8094cbee8a5ae17e57382a0366a1184",
+    "experiments/code/run_sen12_s2_confirmation.py": "93369a1bf09298747b5820f98f91f2d48b57ffddfba6f4d9d8894470ee9f3066",
+    "experiments/code/test_sen12_s2_confirmation.py": "54d8de322c8f661e50436d3b8a6d325bae6a53fdb2bdff144a5c9c5af5c4e33d",
     "experiments/code/revised_models.py": "53caa99b953b7c11b1b04e78fff9cd65bd77cb7dbb6b8e33ba9525ceb622b14e",
     "experiments/code/data_semantics.py": "5587fb5a6ddd078092f929cd30f49a2c384abff5ff99e3177b00673750d073f9",
     "environment/requirements-sen12.txt": "20865ff5d4a8e47117aade709a38610b2a45d1e5e6bcf6ccc601de773eb42df3"
-  }
+  },
+  "supersedes_public_protocol_commit": "0d9fee766735ff0d062f6ef3c0be077efb4276b0"
 }

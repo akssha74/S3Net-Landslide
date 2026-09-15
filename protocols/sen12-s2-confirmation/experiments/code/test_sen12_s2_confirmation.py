@@ -35,6 +35,10 @@ def main() -> None:
     membership = json.loads(preparation.TASK_MEMBERSHIP.read_text())
     assert len(membership["members"]) == 4988
     assert all(set(row) == {"filename", "inventory"} for row in membership["members"])
+    task_inventory = {
+        row["filename"]: row["inventory"] for row in membership["members"]
+    }
+    assert task_inventory["usa_puertorico_s2_1045.nc"] == "usa"
     development, protected = preparation.inventories()
     assert not set(development) & set(protected)
     assert len(set(development + protected)) == 13

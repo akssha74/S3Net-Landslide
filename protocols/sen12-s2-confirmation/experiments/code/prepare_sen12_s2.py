@@ -170,10 +170,8 @@ def index(archive_dir: Path) -> None:
                 filename = Path(member.name).name
                 if "_s2_" not in filename:
                     continue
-                inventory = filename.split("_s2_", 1)[0]
-                if inventory not in allowed:
-                    continue
-                if task_membership.get(filename) != inventory:
+                inventory = task_membership.get(filename)
+                if inventory is None or inventory not in allowed:
                     continue
                 records.append(
                     {

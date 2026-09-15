@@ -2,7 +2,7 @@
 
 ## Status and purpose
 
-This corrected version-2 protocol is frozen before any Sentinel-2 NetCDF from
+This corrected version-3 protocol is frozen before any Sentinel-2 NetCDF from
 the ten protected inventories is extracted or opened. It tests whether the HR-GLDD mechanism
 conclusions recur with authoritative named bands and inventory-level evaluation.
 It does not test HR-GLDD's physical band order.
@@ -10,8 +10,15 @@ It does not test HR-GLDD's physical band order.
 Version 1 was publicly timestamped at commit
 `18d2da8c16b6b45ebee506e09b9b4ea027bd4db4` before protected access, but its
 indexer did not enforce membership in the official S12LS-LD task. Version 1 was
-therefore never used to fit or evaluate a model. Version 2 adds the pinned task
-membership and stricter artifact binding; its public receipt is authoritative.
+therefore never used to fit or evaluate a model. Version 2 added the pinned task
+membership and stricter artifact binding and was publicly sealed at commit
+`0d9fee766735ff0d062f6ef3c0be077efb4276b0`. Its index attempt failed closed
+before writing a member index because the code inferred inventory from filename
+prefix while the 28 `usa` task rows use the prefix `usa_puertorico`. No
+development extraction, fit, authorization, or protected access occurred under
+version 2. Version 3 takes inventory exclusively from the pinned task-membership
+row and supersedes versions 1--2.
+
 During version-2 remediation, the upstream task file exposed inventory
 membership counts and one protected-file `pixel_annotated` example. These values
 cannot affect the already fixed filename selection, arms, endpoints, thresholds,

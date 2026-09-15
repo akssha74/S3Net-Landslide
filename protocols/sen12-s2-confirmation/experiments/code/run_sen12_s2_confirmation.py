@@ -74,6 +74,7 @@ SOURCE_ARTIFACTS = (
         "research/dataset-metadata/sen12-s2-confirmation/"
         "s12ls_ld_s2_membership.json"
     ),
+    "research/dataset-metadata/sen12-s2-confirmation/member_index.json",
     "experiments/code/prepare_sen12_s2.py",
     "experiments/code/run_sen12_s2_confirmation.py",
     "experiments/code/test_sen12_s2_confirmation.py",
