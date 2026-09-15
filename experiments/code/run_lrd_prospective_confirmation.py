@@ -1,5 +1,10 @@
 #!/usr/bin/env python3
-"""Fit and evaluate the preregistered LRD boundary-weighting confirmation."""
+"""Execute the historical locally precommitted LRD stress-test protocol.
+
+The filename and output paths preserve frozen experiment identity. Current
+classification is in ``research/lrd-confirmation-status.md``; this run receives
+no preregistration or confirmation credit.
+"""
 
 from __future__ import annotations
 

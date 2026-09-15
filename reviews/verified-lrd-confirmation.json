@@ -13,7 +13,7 @@
   "process_checks": {
     "authorization_precedes_access": true,
     "authorization_hash_matches": true,
-    "protocol_history_status": "available-and-files-unchanged",
+    "protocol_history_status": "unavailable-in-snapshot-release",
     "process_condition_passed": true
   },
   "checks": [

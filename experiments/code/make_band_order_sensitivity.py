@@ -173,6 +173,26 @@ def table(rgbn: dict[str, Any], bgrn: dict[str, Any]) -> None:
     TABLE.write_text("\n".join(lines) + "\n")
 
 
+def combined_range(
+    payloads: tuple[dict[str, Any], ...],
+    arms: tuple[str, ...],
+    extractor: Any,
+) -> list[float]:
+    arm_means = [
+        float(
+            np.mean(
+                [
+                    extractor(run(payload, arm, seed))
+                    for seed in SEEDS
+                ]
+            )
+        )
+        for payload in payloads
+        for arm in arms
+    ]
+    return [round(min(arm_means), 2), round(max(arm_means), 2)]
+
+
 def main() -> None:
     rgbn = json.loads(RGBN_PATH.read_text())
     bgrn = json.loads(BGRN_PATH.read_text())
@@ -181,6 +201,8 @@ def main() -> None:
     if bgrn["protocol"]["band_order"] != ["blue", "green", "red", "nir"]:
         raise RuntimeError("BGRN result does not declare BGRN")
     summaries = {"RGBN": order_summary(rgbn), "BGRN": order_summary(bgrn)}
+    payloads = (rgbn, bgrn)
+    controlled_arms = tuple(arm for arm in ARMS if arm.startswith("s3_"))
     output = {
         "schema_version": 1,
         "question": (
@@ -215,9 +237,27 @@ def main() -> None:
             ),
         },
         "combined_operating_ranges_percent": {
-            "matched_fpr": [1.97, 2.01],
-            "matched_precision": [78.41, 78.74],
-            "controlled_resolution_f1_drop_points": [4.33, 5.20],
+            "matched_fpr": combined_range(
+                payloads,
+                controlled_arms,
+                lambda row: 100
+                * row["test_matched_validation_recall"]["background_fpr"],
+            ),
+            "matched_precision": combined_range(
+                payloads,
+                controlled_arms,
+                lambda row: 100
+                * row["test_matched_validation_recall"]["precision"],
+            ),
+            "controlled_resolution_f1_drop_points": combined_range(
+                payloads,
+                ARMS,
+                lambda row: 100
+                * (
+                    row["test_default"]["f1"]
+                    - row["test_controlled_10m"]["f1"]
+                ),
+            ),
         },
         "scope": (
             "Corrective sensitivity analysis; does not establish which order "

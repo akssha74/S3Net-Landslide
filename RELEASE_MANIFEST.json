@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "source_repository": "akssha74/paper-activities",
-  "source_scientific_commit": "9c7a0be90631a0359a04993c2ad00e68caa0d024",
+  "source_scientific_commit": "a67ad6170c28621c979f2762d621a20346511464",
   "study": "studies/disaster-hrgldd-landslide",
   "files": [
     {
@@ -14,7 +14,7 @@
     },
     {
       "path": "environment/README.md",
-      "sha256": "245c2e79a6b532422ba8fbaf194ba1dc23017eb0d0ad75977b1f962c5e6ec106"
+      "sha256": "48d14f11d91ddaf85b571659f966fecc61d5fe151d7187e50d7b91cac4f835ef"
     },
     {
       "path": "environment/environment-freeze.json",
@@ -66,7 +66,7 @@
     },
     {
       "path": "experiments/code/make_band_order_sensitivity.py",
-      "sha256": "4a709f22ce6a37db08eee5ff6fa01c01a9f5bfc6fc3be60d857944bec36df042"
+      "sha256": "feb601dd3a4971c78cf11738255fedb96bbcd0f34b779c0c857eb97229489020"
     },
     {
       "path": "experiments/code/make_lrd_confirmation_table.py",
@@ -82,7 +82,7 @@
     },
     {
       "path": "experiments/code/register_r020_r027_results.py",
-      "sha256": "19b40c35fbe47db330c764dee27ecb0ed6d1263b89c5b9049bef37cf791a1cc8"
+      "sha256": "0761a37ac7bd749f3bd7757245e7adbea52d824ee95a1fd72a7531a08065939d"
     },
     {
       "path": "experiments/code/revised_models.py",
@@ -94,7 +94,7 @@
     },
     {
       "path": "experiments/code/run_lrd_prospective_confirmation.py",
-      "sha256": "d829c6e8b3a406bcb1acb04c02e5053a53645616ec80148014570564f39f4332"
+      "sha256": "a4d219f695328bd6a7a200de9884b93ef964843bded96757fc56c053f5b9508d"
     },
     {
       "path": "experiments/code/run_reviewer_remediation.py",
@@ -287,6 +287,10 @@
     {
       "path": "experiments/logs/R034-figure-title-removal.log",
       "sha256": "bbe05902bb70652264c959e979759f2c303297ba70052878a9ada296b52ade94"
+    },
+    {
+      "path": "experiments/logs/R035-computed-band-order-ranges.log",
+      "sha256": "6c3fadbc9525f434366cc49633f1d64f86d2ffee449d43cd5bb02c66dc0146d0"
     },
     {
       "path": "paper/figures/fig_false_positive_atlas.pdf",
@@ -502,7 +506,7 @@
     },
     {
       "path": "reviews/verified-lrd-confirmation.json",
-      "sha256": "3798726e74586a49f74501e31a60990327a50f5176db8da9a1126cb1ea92e770"
+      "sha256": "d0d871c6e90393874084ad5f2ac043293a17caa966e4de52f8cbf59cf7e8fdc4"
     },
     {
       "path": "reviews/verified-r010.json",

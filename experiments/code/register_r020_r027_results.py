@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Register dual-order HR-GLDD and prospective LRD result identities."""
+"""Register dual-order HR-GLDD and current LRD result classifications."""
 
 from __future__ import annotations
 
@@ -166,6 +166,7 @@ def main() -> None:
                     "R020-bgrn-order-sensitivity",
                     "R020b-bgrn-independent-verification",
                     "R020c-band-order-comparison",
+                    "R035-computed-band-order-ranges",
                 ],
                 "source_artifacts": [
                     {
@@ -186,7 +187,10 @@ def main() -> None:
                     "/opt/homebrew/bin/python3.10 "
                     "experiments/code/make_band_order_sensitivity.py"
                 ),
-                "run_ids": ["R020c-band-order-comparison"],
+                "run_ids": [
+                    "R020c-band-order-comparison",
+                    "R035-computed-band-order-ranges",
+                ],
                 "source_artifacts": [
                     {
                         "path": str(BAND_SENSITIVITY.relative_to(STUDY)),
@@ -196,6 +200,10 @@ def main() -> None:
             },
             {
                 "claim_id": "C-r027-lrd-prospective-failure",
+                "identifier_status": (
+                    "historical frozen identifier; see "
+                    "research/lrd-confirmation-status.md"
+                ),
                 "claim": (
                     "Under the frozen local rule, the LRD run failed all four "
                     "criteria across six released EIDs."
@@ -373,13 +381,17 @@ def main() -> None:
                 "method_id": "rgb-zero-control-attention",
                 "loss_id": loss_mode,
                 "code_commit": args.lrd_protocol_commit,
-                "dataset_id": "lrd-v3-28-eid-prospective",
+                "dataset_id": "lrd-v3-28-eid-local-precommit",
                 "split": "16 development, 6 validation, 6 protected EIDs",
                 "generator": (
                     "LRD_PROTOCOL_COMMIT="
                     f"{args.lrd_protocol_commit} "
                     "/opt/homebrew/bin/python3.10 "
                     "experiments/code/run_lrd_prospective_confirmation.py"
+                ),
+                "generator_identifier_status": (
+                    "historical frozen filename; no prospective or "
+                    "confirmation credit"
                 ),
                 "metrics_artifact": str(LRD.relative_to(STUDY)),
                 "artifact_sha256": digest(LRD),
@@ -388,7 +400,9 @@ def main() -> None:
                 "manuscript_quantitative_claims": [
                     {
                         "path": "paper/sections/results.tex",
-                        "anchor": "Preregistered LRD confirmation paragraph",
+                        "anchor": (
+                            "Internally precommitted LRD stress-test paragraph"
+                        ),
                     },
                     {
                         "path": "paper/tables/tab_lrd_confirmation.tex",
@@ -396,6 +410,9 @@ def main() -> None:
                     },
                 ],
                 "status": "superseded-as-confirmation",
+                "classification_status_path": (
+                    "research/lrd-confirmation-status.md"
+                ),
             }
         )
     registry.append(
@@ -711,8 +728,34 @@ def main() -> None:
                 "paper/figures/fig_false_positive_atlas.pdf",
             ],
         ),
+        run_record(
+            "R035-computed-band-order-ranges",
+            "N010-rgbn-correction",
+            "Regenerate operating ranges directly from both run summaries.",
+            (
+                "/opt/homebrew/bin/python3.10 "
+                "experiments/code/make_band_order_sensitivity.py"
+            ),
+            "experiments/logs/R035-computed-band-order-ranges.log",
+            [
+                "experiments/derived/results/band_order_sensitivity.json",
+                "paper/tables/tab_band_order_sensitivity.tex",
+            ],
+        ),
     ]
     for row in new_runs:
+        if row["run_id"] == "R020c-band-order-comparison":
+            row["output_artifacts"] = []
+            row["superseded_outputs"] = [
+                {
+                    "path": path,
+                    "rewritten_by": "R035-computed-band-order-ranges",
+                }
+                for path in (
+                    "experiments/derived/results/band_order_sensitivity.json",
+                    "paper/tables/tab_band_order_sensitivity.tex",
+                )
+            ]
         if row["run_id"] == "R029-rgbn-candidate-artifacts":
             row["output_artifacts"] = []
             row["superseded_outputs"] = [
@@ -728,6 +771,19 @@ def main() -> None:
                     "paper/figures/fig_false_positive_atlas.pdf",
                 )
             ]
+        if row["run_id"] in {
+            "R023-lrd-development-fetch",
+            "R024-lrd-validation-fetch",
+            "R025-lrd-prospective-fit",
+            "R026-lrd-protected-fetch",
+            "R027-lrd-prospective-evaluation",
+            "R027b-lrd-independent-verification",
+            "R027c-lrd-table",
+        }:
+            row["identifier_status"] = (
+                "historical frozen identifier; current classification is "
+                "failed/indeterminate in research/lrd-confirmation-status.md"
+            )
     new_ids = {row["run_id"] for row in new_runs}
     runs = [row for row in read_jsonl(RUNS) if row.get("run_id") not in new_ids]
     runs.extend(new_runs)
@@ -760,7 +816,7 @@ def main() -> None:
                     "Places all nine configurations under both plausible "
                     "orders so only order-robust conclusions are retained."
                 ),
-                "run_ids": ["R020c-band-order-comparison"],
+                "run_ids": ["R035-computed-band-order-ranges"],
                 "sha256": digest(
                     STUDY / "paper/tables/tab_band_order_sensitivity.tex"
                 ),
@@ -825,6 +881,7 @@ def main() -> None:
                     "R030-environment-freeze",
                     "R031-dual-order-semantics",
                     "R034-figure-title-removal",
+                    "R035-computed-band-order-ranges",
                 }
             )
             node["outcome"] = (
@@ -835,6 +892,10 @@ def main() -> None:
         if node.get("node_id") == "N024-lrd-prospective-confirmation":
             node["status"] = "succeeded"
             node["confirmatory"] = False
+            node["identifier_status"] = (
+                "historical frozen identifier; no prospective or "
+                "confirmation credit"
+            )
             node["stage"] = "internally-precommitted-failed-indeterminate"
             node["decision"] = "failed-indeterminate-no-transfer-inference"
             node["outcome"] = (
