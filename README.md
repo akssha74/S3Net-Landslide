@@ -23,6 +23,15 @@ validation/protected optical access, but lacks an external timestamp, contains
 trigger-family leakage, and has unstable empty-crop boundary scoring. It is
 classified as failed/indeterminate sensitivity evidence.
 
+The publicly locked and authorized Sen12Landslides stress test also does not
+confirm transfer: only one of five registered conditions passes and all seven
+arm means are below 3.2% F1. A registered conservative transformed-envelope
+check fails for two abutting Kyrgyzstan tiles, although their native rectangles
+have zero positive-area overlap. A public post-access correction handles one
+SCL-255 array only in descriptive cloud denominators; it changed no model input,
+metric, or condition. The expanded verifier reproduces 420 primary and 294
+high-confidence metric cells and all ten SCL summaries.
+
 ## Reproduce
 
 1. Download HR-GLDD arrays from https://doi.org/10.5281/zenodo.7189381.
@@ -61,6 +70,12 @@ For the LRD stress test, download Landslide Reference Data v3 from
 https://doi.org/10.5281/zenodo.17007637. The original local protocol, current
 status, fit decisions, authorization, endpoint/family sensitivity artifacts,
 logs, and standalone numeric verifier are included.
+
+For the Sen12 result, the release includes the pinned membership and extraction
+manifests, public authorization/correction receipts, fit decision, summary,
+diagnostic logs, and standalone verifier. Raw Sen12 files, checkpoints, and
+probability arrays are not redistributed; obtain the public data from
+https://huggingface.co/datasets/paulhoehn/Sen12Landslides.
 
 The released HR-GLDD arrays do not include event IDs or coordinates. The study
 therefore reports descriptive multi-seed results and makes no tile-independence,

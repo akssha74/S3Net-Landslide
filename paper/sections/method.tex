@@ -61,8 +61,10 @@ where $\gamma=2$. For an informative index-boundary signal, the tilde rescales i
 
 \subsection{Evaluation quantities}
 
-We compute pooled F1, intersection over union, precision, recall, background false-positive rate (FPR), and per-tile macro F1; the compact main table reports the quantities used by the claims. Boundary F1 is computed per tile after extracting predicted and reference boundary bands; a boundary pixel matches when the opposite boundary lies within a one-pixel Chebyshev (8-neighbour) tolerance.
+We compute pooled and per-tile F1, intersection over union, precision, recall, FPR, and per-tile boundary F1 with one-pixel Chebyshev matching.
 
-For an operating-point comparison, U-Net recall at threshold $0.5$ is measured on validation data. Every arm, including U-Net, is then mapped to the exact validation-score breakpoint nearest that recall, with ties assigned to the higher threshold, and the selected threshold is applied unchanged to test probabilities. Test labels do not select thresholds.
+For operating-point comparison, every arm uses the exact validation-score breakpoint nearest U-Net's threshold-$0.5$ validation recall; higher thresholds break ties. Test labels never select thresholds.
 
-To isolate spatial degradation without changing sensor or region, each PlanetScope test patch is antialiased from $128\times128$ to $38\times38$ (approximately the 3~m-to-10~m ratio) and restored to $128\times128$ before inference. This experiment measures controlled information loss; it is not a simulation of Sentinel-2 radiometry.
+For same-sensor spatial degradation, PlanetScope test patches are antialiased
+$128\!\rightarrow\!38\!\rightarrow\!128$ before inference. This measures
+information loss, not Sentinel-2 radiometry.

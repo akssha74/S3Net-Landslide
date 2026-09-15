@@ -79,14 +79,45 @@ average seeds; seed rows average six protected EIDs.}
 \input{tables/tab_lrd_confirmation}
 \end{table}
 
-Supplementary Table~S3 reports the detailed RGBN-candidate HR-GLDD operating
+\section*{Supplementary Method S3: authorized Sen12 stress test}
+
+Sen12Landslides provides named Sentinel-2 B02/B03/B04/B08
+variables and inventory labels. The public protocol evolved fail-closed before
+model outcomes: v1 omitted official task membership; v2 exposed the
+\texttt{usa\_puertorico}$\rightarrow$\texttt{usa} alias; v3 failed its
+China-held-out development floor; v4 passed scientific floors but failed an
+over-strict float32 reproduction check; and v5 was publicly locked
+(\texttt{a4fc497}), fitted, and authorized (\texttt{3f39077}) before 1,889
+selected files from ten protected inventories were extracted. Version 6 was a
+public post-access execution correction: one Indonesia post-image SCL array
+contained 255, outside official classes 0--11. The correction retains 255 in
+histograms and excludes it only from descriptive cloud denominators; no file,
+input, mask, endpoint, or condition changed. It was published before model
+inference. One protected MASK count observed during diagnosis is disclosed.
+
+Independent verification recomputed 420 primary metric cells, 294
+high-confidence cells, all ten SCL summaries, and every registered condition.
+Only condition 2 passed. The registered transformed-envelope check reports one
+Kyrgyzstan overlap, whereas the native same-CRS pixel-edge rectangles only
+share an edge and have zero positive-area overlap. The former fails the frozen
+bar; the latter prevents interpreting that failure as demonstrated duplication.
+
+\begin{table}[htbp]
+\centering
+\caption{Registered Sen12 cross-dataset recurrence conditions. Intervals are
+inventory-bootstrap 95\% intervals. Contrast values are percentage points.}
+\label{tab:s3}
+\input{tables/tab_sen12_conditions}
+\end{table}
+
+Supplementary Table~S4 reports the detailed RGBN-candidate HR-GLDD operating
 metrics underlying the compact main comparison.
 
 \begin{table}[htbp]
 \centering
 \caption{Detailed RGBN-candidate HR-GLDD outcomes. Values are three-seed
 mean (population standard deviation); thresholds are validation-selected.}
-\label{tab:s3}
+\label{tab:s4}
 \input{tables/tab_reviewer_remediation}
 \end{table}
 
@@ -95,7 +126,7 @@ mean (population standard deviation); thresholds are validation-selected.}
 \caption{Semantic-identifiability certificate over the two metadata-consistent
 HR-GLDD schemas. Envelopes span schema-specific descriptive mean contrasts;
 they are not confidence intervals.}
-\label{tab:s4}
+\label{tab:s5}
 \input{tables/tab_semantic_identifiability}
 \end{table}
 

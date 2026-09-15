@@ -3,11 +3,11 @@
 
 \subsection{Landslide segmentation}
 
-U-Net and residual-block U-Net architectures provide standard segmentation baselines \citep{ronneberger2015unet,zhang2018resunet}. HR-GLDD is a PlanetScope benchmark \citep{meena2023hrgldd}, while CAS provides multisensor RGB patches \citep{xu2024cas}. In Remote Sensing Letters, Devara et al. compare U-Net with an empirical Sentinel-2 rule \citep{devara2024landslide}. These performance studies do not isolate the active component.
+U-Net and residual-block U-Net architectures provide standard segmentation baselines \citep{ronneberger2015unet,zhang2018resunet}. HR-GLDD is a PlanetScope benchmark \citep{meena2023hrgldd}, CAS provides multisensor RGB patches \citep{xu2024cas}, and LRD and Sen12Landslides provide named Sentinel-2 data \citep{orynbaikyzy2025lrd,hohn2025sen12}. In Remote Sensing Letters, Devara et al. compare U-Net with an empirical Sentinel-2 rule \citep{devara2024landslide}. These performance studies do not isolate the active component.
 
 \subsection{Spectral and edge guidance}
 
-NDVI is defined from Red and NIR reflectance and can reduce a shared multiplicative illumination factor under an idealized model \citep{matsushita2007sensitivity}, while TriGEFNet reports an NDVI-guided benefit \citep{trigefnet2026}. Spectral indices have also been combined directly with edge extraction \citep{zhang2023boosting}. SAEENet and weak-boundary extraction add generic boundary guidance \citep{wang2025saeenet,wang2026water}. Li et al. deliberately permute six known HLS bands to test foundation-model adaptability \citep{li2025bandadaptability}; we instead retain unresolved released-array identity and test attribution with zero, raw, and equal-mass controls.
+NDVI is defined from Red and NIR reflectance and can reduce a shared multiplicative illumination factor under an idealized model \citep{matsushita2007sensitivity}, while TriGEFNet reports an NDVI-guided benefit \citep{trigefnet2026}. Spectral indices have also been combined directly with edge extraction \citep{zhang2023boosting}, and SAEENet adds generic boundary guidance \citep{wang2025saeenet}. Li et al. deliberately permute six known HLS bands to test foundation-model adaptability \citep{li2025bandadaptability}; we instead retain unresolved released-array identity and test attribution with zero, raw, and equal-mass controls.
 
 \subsection{Finite sensitivity and identified sets}
 

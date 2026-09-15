@@ -1,0 +1,1 @@
+evaluated 10 inventories: {'ndvi_attention_vs_raw_edge_upper_ci_below_1_point': False, 'ndvi_modulated_vs_plain_upper_ci_below_1_point': True, 'generic_boundary_all_control_means_positive_lower_ci_above_zero_8_of_10': False, 'all_arm_absolute_mean_f1_at_least_0_10': False, 'all_integrity_checks_pass': False}

@@ -1,7 +1,58 @@
 {
-  "status": "development-only-after-v3-kill",
-  "split_salt": "v4-mixed",
-  "split_rule": "sha256(salt:filename) modulo 5 equals zero",
+  "schema_version": 1,
+  "dataset_revision": "40af2dd6b4e568edb6640d6e14dc67ebd01038a4",
+  "member_index_sha256": "d83e1f64f2d2faca17b2abff8564ff1f87775df9594251356378c320ab75e6a6",
+  "development_extraction_manifest_sha256": "96dfbb15ad3f57a77a2f124190b3e1bf32a4ca2b8ab634998df63663a465c7e1",
+  "development_file_content_identity_sha256": "a105853bdc8e695f2ef680465f4337624ede44233c9fcc012f1085974aa543c7",
+  "development_filenames_sha256": "65349864e85ae9708d2441bdb1fe3f16c7bc70a24211c6938f76226577d470b8",
+  "source_artifacts": {
+    "research/sen12-s2-confirmation-protocol.md": "bb691f3fda910f911989896e40bd48384c84ec1f624af4103ae3e8864079e3bc",
+    "research/sen12-s2-access-audit.json": "812c5566c5b5d5b14f72ce48d2ed22da7120013abccd18bd20e92554abf5c81c",
+    "research/sen12-v3-fit-status.md": "bc2c3c0c24c52ad8ae9109490b10ae77d9611840a0f9e643f568d3c86e767d25",
+    "research/sen12-v4-fit-status.md": "8bf2c9749fd0c7fa9af493cb46d6c7dfdf856a8899c08b8c1f196b6bc23eb05a",
+    "research/dataset-metadata/sen12-s2-confirmation/archive_manifest.json": "bc5bb4befd74e67bd7664b3fe40d2ebd6f09f94d105e6e655234d9942e9df502",
+    "research/dataset-metadata/sen12-s2-confirmation/s12ls_ld_s2_membership.json": "9d538889e86cd2e1c4c61bb7bf201ecd86765c6428b9c87833f7341fdddbec0e",
+    "research/dataset-metadata/sen12-s2-confirmation/member_index.json": "d83e1f64f2d2faca17b2abff8564ff1f87775df9594251356378c320ab75e6a6",
+    "experiments/code/prepare_sen12_s2.py": "bc646ef2293532bb76fadda7b8d80522ab13b0148070db44e31eb0282a68b887",
+    "experiments/code/run_sen12_s2_confirmation.py": "4bb895cef7bfb1dab37ddd27b5d9d208ce89b8cdec5fde6eacd01cc376387a7d",
+    "experiments/code/test_sen12_s2_confirmation.py": "c42fba7a80bf9325c7c5255d6a3cae02ab1e09fde2286ce0034b58f0869ce8c3",
+    "experiments/code/analyze_sen12_v3_thresholds.py": "1c196be80b2fa672b17f257c8f114e3a19777318ed11dd2831e25a7c6bc587a2",
+    "experiments/code/explore_sen12_v4.py": "b3cbbf2bafb5568adadaeca40185f478f8ec4197624d2d1f587ead6851fabcea",
+    "experiments/code/explore_sen12_v4_mixed_matrix.py": "dcdda8eaa4caf6b100e852682dbac44ca74b1f5e6311fff6141969160df59433",
+    "experiments/code/revised_models.py": "53caa99b953b7c11b1b04e78fff9cd65bd77cb7dbb6b8e33ba9525ceb622b14e",
+    "experiments/code/data_semantics.py": "5587fb5a6ddd078092f929cd30f49a2c384abff5ff99e3177b00673750d073f9",
+    "experiments/derived/results/sen12_s2_confirmation/fit_decisions.json": "7dfbff11b78f48cf692060d1f6393c5cdb720863cc8884edd364afe6d26b0f13",
+    "experiments/derived/results/sen12_s2_confirmation_v4/fit_decisions.json": "da8e67def9c5ffcc99e064728a5d0fb4a8c5900f30d57c446c261a0f0600ea94",
+    "experiments/derived/results/sen12_v3_threshold_diagnostic.json": "1a8901adeb1ac76b3ed20b704be92d7cb7804cbb8c20e79ed3afc0c1c7fb86ae",
+    "experiments/derived/results/sen12_v4_development_exploration.json": "06d7662f2a153fb500a7e16a3694c7605260d0c8ec7a95d0268f555bcf26b27b",
+    "experiments/derived/results/sen12_v4_mixed_matrix_exploration.json": "e71b24e5743293f2735f4b15b0028896d43fe33de5f2531fd472aa39b6033dc9",
+    "experiments/logs/R055-sen12-v5-numeric-recheck.log": "841fdcddd492c38d492252903977832ce441454cd2d1a528db531a59da0488bc",
+    "environment/requirements-sen12.txt": "20865ff5d4a8e47117aade709a38610b2a45d1e5e6bcf6ccc601de773eb42df3"
+  },
+  "runtime": {
+    "python": "3.10.20",
+    "platform": "macOS-26.6.2-arm64-arm-64bit",
+    "numpy": "2.2.6",
+    "pyproj": "3.7.1",
+    "scipy": "1.15.3",
+    "torch": "2.14.0",
+    "xarray": "2025.6.1",
+    "h5netcdf": "1.6.4",
+    "h5py": "3.14.0"
+  },
+  "device": "mps",
+  "development_split_salt": "v4-mixed",
+  "development_split_rule": "sha256(salt:filename) modulo 5 equals zero for validation",
+  "train_inventories": [
+    "chimanimani",
+    "china",
+    "dominicamaria"
+  ],
+  "validation_inventories": [
+    "chimanimani",
+    "china",
+    "dominicamaria"
+  ],
   "train_count": 464,
   "validation_count": 113,
   "validation_by_inventory": {
@@ -9,10 +60,9 @@
     "china": 12,
     "dominicamaria": 45
   },
-  "all_runs_at_least_0_25": false,
-  "all_runs_at_least_0_20": true,
-  "all_runs_at_least_0_15": true,
-  "arm_seed_mean": {
+  "individual_validation_floor": 0.2,
+  "arm_mean_validation_floor": 0.25,
+  "arm_seed_mean_validation_f1": {
     "s3_none_base": 0.27511903992069525,
     "s3_raw_base": 0.26615149067943195,
     "s3_ndvi_base": 0.2915705369801526,
@@ -21,6 +71,9 @@
     "s3_ndvi_boundary": 0.30546340198802086,
     "s3_ndvi_biophysical": 0.31656536672635727
   },
+  "individual_validation_pass": true,
+  "arm_mean_validation_pass": true,
+  "all_validation_pass": true,
   "runs": [
     {
       "arm": "s3_none_base",
@@ -124,9 +177,9 @@
         }
       ],
       "validation_f1": 0.29711627906976745,
-      "validation_predictions": "experiments/derived/results/sen12_v4_mixed_matrix_predictions/s3_none_base_seed42.npy",
+      "validation_predictions": "experiments/derived/results/sen12_s2_confirmation_v5/validation_predictions/s3_none_base_seed42.npy",
       "validation_predictions_sha256": "7bcdb9a94d86bed3380362caca7fcdff991600e4b8f12e0414e8bb0285395cde",
-      "checkpoint": "experiments/derived/checkpoints/sen12_v4_mixed_matrix_exploration/s3_none_base_seed42.pt",
+      "checkpoint": "experiments/derived/checkpoints/sen12_s2_confirmation_v5/s3_none_base_seed42.pt",
       "checkpoint_sha256": "f65c09243806a4124495d20223eef6d9e66de76417f106829ec9f60950643022"
     },
     {
@@ -231,9 +284,9 @@
         }
       ],
       "validation_f1": 0.23676440778050994,
-      "validation_predictions": "experiments/derived/results/sen12_v4_mixed_matrix_predictions/s3_none_base_seed43.npy",
+      "validation_predictions": "experiments/derived/results/sen12_s2_confirmation_v5/validation_predictions/s3_none_base_seed43.npy",
       "validation_predictions_sha256": "d2c89bf9cad4344f193cd1e03e02839f671c7f92007a993a2a709346301d0bc1",
-      "checkpoint": "experiments/derived/checkpoints/sen12_v4_mixed_matrix_exploration/s3_none_base_seed43.pt",
+      "checkpoint": "experiments/derived/checkpoints/sen12_s2_confirmation_v5/s3_none_base_seed43.pt",
       "checkpoint_sha256": "96d4a5fc7ccd2df8e4a8d5148911dd87acf71f1a1ed3ed73b25eccb510167071"
     },
     {
@@ -338,9 +391,9 @@
         }
       ],
       "validation_f1": 0.2914764329118082,
-      "validation_predictions": "experiments/derived/results/sen12_v4_mixed_matrix_predictions/s3_none_base_seed44.npy",
+      "validation_predictions": "experiments/derived/results/sen12_s2_confirmation_v5/validation_predictions/s3_none_base_seed44.npy",
       "validation_predictions_sha256": "5ff81c0e06794d3cab2566aa6c5dc58e7f763603e99a4344e0a2b42002c5b32f",
-      "checkpoint": "experiments/derived/checkpoints/sen12_v4_mixed_matrix_exploration/s3_none_base_seed44.pt",
+      "checkpoint": "experiments/derived/checkpoints/sen12_s2_confirmation_v5/s3_none_base_seed44.pt",
       "checkpoint_sha256": "8f93d72069812e7569691a346a767444e001115170711fdb437711f2f2aaa22e"
     },
     {
@@ -445,9 +498,9 @@
         }
       ],
       "validation_f1": 0.2955382811121605,
-      "validation_predictions": "experiments/derived/results/sen12_v4_mixed_matrix_predictions/s3_raw_base_seed42.npy",
+      "validation_predictions": "experiments/derived/results/sen12_s2_confirmation_v5/validation_predictions/s3_raw_base_seed42.npy",
       "validation_predictions_sha256": "f4a003bfdd907a47dc36e9aa98eb2cc38e7de62f3686c833dd1563b11b2c39a2",
-      "checkpoint": "experiments/derived/checkpoints/sen12_v4_mixed_matrix_exploration/s3_raw_base_seed42.pt",
+      "checkpoint": "experiments/derived/checkpoints/sen12_s2_confirmation_v5/s3_raw_base_seed42.pt",
       "checkpoint_sha256": "9011bcbc97129bfe0c9ca1793f707baae7fb94850b058a881a020c9b39cbe845"
     },
     {
@@ -552,9 +605,9 @@
         }
       ],
       "validation_f1": 0.2122913928386506,
-      "validation_predictions": "experiments/derived/results/sen12_v4_mixed_matrix_predictions/s3_raw_base_seed43.npy",
+      "validation_predictions": "experiments/derived/results/sen12_s2_confirmation_v5/validation_predictions/s3_raw_base_seed43.npy",
       "validation_predictions_sha256": "a4d8ca410e8d6c45cedd591a4419dca668f09cc69b9cb8667d05e510d01a8dd6",
-      "checkpoint": "experiments/derived/checkpoints/sen12_v4_mixed_matrix_exploration/s3_raw_base_seed43.pt",
+      "checkpoint": "experiments/derived/checkpoints/sen12_s2_confirmation_v5/s3_raw_base_seed43.pt",
       "checkpoint_sha256": "1127632dd6a5c0c4e4e7b45bfa469a0cbbeaf718da125e1b78294bed6ad75eb3"
     },
     {
@@ -659,9 +712,9 @@
         }
       ],
       "validation_f1": 0.29062479808748465,
-      "validation_predictions": "experiments/derived/results/sen12_v4_mixed_matrix_predictions/s3_raw_base_seed44.npy",
+      "validation_predictions": "experiments/derived/results/sen12_s2_confirmation_v5/validation_predictions/s3_raw_base_seed44.npy",
       "validation_predictions_sha256": "55a20d1370f8b83755f352e0d7587da8542bacbea34d2e21e70f2fff9e7a6b3a",
-      "checkpoint": "experiments/derived/checkpoints/sen12_v4_mixed_matrix_exploration/s3_raw_base_seed44.pt",
+      "checkpoint": "experiments/derived/checkpoints/sen12_s2_confirmation_v5/s3_raw_base_seed44.pt",
       "checkpoint_sha256": "f1167db9ecc4a1be4ce582ecf5e9b5b7d940643313fcefb468c67292012ad915"
     },
     {
@@ -766,9 +819,9 @@
         }
       ],
       "validation_f1": 0.29763287370399305,
-      "validation_predictions": "experiments/derived/results/sen12_v4_mixed_matrix_predictions/s3_ndvi_base_seed42.npy",
+      "validation_predictions": "experiments/derived/results/sen12_s2_confirmation_v5/validation_predictions/s3_ndvi_base_seed42.npy",
       "validation_predictions_sha256": "372d2259721ea007adffc7c8f293b42a55dd29bbe5d5ea8d419079867f8cd531",
-      "checkpoint": "experiments/derived/checkpoints/sen12_v4_mixed_matrix_exploration/s3_ndvi_base_seed42.pt",
+      "checkpoint": "experiments/derived/checkpoints/sen12_s2_confirmation_v5/s3_ndvi_base_seed42.pt",
       "checkpoint_sha256": "6d4e95d3ce1c0a30d5dbbb85873d798a0dc3a8535d20d15be6172243656da4f4"
     },
     {
@@ -873,9 +926,9 @@
         }
       ],
       "validation_f1": 0.26984911341201345,
-      "validation_predictions": "experiments/derived/results/sen12_v4_mixed_matrix_predictions/s3_ndvi_base_seed43.npy",
+      "validation_predictions": "experiments/derived/results/sen12_s2_confirmation_v5/validation_predictions/s3_ndvi_base_seed43.npy",
       "validation_predictions_sha256": "466631d37554bfa9e18ab3c9021c186df3f844eeabacc2ee022f6989ec383140",
-      "checkpoint": "experiments/derived/checkpoints/sen12_v4_mixed_matrix_exploration/s3_ndvi_base_seed43.pt",
+      "checkpoint": "experiments/derived/checkpoints/sen12_s2_confirmation_v5/s3_ndvi_base_seed43.pt",
       "checkpoint_sha256": "013ac02b46e404e27f283b8629a81833da55452e328da342f5b633c083909650"
     },
     {
@@ -980,9 +1033,9 @@
         }
       ],
       "validation_f1": 0.3072296238244514,
-      "validation_predictions": "experiments/derived/results/sen12_v4_mixed_matrix_predictions/s3_ndvi_base_seed44.npy",
+      "validation_predictions": "experiments/derived/results/sen12_s2_confirmation_v5/validation_predictions/s3_ndvi_base_seed44.npy",
       "validation_predictions_sha256": "a8437c94e87aab2c74ba6c99d8ba0e43a2d8d7f75930e1e2eae3cbe584246cdc",
-      "checkpoint": "experiments/derived/checkpoints/sen12_v4_mixed_matrix_exploration/s3_ndvi_base_seed44.pt",
+      "checkpoint": "experiments/derived/checkpoints/sen12_s2_confirmation_v5/s3_ndvi_base_seed44.pt",
       "checkpoint_sha256": "e910a0a399094ac22d89cb8ad9b0107cbd648669c8ad1a9ac45b34ec3ba6a1c8"
     },
     {
@@ -1087,9 +1140,9 @@
         }
       ],
       "validation_f1": 0.3112550830518988,
-      "validation_predictions": "experiments/derived/results/sen12_v4_mixed_matrix_predictions/s3_none_boundary_seed42.npy",
+      "validation_predictions": "experiments/derived/results/sen12_s2_confirmation_v5/validation_predictions/s3_none_boundary_seed42.npy",
       "validation_predictions_sha256": "e8674d40d71d4ba766bcb2f4248b1e473a889347da50b0444af69e9a5deff756",
-      "checkpoint": "experiments/derived/checkpoints/sen12_v4_mixed_matrix_exploration/s3_none_boundary_seed42.pt",
+      "checkpoint": "experiments/derived/checkpoints/sen12_s2_confirmation_v5/s3_none_boundary_seed42.pt",
       "checkpoint_sha256": "beedfefc885e8b46748ac47008e7d1a56c13ef3f88924f2a0494cb99ee2d6a89"
     },
     {
@@ -1194,9 +1247,9 @@
         }
       ],
       "validation_f1": 0.30121283760293227,
-      "validation_predictions": "experiments/derived/results/sen12_v4_mixed_matrix_predictions/s3_none_boundary_seed43.npy",
+      "validation_predictions": "experiments/derived/results/sen12_s2_confirmation_v5/validation_predictions/s3_none_boundary_seed43.npy",
       "validation_predictions_sha256": "4a2230485a40041187d63c53d7fa490f234bd2364b5b51d0646dc486ea978a10",
-      "checkpoint": "experiments/derived/checkpoints/sen12_v4_mixed_matrix_exploration/s3_none_boundary_seed43.pt",
+      "checkpoint": "experiments/derived/checkpoints/sen12_s2_confirmation_v5/s3_none_boundary_seed43.pt",
       "checkpoint_sha256": "5373652107a99750db3a6a7f6ec0050aa3a7b1845b41e22a9c99f80cfeb223de"
     },
     {
@@ -1301,9 +1354,9 @@
         }
       ],
       "validation_f1": 0.31935088134644773,
-      "validation_predictions": "experiments/derived/results/sen12_v4_mixed_matrix_predictions/s3_none_boundary_seed44.npy",
+      "validation_predictions": "experiments/derived/results/sen12_s2_confirmation_v5/validation_predictions/s3_none_boundary_seed44.npy",
       "validation_predictions_sha256": "78a6430ea249a7476269895ffcd86466edcea52fafbef89a7b66967eebe8c636",
-      "checkpoint": "experiments/derived/checkpoints/sen12_v4_mixed_matrix_exploration/s3_none_boundary_seed44.pt",
+      "checkpoint": "experiments/derived/checkpoints/sen12_s2_confirmation_v5/s3_none_boundary_seed44.pt",
       "checkpoint_sha256": "0507999ff9b19f745a84b4a5148efaa7e354a80c623d9bab9dcf4af65044e185"
     },
     {
@@ -1408,9 +1461,9 @@
         }
       ],
       "validation_f1": 0.31112374752446126,
-      "validation_predictions": "experiments/derived/results/sen12_v4_mixed_matrix_predictions/s3_raw_boundary_seed42.npy",
+      "validation_predictions": "experiments/derived/results/sen12_s2_confirmation_v5/validation_predictions/s3_raw_boundary_seed42.npy",
       "validation_predictions_sha256": "7933b90253e298c25ae9e94578e9682bba3e92d3159ac542155b72a98404d084",
-      "checkpoint": "experiments/derived/checkpoints/sen12_v4_mixed_matrix_exploration/s3_raw_boundary_seed42.pt",
+      "checkpoint": "experiments/derived/checkpoints/sen12_s2_confirmation_v5/s3_raw_boundary_seed42.pt",
       "checkpoint_sha256": "067ac77c62b7a4ae07ad2416bd1401528a84a7cc07283652f6678397075ece20"
     },
     {
@@ -1515,9 +1568,9 @@
         }
       ],
       "validation_f1": 0.3029240461191014,
-      "validation_predictions": "experiments/derived/results/sen12_v4_mixed_matrix_predictions/s3_raw_boundary_seed43.npy",
+      "validation_predictions": "experiments/derived/results/sen12_s2_confirmation_v5/validation_predictions/s3_raw_boundary_seed43.npy",
       "validation_predictions_sha256": "5ca19b10eeccf5247e2b69b682844cd6e569f980275d4847f0eedf62034b25d7",
-      "checkpoint": "experiments/derived/checkpoints/sen12_v4_mixed_matrix_exploration/s3_raw_boundary_seed43.pt",
+      "checkpoint": "experiments/derived/checkpoints/sen12_s2_confirmation_v5/s3_raw_boundary_seed43.pt",
       "checkpoint_sha256": "74f9164c28514f8039626774437cc2762a05404716d7d0e01d83d1138a140793"
     },
     {
@@ -1622,9 +1675,9 @@
         }
       ],
       "validation_f1": 0.3076284762640174,
-      "validation_predictions": "experiments/derived/results/sen12_v4_mixed_matrix_predictions/s3_raw_boundary_seed44.npy",
+      "validation_predictions": "experiments/derived/results/sen12_s2_confirmation_v5/validation_predictions/s3_raw_boundary_seed44.npy",
       "validation_predictions_sha256": "c57766509735386b755471200ccb83d1538ed11bc26cfcb067c5b388ccfaf9cc",
-      "checkpoint": "experiments/derived/checkpoints/sen12_v4_mixed_matrix_exploration/s3_raw_boundary_seed44.pt",
+      "checkpoint": "experiments/derived/checkpoints/sen12_s2_confirmation_v5/s3_raw_boundary_seed44.pt",
       "checkpoint_sha256": "27a6880a391a9fd0aa45281944ab714d86f7f99c922e3086d1a4c79cb4e0eca1"
     },
     {
@@ -1729,9 +1782,9 @@
         }
       ],
       "validation_f1": 0.31317656690621304,
-      "validation_predictions": "experiments/derived/results/sen12_v4_mixed_matrix_predictions/s3_ndvi_boundary_seed42.npy",
+      "validation_predictions": "experiments/derived/results/sen12_s2_confirmation_v5/validation_predictions/s3_ndvi_boundary_seed42.npy",
       "validation_predictions_sha256": "08b0a610c19ee83892eebbda2e0550fda6f19f1a269898f753d53aa3c8683963",
-      "checkpoint": "experiments/derived/checkpoints/sen12_v4_mixed_matrix_exploration/s3_ndvi_boundary_seed42.pt",
+      "checkpoint": "experiments/derived/checkpoints/sen12_s2_confirmation_v5/s3_ndvi_boundary_seed42.pt",
       "checkpoint_sha256": "67f26aca7be198021ad8714c3834b8da2846d55e23f440175bd593dd76f87e62"
     },
     {
@@ -1836,9 +1889,9 @@
         }
       ],
       "validation_f1": 0.2953267524678246,
-      "validation_predictions": "experiments/derived/results/sen12_v4_mixed_matrix_predictions/s3_ndvi_boundary_seed43.npy",
+      "validation_predictions": "experiments/derived/results/sen12_s2_confirmation_v5/validation_predictions/s3_ndvi_boundary_seed43.npy",
       "validation_predictions_sha256": "b00f52dea86a65d978cdfe9b120df6e1c45a60e9709d0c344fff2d467f210fb0",
-      "checkpoint": "experiments/derived/checkpoints/sen12_v4_mixed_matrix_exploration/s3_ndvi_boundary_seed43.pt",
+      "checkpoint": "experiments/derived/checkpoints/sen12_s2_confirmation_v5/s3_ndvi_boundary_seed43.pt",
       "checkpoint_sha256": "8ca17ce8ebc4342ed2c079b86166127e4954a31671e672ca1c25494674e7bab0"
     },
     {
@@ -1943,9 +1996,9 @@
         }
       ],
       "validation_f1": 0.30788688659002494,
-      "validation_predictions": "experiments/derived/results/sen12_v4_mixed_matrix_predictions/s3_ndvi_boundary_seed44.npy",
+      "validation_predictions": "experiments/derived/results/sen12_s2_confirmation_v5/validation_predictions/s3_ndvi_boundary_seed44.npy",
       "validation_predictions_sha256": "a6d273aabfa89e9d0f70665b8de0d7a2264180c42ad48b2119a3431dd036d7ac",
-      "checkpoint": "experiments/derived/checkpoints/sen12_v4_mixed_matrix_exploration/s3_ndvi_boundary_seed44.pt",
+      "checkpoint": "experiments/derived/checkpoints/sen12_s2_confirmation_v5/s3_ndvi_boundary_seed44.pt",
       "checkpoint_sha256": "ac3867953d0d42ca91f954cb295af95e6066714ee4ebcf0b9c9090bd489a3d81"
     },
     {
@@ -2050,9 +2103,9 @@
         }
       ],
       "validation_f1": 0.32899284193406875,
-      "validation_predictions": "experiments/derived/results/sen12_v4_mixed_matrix_predictions/s3_ndvi_biophysical_seed42.npy",
+      "validation_predictions": "experiments/derived/results/sen12_s2_confirmation_v5/validation_predictions/s3_ndvi_biophysical_seed42.npy",
       "validation_predictions_sha256": "1440a2c955a09c1281c9323b47cc3979415e42a1d1d72c83a87b01bad651a377",
-      "checkpoint": "experiments/derived/checkpoints/sen12_v4_mixed_matrix_exploration/s3_ndvi_biophysical_seed42.pt",
+      "checkpoint": "experiments/derived/checkpoints/sen12_s2_confirmation_v5/s3_ndvi_biophysical_seed42.pt",
       "checkpoint_sha256": "8cc37f546c4229d81490a02c13f11d3c8eba444625a6d02300175cd6c09096db"
     },
     {
@@ -2157,9 +2210,9 @@
         }
       ],
       "validation_f1": 0.30535610217388914,
-      "validation_predictions": "experiments/derived/results/sen12_v4_mixed_matrix_predictions/s3_ndvi_biophysical_seed43.npy",
+      "validation_predictions": "experiments/derived/results/sen12_s2_confirmation_v5/validation_predictions/s3_ndvi_biophysical_seed43.npy",
       "validation_predictions_sha256": "cef2f3fa4b65169c4ed93190dd6e00b73db15a7d2f60629f923bac61fc9e276d",
-      "checkpoint": "experiments/derived/checkpoints/sen12_v4_mixed_matrix_exploration/s3_ndvi_biophysical_seed43.pt",
+      "checkpoint": "experiments/derived/checkpoints/sen12_s2_confirmation_v5/s3_ndvi_biophysical_seed43.pt",
       "checkpoint_sha256": "b85ff1eb765251570c0ba7867595cfcac4c9ce7ca3569133f09c512d3cc8f45c"
     },
     {
@@ -2264,9 +2317,9 @@
         }
       ],
       "validation_f1": 0.3153471560711138,
-      "validation_predictions": "experiments/derived/results/sen12_v4_mixed_matrix_predictions/s3_ndvi_biophysical_seed44.npy",
+      "validation_predictions": "experiments/derived/results/sen12_s2_confirmation_v5/validation_predictions/s3_ndvi_biophysical_seed44.npy",
       "validation_predictions_sha256": "db18ac7909de65fb6d247029638e5f2bf434ef42041e1a48d5a483952a774388",
-      "checkpoint": "experiments/derived/checkpoints/sen12_v4_mixed_matrix_exploration/s3_ndvi_biophysical_seed44.pt",
+      "checkpoint": "experiments/derived/checkpoints/sen12_s2_confirmation_v5/s3_ndvi_biophysical_seed44.pt",
       "checkpoint_sha256": "db12a930893b715d931e47ac44a251ed1784436a3f310d65b81252552a6feec8"
     }
   ]

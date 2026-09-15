@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "result_sha256": "35a26208788362b55ef5c62074aa6b1fc25b3a6f5948d6a30f74bbf6b54c232a",
+  "protected_manifest_sha256": "cc8dfe60b6e6abb89fb6182e3de51238679d9e19ebd2cba85862f03d2f6f88e6",
+  "run_count": 21,
+  "inventory_count": 10,
+  "verified_metric_cells": 420,
+  "verified_high_confidence_metric_cells": 294,
+  "verified_scl_inventory_summaries": 10,
+  "registered_transformed_envelope_overlap_count": 1,
+  "native_same_crs_positive_area_overlap_count": 0,
+  "conditions": {
+    "ndvi_attention_vs_raw_edge_upper_ci_below_1_point": false,
+    "ndvi_modulated_vs_plain_upper_ci_below_1_point": true,
+    "generic_boundary_all_control_means_positive_lower_ci_above_zero_8_of_10": false,
+    "all_arm_absolute_mean_f1_at_least_0_10": false,
+    "all_integrity_checks_pass": false
+  },
+  "all_conditions_pass": false,
+  "status": "verified-not-confirmed"
+}

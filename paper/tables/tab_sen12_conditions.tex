@@ -1,0 +1,22 @@
+\begin{tabular}{@{}p{0.25\textwidth}p{0.24\textwidth}p{0.31\textwidth}c@{}}
+\toprule
+Condition & Estimate & Registered requirement & Result \\
+\midrule
+NDVI attention minus raw edge F1 &
+$+0.70$ [$+0.28,+1.16$] pt &
+95\% upper endpoint $<+1.00$ pt & Fail \\
+NDVI-modulated minus plain-boundary F1 &
+$-0.06$ [$-0.41,+0.26$] pt &
+95\% upper endpoint $<+1.00$ pt & Pass \\
+Generic plain-boundary F1 &
+$+0.61$ [$-0.09,+1.32$] pt; 5/10 positive &
+All control means $>0$; pooled lower endpoint $>0$; at least 8/10 positive &
+Fail \\
+Absolute transfer &
+Arm means $1.21$--$3.14\%$ F1 &
+Every arm mean at least $10\%$ F1 & Fail \\
+Registered spatial integrity &
+One EPSG:4326 transformed-envelope overlap &
+Zero cross-inventory envelope overlaps & Fail \\
+\bottomrule
+\end{tabular}

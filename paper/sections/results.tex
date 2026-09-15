@@ -13,7 +13,7 @@ declared authoritative.}
 \end{table}
 
 Table~\ref{tab:controlled} reports every configuration under both candidate
-orders; Supplementary Table S3 gives detailed RGBN-candidate operating metrics.
+orders; Supplementary Table S4 gives detailed RGBN-candidate operating metrics.
 With base loss, candidate-index attention reaches $69.04\%$ F1 under
 RGBN and $68.92\%$ under BGRN. Raw candidate-Red/NIR edges reach $69.05\%$ and
 $69.13\%$, while the capacity-matched zero control reaches $68.88\%$ under
@@ -36,43 +36,39 @@ index-versus-plain-loss F1 envelope $[-0.41,-0.33]$, identifying negative
 directions over the two admissible schemas. The corresponding boundary-F1
 envelope $[-0.05,+0.38]$ crosses zero and is direction-unidentified. Generic
 plain-boundary F1 has envelope $[+0.96,+1.13]$; all 18 individual effects lie
-between $+0.42$ and $+1.62$ points. Supplementary Table~S4 is the generated
+between $+0.42$ and $+1.62$ points. Supplementary Table~S5 is the generated
 certificate.
 
 \subsection{External analyses}
 
-The post-hoc CAS sensitivity analysis fails three of four quantitative
-criteria. Across three designated regions and seeds, plain boundary weighting
-changes mean region-macro F1 by $-2.19$ points and boundary F1 by $-1.86$
-points; seed F1 effects are $-10.42$, $+1.22$, and $+2.62$ points.
-Supplementary Table~S1 reports every contrast. Because the protocol was first
-committed after execution, this result receives no confirmation credit.
+The post-hoc CAS sensitivity fails three of four criteria: plain boundary
+weighting changes mean region-macro F1 by $-2.19$ points and boundary F1 by
+$-1.86$ points, with mixed seed effects. It receives no confirmation credit
+(Supplementary Table~S1).
 
-The internally precommitted LRD run fails all four frozen criteria, but is not
-confirmation-grade. Maximum validation F1 is only $0.008$--$0.151$; protected
-event-macro F1 spans $0.007$--$0.283$ for base and $0.009$--$0.132$ for
-boundary weighting. Under selected thresholds, mean F1 changes by $-4.73$
-points. The frozen per-crop boundary convention yields $-24.10$ points, but
-crop-macro empty/empty scoring of zero yields $-0.15$, pooled selected-threshold
-scoring $-4.92$, and pooled common-$0.5$ scoring $-0.55$. Development PH0003 and
-protected PH0001/PH0004 also share a trigger
-family, leaving four non-overlapping protected EIDs. This external evidence is
-failed/indeterminate, not a robust transfer rejection. Supplementary Table~S2
-and Method~S2 report the frozen and sensitivity results.
+The internally precommitted LRD run fails all four criteria but is not
+confirmation-grade. Validation F1 is $0.008$--$0.151$; selected-threshold mean
+F1 changes by $-4.73$ points. Its frozen boundary effect is $-24.10$ points,
+but alternatives span $-0.15$ to $-4.92$, and two protected EIDs share a
+trigger family with development. It is failed/indeterminate, not a robust
+rejection (Supplementary Method~S2).
+
+The publicly locked Sen12 test is verified-not-confirmed: one of five
+conditions passes. NDVI-attention minus raw-edge F1 is $+0.70$ points
+($[+0.28,+1.16]$); generic boundary F1 is $+0.61$
+($[-0.09,+1.32]$), with 5/10 inventories positive. All arm means are only
+$1.21$--$3.14\%$ F1. The registered transformed-envelope check also fails for
+one Kyrgyzstan pair, although native rectangles only share an edge. This
+provides no support for recurrence and no refutation (Supplementary Method and
+Table~S3).
 
 \subsection{Operating point and spatial degradation}
 
-At threshold $0.5$, boundary-weighted residual-attention FPR spans
-$2.47$--$2.50\%$ across orders. Validation-selected nearest recall breakpoints
-match exactly in 53 of 54 order-specific runs; the RGBN
-index/plain-boundary seed-42 run differs by $2.11\times10^{-6}$. Combined
-matched FPR and precision ranges across the seven residual-attention
-configurations are $1.97$--$2.01\%$ and
-$78.41$--$78.74\%$. These differences do not support index-specific
-false-positive suppression.
+At threshold $0.5$, boundary-weighted residual-attention FPR is
+$2.47$--$2.50\%$. Validation-matched recall is exact in 53/54 runs; combined
+matched FPR/precision spans $1.97$--$2.01\%$/$78.41$--$78.74\%$. This does not
+support index-specific false-positive suppression.
 
 Controlled $128\rightarrow38\rightarrow128$ degradation lowers F1 by
-$4.33$--$5.20$ points across both orders. Raw-edge plain-boundary F1 changes
-from $69.88$ to $65.37\%$ under RGBN and from $70.19$ to $65.56\%$ under
-BGRN. This identifies same-sensor spatial-information sensitivity, not
-cross-sensor causation.
+$4.33$--$5.20$ points across orders, identifying same-sensor
+spatial-information sensitivity rather than cross-sensor causation.

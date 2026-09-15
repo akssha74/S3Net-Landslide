@@ -11,7 +11,7 @@ The official test set had also been inspected during earlier method development.
 
 The residual-attention surface crosses zero, raw-edge, and candidate-index controls with base and plain boundary-weighted losses; one additional index arm uses equal-mass index-modulated weighting. U-Net and ResU-Net bring the total to nine configurations. We train all nine with three seeds under both RGBN and BGRN candidates (54 runs).
 
-All arms use AdamW \citep{loshchilov2019adamw} with learning rate $1.5\times10^{-3}$, weight decay $10^{-4}$, cosine decay to $10^{-5}$, batch size 32, and 15 epochs. Validation F1 selects the epoch. Seeds 42, 43, and 44 use identical schedules and deterministic data-loader seeds. Probabilities are stored as float32 arrays; an independent script recomputes the reported default-threshold metrics without importing the training or reporting functions.
+All arms use AdamW with learning rate $1.5\times10^{-3}$, weight decay $10^{-4}$, cosine decay to $10^{-5}$, batch size 32, and 15 epochs. Validation F1 selects the epoch. Seeds 42, 43, and 44 use identical schedules and deterministic data-loader seeds. Probabilities are stored as float32 arrays; an independent script recomputes the reported default-threshold metrics without importing the training or reporting functions.
 
 \subsection{Post-hoc CAS sensitivity}
 
@@ -21,6 +21,10 @@ We compare base and plain-boundary loss for the same RGB zero-control model on d
 
 LRD supplies named Sentinel-2 bands and 28 EIDs \citep{orynbaikyzy2025lrd}. A local 16/6/6 protocol preceded validation/protected access, but no third-party timestamp exists and PH0003 shares a trigger family with protected PH0001/PH0004. Supplementary Method~S2 gives the frozen design and limitations.
 
+\subsection{Publicly locked Sen12 stress test}
+
+Sen12Landslides supplies named Sentinel-2 bands and inventories \citep{hohn2025sen12}. After development-only calibration, 21 checkpoints were frozen before authorized access to 1,889 patches from ten protected inventories. Five conditions covered two upper margins, generic-boundary recurrence, absolute non-degeneracy, and conservative transformed-envelope integrity. A public post-access correction treated one SCL-255 array as descriptively unavailable before inference; no input, mask, endpoint, or condition changed (Supplementary Method~S3).
+
 \subsection{Interpretation rules}
 
-Input specificity requires the candidate index to outperform zero and raw controls on the same endpoint under both orders. Spectral loss specificity requires index modulation to beat equal-mass plain weighting and retain effect direction across orders; boundary F1 is separate. The certificate covers index-versus-raw F1, index-versus-plain F1 and boundary F1, and plain-boundary-versus-base F1. Complete-system improvement overrides neither control. Resolution attribution is restricted to same-sensor degradation. The LRD run is confirmation-eligible only if timing, trigger independence, validation performance, and endpoint sensitivity are defensible; they are not.
+Input specificity requires the candidate index to outperform zero and raw controls on the same endpoint under both orders. Spectral loss specificity requires index modulation to beat equal-mass plain weighting and retain effect direction across orders; boundary F1 is separate. The certificate covers index-versus-raw F1, index-versus-plain F1 and boundary F1, and plain-boundary-versus-base F1. Complete-system improvement overrides neither control. Resolution attribution is restricted to same-sensor degradation. LRD is not confirmation-eligible; Sen12 recurrence requires all five registered conditions.
