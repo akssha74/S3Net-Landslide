@@ -1,0 +1,83 @@
+{
+  "schema_version": 1,
+  "name": "semantic-identifiability certificate",
+  "definition": "For admissible metadata-consistent schemas O and a signed contrast delta(o), the semantic envelope is [min_o delta(o), max_o delta(o)]. Effect direction is identified only when this interval excludes zero.",
+  "admissible_schemas": [
+    "RGBN",
+    "BGRN"
+  ],
+  "schema_basis": "The released arrays do not authoritatively bind visible columns 0 and 2; the official display and native product order support the two candidates.",
+  "source_artifact": "experiments/derived/results/band_order_sensitivity.json",
+  "source_sha256": "21f94efc1ba8f368d4f7445bd788852331ab7f8c30052b997951101320bf9052",
+  "contrasts": [
+    {
+      "contrast_id": "index-input-vs-raw-f1",
+      "estimand": "candidate-index attention minus raw-edge attention mean F1",
+      "effect_points_by_schema": {
+        "RGBN": -0.010715106525094331,
+        "BGRN": -0.21078814293531423
+      },
+      "semantic_envelope_points": [
+        -0.21078814293531423,
+        -0.010715106525094331
+      ],
+      "direction_status": "negative-identified",
+      "interpretation": "The candidate index is not superior to the same-capacity raw edge control under either admissible schema."
+    },
+    {
+      "contrast_id": "index-modulation-vs-plain-f1",
+      "estimand": "equal-mass index modulation minus plain boundary weighting mean F1",
+      "effect_points_by_schema": {
+        "RGBN": -0.4062174516744399,
+        "BGRN": -0.3316432779656653
+      },
+      "semantic_envelope_points": [
+        -0.4062174516744399,
+        -0.3316432779656653
+      ],
+      "direction_status": "negative-identified",
+      "interpretation": "Index modulation is inferior on mean F1 under both admissible schemas."
+    },
+    {
+      "contrast_id": "index-modulation-vs-plain-boundary-f1",
+      "estimand": "equal-mass index modulation minus plain boundary weighting mean boundary F1",
+      "effect_points_by_schema": {
+        "RGBN": 0.3830729679567546,
+        "BGRN": -0.04718684021937092
+      },
+      "semantic_envelope_points": [
+        -0.04718684021937092,
+        0.3830729679567546
+      ],
+      "direction_status": "direction-unidentified",
+      "interpretation": "The boundary-effect direction is not semantically identifiable because its envelope crosses zero."
+    },
+    {
+      "contrast_id": "plain-boundary-vs-base-f1",
+      "estimand": "plain boundary weighting minus base loss, mean across three attention controls and three seeds",
+      "effect_points_by_schema": {
+        "RGBN": 0.9620230731973254,
+        "BGRN": 1.1266796516317976
+      },
+      "semantic_envelope_points": [
+        0.9620230731973254,
+        1.1266796516317976
+      ],
+      "direction_status": "positive-identified",
+      "interpretation": "The generic boundary effect is positive under both schemas and in all 18 individual comparisons.",
+      "individual_effect_envelope_points": [
+        0.4248429844361912,
+        1.6176962818440943
+      ],
+      "individual_effects_positive": 18,
+      "individual_effects_total": 18
+    }
+  ],
+  "certificate_summary": {
+    "index-input-vs-raw-f1": "negative-identified",
+    "index-modulation-vs-plain-f1": "negative-identified",
+    "index-modulation-vs-plain-boundary-f1": "direction-unidentified",
+    "plain-boundary-vs-base-f1": "positive-identified"
+  },
+  "scope": "Finite sensitivity certificate for the stated candidate schemas; not a population interval or proof that no other schema exists."
+}

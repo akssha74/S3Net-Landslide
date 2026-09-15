@@ -1,0 +1,8 @@
+{
+  "schema_version": 1,
+  "certificate": "experiments/derived/results/semantic_identifiability_certificate.json",
+  "contrasts_recomputed": 4,
+  "generic_individual_effects_checked": 18,
+  "failures": 0,
+  "status": "passed"
+}

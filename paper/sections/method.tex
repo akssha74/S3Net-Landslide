@@ -1,0 +1,68 @@
+\section{Controlled methods}
+\label{sec:method}
+
+\subsection{Band semantics and spectral controls}
+
+Let $\mathbf{X}\in\mathbb{R}^{B\times4\times H\times W}$ denote the released HR-GLDD arrays. Green and NIR occupy columns 1 and 3 under both plausible orders; Red is column 0 under RGBN and column 2 under native-product BGRN. The paper names the selected bands but not their NumPy positions, while the official notebook directly displays columns 0--2 as RGB without exposing array construction. We therefore run the full matrix for each candidate order $o\in\{\mathrm{RGBN},\mathrm{BGRN}\}$ and define the candidate normalized-difference index
+\begin{equation}
+V_o=\frac{X_{\mathrm{NIR}}-X_{\mathrm{Red}(o)}}
+        {X_{\mathrm{NIR}}+X_{\mathrm{Red}(o)}+10^{-6}}.
+\end{equation}
+We compare three two-channel controls:
+\begin{align}
+C_{\mathrm{zero}} &= (0,0),\\
+C_{\mathrm{raw},o} &= (|\nabla X_{\mathrm{Red}(o)}|,|\nabla X_{\mathrm{NIR}}|),\\
+C_{\mathrm{index},o} &= (V_o,|\nabla V_o|).
+\end{align}
+The zero control preserves attention parameters while removing external spectral information. The raw control tests whether generic optical edges explain any candidate-index advantage. Every recorded HR-GLDD output declares its candidate order; neither candidate is declared authoritative.
+
+\subsection{Semantic-identifiability certificate}
+
+Let $\mathcal{O}$ be the finite set of metadata-consistent schemas and
+$\delta(o)$ a signed contrast under schema $o$. We define its semantic envelope
+\begin{equation}
+\mathcal{E}_{\delta}=
+\left[\min_{o\in\mathcal{O}}\delta(o),\,
+      \max_{o\in\mathcal{O}}\delta(o)\right].
+\end{equation}
+The effect direction is semantically identified only when
+$0\notin\mathcal{E}_{\delta}$; otherwise it is direction-unidentified. Here
+$\mathcal{O}=\{\mathrm{RGBN},\mathrm{BGRN}\}$. This is a finite schema
+sensitivity certificate over descriptive means, not a confidence interval or
+a claim that no unlisted schema exists.
+
+\subsection{Capacity-matched residual attention}
+
+All controlled-attention models use the same residual encoder--decoder with channels $(32,64,128,256)$ and three skip gates. At scale $l$, the two control maps are bilinearly resized and concatenated with encoder features $F_l$:
+\begin{equation}
+M_l=\sigma\!\left[\operatorname{Conv}_{1\times1}
+\left(\operatorname{ReLU}\left(\operatorname{BN}
+\left(\operatorname{Conv}_{3\times3}[F_l,C_l]\right)\right)\right)\right],
+\end{equation}
+\begin{equation}
+F_{l,\mathrm{out}}=F_l\odot M_l+F_l.
+\end{equation}
+Every control mode therefore has 2,114,084 trainable parameters. U-Net and ResU-Net are included as architectural baselines.
+
+\subsection{Loss controls}
+
+For pixel $i$, the unreduced base-loss map combines binary cross-entropy and focal loss \citep{lin2017focal}, with focal positive-class weight $\alpha=0.35$ and focusing exponent 2:
+\begin{equation}
+\ell_{\mathrm{base},i}=\tfrac12\ell_{\mathrm{BCE},i}+\tfrac12\ell_{\mathrm{focal},i}.
+\end{equation}
+Let $B_{\mathrm{GT}}=\operatorname{Dilate}_{3\times3}(Y)-\operatorname{Erode}_{3\times3}(Y)$ denote the two-sided, one-pixel-radius Chebyshev morphological boundary band. We compare:
+\begin{align}
+L_{\mathrm{plain}} &=
+  \operatorname{mean}_i\{\ell_{\mathrm{base},i}[1+\gamma B_{\mathrm{GT},i}]\},\\
+L_{\mathrm{index},o} &=
+  \operatorname{mean}_i\{\ell_{\mathrm{base},i}[1+\gamma \widetilde{B_{\mathrm{GT}}|\nabla V_o|}_i]\},
+\end{align}
+where $\gamma=2$. For an informative index-boundary signal, the tilde rescales it within each image to the mean mass of $B_{\mathrm{GT}}$; when its mean is at most $10^{-6}$, it falls back to $B_{\mathrm{GT}}$. Under both candidate orders, 8 of 1,119 training images use this fallback and the maximum mass mismatch is $2.98\times10^{-8}$. Thus $L_{\mathrm{plain}}$ versus $L_{\mathrm{index},o}$ changes spatial allocation without changing average added weight.
+
+\subsection{Evaluation quantities}
+
+We compute pooled F1, intersection over union, precision, recall, background false-positive rate (FPR), and per-tile macro F1; the compact main table reports the quantities used by the claims. Boundary F1 is computed per tile after extracting predicted and reference boundary bands; a boundary pixel matches when the opposite boundary lies within a one-pixel Chebyshev (8-neighbour) tolerance.
+
+For an operating-point comparison, U-Net recall at threshold $0.5$ is measured on validation data. Every arm, including U-Net, is then mapped to the exact validation-score breakpoint nearest that recall, with ties assigned to the higher threshold, and the selected threshold is applied unchanged to test probabilities. Test labels do not select thresholds.
+
+To isolate spatial degradation without changing sensor or region, each PlanetScope test patch is antialiased from $128\times128$ to $38\times38$ (approximately the 3~m-to-10~m ratio) and restored to $128\times128$ before inference. This experiment measures controlled information loss; it is not a simulation of Sentinel-2 radiometry.

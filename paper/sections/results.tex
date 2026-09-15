@@ -1,0 +1,75 @@
+\section{Results}
+\label{sec:results}
+
+\subsection{Band-order sensitivity and matched controls}
+
+\begin{table}[htbp]
+\centering
+\caption{Three-seed mean performance under both plausible HR-GLDD orders.
+BF1 is boundary F1 with one-pixel Chebyshev tolerance. Neither order is
+declared authoritative.}
+\label{tab:controlled}
+\input{tables/tab_band_order_sensitivity.tex}
+\end{table}
+
+Table~\ref{tab:controlled} reports every configuration under both candidate
+orders. With base loss, candidate-index attention reaches $69.04\%$ F1 under
+RGBN and $68.92\%$ under BGRN. Raw candidate-Red/NIR edges reach $69.05\%$ and
+$69.13\%$, while the capacity-matched zero control reaches $68.88\%$ under
+both. Candidate-index input specificity is therefore unsupported regardless
+of order.
+
+Plain boundary weighting raises F1 in every seed and control mode under both
+orders. Mean F1 spans $69.88$--$70.19\%$ and boundary F1
+$55.85$--$56.20\%$. Equal-mass index modulation changes F1 by $-0.41$ points
+under RGBN and $-0.33$ under BGRN. Its boundary-F1 contrast changes from
+$+0.38$ to $-0.05$ points, so spectral modulation is not order-robust. The
+order-stable result is generic boundary emphasis, not spectral identity.
+
+\subsection{Semantic-identifiability certificate}
+
+The index-input-versus-raw F1 envelope is $[-0.21,-0.01]$ points and the
+index-versus-plain-loss F1 envelope $[-0.41,-0.33]$, identifying negative
+directions over the two admissible schemas. The corresponding boundary-F1
+envelope $[-0.05,+0.38]$ crosses zero and is direction-unidentified. Generic
+plain-boundary F1 has envelope $[+0.96,+1.13]$; all 18 individual effects lie
+between $+0.42$ and $+1.62$ points. Supplementary Table~S4 is the generated
+certificate.
+
+\subsection{External analyses}
+
+The post-hoc CAS sensitivity analysis fails three of four quantitative
+criteria. Across three designated regions and seeds, plain boundary weighting
+changes mean region-macro F1 by $-2.19$ points and boundary F1 by $-1.86$
+points; seed F1 effects are $-10.42$, $+1.22$, and $+2.62$ points.
+Supplementary Table~S1 reports every contrast. Because the protocol was first
+committed after execution, this result receives no confirmation credit.
+
+The internally precommitted LRD run fails all four frozen criteria, but is not
+confirmation-grade. Maximum validation F1 is only $0.008$--$0.151$; protected
+event-macro F1 spans $0.007$--$0.283$ for base and $0.009$--$0.132$ for
+boundary weighting. Under selected thresholds, mean F1 changes by $-4.73$
+points. The frozen per-crop boundary convention yields $-24.10$ points, but
+crop-macro empty/empty scoring of zero yields $-0.15$, pooled selected-threshold
+scoring $-4.92$, and pooled common-$0.5$ scoring $-0.55$. Development PH0003 and
+protected PH0001/PH0004 also share a trigger
+family, leaving four non-overlapping protected EIDs. This external evidence is
+failed/indeterminate, not a robust transfer rejection. Supplementary Table~S2
+and Method~S2 report the frozen and sensitivity results.
+
+\subsection{Operating point and spatial degradation}
+
+At threshold $0.5$, boundary-weighted residual-attention FPR spans
+$2.47$--$2.50\%$ across orders. Validation-selected nearest recall breakpoints
+match exactly in 53 of 54 order-specific runs; the RGBN
+index/plain-boundary seed-42 run differs by $2.11\times10^{-6}$. Combined
+matched FPR and precision ranges across the seven residual-attention
+configurations are $1.97$--$2.01\%$ and
+$78.41$--$78.74\%$. These differences do not support index-specific
+false-positive suppression.
+
+Controlled $128\rightarrow38\rightarrow128$ degradation lowers F1 by
+$4.33$--$5.20$ points across both orders. Raw-edge plain-boundary F1 changes
+from $69.88$ to $65.37\%$ under RGBN and from $70.19$ to $65.56\%$ under
+BGRN. This identifies same-sensor spatial-information sensitivity, not
+cross-sensor causation.

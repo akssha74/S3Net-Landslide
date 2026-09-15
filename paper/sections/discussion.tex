@@ -1,0 +1,22 @@
+\section{Discussion}
+\label{sec:discussion}
+
+\subsection{What the controls change}
+
+The semantic audit changes the evidentiary question. HR-GLDD's released NumPy order is not authoritative, so an NDVI interpretation cannot rest on one assumed Red column. The certificate separates schema-invariant directions from a schema-contingent one: index-versus-generic F1 contrasts are negative throughout their envelopes, whereas the index-modulated boundary envelope crosses zero. Spectral boundary direction is therefore not identified by the released semantics.
+
+Generic boundary weighting is more stable within HR-GLDD: all 18 seed/control/order comparisons improve F1. Neither external analysis confirms transfer. CAS is post hoc with mixed seed signs; LRD fails its frozen criteria but has weak validation, empty-crop endpoint instability, and trigger-family leakage. These analyses make transfer unsupported, not robustly refuted.
+
+This does not imply that NDVI is universally unhelpful. Devara et al. report useful spectral processing \citep{devara2024landslide}, and TriGEFNet reports an NDVI-guided multimodal benefit \citep{trigefnet2026}. Stronger HR-GLDD architectures also exist \citep{ma2026nestedmamba}. Our contribution is diagnostic: explicit semantic uncertainty and same-class controls, not competitive performance or confirmed transfer.
+
+\subsection{Interpretation under incomplete observability}
+
+Band-ratio cancellation is exact only for a shared multiplicative irradiance term. Mountain scenes can additionally contain diffuse illumination, cast shadow, adjacency, bidirectional reflectance, and atmospheric effects. An NDVI gradient also responds to any vegetation discontinuity. The experiment contains no illumination labels or background-type annotations; it cannot validate topographic invariance or isolate scarps from roads and riverbanks.
+
+More generally, methodological claims in incompletely observed environmental systems require explicit assumptions and dataset-specific calibration \citep{varotsos2026information}. We apply that principle by separating same-sensor spatial degradation from multi-factor cross-dataset shift and withholding event-level inference where group metadata are absent.
+
+\subsection{Implications for benchmark practice}
+
+Four practical recommendations follow. First, multispectral array releases should carry machine-readable channel names rather than relying on sensor conventions. Second, claims about geographic transfer or confidence intervals should be tied to event, scene, or spatial-block identifiers; a patch index is not an independence unit. Third, mechanism studies should include generic same-class controls. For spectral attention this means zero and raw-edge controls; for a specialized boundary loss it means ordinary boundary weighting with matched total mass. Fourth, unresolved schemas should be propagated into a machine-readable semantic envelope rather than collapsed to one convenient interpretation.
+
+The strongest HR-GLDD configuration is compact, but the external sensitivity failure prevents presenting it as a generally useful boundary-aware model. Component latency and parameter count characterize implementation cost only; they are not evidence of an end-to-end emergency workflow.

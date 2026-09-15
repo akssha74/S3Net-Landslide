@@ -1,0 +1,65 @@
+\documentclass[]{interact}
+
+\usepackage{epstopdf}
+\usepackage[caption=false]{subfig}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{graphicx}
+\usepackage{textcomp}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{url}
+\usepackage[hidelinks]{hyperref}
+\usepackage[authoryear]{natbib}
+\bibpunct{(}{)}{,}{a}{}{,}
+\renewcommand\bibfont{\fontsize{9}{9.5}\selectfont}
+
+\begin{document}
+
+\articletype{Research Article}
+\history{}
+
+\title{Semantic Identifiability under Band-Order Ambiguity in PlanetScope Landslide Segmentation}
+
+\author{
+\name{AKSHAY SHARMA\textsuperscript{a*} and LALJI PRASAD\textsuperscript{a}}
+\affil{\textsuperscript{a}Department of Computer Science and Engineering, SAGE University, Indore, Madhya Pradesh 452020, India}
+\thanks{*Corresponding author. Email: akssha74@gmail.com}
+}
+
+\maketitle
+
+\begin{abstract}
+\input{sections/abstract}
+\end{abstract}
+
+\begin{keywords}
+landslide segmentation; PlanetScope; band-order ambiguity; schema robustness; boundary weighting; mechanism attribution
+\end{keywords}
+
+\noindent\textbf{Word count:} 3,100 (Pandoc; abstract--conclusion, excluding captions, tables, references, declarations).
+
+\input{sections/introduction}
+\input{sections/related-work}
+\input{sections/method}
+\input{sections/experimental-setup}
+\input{sections/results}
+\input{sections/discussion}
+\input{sections/limitations}
+\input{sections/conclusion}
+
+\paragraph*{Acknowledgements.}
+Cursor assisted software development, reference checking, and language refinement. The authors independently verified all source, code, references, and claims and take full responsibility.
+
+\paragraph*{Funding.}
+No specific funding was received for this work.
+
+\paragraph*{Disclosure statement.}
+No potential conflict of interest was reported by the authors.
+
+\section*{Data availability statement}
+The HR-GLDD arrays are at \url{https://doi.org/10.5281/zenodo.7189381}; LRD is at \url{https://doi.org/10.5281/zenodo.17007637}. Code, summaries, output hashes, and the complete source-tarball/history assets are in \url{https://github.com/akssha74/S3Net-Landslide} (release \texttt{v5.0.0}). CAS imagery remains at \url{https://doi.org/10.5281/zenodo.10294997}; source terms bind.
+
+\bibliographystyle{tfcad}
+\bibliography{references}
+
+\end{document}

@@ -1,0 +1,106 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{booktabs}
+\usepackage{graphicx}
+\renewcommand{\thefigure}{S\arabic{figure}}
+\renewcommand{\thetable}{S\arabic{table}}
+
+\begin{document}
+
+\begin{center}
+\textbf{\Large Supplementary material}\\[0.5em]
+\textbf{Band-Order Ambiguity in Spectral Mechanism Attribution for PlanetScope Landslide Segmentation}
+\end{center}
+
+\section*{Supplementary Method S1: documented CAS external check}
+
+The executed code assigns eight CAS RGB subdatasets by a salted hash of the
+region name. The only surviving protocol was corrected and first committed
+after execution; it is therefore a post-execution record, not independently
+verifiable prospective specification or preregistration. Development used Lombok,
+Moxitaidi UAV-1m, Hokkaido, and Wenchuan; Palu was the sole validation region;
+Mengdong, Moxi town UAV-1m, and Tiburon Peninsula PlanetScope were designated
+evaluation regions. Wenchuan replaced Moxi town in development after one
+loader-semantics access, before model fitting; neither predictions nor metrics
+were inspected. The same three-channel zero-control residual-attention model
+was trained with base or plain boundary loss for seeds 42, 43, and 44. Fixed
+non-overlapping 128-pixel crops, optimisation budget, augmentations, and
+validation-only threshold grid were shared. The executed limits were 80 source
+tiles per development region and 160 per validation/test region, each yielding
+16 crops. The post-run record lists four quantitative conditions: at least
++1.5 boundary-F1 points, positive effects in all three held regions, F1
+non-inferiority within one point, and non-negative F1 effects for at least two
+seeds. Independent recomputation verified all 150 event metrics.
+The observed event-macro changes were $-2.19$ F1 points and $-1.86$ boundary-F1
+points; held-region boundary effects were $-0.39$, $-5.14$, and $-0.05$ points.
+
+\begin{table}[htbp]
+\centering
+\caption{Paired plain-boundary minus base-loss effects by designated CAS region and
+seed, in F1/boundary-F1 percentage points. The macro row averages the three
+regions within each seed.}
+\label{tab:s1}
+\input{tables/tab_cas_seed_effects}
+\end{table}
+
+Only one of four quantitative conditions passed: two seeds had non-negative macro F1
+effects. The mean boundary-F1 gain was below $+1.5$ points, not every held
+region had a positive mean boundary effect, and mean F1 was below the
+$-1$-point non-inferiority bound. A separate process condition required no
+post-access code, threshold, or reporting-rule change; because the protocol
+was first committed after execution, that condition is not independently
+time-verifiable and is not counted as passed.
+
+\section*{Supplementary Method S2: internally precommitted LRD stress test}
+
+The protocol, code, 16-development/6-validation/6-protected EID split, crop
+rule, outcomes, and four criteria were locally committed as
+\texttt{97b107836a3737436b973adb28d0f5c5be6c3d63} before validation or
+protected optical access, but no public third-party pre-access timestamp exists.
+Each EID uses up to 64 coordinate-hashed
+128-pixel crops from named POST1 Sentinel-2 B04/B03/B02 rasters and its mask.
+Six zero-control models cross base/plain-boundary loss with seeds 42--44.
+Checkpoints and validation thresholds were hashed before a protected-fetch
+authorization was issued. Independent recomputation matched all 330 metrics.
+
+All four frozen criteria fail, but validation maximum F1 is $0.008$--$0.151$
+and 84.1\% of protected crops are empty. The frozen boundary effect is
+$-24.10$ points; empty/empty scoring of zero gives $-0.15$, pooled scoring
+$-4.92$, and a common 0.5 threshold $-0.55$. A family audit groups development
+PH0003 with protected PH0001/PH0004, leaving four non-overlapping EIDs.
+Accordingly the run is failed/indeterminate sensitivity evidence, not
+confirmation.
+
+\begin{table}[htbp]
+\centering
+\caption{Frozen LRD plain-boundary minus base-loss effects. EID rows
+average seeds; seed rows average six protected EIDs.}
+\label{tab:s2}
+\input{tables/tab_lrd_confirmation}
+\end{table}
+
+\begin{table}[htbp]
+\centering
+\caption{Detailed RGBN-candidate HR-GLDD outcomes. Values are three-seed
+mean (population standard deviation); thresholds are validation-selected.}
+\label{tab:s3}
+\input{tables/tab_reviewer_remediation}
+\end{table}
+
+\begin{table}[htbp]
+\centering
+\caption{Semantic-identifiability certificate over the two metadata-consistent
+HR-GLDD schemas. Envelopes span schema-specific descriptive mean contrasts;
+they are not confidence intervals.}
+\label{tab:s4}
+\input{tables/tab_semantic_identifiability}
+\end{table}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\textwidth]{figures/fig_false_positive_atlas.pdf}
+\caption{Four low-prevalence HR-GLDD test tiles with the largest false-positive counts for zero-control plus plain-boundary weighting at validation-matched recall (seed 42). Visible composites follow the official notebook's direct columns-0--2 display and are not band-order evidence. Red overlays denote false-positive pixels; background categories are not annotated.}
+\label{fig:s1}
+\end{figure}
+
+\end{document}

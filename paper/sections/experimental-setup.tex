@@ -1,0 +1,26 @@
+\section{Experimental design}
+\label{sec:setup}
+
+\subsection{Dataset and scope of inference}
+
+We use the released HR-GLDD arrays \citep{meena2023hrgldd}: 1,119 training, 284 validation, and 355 test patches of $128\times128$ pixels at 3~m ground sampling distance. Landslide pixels comprise 10.09\%, 10.17\%, and 10.92\% of the three splits. The release contains imagery and masks but no event identifier, source-scene identifier, or coordinate for each array row. Separate patches therefore cannot be demonstrated to be independent. Results are descriptive across three training seeds; we do not calculate tile-bootstrap confidence intervals, p-values, spatial-block statistics, or event-held-out performance.
+
+The official test set had also been inspected during earlier method development. The present experiment is consequently treated as corrective evaluation rather than untouched confirmation. It can compare controlled configurations on the released benchmark but cannot establish population-level geographic generalization.
+
+\subsection{Factorial controls}
+
+The residual-attention surface crosses zero, raw-edge, and candidate-index controls with base and plain boundary-weighted losses; one additional index arm uses equal-mass index-modulated weighting. U-Net and ResU-Net bring the total to nine configurations. We train all nine with three seeds under both RGBN and BGRN candidates (54 runs).
+
+All arms use AdamW \citep{loshchilov2019adamw} with learning rate $1.5\times10^{-3}$, weight decay $10^{-4}$, cosine decay to $10^{-5}$, batch size 32, and 15 epochs. Validation F1 selects the epoch. Seeds 42, 43, and 44 use identical schedules and deterministic data-loader seeds. Probabilities are stored as float32 arrays; an independent script recomputes the reported default-threshold metrics without importing the training or reporting functions.
+
+\subsection{Post-hoc CAS sensitivity}
+
+We ran an RGB sensitivity analysis on eight CAS subdatasets \citep{xu2024cas}: four development, one validation, and three designated evaluation regions. The executed code limits each development region to 80 source tiles and each validation/evaluation region to 160, partitioned into 16 non-overlapping crops per tile. The same zero-control model uses base or plain boundary loss across three seeds with hashed sampling and validation-only thresholds. The only surviving protocol was corrected and committed after execution, so this is a post-hoc sensitivity analysis, not independently verifiable evidence of prospective specification, preregistration, or untouched confirmation. Supplementary Method~S1 gives details and deviations.
+
+\subsection{Internally precommitted LRD stress test}
+
+LRD provides 28 EIDs with named Sentinel-2 bands \citep{orynbaikyzy2025lrd}. Before validation or protected optical access, we locally committed a 16/6/6 EID split, code, crop rule, outcomes, and criteria; no public third-party pre-access timestamp exists. Each EID contributes at most 64 coordinate-hashed POST1 RGB crops. Six base-versus-plain-boundary runs use the same architecture, seeds, budget, and validation grid; checkpoints and thresholds were hashed before protected fetch. A post-hoc family audit later found that development PH0003 and protected PH0001/PH0004 share one trigger family. Supplementary Method~S2 gives the protocol and diagnostic limitations.
+
+\subsection{Interpretation rules}
+
+Input specificity requires the candidate index to outperform zero and raw controls on the same endpoint under both orders. Spectral loss specificity requires index modulation to beat equal-mass plain weighting and retain effect direction across orders; boundary F1 is separate. The certificate covers index-versus-raw F1, index-versus-plain F1 and boundary F1, and plain-boundary-versus-base F1. Complete-system improvement overrides neither control. Resolution attribution is restricted to same-sensor degradation. The LRD run is confirmation-eligible only if timing, trigger independence, validation performance, and endpoint sensitivity are defensible; they are not.

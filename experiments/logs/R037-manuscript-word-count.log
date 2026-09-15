@@ -1,0 +1,19 @@
+[WARNING] Could not convert TeX math \begin{equation}
+  V_o=\frac{X_{\mathrm{NIR}}-X_{\mathrm{Red}(o)}}
+          {X_{\mathrm{NIR}}+X_{\mathrm{Red}(o)}+10^{-6}}.
+  \end{equation}, rendering as TeX
+[WARNING] Could not convert TeX math \begin{align}
+  C_{\mathrm{zero}} &= (0,0),\\
+  C_{\mathrm{raw},o} &= (|\nabla X_{\mathrm{Red}(o)}|,|\nabla X_{\mathrm{NIR}}|),\\
+  C_{\mathrm{index},o} &= (V_o,|\nabla V_o|).
+  \end{align}, rendering as TeX
+[WARNING] Could not convert TeX math \begin{equation}
+  \ell_{\mathrm{base},i}=\tfrac12\ell_{\mathrm{BCE},i}+\tfrac12\ell_{\mathrm{focal},i}.
+  \end{equation}, rendering as TeX
+[WARNING] Could not convert TeX math \begin{align}
+  L_{\mathrm{plain}} &=
+    \operatorname{mean}_i\{\ell_{\mathrm{base},i}[1+\gamma B_{\mathrm{GT},i}]\},\\
+  L_{\mathrm{index},o} &=
+    \operatorname{mean}_i\{\ell_{\mathrm{base},i}[1+\gamma \widetilde{B_{\mathrm{GT}}|\nabla V_o|}_i]\},
+  \end{align}, rendering as TeX
+PASS: generated and printed word count = 3100

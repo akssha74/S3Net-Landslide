@@ -1,0 +1,20 @@
+\section{Introduction}
+\label{sec:introduction}
+
+High-resolution optical imagery enables detailed landslide mapping, but roads, river deposits, clearings, and exposed rock share similar structure. HR-GLDD provides 3~m PlanetScope patches \citep{meena2023hrgldd}; CAS provides multisensor RGB imagery \citep{xu2024cas}; Landslide Reference Data (LRD) supplies named Sentinel-2 events \citep{orynbaikyzy2025lrd}.
+
+NDVI is attractive because fresh failures can disrupt vegetation, but roads, agriculture, riverbanks, and shadows also create index edges. An index-modulated boundary loss changes both boundary emphasis and spectral modulation unless ordinary boundary weighting is controlled. Array semantics are equally load-bearing: assigning Red to the wrong column changes both NDVI and raw-edge controls.
+
+This distinction matters for remote-sensing image processing. Devara et al. compared an empirical extraction method with U-Net for Sentinel-2 landslides \citep{devara2024landslide}, while Wang et al. designed edge enhancement for remote-sensing semantic segmentation \citep{wang2025saeenet}. These studies motivate boundary-specific outcomes and make generic edge and boundary controls necessary before a vegetation-specific interpretation can be claimed.
+
+Known-order channel permutations test model adaptability \citep{li2025bandadaptability}; they do not decide whether a signed mechanism effect is identifiable when release metadata admit multiple physical schemas. We address that separate problem with a finite semantic envelope and a machine-readable certificate. The contribution is thus not another boundary architecture or a channel-shuffle benchmark, but a claim-admissibility test for mechanism attribution under unresolved data semantics.
+
+We therefore evaluate components and semantic assumptions rather than presuming a mechanism. Our contributions are:
+\begin{enumerate}
+    \item a semantic-identifiability certificate that reports whether signed contrasts retain direction over every metadata-consistent schema;
+    \item an executable audit showing that HR-GLDD columns 0 and 2 remain ambiguously Red/Blue, followed by complete RGBN and BGRN sensitivity runs;
+    \item capacity- and weight-matched zero, raw-edge, candidate-index, plain-boundary, and index-modulated controls;
+    \item outcomes selected without test-label threshold tuning, plus post-hoc CAS and internally precommitted LRD stress analyses.
+\end{enumerate}
+
+The certificate identifies negative index-versus-generic F1 directions and a positive generic boundary direction, but leaves the index-modulated boundary direction unidentified. External analyses do not confirm transfer, and LRD defects make its result indeterminate rather than a robust rejection.

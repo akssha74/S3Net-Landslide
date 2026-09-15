@@ -2,13 +2,20 @@
 
 This is the corrected implementation and result release for:
 
-**Band-Order Ambiguity in Spectral Mechanism Attribution for PlanetScope Landslide Segmentation**
+**Semantic Identifiability under Band-Order Ambiguity in PlanetScope Landslide Segmentation**
 
 The released HR-GLDD arrays do not authoritatively identify columns 0 and 2 as
 Red or Blue. The complete nine-configuration, three-seed analysis is therefore
 run under both RGBN and BGRN candidates. Index-input specificity fails under
 both orders; plain boundary weighting improves every HR-GLDD comparison, while
-the boundary effect of index modulation changes sign across orders.
+the boundary effect of index modulation changes sign across orders. A generated
+semantic-identifiability certificate propagates both admissible schemas into
+four signed contrasts and marks each direction positive, negative, or
+unidentified.
+
+The Git tag is a minimal runnable release. The complete scientific tree is the
+`hrgldd-v5-source-<commit>.tar.gz` asset attached to the release; the companion
+Git bundle exposes its two-stage source history.
 
 CAS is a post-hoc designated-region sensitivity analysis and carries no
 confirmation credit. The LRD experiment was internally precommitted before
@@ -21,7 +28,8 @@ classified as failed/indeterminate sensitivity evidence.
 1. Download HR-GLDD arrays from https://doi.org/10.5281/zenodo.7189381.
 2. Place `trainX.npy`, `trainY.npy`, `valX.npy`, `valY.npy`, `testX.npy`, and
    `testY.npy` under `experiments/raw/hr_gldd/`.
-3. Install `requirements.txt`.
+3. Install `requirements.txt`; Pandoc is additionally required only to
+   regenerate the declared manuscript word count.
 4. Run:
 
 ```bash
@@ -33,6 +41,9 @@ python experiments/code/test_reviewer_remediation_metrics.py
 HRGLDD_ARRAY_ORDER=RGBN REMEDIATION_VARIANT=rgbn python experiments/code/run_reviewer_remediation.py
 HRGLDD_ARRAY_ORDER=BGRN REMEDIATION_VARIANT=bgrn python experiments/code/run_reviewer_remediation.py
 python experiments/code/make_band_order_sensitivity.py
+python experiments/code/make_semantic_identifiability_certificate.py
+python experiments/code/test_semantic_identifiability_certificate.py
+python experiments/code/count_manuscript_words.py
 python experiments/code/build_frozen_output_inventory.py
 ```
 
