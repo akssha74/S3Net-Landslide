@@ -42,6 +42,62 @@ def main() -> None:
     development, protected = preparation.inventories()
     assert not set(development) & set(protected)
     assert len(set(development + protected)) == 13
+    member_index = json.loads(confirmation.MEMBER_INDEX.read_text())
+    development_rows = [
+        row
+        for row in member_index["selected"]
+        if row["inventory"] in set(development)
+    ]
+    development_names = [row["filename"] for row in development_rows]
+    mixed_validation = confirmation.development_validation_mask(
+        development_names
+    )
+    development_inventories = np.asarray(
+        [row["inventory"] for row in development_rows]
+    )
+    assert int(np.sum(~mixed_validation)) == 464
+    assert int(np.sum(mixed_validation)) == 113
+    assert {
+        inventory: int(
+            np.sum(mixed_validation & (development_inventories == inventory))
+        )
+        for inventory in sorted(set(development))
+    } == {"chimanimani": 56, "china": 12, "dominicamaria": 45}
+    headroom = json.loads(
+        (
+            confirmation.STUDY
+            / "experiments/derived/results/"
+            "sen12_v4_mixed_matrix_exploration.json"
+        ).read_text()
+    )
+    assert all(
+        row["validation_f1"] >= confirmation.INDIVIDUAL_VALIDATION_FLOOR
+        for row in headroom["runs"]
+    )
+    assert all(
+        value >= confirmation.ARM_MEAN_VALIDATION_FLOOR
+        for value in headroom["arm_seed_mean"].values()
+    )
+    threshold_diagnostic = json.loads(
+        (
+            confirmation.STUDY
+            / "experiments/derived/results/sen12_v3_threshold_diagnostic.json"
+        ).read_text()
+    )
+    assert len(threshold_diagnostic["runs"]) == 21
+    assert threshold_diagnostic["all_best_grid_f1_below_0_25"]
+    assert np.isclose(
+        threshold_diagnostic["maximum_best_grid_f1"],
+        0.07912161038096822,
+    )
+    for row in headroom["runs"]:
+        expected_configuration = confirmation.frozen_configuration(
+            row["arm"], confirmation.ARMS[row["arm"]], row["seed"]
+        )
+        assert row["configuration"] == expected_configuration
+        assert row["configuration_sha256"] == confirmation.canonical_sha256(
+            expected_configuration
+        )
     fit_matrix = [
         {"arm": arm, "seed": seed}
         for arm in confirmation.ARMS

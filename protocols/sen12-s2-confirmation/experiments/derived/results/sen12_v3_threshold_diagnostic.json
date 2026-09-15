@@ -1,0 +1,204 @@
+{
+  "status": "development-only-after-v3-kill",
+  "v3_fit_decisions_sha256": "7dfbff11b78f48cf692060d1f6393c5cdb720863cc8884edd364afe6d26b0f13",
+  "validation_inventory": "china",
+  "validation_count": 65,
+  "threshold_grid": {
+    "minimum": 0.005,
+    "maximum": 0.5,
+    "count": 100
+  },
+  "maximum_best_grid_f1": 0.07912161038096822,
+  "all_best_grid_f1_below_0_25": true,
+  "runs": [
+    {
+      "arm": "s3_none_base",
+      "seed": 42,
+      "prediction_path": "experiments/derived/results/sen12_s2_confirmation/validation_predictions/s3_none_base_seed42.npy",
+      "prediction_sha256": "9bf8aae0f0c5f9869cf5ac402c9794f4fb4c19c8a1688628b895fc399f86478b",
+      "f1_at_0_5": 0.031025672222898162,
+      "best_grid_threshold": 0.085,
+      "best_grid_f1": 0.0699058959093528
+    },
+    {
+      "arm": "s3_none_base",
+      "seed": 43,
+      "prediction_path": "experiments/derived/results/sen12_s2_confirmation/validation_predictions/s3_none_base_seed43.npy",
+      "prediction_sha256": "24ce5260cb8f5e0b0a98e5e6f0cececbe555ac91871ba34da8c525f0e1799fb5",
+      "f1_at_0_5": 0.021602160216021602,
+      "best_grid_threshold": 0.26,
+      "best_grid_f1": 0.0483424860704694
+    },
+    {
+      "arm": "s3_none_base",
+      "seed": 44,
+      "prediction_path": "experiments/derived/results/sen12_s2_confirmation/validation_predictions/s3_none_base_seed44.npy",
+      "prediction_sha256": "39b78594d58eec7bbc0e2c1c394cfbb87216b2b0026ee03856388732d4e15e1c",
+      "f1_at_0_5": 0.028780001050365003,
+      "best_grid_threshold": 0.41000000000000003,
+      "best_grid_f1": 0.04776271309657955
+    },
+    {
+      "arm": "s3_raw_base",
+      "seed": 42,
+      "prediction_path": "experiments/derived/results/sen12_s2_confirmation/validation_predictions/s3_raw_base_seed42.npy",
+      "prediction_sha256": "61e6ac6796b866e169c97e11297fe32c4cdd74b8c5b4542274f38ca3e599eb2d",
+      "f1_at_0_5": 0.03237585199610516,
+      "best_grid_threshold": 0.08,
+      "best_grid_f1": 0.0693444597890283
+    },
+    {
+      "arm": "s3_raw_base",
+      "seed": 43,
+      "prediction_path": "experiments/derived/results/sen12_s2_confirmation/validation_predictions/s3_raw_base_seed43.npy",
+      "prediction_sha256": "42245d03106e1f61a8d1034538677fd205f2809cbc802b4174fe208a0b5d8757",
+      "f1_at_0_5": 0.05195933617169172,
+      "best_grid_threshold": 0.485,
+      "best_grid_f1": 0.05208767397283107
+    },
+    {
+      "arm": "s3_raw_base",
+      "seed": 44,
+      "prediction_path": "experiments/derived/results/sen12_s2_confirmation/validation_predictions/s3_raw_base_seed44.npy",
+      "prediction_sha256": "49aefce7248e5185fdc782c9d373502f82e39992307f288e90e10491c1ccbd57",
+      "f1_at_0_5": 0.04694788075441087,
+      "best_grid_threshold": 0.42000000000000004,
+      "best_grid_f1": 0.05650935406882747
+    },
+    {
+      "arm": "s3_ndvi_base",
+      "seed": 42,
+      "prediction_path": "experiments/derived/results/sen12_s2_confirmation/validation_predictions/s3_ndvi_base_seed42.npy",
+      "prediction_sha256": "c21d4b3a8e21270d66c843087d1ebd712c8973ced4862d7045af75eace92da0b",
+      "f1_at_0_5": 0.03238176395398381,
+      "best_grid_threshold": 0.08,
+      "best_grid_f1": 0.07912161038096822
+    },
+    {
+      "arm": "s3_ndvi_base",
+      "seed": 43,
+      "prediction_path": "experiments/derived/results/sen12_s2_confirmation/validation_predictions/s3_ndvi_base_seed43.npy",
+      "prediction_sha256": "2340571aa8732c55557d29c1b20e8baec2c032c87f9032051cf072840ef845b4",
+      "f1_at_0_5": 0.049843165900399604,
+      "best_grid_threshold": 0.5,
+      "best_grid_f1": 0.049843165900399604
+    },
+    {
+      "arm": "s3_ndvi_base",
+      "seed": 44,
+      "prediction_path": "experiments/derived/results/sen12_s2_confirmation/validation_predictions/s3_ndvi_base_seed44.npy",
+      "prediction_sha256": "910b6727a6fb67c24e88d5da0d08a08ae2155e9882ed5e38819fa23718e44978",
+      "f1_at_0_5": 0.024235152969406117,
+      "best_grid_threshold": 0.10500000000000001,
+      "best_grid_f1": 0.05395835738752261
+    },
+    {
+      "arm": "s3_none_boundary",
+      "seed": 42,
+      "prediction_path": "experiments/derived/results/sen12_s2_confirmation/validation_predictions/s3_none_boundary_seed42.npy",
+      "prediction_sha256": "9da66fd17fc6aae2812afea724457388f45b6776aaaad8c1888de9cf7066a2b1",
+      "f1_at_0_5": 0.041572900627738954,
+      "best_grid_threshold": 0.185,
+      "best_grid_f1": 0.058764077389546636
+    },
+    {
+      "arm": "s3_none_boundary",
+      "seed": 43,
+      "prediction_path": "experiments/derived/results/sen12_s2_confirmation/validation_predictions/s3_none_boundary_seed43.npy",
+      "prediction_sha256": "38734e98d14e810a3c3739b6a49428a84b408689ef434ef99fcc68b9eca248c2",
+      "f1_at_0_5": 0.03694178162263269,
+      "best_grid_threshold": 0.18000000000000002,
+      "best_grid_f1": 0.06585588111594
+    },
+    {
+      "arm": "s3_none_boundary",
+      "seed": 44,
+      "prediction_path": "experiments/derived/results/sen12_s2_confirmation/validation_predictions/s3_none_boundary_seed44.npy",
+      "prediction_sha256": "9c36410fee52c403e5a34ecc496f81b3425c591d5bde64fca286df88863c6be1",
+      "f1_at_0_5": 0.043780366751998326,
+      "best_grid_threshold": 0.41000000000000003,
+      "best_grid_f1": 0.05230099757789729
+    },
+    {
+      "arm": "s3_raw_boundary",
+      "seed": 42,
+      "prediction_path": "experiments/derived/results/sen12_s2_confirmation/validation_predictions/s3_raw_boundary_seed42.npy",
+      "prediction_sha256": "78a39bda73a53fa4e6997d80543866c6b5c44bae33b2afec6af4f572f488e002",
+      "f1_at_0_5": 0.03753318851074101,
+      "best_grid_threshold": 0.17500000000000002,
+      "best_grid_f1": 0.06182970778515914
+    },
+    {
+      "arm": "s3_raw_boundary",
+      "seed": 43,
+      "prediction_path": "experiments/derived/results/sen12_s2_confirmation/validation_predictions/s3_raw_boundary_seed43.npy",
+      "prediction_sha256": "8ede04bdae864f5d0ae642831205cc5aa2f35731c82cdbc8763dd39a73c99dff",
+      "f1_at_0_5": 0.04740608228980322,
+      "best_grid_threshold": 0.45,
+      "best_grid_f1": 0.05351675544184876
+    },
+    {
+      "arm": "s3_raw_boundary",
+      "seed": 44,
+      "prediction_path": "experiments/derived/results/sen12_s2_confirmation/validation_predictions/s3_raw_boundary_seed44.npy",
+      "prediction_sha256": "702e0b6e34ad02b6e9e23e21965e05dc333733da19eba17680fe8ce2f6d584f5",
+      "f1_at_0_5": 0.03326500732064422,
+      "best_grid_threshold": 0.225,
+      "best_grid_f1": 0.06502838892831796
+    },
+    {
+      "arm": "s3_ndvi_boundary",
+      "seed": 42,
+      "prediction_path": "experiments/derived/results/sen12_s2_confirmation/validation_predictions/s3_ndvi_boundary_seed42.npy",
+      "prediction_sha256": "f7213d10d9e4f98b7e34380aebb0db81e564dccd1956b97ea961f879c106fd4b",
+      "f1_at_0_5": 0.03871821078578729,
+      "best_grid_threshold": 0.18000000000000002,
+      "best_grid_f1": 0.0669982096677939
+    },
+    {
+      "arm": "s3_ndvi_boundary",
+      "seed": 43,
+      "prediction_path": "experiments/derived/results/sen12_s2_confirmation/validation_predictions/s3_ndvi_boundary_seed43.npy",
+      "prediction_sha256": "770242789d295c3f1b98a31e05fed63aeb112394420440ec26feb7bdb8fd0888",
+      "f1_at_0_5": 0.04910038674962166,
+      "best_grid_threshold": 0.17,
+      "best_grid_f1": 0.06018377283432379
+    },
+    {
+      "arm": "s3_ndvi_boundary",
+      "seed": 44,
+      "prediction_path": "experiments/derived/results/sen12_s2_confirmation/validation_predictions/s3_ndvi_boundary_seed44.npy",
+      "prediction_sha256": "c5d903fff386dad1c85186ba0dd0e6afeb03cb2a252335f2def389db0fc2a49a",
+      "f1_at_0_5": 0.04614009607865043,
+      "best_grid_threshold": 0.335,
+      "best_grid_f1": 0.06401709401709402
+    },
+    {
+      "arm": "s3_ndvi_biophysical",
+      "seed": 42,
+      "prediction_path": "experiments/derived/results/sen12_s2_confirmation/validation_predictions/s3_ndvi_biophysical_seed42.npy",
+      "prediction_sha256": "ae619ad57d3a1f30b54d11a275db96f112f86eca98fc931ac084c86cff5f5f51",
+      "f1_at_0_5": 0.039348148148148146,
+      "best_grid_threshold": 0.215,
+      "best_grid_f1": 0.06385286079902833
+    },
+    {
+      "arm": "s3_ndvi_biophysical",
+      "seed": 43,
+      "prediction_path": "experiments/derived/results/sen12_s2_confirmation/validation_predictions/s3_ndvi_biophysical_seed43.npy",
+      "prediction_sha256": "ba595391ab93e172ada408943e80483cdb3526fc86c836519ede8dac91757186",
+      "f1_at_0_5": 0.049895833333333334,
+      "best_grid_threshold": 0.395,
+      "best_grid_f1": 0.056430898984090476
+    },
+    {
+      "arm": "s3_ndvi_biophysical",
+      "seed": 44,
+      "prediction_path": "experiments/derived/results/sen12_s2_confirmation/validation_predictions/s3_ndvi_biophysical_seed44.npy",
+      "prediction_sha256": "5bafc2b5aafea06250870c3286a6453dee3ce12ab3172a596570ae7044c60b9f",
+      "f1_at_0_5": 0.04268610098906819,
+      "best_grid_threshold": 0.485,
+      "best_grid_f1": 0.042748091603053436
+    }
+  ]
+}

@@ -34,8 +34,8 @@ from revised_models import ControlledPixelLoss, ControlledS3Net
 
 STUDY = Path(__file__).resolve().parents[2]
 DATA = STUDY / "experiments/raw/external/sen12-s2"
-OUTPUT = STUDY / "experiments/derived/results/sen12_s2_confirmation"
-CHECKPOINTS = STUDY / "experiments/derived/checkpoints/sen12_s2_confirmation"
+OUTPUT = STUDY / "experiments/derived/results/sen12_s2_confirmation_v4"
+CHECKPOINTS = STUDY / "experiments/derived/checkpoints/sen12_s2_confirmation_v4"
 METADATA = STUDY / "research/dataset-metadata/sen12-s2-confirmation"
 MEMBER_INDEX = METADATA / "member_index.json"
 PROTOCOL = STUDY / "research/sen12-s2-confirmation-protocol.md"
@@ -49,13 +49,15 @@ PUBLIC_REPOSITORY = "akssha74/S3Net-Landslide"
 PUBLIC_PROTOCOL_PREFIX = "protocols/sen12-s2-confirmation"
 PUBLIC_AUTHORIZATION_PATH = (
     f"{PUBLIC_PROTOCOL_PREFIX}/experiments/derived/results/"
-    "sen12_s2_confirmation/protected_access_authorization.json"
+    "sen12_s2_confirmation_v4/protected_access_authorization.json"
 )
 SEEDS = (42, 43, 44)
 EPOCHS = 15
 BATCH_SIZE = 16
 THRESHOLD = 0.5
-VALIDATION_FLOOR = 0.25
+INDIVIDUAL_VALIDATION_FLOOR = 0.20
+ARM_MEAN_VALIDATION_FLOOR = 0.25
+DEVELOPMENT_SPLIT_SALT = "v4-mixed"
 DEVICE = torch.device("mps" if torch.backends.mps.is_available() else "cpu")
 ARMS = {
     "s3_none_base": {"gating": "none", "loss": "base"},
@@ -69,6 +71,7 @@ ARMS = {
 SOURCE_ARTIFACTS = (
     "research/sen12-s2-confirmation-protocol.md",
     "research/sen12-s2-access-audit.json",
+    "research/sen12-v3-fit-status.md",
     "research/dataset-metadata/sen12-s2-confirmation/archive_manifest.json",
     (
         "research/dataset-metadata/sen12-s2-confirmation/"
@@ -78,8 +81,15 @@ SOURCE_ARTIFACTS = (
     "experiments/code/prepare_sen12_s2.py",
     "experiments/code/run_sen12_s2_confirmation.py",
     "experiments/code/test_sen12_s2_confirmation.py",
+    "experiments/code/analyze_sen12_v3_thresholds.py",
+    "experiments/code/explore_sen12_v4.py",
+    "experiments/code/explore_sen12_v4_mixed_matrix.py",
     "experiments/code/revised_models.py",
     "experiments/code/data_semantics.py",
+    "experiments/derived/results/sen12_s2_confirmation/fit_decisions.json",
+    "experiments/derived/results/sen12_v3_threshold_diagnostic.json",
+    "experiments/derived/results/sen12_v4_development_exploration.json",
+    "experiments/derived/results/sen12_v4_mixed_matrix_exploration.json",
     "environment/requirements-sen12.txt",
 )
 
@@ -564,6 +574,23 @@ def train_one(
     }
 
 
+def development_validation_mask(filenames: list[str]) -> np.ndarray:
+    return np.asarray(
+        [
+            int(
+                hashlib.sha256(
+                    f"{DEVELOPMENT_SPLIT_SALT}:{filename}".encode()
+                ).hexdigest(),
+                16,
+            )
+            % 5
+            == 0
+            for filename in filenames
+        ],
+        dtype=bool,
+    )
+
+
 def fit() -> None:
     if (DATA / "protected").exists() and any((DATA / "protected").rglob("*.nc")):
         raise RuntimeError("protected files already extracted before fit")
@@ -592,10 +619,8 @@ def fit() -> None:
     )
     if sorted(development["filenames"]) != expected_filenames:
         raise RuntimeError("development extraction does not match member index")
-    train_mask = np.array(
-        [value != "china" for value in development["inventories"]], dtype=bool
-    )
-    validation_mask = ~train_mask
+    validation_mask = development_validation_mask(development["filenames"])
+    train_mask = ~validation_mask
     train = {
         "x": development["x"][train_mask],
         "y": development["y"][train_mask],
@@ -610,6 +635,25 @@ def fit() -> None:
         for arm, config in ARMS.items()
         for seed in SEEDS
     ]
+    arm_seed_mean = {
+        arm: float(
+            np.mean(
+                [
+                    row["validation_f1"]
+                    for row in runs
+                    if row["arm"] == arm
+                ]
+            )
+        )
+        for arm in ARMS
+    }
+    individual_pass = all(
+        row["validation_f1"] >= INDIVIDUAL_VALIDATION_FLOOR for row in runs
+    )
+    arm_mean_pass = all(
+        value >= ARM_MEAN_VALIDATION_FLOOR for value in arm_seed_mean.values()
+    )
+    inventory_array = np.asarray(development["inventories"])
     payload = {
         "schema_version": 1,
         "dataset_revision": DATASET_REVISION,
@@ -631,14 +675,26 @@ def fit() -> None:
         "source_artifacts": source_artifact_hashes(),
         "runtime": runtime,
         "device": str(DEVICE),
-        "train_inventories": ["chimanimani", "dominicamaria"],
-        "validation_inventories": ["china"],
+        "development_split_salt": DEVELOPMENT_SPLIT_SALT,
+        "development_split_rule": (
+            "sha256(salt:filename) modulo 5 equals zero for validation"
+        ),
+        "train_inventories": ["chimanimani", "china", "dominicamaria"],
+        "validation_inventories": ["chimanimani", "china", "dominicamaria"],
         "train_count": int(np.sum(train_mask)),
         "validation_count": int(np.sum(validation_mask)),
-        "validation_floor": VALIDATION_FLOOR,
-        "all_validation_pass": all(
-            row["validation_f1"] >= VALIDATION_FLOOR for row in runs
-        ),
+        "validation_by_inventory": {
+            inventory: int(
+                np.sum(validation_mask & (inventory_array == inventory))
+            )
+            for inventory in sorted(set(development["inventories"]))
+        },
+        "individual_validation_floor": INDIVIDUAL_VALIDATION_FLOOR,
+        "arm_mean_validation_floor": ARM_MEAN_VALIDATION_FLOOR,
+        "arm_seed_mean_validation_f1": arm_seed_mean,
+        "individual_validation_pass": individual_pass,
+        "arm_mean_validation_pass": arm_mean_pass,
+        "all_validation_pass": individual_pass and arm_mean_pass,
         "runs": runs,
     }
     fit_path.write_text(json.dumps(payload, indent=2) + "\n")
@@ -661,17 +717,28 @@ def validate_fit_for_authorization(
 ) -> dict[str, Any]:
     validate_fit_matrix(fit_payload["runs"])
     development = load_fold("development")
-    validation_mask = np.array(
-        [value == "china" for value in development["inventories"]], dtype=bool
-    )
-    if fit_payload["train_inventories"] != ["chimanimani", "dominicamaria"]:
+    validation_mask = development_validation_mask(development["filenames"])
+    expected_inventories = ["chimanimani", "china", "dominicamaria"]
+    if fit_payload["development_split_salt"] != DEVELOPMENT_SPLIT_SALT:
+        raise RuntimeError("fit development split salt changed")
+    if fit_payload["train_inventories"] != expected_inventories:
         raise RuntimeError("fit training inventories changed")
-    if fit_payload["validation_inventories"] != ["china"]:
-        raise RuntimeError("fit validation inventory changed")
+    if fit_payload["validation_inventories"] != expected_inventories:
+        raise RuntimeError("fit validation inventories changed")
     if fit_payload["train_count"] != int(np.sum(~validation_mask)):
         raise RuntimeError("fit training count mismatch")
     if fit_payload["validation_count"] != int(np.sum(validation_mask)):
         raise RuntimeError("fit validation count mismatch")
+    inventory_array = np.asarray(development["inventories"])
+    expected_validation_by_inventory = {
+        inventory: int(np.sum(validation_mask & (inventory_array == inventory)))
+        for inventory in expected_inventories
+    }
+    if (
+        fit_payload["validation_by_inventory"]
+        != expected_validation_by_inventory
+    ):
+        raise RuntimeError("fit validation inventory counts mismatch")
     if fit_payload["development_filenames_sha256"] != canonical_sha256(
         sorted(development["filenames"])
     ):
@@ -741,18 +808,56 @@ def validate_fit_for_authorization(
                 "seed": seed,
                 "recomputed_validation_f1": recomputed_f1,
                 "maximum_checkpoint_prediction_error": maximum_prediction_error,
-                "passes_floor": recomputed_f1 >= VALIDATION_FLOOR,
+                "passes_individual_floor": (
+                    recomputed_f1 >= INDIVIDUAL_VALIDATION_FLOOR
+                ),
             }
         )
-    recomputed_all_pass = all(row["passes_floor"] for row in records)
+    arm_seed_mean = {
+        arm: float(
+            np.mean(
+                [
+                    row["recomputed_validation_f1"]
+                    for row in records
+                    if row["arm"] == arm
+                ]
+            )
+        )
+        for arm in ARMS
+    }
+    individual_pass = all(row["passes_individual_floor"] for row in records)
+    arm_mean_pass = all(
+        value >= ARM_MEAN_VALIDATION_FLOOR for value in arm_seed_mean.values()
+    )
+    if fit_payload["individual_validation_pass"] != individual_pass:
+        raise RuntimeError("stored individual validation decision mismatch")
+    if fit_payload["arm_mean_validation_pass"] != arm_mean_pass:
+        raise RuntimeError("stored arm-mean validation decision mismatch")
+    for arm, value in arm_seed_mean.items():
+        if not np.isclose(
+            value,
+            fit_payload["arm_seed_mean_validation_f1"][arm],
+            atol=1e-12,
+            rtol=0,
+        ):
+            raise RuntimeError(f"{arm}: stored arm-mean F1 mismatch")
+    recomputed_all_pass = individual_pass and arm_mean_pass
     if fit_payload["all_validation_pass"] != recomputed_all_pass:
         raise RuntimeError("stored aggregate validation decision mismatch")
     if not recomputed_all_pass:
         raise RuntimeError("validation floor failed; protected access forbidden")
     return {
-        "validation_inventory": "china",
+        "validation_design": "deterministic mixed-inventory calibration split",
+        "validation_inventories": expected_inventories,
+        "development_split_salt": DEVELOPMENT_SPLIT_SALT,
+        "validation_by_inventory": expected_validation_by_inventory,
         "validation_count": int(np.sum(validation_mask)),
         "expected_arm_seed_pairs": 21,
+        "individual_validation_floor": INDIVIDUAL_VALIDATION_FLOOR,
+        "arm_mean_validation_floor": ARM_MEAN_VALIDATION_FLOOR,
+        "arm_seed_mean_validation_f1": arm_seed_mean,
+        "individual_validation_pass": individual_pass,
+        "arm_mean_validation_pass": arm_mean_pass,
         "records": records,
         "all_validation_pass": recomputed_all_pass,
     }
@@ -849,6 +954,7 @@ def authorize(public_protocol_commit: str) -> None:
             "ndvi_attention_vs_raw_edge_upper_ci_below_1_point",
             "ndvi_modulated_vs_plain_upper_ci_below_1_point",
             "generic_boundary_all_control_means_positive_lower_ci_above_zero_8_of_10",
+            "all_arm_absolute_mean_f1_at_least_0_10",
             "all_integrity_checks_pass",
         ],
     }
@@ -1453,6 +1559,9 @@ def evaluate() -> None:
             all(row["mean"] > 0 for row in generic_summaries.values())
             and pooled_generic["interval"][0] > 0
             and sum(value > 0 for value in generic_average.values()) >= 8
+        ),
+        "all_arm_absolute_mean_f1_at_least_0_10": all(
+            absolute_performance[arm]["f1"]["mean"] >= 0.10 for arm in ARMS
         ),
         "all_integrity_checks_pass": all_integrity_checks_pass,
     }

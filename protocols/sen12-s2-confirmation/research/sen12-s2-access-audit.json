@@ -62,10 +62,29 @@
     "Change protected inventory membership using imagery, labels, dates, or performance"
   ],
   "selection_basis": "Set difference between the 13 inventories in the pinned official S12LS-LD harmonized Sentinel-2 task-membership union and every inventory with documented prior static-mask access. Protected NetCDF, MASK arrays, imagery, model predictions, and model performance were not accessed; limited upstream task-definition metadata exposure is disclosed separately.",
+  "current_campaign_development_access": {
+    "inventories": [
+      "chimanimani",
+      "china",
+      "dominicamaria"
+    ],
+    "selected_files": 577,
+    "first_access_version": 3,
+    "v3_fit_gate": "failed: 21 China-held-out validation F1 values ranged from 0.0216 to 0.0520 against an every-run 0.25 floor",
+    "v4_development_use": "deterministic mixed-inventory calibration split selected after disclosed development-only exploration",
+    "confirmation_credit": false
+  },
+  "current_campaign_protected_access": {
+    "netcdf_accessed": false,
+    "mask_accessed": false,
+    "imagery_accessed": false,
+    "predictions_accessed": false,
+    "performance_accessed": false
+  },
   "limitations": [
     "An inventory can contain multiple trigger dates; inventory is used as the conservative independence unit.",
     "Some event dates were NDVI-assisted; a predeclared high-confidence-date sensitivity is required.",
     "The supplied random patch split is invalid for event/site inference and will not be used."
   ],
-  "status": "ten-inventory-protected-set-available-pending-corrected-v3-public-lock"
+  "status": "ten-inventory-protected-set-available-pending-v4-public-lock"
 }

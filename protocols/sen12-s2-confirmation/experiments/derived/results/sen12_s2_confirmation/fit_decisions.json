@@ -1,0 +1,2293 @@
+{
+  "schema_version": 1,
+  "dataset_revision": "40af2dd6b4e568edb6640d6e14dc67ebd01038a4",
+  "member_index_sha256": "d83e1f64f2d2faca17b2abff8564ff1f87775df9594251356378c320ab75e6a6",
+  "development_extraction_manifest_sha256": "96dfbb15ad3f57a77a2f124190b3e1bf32a4ca2b8ab634998df63663a465c7e1",
+  "development_file_content_identity_sha256": "a105853bdc8e695f2ef680465f4337624ede44233c9fcc012f1085974aa543c7",
+  "development_filenames_sha256": "65349864e85ae9708d2441bdb1fe3f16c7bc70a24211c6938f76226577d470b8",
+  "source_artifacts": {
+    "research/sen12-s2-confirmation-protocol.md": "f5351382279de30296fb5ebf57802f809670d5a997118365dafc07608890c698",
+    "research/sen12-s2-access-audit.json": "e42eab443b52a91d7148c1de05f03e1b4ce252bffbc378bff04f27202156f38d",
+    "research/dataset-metadata/sen12-s2-confirmation/archive_manifest.json": "bc5bb4befd74e67bd7664b3fe40d2ebd6f09f94d105e6e655234d9942e9df502",
+    "research/dataset-metadata/sen12-s2-confirmation/s12ls_ld_s2_membership.json": "9d538889e86cd2e1c4c61bb7bf201ecd86765c6428b9c87833f7341fdddbec0e",
+    "research/dataset-metadata/sen12-s2-confirmation/member_index.json": "d83e1f64f2d2faca17b2abff8564ff1f87775df9594251356378c320ab75e6a6",
+    "experiments/code/prepare_sen12_s2.py": "b4bdf684c5f6bce513620b0ea135e1e4f8094cbee8a5ae17e57382a0366a1184",
+    "experiments/code/run_sen12_s2_confirmation.py": "93369a1bf09298747b5820f98f91f2d48b57ffddfba6f4d9d8894470ee9f3066",
+    "experiments/code/test_sen12_s2_confirmation.py": "54d8de322c8f661e50436d3b8a6d325bae6a53fdb2bdff144a5c9c5af5c4e33d",
+    "experiments/code/revised_models.py": "53caa99b953b7c11b1b04e78fff9cd65bd77cb7dbb6b8e33ba9525ceb622b14e",
+    "experiments/code/data_semantics.py": "5587fb5a6ddd078092f929cd30f49a2c384abff5ff99e3177b00673750d073f9",
+    "environment/requirements-sen12.txt": "20865ff5d4a8e47117aade709a38610b2a45d1e5e6bcf6ccc601de773eb42df3"
+  },
+  "runtime": {
+    "python": "3.10.20",
+    "platform": "macOS-26.6.2-arm64-arm-64bit",
+    "numpy": "2.2.6",
+    "pyproj": "3.7.1",
+    "scipy": "1.15.3",
+    "torch": "2.14.0",
+    "xarray": "2025.6.1",
+    "h5netcdf": "1.6.4",
+    "h5py": "3.14.0"
+  },
+  "device": "mps",
+  "train_inventories": [
+    "chimanimani",
+    "dominicamaria"
+  ],
+  "validation_inventories": [
+    "china"
+  ],
+  "train_count": 512,
+  "validation_count": 65,
+  "validation_floor": 0.25,
+  "all_validation_pass": false,
+  "runs": [
+    {
+      "arm": "s3_none_base",
+      "seed": 42,
+      "config": {
+        "gating": "none",
+        "loss": "base"
+      },
+      "configuration_sha256": "3648e695aaa11c8fbf3937584bc036bb30876745f37095e57cb1dc1ce685a66a",
+      "configuration": {
+        "schema_version": 1,
+        "arm": "s3_none_base",
+        "arm_config": {
+          "gating": "none",
+          "loss": "base"
+        },
+        "seed": 42,
+        "dataset_revision": "40af2dd6b4e568edb6640d6e14dc67ebd01038a4",
+        "band_order": [
+          "B02",
+          "B03",
+          "B04",
+          "B08"
+        ],
+        "normalization": "divide_by_10000_then_clip_0_1",
+        "optimizer": {
+          "name": "AdamW",
+          "learning_rate": 0.0015,
+          "weight_decay": 0.0001
+        },
+        "scheduler": {
+          "name": "CosineAnnealingLR",
+          "epochs": 15,
+          "eta_min": 1e-05
+        },
+        "batch_size": 16,
+        "threshold": 0.5,
+        "augmentation": "none"
+      },
+      "selected_epoch": 14,
+      "validation_history": [
+        {
+          "epoch": 1,
+          "f1": 0.0
+        },
+        {
+          "epoch": 2,
+          "f1": 0.0
+        },
+        {
+          "epoch": 3,
+          "f1": 0.018331036961600673
+        },
+        {
+          "epoch": 4,
+          "f1": 0.002098894993518118
+        },
+        {
+          "epoch": 5,
+          "f1": 0.0018535681186283594
+        },
+        {
+          "epoch": 6,
+          "f1": 0.0
+        },
+        {
+          "epoch": 7,
+          "f1": 0.015300814003304974
+        },
+        {
+          "epoch": 8,
+          "f1": 0.021242827493590525
+        },
+        {
+          "epoch": 9,
+          "f1": 0.014983113294442737
+        },
+        {
+          "epoch": 10,
+          "f1": 0.02322880371660859
+        },
+        {
+          "epoch": 11,
+          "f1": 0.012186115214180206
+        },
+        {
+          "epoch": 12,
+          "f1": 0.02311785211913644
+        },
+        {
+          "epoch": 13,
+          "f1": 0.026970954356846474
+        },
+        {
+          "epoch": 14,
+          "f1": 0.031025672222898162
+        },
+        {
+          "epoch": 15,
+          "f1": 0.026262749648812065
+        }
+      ],
+      "validation_f1": 0.031025672222898162,
+      "validation_predictions": "experiments/derived/results/sen12_s2_confirmation/validation_predictions/s3_none_base_seed42.npy",
+      "validation_predictions_sha256": "9bf8aae0f0c5f9869cf5ac402c9794f4fb4c19c8a1688628b895fc399f86478b",
+      "checkpoint": "experiments/derived/checkpoints/sen12_s2_confirmation/s3_none_base_seed42.pt",
+      "checkpoint_sha256": "199d054635f310ed97b07d4afee4825e52910d3e1f3c15a39ef6c013b289d568"
+    },
+    {
+      "arm": "s3_none_base",
+      "seed": 43,
+      "config": {
+        "gating": "none",
+        "loss": "base"
+      },
+      "configuration_sha256": "b1e556732b6b7ea61053149adfa525afdf5cc0658020d81510d3ec6ff24beede",
+      "configuration": {
+        "schema_version": 1,
+        "arm": "s3_none_base",
+        "arm_config": {
+          "gating": "none",
+          "loss": "base"
+        },
+        "seed": 43,
+        "dataset_revision": "40af2dd6b4e568edb6640d6e14dc67ebd01038a4",
+        "band_order": [
+          "B02",
+          "B03",
+          "B04",
+          "B08"
+        ],
+        "normalization": "divide_by_10000_then_clip_0_1",
+        "optimizer": {
+          "name": "AdamW",
+          "learning_rate": 0.0015,
+          "weight_decay": 0.0001
+        },
+        "scheduler": {
+          "name": "CosineAnnealingLR",
+          "epochs": 15,
+          "eta_min": 1e-05
+        },
+        "batch_size": 16,
+        "threshold": 0.5,
+        "augmentation": "none"
+      },
+      "selected_epoch": 3,
+      "validation_history": [
+        {
+          "epoch": 1,
+          "f1": 0.0
+        },
+        {
+          "epoch": 2,
+          "f1": 0.0
+        },
+        {
+          "epoch": 3,
+          "f1": 0.021602160216021602
+        },
+        {
+          "epoch": 4,
+          "f1": 0.016316171138506162
+        },
+        {
+          "epoch": 5,
+          "f1": 0.021545724142104945
+        },
+        {
+          "epoch": 6,
+          "f1": 0.018110473890733475
+        },
+        {
+          "epoch": 7,
+          "f1": 0.018643757996709927
+        },
+        {
+          "epoch": 8,
+          "f1": 0.0
+        },
+        {
+          "epoch": 9,
+          "f1": 0.003827633041116187
+        },
+        {
+          "epoch": 10,
+          "f1": 0.01896024464831804
+        },
+        {
+          "epoch": 11,
+          "f1": 0.011071472505843276
+        },
+        {
+          "epoch": 12,
+          "f1": 0.008246661333005107
+        },
+        {
+          "epoch": 13,
+          "f1": 0.016159637632368242
+        },
+        {
+          "epoch": 14,
+          "f1": 0.014210461840009798
+        },
+        {
+          "epoch": 15,
+          "f1": 0.013998894824092833
+        }
+      ],
+      "validation_f1": 0.021602160216021602,
+      "validation_predictions": "experiments/derived/results/sen12_s2_confirmation/validation_predictions/s3_none_base_seed43.npy",
+      "validation_predictions_sha256": "24ce5260cb8f5e0b0a98e5e6f0cececbe555ac91871ba34da8c525f0e1799fb5",
+      "checkpoint": "experiments/derived/checkpoints/sen12_s2_confirmation/s3_none_base_seed43.pt",
+      "checkpoint_sha256": "dab81decfa77ddf4b81a67b71eae180be524011be7ff9b6081f904d02b5732df"
+    },
+    {
+      "arm": "s3_none_base",
+      "seed": 44,
+      "config": {
+        "gating": "none",
+        "loss": "base"
+      },
+      "configuration_sha256": "deab6de35f52beccffc647884ad365088e0cd2014e3e4600783431b6f2a923d3",
+      "configuration": {
+        "schema_version": 1,
+        "arm": "s3_none_base",
+        "arm_config": {
+          "gating": "none",
+          "loss": "base"
+        },
+        "seed": 44,
+        "dataset_revision": "40af2dd6b4e568edb6640d6e14dc67ebd01038a4",
+        "band_order": [
+          "B02",
+          "B03",
+          "B04",
+          "B08"
+        ],
+        "normalization": "divide_by_10000_then_clip_0_1",
+        "optimizer": {
+          "name": "AdamW",
+          "learning_rate": 0.0015,
+          "weight_decay": 0.0001
+        },
+        "scheduler": {
+          "name": "CosineAnnealingLR",
+          "epochs": 15,
+          "eta_min": 1e-05
+        },
+        "batch_size": 16,
+        "threshold": 0.5,
+        "augmentation": "none"
+      },
+      "selected_epoch": 3,
+      "validation_history": [
+        {
+          "epoch": 1,
+          "f1": 0.0
+        },
+        {
+          "epoch": 2,
+          "f1": 0.0
+        },
+        {
+          "epoch": 3,
+          "f1": 0.028780001050365003
+        },
+        {
+          "epoch": 4,
+          "f1": 0.00407357116405382
+        },
+        {
+          "epoch": 5,
+          "f1": 0.002962414367709683
+        },
+        {
+          "epoch": 6,
+          "f1": 0.0068842584055565795
+        },
+        {
+          "epoch": 7,
+          "f1": 0.021067925899019253
+        },
+        {
+          "epoch": 8,
+          "f1": 0.008264462809917354
+        },
+        {
+          "epoch": 9,
+          "f1": 0.019954979619151915
+        },
+        {
+          "epoch": 10,
+          "f1": 0.010938364161494499
+        },
+        {
+          "epoch": 11,
+          "f1": 0.019438841004951402
+        },
+        {
+          "epoch": 12,
+          "f1": 0.009492695555692534
+        },
+        {
+          "epoch": 13,
+          "f1": 0.01808848692251283
+        },
+        {
+          "epoch": 14,
+          "f1": 0.010471849205371442
+        },
+        {
+          "epoch": 15,
+          "f1": 0.013517665130568355
+        }
+      ],
+      "validation_f1": 0.028780001050365003,
+      "validation_predictions": "experiments/derived/results/sen12_s2_confirmation/validation_predictions/s3_none_base_seed44.npy",
+      "validation_predictions_sha256": "39b78594d58eec7bbc0e2c1c394cfbb87216b2b0026ee03856388732d4e15e1c",
+      "checkpoint": "experiments/derived/checkpoints/sen12_s2_confirmation/s3_none_base_seed44.pt",
+      "checkpoint_sha256": "dedf155077aab671e537f94a5d8198936153dfe00b0aedf76e46eaeed0e9fae0"
+    },
+    {
+      "arm": "s3_raw_base",
+      "seed": 42,
+      "config": {
+        "gating": "raw",
+        "loss": "base"
+      },
+      "configuration_sha256": "5e45bc169ed1424e1661938a9add5aaa9e4fe8098108565676e418d9d38bbef2",
+      "configuration": {
+        "schema_version": 1,
+        "arm": "s3_raw_base",
+        "arm_config": {
+          "gating": "raw",
+          "loss": "base"
+        },
+        "seed": 42,
+        "dataset_revision": "40af2dd6b4e568edb6640d6e14dc67ebd01038a4",
+        "band_order": [
+          "B02",
+          "B03",
+          "B04",
+          "B08"
+        ],
+        "normalization": "divide_by_10000_then_clip_0_1",
+        "optimizer": {
+          "name": "AdamW",
+          "learning_rate": 0.0015,
+          "weight_decay": 0.0001
+        },
+        "scheduler": {
+          "name": "CosineAnnealingLR",
+          "epochs": 15,
+          "eta_min": 1e-05
+        },
+        "batch_size": 16,
+        "threshold": 0.5,
+        "augmentation": "none"
+      },
+      "selected_epoch": 13,
+      "validation_history": [
+        {
+          "epoch": 1,
+          "f1": 0.0
+        },
+        {
+          "epoch": 2,
+          "f1": 0.0
+        },
+        {
+          "epoch": 3,
+          "f1": 0.0037971582557569813
+        },
+        {
+          "epoch": 4,
+          "f1": 0.0007425283088917764
+        },
+        {
+          "epoch": 5,
+          "f1": 0.0049343119718744215
+        },
+        {
+          "epoch": 6,
+          "f1": 0.0
+        },
+        {
+          "epoch": 7,
+          "f1": 0.013680224746549407
+        },
+        {
+          "epoch": 8,
+          "f1": 0.011976047904191616
+        },
+        {
+          "epoch": 9,
+          "f1": 0.0032148377125193195
+        },
+        {
+          "epoch": 10,
+          "f1": 0.019130541418848488
+        },
+        {
+          "epoch": 11,
+          "f1": 0.014507899428290403
+        },
+        {
+          "epoch": 12,
+          "f1": 0.025908952031775127
+        },
+        {
+          "epoch": 13,
+          "f1": 0.03237585199610516
+        },
+        {
+          "epoch": 14,
+          "f1": 0.03226002799926959
+        },
+        {
+          "epoch": 15,
+          "f1": 0.028681271739793738
+        }
+      ],
+      "validation_f1": 0.03237585199610516,
+      "validation_predictions": "experiments/derived/results/sen12_s2_confirmation/validation_predictions/s3_raw_base_seed42.npy",
+      "validation_predictions_sha256": "61e6ac6796b866e169c97e11297fe32c4cdd74b8c5b4542274f38ca3e599eb2d",
+      "checkpoint": "experiments/derived/checkpoints/sen12_s2_confirmation/s3_raw_base_seed42.pt",
+      "checkpoint_sha256": "a00d96f35ed91ee5294b1ea15eae7488c8deaa74f93fa314ffbfa16e042cafea"
+    },
+    {
+      "arm": "s3_raw_base",
+      "seed": 43,
+      "config": {
+        "gating": "raw",
+        "loss": "base"
+      },
+      "configuration_sha256": "83349175aa75ac885b84b261f628a99b847dcc291f557b393743f06067f08e0d",
+      "configuration": {
+        "schema_version": 1,
+        "arm": "s3_raw_base",
+        "arm_config": {
+          "gating": "raw",
+          "loss": "base"
+        },
+        "seed": 43,
+        "dataset_revision": "40af2dd6b4e568edb6640d6e14dc67ebd01038a4",
+        "band_order": [
+          "B02",
+          "B03",
+          "B04",
+          "B08"
+        ],
+        "normalization": "divide_by_10000_then_clip_0_1",
+        "optimizer": {
+          "name": "AdamW",
+          "learning_rate": 0.0015,
+          "weight_decay": 0.0001
+        },
+        "scheduler": {
+          "name": "CosineAnnealingLR",
+          "epochs": 15,
+          "eta_min": 1e-05
+        },
+        "batch_size": 16,
+        "threshold": 0.5,
+        "augmentation": "none"
+      },
+      "selected_epoch": 5,
+      "validation_history": [
+        {
+          "epoch": 1,
+          "f1": 0.0
+        },
+        {
+          "epoch": 2,
+          "f1": 0.0
+        },
+        {
+          "epoch": 3,
+          "f1": 0.009308592075448588
+        },
+        {
+          "epoch": 4,
+          "f1": 0.012423116740758784
+        },
+        {
+          "epoch": 5,
+          "f1": 0.05195933617169172
+        },
+        {
+          "epoch": 6,
+          "f1": 0.005557957141974927
+        },
+        {
+          "epoch": 7,
+          "f1": 0.0032033511981765534
+        },
+        {
+          "epoch": 8,
+          "f1": 0.00393676570092883
+        },
+        {
+          "epoch": 9,
+          "f1": 0.0
+        },
+        {
+          "epoch": 10,
+          "f1": 0.004399364536233655
+        },
+        {
+          "epoch": 11,
+          "f1": 0.007638290008623875
+        },
+        {
+          "epoch": 12,
+          "f1": 0.0
+        },
+        {
+          "epoch": 13,
+          "f1": 0.009458297506448839
+        },
+        {
+          "epoch": 14,
+          "f1": 0.008096172718351323
+        },
+        {
+          "epoch": 15,
+          "f1": 0.005058605798889574
+        }
+      ],
+      "validation_f1": 0.05195933617169172,
+      "validation_predictions": "experiments/derived/results/sen12_s2_confirmation/validation_predictions/s3_raw_base_seed43.npy",
+      "validation_predictions_sha256": "42245d03106e1f61a8d1034538677fd205f2809cbc802b4174fe208a0b5d8757",
+      "checkpoint": "experiments/derived/checkpoints/sen12_s2_confirmation/s3_raw_base_seed43.pt",
+      "checkpoint_sha256": "2f1c63cc78fb03778241ffd2476fa297f7b9bbc7bd24c40f1f4ca3e37bf0d7ab"
+    },
+    {
+      "arm": "s3_raw_base",
+      "seed": 44,
+      "config": {
+        "gating": "raw",
+        "loss": "base"
+      },
+      "configuration_sha256": "0d10c358790515cd6807cb2daa804c1374c0cebbeaf301ded03d84bf2356766c",
+      "configuration": {
+        "schema_version": 1,
+        "arm": "s3_raw_base",
+        "arm_config": {
+          "gating": "raw",
+          "loss": "base"
+        },
+        "seed": 44,
+        "dataset_revision": "40af2dd6b4e568edb6640d6e14dc67ebd01038a4",
+        "band_order": [
+          "B02",
+          "B03",
+          "B04",
+          "B08"
+        ],
+        "normalization": "divide_by_10000_then_clip_0_1",
+        "optimizer": {
+          "name": "AdamW",
+          "learning_rate": 0.0015,
+          "weight_decay": 0.0001
+        },
+        "scheduler": {
+          "name": "CosineAnnealingLR",
+          "epochs": 15,
+          "eta_min": 1e-05
+        },
+        "batch_size": 16,
+        "threshold": 0.5,
+        "augmentation": "none"
+      },
+      "selected_epoch": 4,
+      "validation_history": [
+        {
+          "epoch": 1,
+          "f1": 0.0
+        },
+        {
+          "epoch": 2,
+          "f1": 0.0
+        },
+        {
+          "epoch": 3,
+          "f1": 0.03227154046997389
+        },
+        {
+          "epoch": 4,
+          "f1": 0.04694788075441087
+        },
+        {
+          "epoch": 5,
+          "f1": 0.006043041253006104
+        },
+        {
+          "epoch": 6,
+          "f1": 0.023138022332220558
+        },
+        {
+          "epoch": 7,
+          "f1": 0.017943743937924344
+        },
+        {
+          "epoch": 8,
+          "f1": 0.00924385283786282
+        },
+        {
+          "epoch": 9,
+          "f1": 0.011392172475041342
+        },
+        {
+          "epoch": 10,
+          "f1": 0.012092341517039208
+        },
+        {
+          "epoch": 11,
+          "f1": 0.029988465974625143
+        },
+        {
+          "epoch": 12,
+          "f1": 0.013518495760108147
+        },
+        {
+          "epoch": 13,
+          "f1": 0.016410507623538056
+        },
+        {
+          "epoch": 14,
+          "f1": 0.011933321030940516
+        },
+        {
+          "epoch": 15,
+          "f1": 0.013767670559311615
+        }
+      ],
+      "validation_f1": 0.04694788075441087,
+      "validation_predictions": "experiments/derived/results/sen12_s2_confirmation/validation_predictions/s3_raw_base_seed44.npy",
+      "validation_predictions_sha256": "49aefce7248e5185fdc782c9d373502f82e39992307f288e90e10491c1ccbd57",
+      "checkpoint": "experiments/derived/checkpoints/sen12_s2_confirmation/s3_raw_base_seed44.pt",
+      "checkpoint_sha256": "a0181bbccb4ea2fd9f5132780e30f35587a15c25f40a30afbdd8672555ccf66d"
+    },
+    {
+      "arm": "s3_ndvi_base",
+      "seed": 42,
+      "config": {
+        "gating": "ndvi",
+        "loss": "base"
+      },
+      "configuration_sha256": "9cbb6ba50fcd4fbf6b6008fa380ff3a55e1fd8b05acb7df76d5dfabcd793d736",
+      "configuration": {
+        "schema_version": 1,
+        "arm": "s3_ndvi_base",
+        "arm_config": {
+          "gating": "ndvi",
+          "loss": "base"
+        },
+        "seed": 42,
+        "dataset_revision": "40af2dd6b4e568edb6640d6e14dc67ebd01038a4",
+        "band_order": [
+          "B02",
+          "B03",
+          "B04",
+          "B08"
+        ],
+        "normalization": "divide_by_10000_then_clip_0_1",
+        "optimizer": {
+          "name": "AdamW",
+          "learning_rate": 0.0015,
+          "weight_decay": 0.0001
+        },
+        "scheduler": {
+          "name": "CosineAnnealingLR",
+          "epochs": 15,
+          "eta_min": 1e-05
+        },
+        "batch_size": 16,
+        "threshold": 0.5,
+        "augmentation": "none"
+      },
+      "selected_epoch": 14,
+      "validation_history": [
+        {
+          "epoch": 1,
+          "f1": 0.0
+        },
+        {
+          "epoch": 2,
+          "f1": 0.0
+        },
+        {
+          "epoch": 3,
+          "f1": 0.002219345293138524
+        },
+        {
+          "epoch": 4,
+          "f1": 0.004554967376585005
+        },
+        {
+          "epoch": 5,
+          "f1": 0.0
+        },
+        {
+          "epoch": 6,
+          "f1": 0.0062347188264058676
+        },
+        {
+          "epoch": 7,
+          "f1": 0.012291807510294387
+        },
+        {
+          "epoch": 8,
+          "f1": 0.01580785491085105
+        },
+        {
+          "epoch": 9,
+          "f1": 0.015109637000184263
+        },
+        {
+          "epoch": 10,
+          "f1": 0.012064508186630555
+        },
+        {
+          "epoch": 11,
+          "f1": 0.011945077273566897
+        },
+        {
+          "epoch": 12,
+          "f1": 0.031442325269636216
+        },
+        {
+          "epoch": 13,
+          "f1": 0.029994513198805098
+        },
+        {
+          "epoch": 14,
+          "f1": 0.03238176395398381
+        },
+        {
+          "epoch": 15,
+          "f1": 0.028081313717111284
+        }
+      ],
+      "validation_f1": 0.03238176395398381,
+      "validation_predictions": "experiments/derived/results/sen12_s2_confirmation/validation_predictions/s3_ndvi_base_seed42.npy",
+      "validation_predictions_sha256": "c21d4b3a8e21270d66c843087d1ebd712c8973ced4862d7045af75eace92da0b",
+      "checkpoint": "experiments/derived/checkpoints/sen12_s2_confirmation/s3_ndvi_base_seed42.pt",
+      "checkpoint_sha256": "893219362f76dc554e5a1211b1a168a5d50dee93a0fef1443337dadf472faaa6"
+    },
+    {
+      "arm": "s3_ndvi_base",
+      "seed": 43,
+      "config": {
+        "gating": "ndvi",
+        "loss": "base"
+      },
+      "configuration_sha256": "567187d7bf3daab887ec16e289b3c7f846199939eb02538db7fd1ce63f776eba",
+      "configuration": {
+        "schema_version": 1,
+        "arm": "s3_ndvi_base",
+        "arm_config": {
+          "gating": "ndvi",
+          "loss": "base"
+        },
+        "seed": 43,
+        "dataset_revision": "40af2dd6b4e568edb6640d6e14dc67ebd01038a4",
+        "band_order": [
+          "B02",
+          "B03",
+          "B04",
+          "B08"
+        ],
+        "normalization": "divide_by_10000_then_clip_0_1",
+        "optimizer": {
+          "name": "AdamW",
+          "learning_rate": 0.0015,
+          "weight_decay": 0.0001
+        },
+        "scheduler": {
+          "name": "CosineAnnealingLR",
+          "epochs": 15,
+          "eta_min": 1e-05
+        },
+        "batch_size": 16,
+        "threshold": 0.5,
+        "augmentation": "none"
+      },
+      "selected_epoch": 5,
+      "validation_history": [
+        {
+          "epoch": 1,
+          "f1": 0.0
+        },
+        {
+          "epoch": 2,
+          "f1": 0.0
+        },
+        {
+          "epoch": 3,
+          "f1": 0.002092951677439212
+        },
+        {
+          "epoch": 4,
+          "f1": 0.02213134471974982
+        },
+        {
+          "epoch": 5,
+          "f1": 0.049843165900399604
+        },
+        {
+          "epoch": 6,
+          "f1": 0.0058451047247929854
+        },
+        {
+          "epoch": 7,
+          "f1": 0.007237931669017972
+        },
+        {
+          "epoch": 8,
+          "f1": 0.0
+        },
+        {
+          "epoch": 9,
+          "f1": 0.003077870113881194
+        },
+        {
+          "epoch": 10,
+          "f1": 0.01903376371461478
+        },
+        {
+          "epoch": 11,
+          "f1": 0.0001238083446824316
+        },
+        {
+          "epoch": 12,
+          "f1": 0.00799016594960049
+        },
+        {
+          "epoch": 13,
+          "f1": 0.009222823413674372
+        },
+        {
+          "epoch": 14,
+          "f1": 0.012748222603579308
+        },
+        {
+          "epoch": 15,
+          "f1": 0.008618036318867343
+        }
+      ],
+      "validation_f1": 0.049843165900399604,
+      "validation_predictions": "experiments/derived/results/sen12_s2_confirmation/validation_predictions/s3_ndvi_base_seed43.npy",
+      "validation_predictions_sha256": "2340571aa8732c55557d29c1b20e8baec2c032c87f9032051cf072840ef845b4",
+      "checkpoint": "experiments/derived/checkpoints/sen12_s2_confirmation/s3_ndvi_base_seed43.pt",
+      "checkpoint_sha256": "208ce6de1626162d197f3bf90d88e91dae905b74dee332771c93671d3c1278ef"
+    },
+    {
+      "arm": "s3_ndvi_base",
+      "seed": 44,
+      "config": {
+        "gating": "ndvi",
+        "loss": "base"
+      },
+      "configuration_sha256": "ddc32d3adc974f69d87dca1c135e17f57e097af42a4a7eb7bf7af0d775f8aac8",
+      "configuration": {
+        "schema_version": 1,
+        "arm": "s3_ndvi_base",
+        "arm_config": {
+          "gating": "ndvi",
+          "loss": "base"
+        },
+        "seed": 44,
+        "dataset_revision": "40af2dd6b4e568edb6640d6e14dc67ebd01038a4",
+        "band_order": [
+          "B02",
+          "B03",
+          "B04",
+          "B08"
+        ],
+        "normalization": "divide_by_10000_then_clip_0_1",
+        "optimizer": {
+          "name": "AdamW",
+          "learning_rate": 0.0015,
+          "weight_decay": 0.0001
+        },
+        "scheduler": {
+          "name": "CosineAnnealingLR",
+          "epochs": 15,
+          "eta_min": 1e-05
+        },
+        "batch_size": 16,
+        "threshold": 0.5,
+        "augmentation": "none"
+      },
+      "selected_epoch": 7,
+      "validation_history": [
+        {
+          "epoch": 1,
+          "f1": 0.0
+        },
+        {
+          "epoch": 2,
+          "f1": 0.0
+        },
+        {
+          "epoch": 3,
+          "f1": 0.01863317412583289
+        },
+        {
+          "epoch": 4,
+          "f1": 0.011944664513376805
+        },
+        {
+          "epoch": 5,
+          "f1": 0.0031880326160259945
+        },
+        {
+          "epoch": 6,
+          "f1": 0.00024775472282440383
+        },
+        {
+          "epoch": 7,
+          "f1": 0.024235152969406117
+        },
+        {
+          "epoch": 8,
+          "f1": 0.008627595982005298
+        },
+        {
+          "epoch": 9,
+          "f1": 0.017335434598133106
+        },
+        {
+          "epoch": 10,
+          "f1": 0.014114759128567043
+        },
+        {
+          "epoch": 11,
+          "f1": 0.019965703086722193
+        },
+        {
+          "epoch": 12,
+          "f1": 0.012428474743124345
+        },
+        {
+          "epoch": 13,
+          "f1": 0.021849252364967958
+        },
+        {
+          "epoch": 14,
+          "f1": 0.011819748830337354
+        },
+        {
+          "epoch": 15,
+          "f1": 0.015238095238095236
+        }
+      ],
+      "validation_f1": 0.024235152969406117,
+      "validation_predictions": "experiments/derived/results/sen12_s2_confirmation/validation_predictions/s3_ndvi_base_seed44.npy",
+      "validation_predictions_sha256": "910b6727a6fb67c24e88d5da0d08a08ae2155e9882ed5e38819fa23718e44978",
+      "checkpoint": "experiments/derived/checkpoints/sen12_s2_confirmation/s3_ndvi_base_seed44.pt",
+      "checkpoint_sha256": "4b0e9126c6a1435c18fcc9709ef058c4b27ae8c0fac32c60dec57b600cf4f735"
+    },
+    {
+      "arm": "s3_none_boundary",
+      "seed": 42,
+      "config": {
+        "gating": "none",
+        "loss": "boundary"
+      },
+      "configuration_sha256": "5800947545d3751e9aabe9772b3a94ee64615a2a82a5dc2ed130418ea785978d",
+      "configuration": {
+        "schema_version": 1,
+        "arm": "s3_none_boundary",
+        "arm_config": {
+          "gating": "none",
+          "loss": "boundary"
+        },
+        "seed": 42,
+        "dataset_revision": "40af2dd6b4e568edb6640d6e14dc67ebd01038a4",
+        "band_order": [
+          "B02",
+          "B03",
+          "B04",
+          "B08"
+        ],
+        "normalization": "divide_by_10000_then_clip_0_1",
+        "optimizer": {
+          "name": "AdamW",
+          "learning_rate": 0.0015,
+          "weight_decay": 0.0001
+        },
+        "scheduler": {
+          "name": "CosineAnnealingLR",
+          "epochs": 15,
+          "eta_min": 1e-05
+        },
+        "batch_size": 16,
+        "threshold": 0.5,
+        "augmentation": "none"
+      },
+      "selected_epoch": 10,
+      "validation_history": [
+        {
+          "epoch": 1,
+          "f1": 0.0
+        },
+        {
+          "epoch": 2,
+          "f1": 0.0004908577739599951
+        },
+        {
+          "epoch": 3,
+          "f1": 0.03593833067517278
+        },
+        {
+          "epoch": 4,
+          "f1": 0.031396800856276386
+        },
+        {
+          "epoch": 5,
+          "f1": 0.0007410609522633236
+        },
+        {
+          "epoch": 6,
+          "f1": 0.018534221683827984
+        },
+        {
+          "epoch": 7,
+          "f1": 0.015578043544924867
+        },
+        {
+          "epoch": 8,
+          "f1": 0.03204897371263954
+        },
+        {
+          "epoch": 9,
+          "f1": 0.010595047431316987
+        },
+        {
+          "epoch": 10,
+          "f1": 0.041572900627738954
+        },
+        {
+          "epoch": 11,
+          "f1": 0.022724496029321927
+        },
+        {
+          "epoch": 12,
+          "f1": 0.018493570116350274
+        },
+        {
+          "epoch": 13,
+          "f1": 0.032679738562091505
+        },
+        {
+          "epoch": 14,
+          "f1": 0.037962518020182606
+        },
+        {
+          "epoch": 15,
+          "f1": 0.0278622703491909
+        }
+      ],
+      "validation_f1": 0.041572900627738954,
+      "validation_predictions": "experiments/derived/results/sen12_s2_confirmation/validation_predictions/s3_none_boundary_seed42.npy",
+      "validation_predictions_sha256": "9da66fd17fc6aae2812afea724457388f45b6776aaaad8c1888de9cf7066a2b1",
+      "checkpoint": "experiments/derived/checkpoints/sen12_s2_confirmation/s3_none_boundary_seed42.pt",
+      "checkpoint_sha256": "2c8bb4ef7287624b8cfb6d2923756c91e33a972a043499a55340b04b3f29277c"
+    },
+    {
+      "arm": "s3_none_boundary",
+      "seed": 43,
+      "config": {
+        "gating": "none",
+        "loss": "boundary"
+      },
+      "configuration_sha256": "809410c85c4c52ce69626504850bcd0365e155fe16f301c8ca96203150391510",
+      "configuration": {
+        "schema_version": 1,
+        "arm": "s3_none_boundary",
+        "arm_config": {
+          "gating": "none",
+          "loss": "boundary"
+        },
+        "seed": 43,
+        "dataset_revision": "40af2dd6b4e568edb6640d6e14dc67ebd01038a4",
+        "band_order": [
+          "B02",
+          "B03",
+          "B04",
+          "B08"
+        ],
+        "normalization": "divide_by_10000_then_clip_0_1",
+        "optimizer": {
+          "name": "AdamW",
+          "learning_rate": 0.0015,
+          "weight_decay": 0.0001
+        },
+        "scheduler": {
+          "name": "CosineAnnealingLR",
+          "epochs": 15,
+          "eta_min": 1e-05
+        },
+        "batch_size": 16,
+        "threshold": 0.5,
+        "augmentation": "none"
+      },
+      "selected_epoch": 5,
+      "validation_history": [
+        {
+          "epoch": 1,
+          "f1": 0.0
+        },
+        {
+          "epoch": 2,
+          "f1": 0.03423423423423423
+        },
+        {
+          "epoch": 3,
+          "f1": 0.013155490590169926
+        },
+        {
+          "epoch": 4,
+          "f1": 0.001358527849820921
+        },
+        {
+          "epoch": 5,
+          "f1": 0.03694178162263269
+        },
+        {
+          "epoch": 6,
+          "f1": 0.02510258266956312
+        },
+        {
+          "epoch": 7,
+          "f1": 0.011031439602868173
+        },
+        {
+          "epoch": 8,
+          "f1": 0.008375931514442322
+        },
+        {
+          "epoch": 9,
+          "f1": 0.007453112590872991
+        },
+        {
+          "epoch": 10,
+          "f1": 0.02172593761378808
+        },
+        {
+          "epoch": 11,
+          "f1": 0.010202827289489857
+        },
+        {
+          "epoch": 12,
+          "f1": 0.016928510534648642
+        },
+        {
+          "epoch": 13,
+          "f1": 0.016636085626911313
+        },
+        {
+          "epoch": 14,
+          "f1": 0.017589934648506687
+        },
+        {
+          "epoch": 15,
+          "f1": 0.015081846606584511
+        }
+      ],
+      "validation_f1": 0.03694178162263269,
+      "validation_predictions": "experiments/derived/results/sen12_s2_confirmation/validation_predictions/s3_none_boundary_seed43.npy",
+      "validation_predictions_sha256": "38734e98d14e810a3c3739b6a49428a84b408689ef434ef99fcc68b9eca248c2",
+      "checkpoint": "experiments/derived/checkpoints/sen12_s2_confirmation/s3_none_boundary_seed43.pt",
+      "checkpoint_sha256": "87860c6dbd97febf4b95337d7c45daa8fc1edc15356f81624059fa333388a0b1"
+    },
+    {
+      "arm": "s3_none_boundary",
+      "seed": 44,
+      "config": {
+        "gating": "none",
+        "loss": "boundary"
+      },
+      "configuration_sha256": "0e99c81a4bc9acca8e0f26840aecafd500324850977f9215e742d4bc6403ecde",
+      "configuration": {
+        "schema_version": 1,
+        "arm": "s3_none_boundary",
+        "arm_config": {
+          "gating": "none",
+          "loss": "boundary"
+        },
+        "seed": 44,
+        "dataset_revision": "40af2dd6b4e568edb6640d6e14dc67ebd01038a4",
+        "band_order": [
+          "B02",
+          "B03",
+          "B04",
+          "B08"
+        ],
+        "normalization": "divide_by_10000_then_clip_0_1",
+        "optimizer": {
+          "name": "AdamW",
+          "learning_rate": 0.0015,
+          "weight_decay": 0.0001
+        },
+        "scheduler": {
+          "name": "CosineAnnealingLR",
+          "epochs": 15,
+          "eta_min": 1e-05
+        },
+        "batch_size": 16,
+        "threshold": 0.5,
+        "augmentation": "none"
+      },
+      "selected_epoch": 4,
+      "validation_history": [
+        {
+          "epoch": 1,
+          "f1": 0.0
+        },
+        {
+          "epoch": 2,
+          "f1": 0.0018438844499078055
+        },
+        {
+          "epoch": 3,
+          "f1": 0.0364208869063238
+        },
+        {
+          "epoch": 4,
+          "f1": 0.043780366751998326
+        },
+        {
+          "epoch": 5,
+          "f1": 0.018439288942452545
+        },
+        {
+          "epoch": 6,
+          "f1": 0.008047308419191612
+        },
+        {
+          "epoch": 7,
+          "f1": 0.035961272475795295
+        },
+        {
+          "epoch": 8,
+          "f1": 0.017713072490142555
+        },
+        {
+          "epoch": 9,
+          "f1": 0.035806507144086765
+        },
+        {
+          "epoch": 10,
+          "f1": 0.013712047012732613
+        },
+        {
+          "epoch": 11,
+          "f1": 0.023728813559322035
+        },
+        {
+          "epoch": 12,
+          "f1": 0.01565461994741026
+        },
+        {
+          "epoch": 13,
+          "f1": 0.0305316091954023
+        },
+        {
+          "epoch": 14,
+          "f1": 0.016625916870415647
+        },
+        {
+          "epoch": 15,
+          "f1": 0.022292221952992488
+        }
+      ],
+      "validation_f1": 0.043780366751998326,
+      "validation_predictions": "experiments/derived/results/sen12_s2_confirmation/validation_predictions/s3_none_boundary_seed44.npy",
+      "validation_predictions_sha256": "9c36410fee52c403e5a34ecc496f81b3425c591d5bde64fca286df88863c6be1",
+      "checkpoint": "experiments/derived/checkpoints/sen12_s2_confirmation/s3_none_boundary_seed44.pt",
+      "checkpoint_sha256": "06bb2f2f066bed4afa374c318f97bfbf548997097fd792c9e06fc36f2b153539"
+    },
+    {
+      "arm": "s3_raw_boundary",
+      "seed": 42,
+      "config": {
+        "gating": "raw",
+        "loss": "boundary"
+      },
+      "configuration_sha256": "355173b696541498c92770123a4d6e978d2befdeb14ec432e8655e02ea6df91f",
+      "configuration": {
+        "schema_version": 1,
+        "arm": "s3_raw_boundary",
+        "arm_config": {
+          "gating": "raw",
+          "loss": "boundary"
+        },
+        "seed": 42,
+        "dataset_revision": "40af2dd6b4e568edb6640d6e14dc67ebd01038a4",
+        "band_order": [
+          "B02",
+          "B03",
+          "B04",
+          "B08"
+        ],
+        "normalization": "divide_by_10000_then_clip_0_1",
+        "optimizer": {
+          "name": "AdamW",
+          "learning_rate": 0.0015,
+          "weight_decay": 0.0001
+        },
+        "scheduler": {
+          "name": "CosineAnnealingLR",
+          "epochs": 15,
+          "eta_min": 1e-05
+        },
+        "batch_size": 16,
+        "threshold": 0.5,
+        "augmentation": "none"
+      },
+      "selected_epoch": 14,
+      "validation_history": [
+        {
+          "epoch": 1,
+          "f1": 0.0
+        },
+        {
+          "epoch": 2,
+          "f1": 0.0
+        },
+        {
+          "epoch": 3,
+          "f1": 0.020728492691109515
+        },
+        {
+          "epoch": 4,
+          "f1": 0.02398890964981014
+        },
+        {
+          "epoch": 5,
+          "f1": 0.0
+        },
+        {
+          "epoch": 6,
+          "f1": 0.03280461427541456
+        },
+        {
+          "epoch": 7,
+          "f1": 0.007647240209682392
+        },
+        {
+          "epoch": 8,
+          "f1": 0.02582131167414232
+        },
+        {
+          "epoch": 9,
+          "f1": 0.01728258871116014
+        },
+        {
+          "epoch": 10,
+          "f1": 0.02550024402147389
+        },
+        {
+          "epoch": 11,
+          "f1": 0.008018751542067604
+        },
+        {
+          "epoch": 12,
+          "f1": 0.02368453180319863
+        },
+        {
+          "epoch": 13,
+          "f1": 0.03157447325277794
+        },
+        {
+          "epoch": 14,
+          "f1": 0.03753318851074101
+        },
+        {
+          "epoch": 15,
+          "f1": 0.026832540553726063
+        }
+      ],
+      "validation_f1": 0.03753318851074101,
+      "validation_predictions": "experiments/derived/results/sen12_s2_confirmation/validation_predictions/s3_raw_boundary_seed42.npy",
+      "validation_predictions_sha256": "78a39bda73a53fa4e6997d80543866c6b5c44bae33b2afec6af4f572f488e002",
+      "checkpoint": "experiments/derived/checkpoints/sen12_s2_confirmation/s3_raw_boundary_seed42.pt",
+      "checkpoint_sha256": "4ce7db9ef9763feb1bc0f0d6d4306d159b172e55998ce032671718f260cce99d"
+    },
+    {
+      "arm": "s3_raw_boundary",
+      "seed": 43,
+      "config": {
+        "gating": "raw",
+        "loss": "boundary"
+      },
+      "configuration_sha256": "416cfe1e473a061b7de9781775eba4ae7f45ef511cfcab1e49dad3f3ebfc7955",
+      "configuration": {
+        "schema_version": 1,
+        "arm": "s3_raw_boundary",
+        "arm_config": {
+          "gating": "raw",
+          "loss": "boundary"
+        },
+        "seed": 43,
+        "dataset_revision": "40af2dd6b4e568edb6640d6e14dc67ebd01038a4",
+        "band_order": [
+          "B02",
+          "B03",
+          "B04",
+          "B08"
+        ],
+        "normalization": "divide_by_10000_then_clip_0_1",
+        "optimizer": {
+          "name": "AdamW",
+          "learning_rate": 0.0015,
+          "weight_decay": 0.0001
+        },
+        "scheduler": {
+          "name": "CosineAnnealingLR",
+          "epochs": 15,
+          "eta_min": 1e-05
+        },
+        "batch_size": 16,
+        "threshold": 0.5,
+        "augmentation": "none"
+      },
+      "selected_epoch": 4,
+      "validation_history": [
+        {
+          "epoch": 1,
+          "f1": 0.0
+        },
+        {
+          "epoch": 2,
+          "f1": 0.0061840669334303384
+        },
+        {
+          "epoch": 3,
+          "f1": 0.015387389553405061
+        },
+        {
+          "epoch": 4,
+          "f1": 0.04740608228980322
+        },
+        {
+          "epoch": 5,
+          "f1": 0.040286944045911044
+        },
+        {
+          "epoch": 6,
+          "f1": 0.021620975930239504
+        },
+        {
+          "epoch": 7,
+          "f1": 0.024142926122646065
+        },
+        {
+          "epoch": 8,
+          "f1": 0.005671660193576227
+        },
+        {
+          "epoch": 9,
+          "f1": 0.005418051964043836
+        },
+        {
+          "epoch": 10,
+          "f1": 0.027845832088437408
+        },
+        {
+          "epoch": 11,
+          "f1": 0.0012377003527446005
+        },
+        {
+          "epoch": 12,
+          "f1": 0.0096926568922152
+        },
+        {
+          "epoch": 13,
+          "f1": 0.012589378475829614
+        },
+        {
+          "epoch": 14,
+          "f1": 0.014137720901889092
+        },
+        {
+          "epoch": 15,
+          "f1": 0.007755277897457991
+        }
+      ],
+      "validation_f1": 0.04740608228980322,
+      "validation_predictions": "experiments/derived/results/sen12_s2_confirmation/validation_predictions/s3_raw_boundary_seed43.npy",
+      "validation_predictions_sha256": "8ede04bdae864f5d0ae642831205cc5aa2f35731c82cdbc8763dd39a73c99dff",
+      "checkpoint": "experiments/derived/checkpoints/sen12_s2_confirmation/s3_raw_boundary_seed43.pt",
+      "checkpoint_sha256": "531a13f4291d9dbb2e9b3a8ad06a74742eff49f3e96f6b6bba1c4e765b95f1cb"
+    },
+    {
+      "arm": "s3_raw_boundary",
+      "seed": 44,
+      "config": {
+        "gating": "raw",
+        "loss": "boundary"
+      },
+      "configuration_sha256": "3888429c701cd8aa38541f4a06fce80bc6717adcc31abd758b1e5119a70ef7f4",
+      "configuration": {
+        "schema_version": 1,
+        "arm": "s3_raw_boundary",
+        "arm_config": {
+          "gating": "raw",
+          "loss": "boundary"
+        },
+        "seed": 44,
+        "dataset_revision": "40af2dd6b4e568edb6640d6e14dc67ebd01038a4",
+        "band_order": [
+          "B02",
+          "B03",
+          "B04",
+          "B08"
+        ],
+        "normalization": "divide_by_10000_then_clip_0_1",
+        "optimizer": {
+          "name": "AdamW",
+          "learning_rate": 0.0015,
+          "weight_decay": 0.0001
+        },
+        "scheduler": {
+          "name": "CosineAnnealingLR",
+          "epochs": 15,
+          "eta_min": 1e-05
+        },
+        "batch_size": 16,
+        "threshold": 0.5,
+        "augmentation": "none"
+      },
+      "selected_epoch": 7,
+      "validation_history": [
+        {
+          "epoch": 1,
+          "f1": 0.0
+        },
+        {
+          "epoch": 2,
+          "f1": 0.00399105037189333
+        },
+        {
+          "epoch": 3,
+          "f1": 0.030068682061543454
+        },
+        {
+          "epoch": 4,
+          "f1": 0.01726115034099825
+        },
+        {
+          "epoch": 5,
+          "f1": 0.01842200945339959
+        },
+        {
+          "epoch": 6,
+          "f1": 0.0067796610169491515
+        },
+        {
+          "epoch": 7,
+          "f1": 0.03326500732064422
+        },
+        {
+          "epoch": 8,
+          "f1": 0.025398736081853748
+        },
+        {
+          "epoch": 9,
+          "f1": 0.03069295242592374
+        },
+        {
+          "epoch": 10,
+          "f1": 0.018277080541001585
+        },
+        {
+          "epoch": 11,
+          "f1": 0.026804123711340205
+        },
+        {
+          "epoch": 12,
+          "f1": 0.02524271844660194
+        },
+        {
+          "epoch": 13,
+          "f1": 0.031431827724791556
+        },
+        {
+          "epoch": 14,
+          "f1": 0.0193701650727904
+        },
+        {
+          "epoch": 15,
+          "f1": 0.02351230153920737
+        }
+      ],
+      "validation_f1": 0.03326500732064422,
+      "validation_predictions": "experiments/derived/results/sen12_s2_confirmation/validation_predictions/s3_raw_boundary_seed44.npy",
+      "validation_predictions_sha256": "702e0b6e34ad02b6e9e23e21965e05dc333733da19eba17680fe8ce2f6d584f5",
+      "checkpoint": "experiments/derived/checkpoints/sen12_s2_confirmation/s3_raw_boundary_seed44.pt",
+      "checkpoint_sha256": "32fc18b527d07d5f5df376da68cddd69c3e6b889cf41d0b0836188622248b4c9"
+    },
+    {
+      "arm": "s3_ndvi_boundary",
+      "seed": 42,
+      "config": {
+        "gating": "ndvi",
+        "loss": "boundary"
+      },
+      "configuration_sha256": "3193f25178dbbb13182010b8dabbd67cfbf31f484f1324db2641e3d3f375e753",
+      "configuration": {
+        "schema_version": 1,
+        "arm": "s3_ndvi_boundary",
+        "arm_config": {
+          "gating": "ndvi",
+          "loss": "boundary"
+        },
+        "seed": 42,
+        "dataset_revision": "40af2dd6b4e568edb6640d6e14dc67ebd01038a4",
+        "band_order": [
+          "B02",
+          "B03",
+          "B04",
+          "B08"
+        ],
+        "normalization": "divide_by_10000_then_clip_0_1",
+        "optimizer": {
+          "name": "AdamW",
+          "learning_rate": 0.0015,
+          "weight_decay": 0.0001
+        },
+        "scheduler": {
+          "name": "CosineAnnealingLR",
+          "epochs": 15,
+          "eta_min": 1e-05
+        },
+        "batch_size": 16,
+        "threshold": 0.5,
+        "augmentation": "none"
+      },
+      "selected_epoch": 14,
+      "validation_history": [
+        {
+          "epoch": 1,
+          "f1": 0.0
+        },
+        {
+          "epoch": 2,
+          "f1": 0.0
+        },
+        {
+          "epoch": 3,
+          "f1": 0.018287216876830215
+        },
+        {
+          "epoch": 4,
+          "f1": 0.022483814008240142
+        },
+        {
+          "epoch": 5,
+          "f1": 0.02025961421812447
+        },
+        {
+          "epoch": 6,
+          "f1": 0.03334871913224094
+        },
+        {
+          "epoch": 7,
+          "f1": 0.004803843074459567
+        },
+        {
+          "epoch": 8,
+          "f1": 0.03143864682326221
+        },
+        {
+          "epoch": 9,
+          "f1": 0.01632903621853898
+        },
+        {
+          "epoch": 10,
+          "f1": 0.02938141200752747
+        },
+        {
+          "epoch": 11,
+          "f1": 0.016450801055797677
+        },
+        {
+          "epoch": 12,
+          "f1": 0.033500634939831894
+        },
+        {
+          "epoch": 13,
+          "f1": 0.03271934076587494
+        },
+        {
+          "epoch": 14,
+          "f1": 0.03871821078578729
+        },
+        {
+          "epoch": 15,
+          "f1": 0.030026744468757596
+        }
+      ],
+      "validation_f1": 0.03871821078578729,
+      "validation_predictions": "experiments/derived/results/sen12_s2_confirmation/validation_predictions/s3_ndvi_boundary_seed42.npy",
+      "validation_predictions_sha256": "f7213d10d9e4f98b7e34380aebb0db81e564dccd1956b97ea961f879c106fd4b",
+      "checkpoint": "experiments/derived/checkpoints/sen12_s2_confirmation/s3_ndvi_boundary_seed42.pt",
+      "checkpoint_sha256": "526ee449e0ca326a6d27de5fcd74d6f94d4da1fdd36714aa383f21b8dc780ba9"
+    },
+    {
+      "arm": "s3_ndvi_boundary",
+      "seed": 43,
+      "config": {
+        "gating": "ndvi",
+        "loss": "boundary"
+      },
+      "configuration_sha256": "362c13b254bf6ed217a534bdd4bd2d71d24c479ff1e1fecc031f1b211cf5020a",
+      "configuration": {
+        "schema_version": 1,
+        "arm": "s3_ndvi_boundary",
+        "arm_config": {
+          "gating": "ndvi",
+          "loss": "boundary"
+        },
+        "seed": 43,
+        "dataset_revision": "40af2dd6b4e568edb6640d6e14dc67ebd01038a4",
+        "band_order": [
+          "B02",
+          "B03",
+          "B04",
+          "B08"
+        ],
+        "normalization": "divide_by_10000_then_clip_0_1",
+        "optimizer": {
+          "name": "AdamW",
+          "learning_rate": 0.0015,
+          "weight_decay": 0.0001
+        },
+        "scheduler": {
+          "name": "CosineAnnealingLR",
+          "epochs": 15,
+          "eta_min": 1e-05
+        },
+        "batch_size": 16,
+        "threshold": 0.5,
+        "augmentation": "none"
+      },
+      "selected_epoch": 5,
+      "validation_history": [
+        {
+          "epoch": 1,
+          "f1": 0.0
+        },
+        {
+          "epoch": 2,
+          "f1": 0.03330678009408865
+        },
+        {
+          "epoch": 3,
+          "f1": 0.004065791905377933
+        },
+        {
+          "epoch": 4,
+          "f1": 0.010001829602976154
+        },
+        {
+          "epoch": 5,
+          "f1": 0.04910038674962166
+        },
+        {
+          "epoch": 6,
+          "f1": 0.03339015930868262
+        },
+        {
+          "epoch": 7,
+          "f1": 0.006049009320412319
+        },
+        {
+          "epoch": 8,
+          "f1": 0.027924891670678863
+        },
+        {
+          "epoch": 9,
+          "f1": 0.016173162278835047
+        },
+        {
+          "epoch": 10,
+          "f1": 0.012513034410844628
+        },
+        {
+          "epoch": 11,
+          "f1": 0.01298542202621585
+        },
+        {
+          "epoch": 12,
+          "f1": 0.009331450672232794
+        },
+        {
+          "epoch": 13,
+          "f1": 0.015513345141391313
+        },
+        {
+          "epoch": 14,
+          "f1": 0.013703658387373056
+        },
+        {
+          "epoch": 15,
+          "f1": 0.011291114383897887
+        }
+      ],
+      "validation_f1": 0.04910038674962166,
+      "validation_predictions": "experiments/derived/results/sen12_s2_confirmation/validation_predictions/s3_ndvi_boundary_seed43.npy",
+      "validation_predictions_sha256": "770242789d295c3f1b98a31e05fed63aeb112394420440ec26feb7bdb8fd0888",
+      "checkpoint": "experiments/derived/checkpoints/sen12_s2_confirmation/s3_ndvi_boundary_seed43.pt",
+      "checkpoint_sha256": "268164bfb8bda9b461efe1c2f2ee2217688873f6f1c8b19481f79c624a9f741f"
+    },
+    {
+      "arm": "s3_ndvi_boundary",
+      "seed": 44,
+      "config": {
+        "gating": "ndvi",
+        "loss": "boundary"
+      },
+      "configuration_sha256": "d16be0ca545810d7e8fedce4e1524e3f897a91f3d80d76b15d2c0efe6de87b20",
+      "configuration": {
+        "schema_version": 1,
+        "arm": "s3_ndvi_boundary",
+        "arm_config": {
+          "gating": "ndvi",
+          "loss": "boundary"
+        },
+        "seed": 44,
+        "dataset_revision": "40af2dd6b4e568edb6640d6e14dc67ebd01038a4",
+        "band_order": [
+          "B02",
+          "B03",
+          "B04",
+          "B08"
+        ],
+        "normalization": "divide_by_10000_then_clip_0_1",
+        "optimizer": {
+          "name": "AdamW",
+          "learning_rate": 0.0015,
+          "weight_decay": 0.0001
+        },
+        "scheduler": {
+          "name": "CosineAnnealingLR",
+          "epochs": 15,
+          "eta_min": 1e-05
+        },
+        "batch_size": 16,
+        "threshold": 0.5,
+        "augmentation": "none"
+      },
+      "selected_epoch": 9,
+      "validation_history": [
+        {
+          "epoch": 1,
+          "f1": 0.0
+        },
+        {
+          "epoch": 2,
+          "f1": 0.0032628398791540785
+        },
+        {
+          "epoch": 3,
+          "f1": 0.041011550399430115
+        },
+        {
+          "epoch": 4,
+          "f1": 0.03461930082588528
+        },
+        {
+          "epoch": 5,
+          "f1": 0.010365221632827267
+        },
+        {
+          "epoch": 6,
+          "f1": 0.028437119145725727
+        },
+        {
+          "epoch": 7,
+          "f1": 0.014822014336046654
+        },
+        {
+          "epoch": 8,
+          "f1": 0.01540530627216041
+        },
+        {
+          "epoch": 9,
+          "f1": 0.04614009607865043
+        },
+        {
+          "epoch": 10,
+          "f1": 0.02313749242883101
+        },
+        {
+          "epoch": 11,
+          "f1": 0.03710774370600167
+        },
+        {
+          "epoch": 12,
+          "f1": 0.019480124185791686
+        },
+        {
+          "epoch": 13,
+          "f1": 0.02532412456076578
+        },
+        {
+          "epoch": 14,
+          "f1": 0.018810309026505434
+        },
+        {
+          "epoch": 15,
+          "f1": 0.025978755690440062
+        }
+      ],
+      "validation_f1": 0.04614009607865043,
+      "validation_predictions": "experiments/derived/results/sen12_s2_confirmation/validation_predictions/s3_ndvi_boundary_seed44.npy",
+      "validation_predictions_sha256": "c5d903fff386dad1c85186ba0dd0e6afeb03cb2a252335f2def389db0fc2a49a",
+      "checkpoint": "experiments/derived/checkpoints/sen12_s2_confirmation/s3_ndvi_boundary_seed44.pt",
+      "checkpoint_sha256": "720645eab8b152cb0c7e1dbb93f088ebc744c3edac9a6a28eab27b463dc9cd6d"
+    },
+    {
+      "arm": "s3_ndvi_biophysical",
+      "seed": 42,
+      "config": {
+        "gating": "ndvi",
+        "loss": "biophysical"
+      },
+      "configuration_sha256": "a486b175884eebc9ba349ed5f05ddb46f7caaa23833bd62d6b382081b2900a42",
+      "configuration": {
+        "schema_version": 1,
+        "arm": "s3_ndvi_biophysical",
+        "arm_config": {
+          "gating": "ndvi",
+          "loss": "biophysical"
+        },
+        "seed": 42,
+        "dataset_revision": "40af2dd6b4e568edb6640d6e14dc67ebd01038a4",
+        "band_order": [
+          "B02",
+          "B03",
+          "B04",
+          "B08"
+        ],
+        "normalization": "divide_by_10000_then_clip_0_1",
+        "optimizer": {
+          "name": "AdamW",
+          "learning_rate": 0.0015,
+          "weight_decay": 0.0001
+        },
+        "scheduler": {
+          "name": "CosineAnnealingLR",
+          "epochs": 15,
+          "eta_min": 1e-05
+        },
+        "batch_size": 16,
+        "threshold": 0.5,
+        "augmentation": "none"
+      },
+      "selected_epoch": 13,
+      "validation_history": [
+        {
+          "epoch": 1,
+          "f1": 0.0
+        },
+        {
+          "epoch": 2,
+          "f1": 0.0
+        },
+        {
+          "epoch": 3,
+          "f1": 0.032570763861962
+        },
+        {
+          "epoch": 4,
+          "f1": 0.019417475728155338
+        },
+        {
+          "epoch": 5,
+          "f1": 0.002587162744856474
+        },
+        {
+          "epoch": 6,
+          "f1": 0.02460624071322437
+        },
+        {
+          "epoch": 7,
+          "f1": 0.004306367271608736
+        },
+        {
+          "epoch": 8,
+          "f1": 0.020478642835504393
+        },
+        {
+          "epoch": 9,
+          "f1": 0.02351364522417154
+        },
+        {
+          "epoch": 10,
+          "f1": 0.03011503945070168
+        },
+        {
+          "epoch": 11,
+          "f1": 0.01132377377069358
+        },
+        {
+          "epoch": 12,
+          "f1": 0.03423919549862325
+        },
+        {
+          "epoch": 13,
+          "f1": 0.039348148148148146
+        },
+        {
+          "epoch": 14,
+          "f1": 0.0388465204957102
+        },
+        {
+          "epoch": 15,
+          "f1": 0.029930324144198727
+        }
+      ],
+      "validation_f1": 0.039348148148148146,
+      "validation_predictions": "experiments/derived/results/sen12_s2_confirmation/validation_predictions/s3_ndvi_biophysical_seed42.npy",
+      "validation_predictions_sha256": "ae619ad57d3a1f30b54d11a275db96f112f86eca98fc931ac084c86cff5f5f51",
+      "checkpoint": "experiments/derived/checkpoints/sen12_s2_confirmation/s3_ndvi_biophysical_seed42.pt",
+      "checkpoint_sha256": "e824f0e58c5dddb2a8887eb68777840051aedaa0e33bcd258538a3a23835a028"
+    },
+    {
+      "arm": "s3_ndvi_biophysical",
+      "seed": 43,
+      "config": {
+        "gating": "ndvi",
+        "loss": "biophysical"
+      },
+      "configuration_sha256": "32f1e253abf174dde88b6ef37f63a0a9da8d9685cfe60a31fd281b3acd950a83",
+      "configuration": {
+        "schema_version": 1,
+        "arm": "s3_ndvi_biophysical",
+        "arm_config": {
+          "gating": "ndvi",
+          "loss": "biophysical"
+        },
+        "seed": 43,
+        "dataset_revision": "40af2dd6b4e568edb6640d6e14dc67ebd01038a4",
+        "band_order": [
+          "B02",
+          "B03",
+          "B04",
+          "B08"
+        ],
+        "normalization": "divide_by_10000_then_clip_0_1",
+        "optimizer": {
+          "name": "AdamW",
+          "learning_rate": 0.0015,
+          "weight_decay": 0.0001
+        },
+        "scheduler": {
+          "name": "CosineAnnealingLR",
+          "epochs": 15,
+          "eta_min": 1e-05
+        },
+        "batch_size": 16,
+        "threshold": 0.5,
+        "augmentation": "none"
+      },
+      "selected_epoch": 3,
+      "validation_history": [
+        {
+          "epoch": 1,
+          "f1": 0.0
+        },
+        {
+          "epoch": 2,
+          "f1": 0.034450080829477675
+        },
+        {
+          "epoch": 3,
+          "f1": 0.049895833333333334
+        },
+        {
+          "epoch": 4,
+          "f1": 0.0036982248520710053
+        },
+        {
+          "epoch": 5,
+          "f1": 0.04482609634910348
+        },
+        {
+          "epoch": 6,
+          "f1": 0.03442361152185485
+        },
+        {
+          "epoch": 7,
+          "f1": 0.026947368421052633
+        },
+        {
+          "epoch": 8,
+          "f1": 0.02997502081598668
+        },
+        {
+          "epoch": 9,
+          "f1": 0.002832512315270936
+        },
+        {
+          "epoch": 10,
+          "f1": 0.03754427390791027
+        },
+        {
+          "epoch": 11,
+          "f1": 0.031064467766116943
+        },
+        {
+          "epoch": 12,
+          "f1": 0.03204433200819178
+        },
+        {
+          "epoch": 13,
+          "f1": 0.040347867242501334
+        },
+        {
+          "epoch": 14,
+          "f1": 0.028336158876241222
+        },
+        {
+          "epoch": 15,
+          "f1": 0.03215935681286374
+        }
+      ],
+      "validation_f1": 0.049895833333333334,
+      "validation_predictions": "experiments/derived/results/sen12_s2_confirmation/validation_predictions/s3_ndvi_biophysical_seed43.npy",
+      "validation_predictions_sha256": "ba595391ab93e172ada408943e80483cdb3526fc86c836519ede8dac91757186",
+      "checkpoint": "experiments/derived/checkpoints/sen12_s2_confirmation/s3_ndvi_biophysical_seed43.pt",
+      "checkpoint_sha256": "1868bd5331eb851adb2dcdb53aaa25776d146fa3455d4c3a9ef58448f3e764fb"
+    },
+    {
+      "arm": "s3_ndvi_biophysical",
+      "seed": 44,
+      "config": {
+        "gating": "ndvi",
+        "loss": "biophysical"
+      },
+      "configuration_sha256": "6f7010a420c3949ecf9b5f32feca8daca35e68ab75766c8e4de229d26e0e868c",
+      "configuration": {
+        "schema_version": 1,
+        "arm": "s3_ndvi_biophysical",
+        "arm_config": {
+          "gating": "ndvi",
+          "loss": "biophysical"
+        },
+        "seed": 44,
+        "dataset_revision": "40af2dd6b4e568edb6640d6e14dc67ebd01038a4",
+        "band_order": [
+          "B02",
+          "B03",
+          "B04",
+          "B08"
+        ],
+        "normalization": "divide_by_10000_then_clip_0_1",
+        "optimizer": {
+          "name": "AdamW",
+          "learning_rate": 0.0015,
+          "weight_decay": 0.0001
+        },
+        "scheduler": {
+          "name": "CosineAnnealingLR",
+          "epochs": 15,
+          "eta_min": 1e-05
+        },
+        "batch_size": 16,
+        "threshold": 0.5,
+        "augmentation": "none"
+      },
+      "selected_epoch": 3,
+      "validation_history": [
+        {
+          "epoch": 1,
+          "f1": 0.0
+        },
+        {
+          "epoch": 2,
+          "f1": 0.008949346697691068
+        },
+        {
+          "epoch": 3,
+          "f1": 0.04268610098906819
+        },
+        {
+          "epoch": 4,
+          "f1": 0.029468969175458243
+        },
+        {
+          "epoch": 5,
+          "f1": 0.029599298040362678
+        },
+        {
+          "epoch": 6,
+          "f1": 0.010336553251707375
+        },
+        {
+          "epoch": 7,
+          "f1": 0.031171921475312316
+        },
+        {
+          "epoch": 8,
+          "f1": 0.007494317832790711
+        },
+        {
+          "epoch": 9,
+          "f1": 0.015535866003155723
+        },
+        {
+          "epoch": 10,
+          "f1": 0.008011832860840624
+        },
+        {
+          "epoch": 11,
+          "f1": 0.03137396321673278
+        },
+        {
+          "epoch": 12,
+          "f1": 0.016780989710926016
+        },
+        {
+          "epoch": 13,
+          "f1": 0.03574185121415425
+        },
+        {
+          "epoch": 14,
+          "f1": 0.013978296854883205
+        },
+        {
+          "epoch": 15,
+          "f1": 0.0196533203125
+        }
+      ],
+      "validation_f1": 0.04268610098906819,
+      "validation_predictions": "experiments/derived/results/sen12_s2_confirmation/validation_predictions/s3_ndvi_biophysical_seed44.npy",
+      "validation_predictions_sha256": "5bafc2b5aafea06250870c3286a6453dee3ce12ab3172a596570ae7044c60b9f",
+      "checkpoint": "experiments/derived/checkpoints/sen12_s2_confirmation/s3_ndvi_biophysical_seed44.pt",
+      "checkpoint_sha256": "81a98e0590b8c2a33af458f5e867c1fe7255764f4dc4a06c009ae064be5b0c26"
+    }
+  ]
+}

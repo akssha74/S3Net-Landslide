@@ -24,7 +24,7 @@ TASK_MEMBERSHIP = METADATA / "s12ls_ld_s2_membership.json"
 ACCESS_AUDIT = STUDY / "research/sen12-s2-access-audit.json"
 AUTHORIZATION = (
     STUDY
-    / "experiments/derived/results/sen12_s2_confirmation/"
+    / "experiments/derived/results/sen12_s2_confirmation_v4/"
     "protected_access_authorization.json"
 )
 AUTHORIZATION_RECEIPT = (
@@ -38,7 +38,7 @@ PUBLIC_REPOSITORY = "akssha74/S3Net-Landslide"
 PUBLIC_PROTOCOL_PREFIX = "protocols/sen12-s2-confirmation"
 PUBLIC_AUTHORIZATION_PATH = (
     f"{PUBLIC_PROTOCOL_PREFIX}/experiments/derived/results/"
-    "sen12_s2_confirmation/protected_access_authorization.json"
+    "sen12_s2_confirmation_v4/protected_access_authorization.json"
 )
 TASK_MEMBERSHIP_SHA256 = (
     "9d538889e86cd2e1c4c61bb7bf201ecd86765c6428b9c87833f7341fdddbec0e"
@@ -274,7 +274,7 @@ def verify_authorization() -> None:
     if public_authorization_hash != receipt["authorization_sha256"]:
         raise RuntimeError("public authorization artifact hash mismatch")
     fit_decisions = STUDY / (
-        "experiments/derived/results/sen12_s2_confirmation/fit_decisions.json"
+        "experiments/derived/results/sen12_s2_confirmation_v4/fit_decisions.json"
     )
     if authorization.get("fit_decisions_sha256") != sha256(fit_decisions):
         raise RuntimeError("fit decisions changed after authorization")

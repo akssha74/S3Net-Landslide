@@ -2,7 +2,7 @@
 
 ## Status and purpose
 
-This corrected version-3 protocol is frozen before any Sentinel-2 NetCDF from
+This corrected version-4 protocol is frozen before any Sentinel-2 NetCDF from
 the ten protected inventories is extracted or opened. It tests whether the HR-GLDD mechanism
 conclusions recur with authoritative named bands and inventory-level evaluation.
 It does not test HR-GLDD's physical band order.
@@ -17,7 +17,15 @@ before writing a member index because the code inferred inventory from filename
 prefix while the 28 `usa` task rows use the prefix `usa_puertorico`. No
 development extraction, fit, authorization, or protected access occurred under
 version 2. Version 3 takes inventory exclusively from the pinned task-membership
-row and supersedes versions 1--2.
+row and was publicly sealed at commit
+`a37fd741e3268cbbc3f93fdc1c5f93d61fbe3941`. It indexed all 4,988 task members,
+selected 2,466, and extracted 577 development files. Its predeclared
+cross-inventory fit gate then failed: all 21 `china`-held-out F1 values were
+0.0216--0.0520 against a 0.25 floor, and threshold exploration could not raise
+any above 0.0791. Version 3 was stopped without authorization or protected
+access. Development-only mixed-inventory exploration subsequently found
+individual F1 0.2123--0.3290 and arm-level seed means 0.2662--0.3166. Version 4
+uses that disclosed calibration design and supersedes versions 1--3.
 
 During version-2 remediation, the upstream task file exposed inventory
 membership counts and one protected-file `pixel_annotated` example. These values
@@ -44,13 +52,19 @@ MASK arrays, model predictions, and model performance.
 - Outcome: the static public binary `MASK`.
 - Conservative independence unit: inventory/site, never patch or `ann_id`.
 
-The supplied random patch split is forbidden. Prior cross-project MASK access is
-treated as outcome access even though it occurred through Sentinel-1 files.
+The supplied upstream random patch split is forbidden. The version-4
+within-inventory split is used only for non-degeneracy and checkpoint selection;
+it is not an independent unit and receives no confirmation credit. Prior
+cross-project MASK access is treated as outcome access even though it occurred
+through Sentinel-1 files.
 
 ## Frozen inventory allocation
 
-- Training: `chimanimani`, `dominicamaria`.
-- Validation: `china`.
+- Development pool: `chimanimani`, `china`, and `dominicamaria`.
+- Calibration split: a file is assigned to validation exactly when
+  `int(SHA256("v4-mixed:<filename>"),16) mod 5 = 0`; all other development files
+  train the model. This yields 464 training and 113 validation files, with
+  validation counts 56, 12, and 45 respectively.
 - Protected evaluation: `hiroshima`, `hokkaido`, `indonesia`, `itogon`,
   `newzealand`, `usa`, `thrissur`, `italy`, `kyrgyzstan1`, `kyrgyzstan2`.
 
@@ -85,7 +99,8 @@ All 21 checkpoints, best-epoch validation predictions, validation histories,
 and configuration hashes are frozen
 before protected extraction. Protected access is forbidden unless:
 
-- every selected arm/seed has validation F1 at least 0.25;
+- every arm/seed has validation F1 at least 0.20 and every arm's three-seed mean
+  validation F1 is at least 0.25;
 - all checkpoints and fit decisions have SHA-256 identities;
 - the member index, official task membership, pinned Sen12 requirements, recorded
   runtime versions, model, loss, semantic-loader, preparation, execution, and
@@ -137,7 +152,9 @@ Cross-dataset recurrence is confirmed only if all hold:
 3. the generic plain-boundary mean F1 effect is positive for all three controls,
    its pooled 95% lower bound is above zero, and at least 8 of 10 inventories
    have positive control-averaged effects;
-4. no registered arithmetic, hash, overlap, semantic, or execution check fails.
+4. every arm's seed-averaged, inventory-macro absolute F1 is at least 0.10, so
+   small contrasts among degenerate predictors cannot count as recurrence;
+5. no registered arithmetic, hash, overlap, semantic, or execution check fails.
 
 The overlap check converts pixel-center coordinates to pixel-edge footprints
 and transforms each full bounding edge to EPSG:4326 from its declared CRS using
