@@ -1,0 +1,56 @@
+{
+  "schema_version": 1,
+  "audited_at": "2026-09-15T16:15:00Z",
+  "dataset": "Sen12Landslides harmonized Sentinel-2",
+  "dataset_revision": "40af2dd6b4e568edb6640d6e14dc67ebd01038a4",
+  "code_revision": "d26a25edc8e0b69550696cfb97bb5a983eaa2fde",
+  "license": "CC BY 4.0; underlying Sentinel-2 data use Copernicus Sentinel terms",
+  "public_url": "https://huggingface.co/datasets/paulhoehn/Sen12Landslides",
+  "prior_outcome_access_sources": [
+    "studies/disaster-cross-event-persistence-agreement/research/dataset-metadata/sen12landslides/netcdf_semantics_development.json",
+    "studies/disaster-cross-event-persistence-agreement/research/dataset-metadata/sen12landslides/netcdf_semantics_validation.json"
+  ],
+  "previously_accessed_mask_inventories": [
+    "chimanimani",
+    "china",
+    "dominicamaria"
+  ],
+  "previously_accessed_modality": "Sentinel-1 ascending NetCDF; the static MASK outcome is shared across modalities and therefore counts as outcome access",
+  "previously_accessed_file_counts": {
+    "chimanimani": 160,
+    "china_and_dominicamaria_combined": 120
+  },
+  "development_train_inventories": [
+    "chimanimani",
+    "dominicamaria"
+  ],
+  "development_validation_inventories": [
+    "china"
+  ],
+  "untouched_protected_inventories": [
+    "hiroshima",
+    "hokkaido",
+    "indonesia",
+    "itogon",
+    "newzealand",
+    "usa",
+    "thrissur",
+    "italy",
+    "kyrgyzstan1",
+    "kyrgyzstan2"
+  ],
+  "independence_unit": "inventory/site",
+  "protected_count": 10,
+  "prohibited_actions_before_public_lock": [
+    "Extract or open any protected Sentinel-2 NetCDF file",
+    "Read any protected MASK variable, label statistic, prevalence, or model outcome",
+    "Change protected inventory membership using imagery, labels, dates, or performance"
+  ],
+  "selection_basis": "Set difference between the 13 current S12LS-LD inventories and every inventory with documented prior static-mask access; no protected image, mask, or outcome was read.",
+  "limitations": [
+    "An inventory can contain multiple trigger dates; inventory is used as the conservative independence unit.",
+    "Some event dates were NDVI-assisted; a predeclared high-confidence-date sensitivity is required.",
+    "The supplied random patch split is invalid for event/site inference and will not be used."
+  ],
+  "status": "ten-inventory-protected-set-available-pending-public-protocol-lock"
+}

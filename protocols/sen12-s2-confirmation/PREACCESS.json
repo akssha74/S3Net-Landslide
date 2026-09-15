@@ -1,0 +1,8 @@
+{
+  "schema_version": 1,
+  "status": "protocol-and-code-frozen-before-any-new-Sentinel-2-outcome-access",
+  "origin_commit": "1f49f98f",
+  "dataset_revision": "40af2dd6b4e568edb6640d6e14dc67ebd01038a4",
+  "protected_inventory_count": 10,
+  "protected_outcomes_accessed": false
+}
