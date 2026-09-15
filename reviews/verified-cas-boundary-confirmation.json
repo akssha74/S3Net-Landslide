@@ -13,6 +13,7 @@
     "eval_tile_limit_is_160": true,
     "four_quantitative_conditions": true,
     "process_condition_not_time_verifiable": true,
+    "post_hoc_sensitivity_classification": true,
     "fold_provenance_is_post_execution": true
   },
   "checks": [

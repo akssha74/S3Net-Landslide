@@ -12,8 +12,8 @@ replicate on a separate event-labelled RGB dataset: does ordinary boundary
 weighting improve boundary delineation without materially reducing
 segmentation F1?
 
-This confirmation does **not** test NDVI specificity because CAS is RGB. It
-tests only the generic boundary-weighting finding.
+This post-hoc analysis does **not** test NDVI specificity because CAS is RGB.
+It tests only sensitivity of the generic boundary-weighting finding.
 
 ## Data and independence
 
@@ -25,7 +25,7 @@ tests only the generic boundary-weighting finding.
 - Independence unit: CAS subdataset region/event, never crop or tile.
 - Development: Lombok, Moxitaidi-UAV-1m, Hokkaido, Wenchuan.
 - Validation: Palu.
-- Protected test: Mengdong, Moxi-UAV-1m, Tiburon-Planet.
+- Designated evaluation: Mengdong, Moxi-UAV-1m, Tiburon-Planet.
 
 ## Arms and equal budget
 
@@ -79,8 +79,8 @@ The post-run record lists four quantitative conditions:
 A fifth process condition in the original note required no post-access change
 to code, thresholds, or reporting. Because the protocol was first committed
 after execution, that process condition is not independently time-verifiable
-and is recorded as such rather than passed. The reported failed-confirmation
-verdict follows from three failures among the four quantitative conditions. It
+and is recorded as such rather than passed. The failed-criteria classification
+follows from three failures among the four quantitative conditions. It
 cannot strengthen novelty or generalization claims.
 
 ## Deviations log
@@ -106,6 +106,6 @@ is not used as independently timestamped prospective evidence.
 
 ## Scope
 
-Three held events support only a bounded external replication. They do not
+Three designated regions support only a bounded post-hoc sensitivity result. They do not
 support population-level, sensor-invariant, operational, or global
 generalization claims. CAS licensing also excludes commercial-use framing.

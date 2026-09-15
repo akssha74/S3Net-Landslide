@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "dataset": "HR-GLDD Zenodo record 7189381",
-  "conclusion": "The released NumPy image arrays are ordered Red, Green, Blue, NIR.",
+  "conclusion": "The released NumPy column order is not authoritatively established; RGBN and BGRN remain plausible candidates.",
   "official_repository": "https://github.com/kushanavbhuyan/HR-GLDD-A-Global-Landslide-Mapping-Data-Repository",
   "repository_commit": "e164986c5cd9292b76655788c68f46bf460dfb65",
   "notebook_path": "Codes/Unet_v1.ipynb",
@@ -15,12 +15,14 @@
       "X_test = np.load(f'data/arrays/testX.npy')"
     ],
     "render_cell": "axarr[0].imshow(X_train[i][:,:,:3])",
-    "interpretation": "matplotlib.imshow receives the first three released array columns directly as RGB, so columns 0, 1, and 2 are Red, Green, and Blue respectively."
+    "interpretation": "The direct imshow call supports an intended RGB display, but does not prove the physical wavelengths stored in columns 0 and 2."
   },
   "paper_binding": {
     "doi": "10.5194/essd-15-3283-2023",
     "statement": "The dataset was prepared using only the red, green, blue, and NIR bands."
   },
-  "native_product_caveat": "PlanetScope source GeoTIFFs commonly store four-band products as BGRN. The official HR-GLDD array pipeline/output is a separate representation; the array-specific notebook and paper control the released NumPy semantics.",
-  "scientific_consequence": "The prior BGRN remediation was incorrect. Every R009 spectral arm must be rerun with RED=0 and NIR=3 before reporting."
+  "array_construction_code_available": false,
+  "native_product_caveat": "Native four-band PlanetScope products use BGRN. A conversion to RGBN is possible, but no released construction or reordering code proves that it occurred.",
+  "independent_audit": "research/dataset-metadata/hrgldd-official/band-order-audit.json",
+  "scientific_consequence": "Do not declare one order authoritative. Evaluate both candidate orders and retain only conclusions that are stable across them."
 }

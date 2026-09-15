@@ -1,16 +1,27 @@
-"""Authoritative HR-GLDD array semantics used by every experiment.
+"""Explicit candidate HR-GLDD array semantics used by every experiment.
 
-The official notebook loads the released arrays and renders channels 0:3
-directly as RGB.  The dataset paper likewise names the prepared bands in
-Red, Green, Blue, NIR order.
+The released arrays have no authoritative channel-axis metadata.  The official
+notebook's direct RGB display supports RGBN, while native four-band PlanetScope
+supports BGRN.  Experiments must therefore name the candidate order explicitly.
 """
 
 from __future__ import annotations
 
+import os
 from typing import Any
 
 
-BAND_ORDER = ("red", "green", "blue", "nir")
+SUPPORTED_BAND_ORDERS = {
+    "RGBN": ("red", "green", "blue", "nir"),
+    "BGRN": ("blue", "green", "red", "nir"),
+}
+BAND_ORDER_ID = os.environ.get("HRGLDD_ARRAY_ORDER", "RGBN").upper()
+if BAND_ORDER_ID not in SUPPORTED_BAND_ORDERS:
+    raise ValueError(
+        f"Unsupported HRGLDD_ARRAY_ORDER={BAND_ORDER_ID!r}; "
+        f"choose one of {sorted(SUPPORTED_BAND_ORDERS)}"
+    )
+BAND_ORDER = SUPPORTED_BAND_ORDERS[BAND_ORDER_ID]
 BAND_INDEX = {name: index for index, name in enumerate(BAND_ORDER)}
 BLUE = BAND_INDEX["blue"]
 GREEN = BAND_INDEX["green"]

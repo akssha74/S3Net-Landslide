@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
-"""Independent recomputation of all final R016 RGBN metrics."""
+"""Independent recomputation of an HR-GLDD order-sensitivity result set."""
 
 from __future__ import annotations
 
 import json
+import os
 from pathlib import Path
 
 import numpy as np
@@ -11,7 +12,13 @@ from scipy.ndimage import binary_dilation, binary_erosion
 
 
 STUDY = Path(__file__).resolve().parent.parent
-RESULTS = STUDY / "experiments/derived/results/reviewer_remediation"
+RESULT_VARIANT = os.environ.get("HRGLDD_RESULTS_VARIANT", "rgbn").lower()
+RESULTS = (
+    STUDY / "experiments/derived/results/reviewer_remediation"
+    if RESULT_VARIANT == "rgbn"
+    else STUDY
+    / f"experiments/derived/results/reviewer_remediation_{RESULT_VARIANT}"
+)
 TEST_TARGETS = np.load(
     STUDY / "experiments/raw/hr_gldd/testY.npy", mmap_mode="r"
 )[..., 0].astype(bool)
@@ -202,7 +209,7 @@ def main() -> None:
 
     failed = [check for check in checks if not check["matched"]]
     output = {
-        "run": "R016-corrected-rgbn",
+        "run": f"order-sensitivity-{RESULT_VARIANT}",
         "probability_precision": "float32 saved; tolerance 1e-10",
         "coverage": (
             "default, matched-recall, controlled-resolution, threshold-selection, "
@@ -212,12 +219,20 @@ def main() -> None:
         "failed": failed,
         "status": "passed" if not failed else "failed",
     }
-    (STUDY / "reviews/verified-r010.json").write_text(
+    destination = (
+        STUDY / "reviews/verified-r010.json"
+        if RESULT_VARIANT == "rgbn"
+        else STUDY / f"reviews/verified-{RESULT_VARIANT}-sensitivity.json"
+    )
+    destination.write_text(
         json.dumps(output, indent=2) + "\n"
     )
     if failed:
         raise SystemExit(f"{len(failed)} metric checks failed")
-    print(f"PASS: {len(checks)} R016 metrics independently recomputed")
+    print(
+        f"PASS: {len(checks)} {RESULT_VARIANT.upper()} metrics "
+        "independently recomputed"
+    )
 
 
 if __name__ == "__main__":

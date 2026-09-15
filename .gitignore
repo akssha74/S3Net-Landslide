@@ -3,4 +3,6 @@ __pycache__/
 experiments/raw/
 experiments/derived/checkpoints/
 experiments/derived/results/reviewer_remediation/*probabilities*.npy
+experiments/derived/results/reviewer_remediation_bgrn/*probabilities*.npy
 experiments/derived/results/cas_boundary_confirmation/*probabilities*.npy
+experiments/derived/results/lrd_boundary_confirmation/*probabilities*.npy

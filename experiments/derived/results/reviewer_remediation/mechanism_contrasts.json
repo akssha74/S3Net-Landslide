@@ -20,5 +20,5 @@
     "s3_raw_boundary_controlled_resolution_f1_drop": -0.045052136251307995,
     "s3_ndvi_biophysical_controlled_resolution_f1_drop": -0.04512550567285034
   },
-  "interpretation_rule": "Input specificity requires NDVI to exceed the raw-edge control on the same endpoint. Segmentation-F1 loss specificity requires the NDVI-modulated arm to exceed plain boundary weighting on F1; boundary F1 is reported separately. No equivalence margin or tile-level inference is used because it was not prespecified and event/spatial IDs are absent."
+  "interpretation_rule": "Candidate-index specificity requires the index to exceed the raw-edge control on the same endpoint. Segmentation-F1 loss specificity requires the index-modulated arm to exceed plain boundary weighting on F1; boundary F1 is reported separately. No equivalence margin or tile-level inference is used because it was not prespecified and event/spatial IDs are absent."
 }

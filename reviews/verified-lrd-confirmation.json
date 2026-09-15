@@ -1,0 +1,2993 @@
+{
+  "run": "LRD-prospective-confirmation",
+  "protocol_commit": "97b107836a3737436b973adb28d0f5c5be6c3d63",
+  "independence_unit": "LRD EID",
+  "protected_eids": [
+    "CA0002",
+    "CN0002",
+    "IR0002",
+    "PH0001",
+    "PH0004",
+    "US0001"
+  ],
+  "process_checks": {
+    "authorization_precedes_access": true,
+    "authorization_hash_matches": true,
+    "protocol_files_unchanged": true,
+    "process_condition_passed": true
+  },
+  "checks": [
+    {
+      "loss_mode": "base",
+      "seed": 42,
+      "eid": "CA0002",
+      "metric": "threshold",
+      "reported": 0.45,
+      "recomputed": 0.45,
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 42,
+      "eid": "CA0002",
+      "metric": "f1",
+      "reported": 0.04054348615854101,
+      "recomputed": 0.04054348615854101,
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 42,
+      "eid": "CA0002",
+      "metric": "iou",
+      "reported": 0.020691189557994656,
+      "recomputed": 0.020691189557994656,
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 42,
+      "eid": "CA0002",
+      "metric": "precision",
+      "reported": 0.13000931966449203,
+      "recomputed": 0.13000931966449203,
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 42,
+      "eid": "CA0002",
+      "metric": "recall",
+      "reported": 0.02401652750279762,
+      "recomputed": 0.02401652750279762,
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 42,
+      "eid": "CA0002",
+      "metric": "background_fpr",
+      "reported": 0.0018004569129541283,
+      "recomputed": 0.0018004569129541283,
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 42,
+      "eid": "CA0002",
+      "metric": "false_positive_pixels",
+      "reported": 1867,
+      "recomputed": 1867,
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 42,
+      "eid": "CA0002",
+      "metric": "boundary_f1",
+      "reported": 0.8323067539095088,
+      "recomputed": 0.8323067539095088,
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 42,
+      "eid": "CA0002",
+      "metric": "crop_id_sha256",
+      "reported": "7158df6c23080a13070eb5485566175cea93feb99ca7372732605cb3f0bc00bf",
+      "recomputed": "7158df6c23080a13070eb5485566175cea93feb99ca7372732605cb3f0bc00bf",
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 42,
+      "eid": "CN0002",
+      "metric": "threshold",
+      "reported": 0.45,
+      "recomputed": 0.45,
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 42,
+      "eid": "CN0002",
+      "metric": "f1",
+      "reported": 0.0,
+      "recomputed": 0.0,
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 42,
+      "eid": "CN0002",
+      "metric": "iou",
+      "reported": 0.0,
+      "recomputed": 0.0,
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 42,
+      "eid": "CN0002",
+      "metric": "precision",
+      "reported": 0.0,
+      "recomputed": 0.0,
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 42,
+      "eid": "CN0002",
+      "metric": "recall",
+      "reported": 0.0,
+      "recomputed": 0.0,
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 42,
+      "eid": "CN0002",
+      "metric": "background_fpr",
+      "reported": 8.640988529087727e-05,
+      "recomputed": 8.640988529087727e-05,
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 42,
+      "eid": "CN0002",
+      "metric": "false_positive_pixels",
+      "reported": 28,
+      "recomputed": 28,
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 42,
+      "eid": "CN0002",
+      "metric": "boundary_f1",
+      "reported": 0.8,
+      "recomputed": 0.8,
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 42,
+      "eid": "CN0002",
+      "metric": "crop_id_sha256",
+      "reported": "19616c010a6c709bd8e291851be4afb080628ca255cef52ed445c1ebb7ed6a25",
+      "recomputed": "19616c010a6c709bd8e291851be4afb080628ca255cef52ed445c1ebb7ed6a25",
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 42,
+      "eid": "IR0002",
+      "metric": "threshold",
+      "reported": 0.45,
+      "recomputed": 0.45,
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 42,
+      "eid": "IR0002",
+      "metric": "f1",
+      "reported": 0.0,
+      "recomputed": 0.0,
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 42,
+      "eid": "IR0002",
+      "metric": "iou",
+      "reported": 0.0,
+      "recomputed": 0.0,
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 42,
+      "eid": "IR0002",
+      "metric": "precision",
+      "reported": 0.0,
+      "recomputed": 0.0,
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 42,
+      "eid": "IR0002",
+      "metric": "recall",
+      "reported": 0.0,
+      "recomputed": 0.0,
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 42,
+      "eid": "IR0002",
+      "metric": "background_fpr",
+      "reported": 0.0,
+      "recomputed": 0.0,
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 42,
+      "eid": "IR0002",
+      "metric": "false_positive_pixels",
+      "reported": 0,
+      "recomputed": 0,
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 42,
+      "eid": "IR0002",
+      "metric": "boundary_f1",
+      "reported": 0.8,
+      "recomputed": 0.8,
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 42,
+      "eid": "IR0002",
+      "metric": "crop_id_sha256",
+      "reported": "b580398bc0f552695c18ed3bdc6b66b85e0977b6b8712d081bcb0b3abdeee85d",
+      "recomputed": "b580398bc0f552695c18ed3bdc6b66b85e0977b6b8712d081bcb0b3abdeee85d",
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 42,
+      "eid": "PH0001",
+      "metric": "threshold",
+      "reported": 0.45,
+      "recomputed": 0.45,
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 42,
+      "eid": "PH0001",
+      "metric": "f1",
+      "reported": 0.0,
+      "recomputed": 0.0,
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 42,
+      "eid": "PH0001",
+      "metric": "iou",
+      "reported": 0.0,
+      "recomputed": 0.0,
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 42,
+      "eid": "PH0001",
+      "metric": "precision",
+      "reported": 0.0,
+      "recomputed": 0.0,
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 42,
+      "eid": "PH0001",
+      "metric": "recall",
+      "reported": 0.0,
+      "recomputed": 0.0,
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 42,
+      "eid": "PH0001",
+      "metric": "background_fpr",
+      "reported": 0.0,
+      "recomputed": 0.0,
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 42,
+      "eid": "PH0001",
+      "metric": "false_positive_pixels",
+      "reported": 0,
+      "recomputed": 0,
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 42,
+      "eid": "PH0001",
+      "metric": "boundary_f1",
+      "reported": 0.8055555555555556,
+      "recomputed": 0.8055555555555556,
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 42,
+      "eid": "PH0001",
+      "metric": "crop_id_sha256",
+      "reported": "839f3e4b7a63ee714d63f0c85c9de2cec76f5e37e99f33d7e275637e4c6bc1b7",
+      "recomputed": "839f3e4b7a63ee714d63f0c85c9de2cec76f5e37e99f33d7e275637e4c6bc1b7",
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 42,
+      "eid": "PH0004",
+      "metric": "threshold",
+      "reported": 0.45,
+      "recomputed": 0.45,
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 42,
+      "eid": "PH0004",
+      "metric": "f1",
+      "reported": 0.0,
+      "recomputed": 0.0,
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 42,
+      "eid": "PH0004",
+      "metric": "iou",
+      "reported": 0.0,
+      "recomputed": 0.0,
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 42,
+      "eid": "PH0004",
+      "metric": "precision",
+      "reported": 0.0,
+      "recomputed": 0.0,
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 42,
+      "eid": "PH0004",
+      "metric": "recall",
+      "reported": 0.0,
+      "recomputed": 0.0,
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 42,
+      "eid": "PH0004",
+      "metric": "background_fpr",
+      "reported": 0.0,
+      "recomputed": 0.0,
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 42,
+      "eid": "PH0004",
+      "metric": "false_positive_pixels",
+      "reported": 0,
+      "recomputed": 0,
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 42,
+      "eid": "PH0004",
+      "metric": "boundary_f1",
+      "reported": 0.8,
+      "recomputed": 0.8,
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 42,
+      "eid": "PH0004",
+      "metric": "crop_id_sha256",
+      "reported": "ecc13793bfbd227070b76e617fc0e7fcb6537812612b8957be9ccf5ed6417538",
+      "recomputed": "ecc13793bfbd227070b76e617fc0e7fcb6537812612b8957be9ccf5ed6417538",
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 42,
+      "eid": "US0001",
+      "metric": "threshold",
+      "reported": 0.45,
+      "recomputed": 0.45,
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 42,
+      "eid": "US0001",
+      "metric": "f1",
+      "reported": 0.0,
+      "recomputed": 0.0,
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 42,
+      "eid": "US0001",
+      "metric": "iou",
+      "reported": 0.0,
+      "recomputed": 0.0,
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 42,
+      "eid": "US0001",
+      "metric": "precision",
+      "reported": 0.0,
+      "recomputed": 0.0,
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 42,
+      "eid": "US0001",
+      "metric": "recall",
+      "reported": 0.0,
+      "recomputed": 0.0,
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 42,
+      "eid": "US0001",
+      "metric": "background_fpr",
+      "reported": 0.0,
+      "recomputed": 0.0,
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 42,
+      "eid": "US0001",
+      "metric": "false_positive_pixels",
+      "reported": 0,
+      "recomputed": 0,
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 42,
+      "eid": "US0001",
+      "metric": "boundary_f1",
+      "reported": 0.75,
+      "recomputed": 0.75,
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 42,
+      "eid": "US0001",
+      "metric": "crop_id_sha256",
+      "reported": "ad4824315ec4bc64bb1fe14091b7dd01839360fc5b5a46e10ded8ecead9004af",
+      "recomputed": "ad4824315ec4bc64bb1fe14091b7dd01839360fc5b5a46e10ded8ecead9004af",
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 43,
+      "eid": "CA0002",
+      "metric": "threshold",
+      "reported": 0.35000000000000003,
+      "recomputed": 0.35000000000000003,
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 43,
+      "eid": "CA0002",
+      "metric": "f1",
+      "reported": 0.008895652173913044,
+      "recomputed": 0.008895652173913044,
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 43,
+      "eid": "CA0002",
+      "metric": "iou",
+      "reported": 0.004467697629019509,
+      "recomputed": 0.004467697629019509,
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 43,
+      "eid": "CA0002",
+      "metric": "precision",
+      "reported": 0.004684430564650179,
+      "recomputed": 0.004684430564650179,
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 43,
+      "eid": "CA0002",
+      "metric": "recall",
+      "reported": 0.08806060084359127,
+      "recomputed": 0.08806060084359127,
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 43,
+      "eid": "CA0002",
+      "metric": "background_fpr",
+      "reported": 0.2096129162290891,
+      "recomputed": 0.2096129162290891,
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 43,
+      "eid": "CA0002",
+      "metric": "false_positive_pixels",
+      "reported": 217360,
+      "recomputed": 217360,
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 43,
+      "eid": "CA0002",
+      "metric": "boundary_f1",
+      "reported": 0.014900093206393503,
+      "recomputed": 0.014900093206393503,
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 43,
+      "eid": "CA0002",
+      "metric": "crop_id_sha256",
+      "reported": "7158df6c23080a13070eb5485566175cea93feb99ca7372732605cb3f0bc00bf",
+      "recomputed": "7158df6c23080a13070eb5485566175cea93feb99ca7372732605cb3f0bc00bf",
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 43,
+      "eid": "CN0002",
+      "metric": "threshold",
+      "reported": 0.35000000000000003,
+      "recomputed": 0.35000000000000003,
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 43,
+      "eid": "CN0002",
+      "metric": "f1",
+      "reported": 0.01847826086956522,
+      "recomputed": 0.01847826086956522,
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 43,
+      "eid": "CN0002",
+      "metric": "iou",
+      "reported": 0.009325287986834888,
+      "recomputed": 0.009325287986834888,
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 43,
+      "eid": "CN0002",
+      "metric": "precision",
+      "reported": 0.010152835464342915,
+      "recomputed": 0.010152835464342915,
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 43,
+      "eid": "CN0002",
+      "metric": "recall",
+      "reported": 0.10266264068075759,
+      "recomputed": 0.10266264068075759,
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 43,
+      "eid": "CN0002",
+      "metric": "background_fpr",
+      "reported": 0.11252727312004493,
+      "recomputed": 0.11252727312004493,
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 43,
+      "eid": "CN0002",
+      "metric": "false_positive_pixels",
+      "reported": 36463,
+      "recomputed": 36463,
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 43,
+      "eid": "CN0002",
+      "metric": "boundary_f1",
+      "reported": 0.022451044149395395,
+      "recomputed": 0.022451044149395395,
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 43,
+      "eid": "CN0002",
+      "metric": "crop_id_sha256",
+      "reported": "19616c010a6c709bd8e291851be4afb080628ca255cef52ed445c1ebb7ed6a25",
+      "recomputed": "19616c010a6c709bd8e291851be4afb080628ca255cef52ed445c1ebb7ed6a25",
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 43,
+      "eid": "IR0002",
+      "metric": "threshold",
+      "reported": 0.35000000000000003,
+      "recomputed": 0.35000000000000003,
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 43,
+      "eid": "IR0002",
+      "metric": "f1",
+      "reported": 0.009802281623231072,
+      "recomputed": 0.009802281623231072,
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 43,
+      "eid": "IR0002",
+      "metric": "iou",
+      "reported": 0.004925280303921733,
+      "recomputed": 0.004925280303921733,
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 43,
+      "eid": "IR0002",
+      "metric": "precision",
+      "reported": 0.0049922475336934115,
+      "recomputed": 0.0049922475336934115,
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 43,
+      "eid": "IR0002",
+      "metric": "recall",
+      "reported": 0.2685609532538953,
+      "recomputed": 0.2685609532538953,
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 43,
+      "eid": "IR0002",
+      "metric": "background_fpr",
+      "reported": 0.17881190119691723,
+      "recomputed": 0.17881190119691723,
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 43,
+      "eid": "IR0002",
+      "metric": "false_positive_pixels",
+      "reported": 58398,
+      "recomputed": 58398,
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 43,
+      "eid": "IR0002",
+      "metric": "boundary_f1",
+      "reported": 0.010310876113674056,
+      "recomputed": 0.010310876113674056,
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 43,
+      "eid": "IR0002",
+      "metric": "crop_id_sha256",
+      "reported": "b580398bc0f552695c18ed3bdc6b66b85e0977b6b8712d081bcb0b3abdeee85d",
+      "recomputed": "b580398bc0f552695c18ed3bdc6b66b85e0977b6b8712d081bcb0b3abdeee85d",
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 43,
+      "eid": "PH0001",
+      "metric": "threshold",
+      "reported": 0.35000000000000003,
+      "recomputed": 0.35000000000000003,
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 43,
+      "eid": "PH0001",
+      "metric": "f1",
+      "reported": 0.0064073908508419,
+      "recomputed": 0.0064073908508419,
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 43,
+      "eid": "PH0001",
+      "metric": "iou",
+      "reported": 0.0032139920771358096,
+      "recomputed": 0.0032139920771358096,
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 43,
+      "eid": "PH0001",
+      "metric": "precision",
+      "reported": 0.008400078140261768,
+      "recomputed": 0.008400078140261768,
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 43,
+      "eid": "PH0001",
+      "metric": "recall",
+      "reported": 0.005178851017704443,
+      "recomputed": 0.005178851017704443,
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 43,
+      "eid": "PH0001",
+      "metric": "background_fpr",
+      "reported": 0.008728833524498686,
+      "recomputed": 0.008728833524498686,
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 43,
+      "eid": "PH0001",
+      "metric": "false_positive_pixels",
+      "reported": 5076,
+      "recomputed": 5076,
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 43,
+      "eid": "PH0001",
+      "metric": "boundary_f1",
+      "reported": 0.015116243131391236,
+      "recomputed": 0.015116243131391236,
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 43,
+      "eid": "PH0001",
+      "metric": "crop_id_sha256",
+      "reported": "839f3e4b7a63ee714d63f0c85c9de2cec76f5e37e99f33d7e275637e4c6bc1b7",
+      "recomputed": "839f3e4b7a63ee714d63f0c85c9de2cec76f5e37e99f33d7e275637e4c6bc1b7",
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 43,
+      "eid": "PH0004",
+      "metric": "threshold",
+      "reported": 0.35000000000000003,
+      "recomputed": 0.35000000000000003,
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 43,
+      "eid": "PH0004",
+      "metric": "f1",
+      "reported": 0.011790257524045916,
+      "recomputed": 0.011790257524045916,
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 43,
+      "eid": "PH0004",
+      "metric": "iou",
+      "reported": 0.005930087390761546,
+      "recomputed": 0.005930087390761546,
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 43,
+      "eid": "PH0004",
+      "metric": "precision",
+      "reported": 0.0070474777448071195,
+      "recomputed": 0.0070474777448071195,
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 43,
+      "eid": "PH0004",
+      "metric": "recall",
+      "reported": 0.0360531309297912,
+      "recomputed": 0.0360531309297912,
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 43,
+      "eid": "PH0004",
+      "metric": "background_fpr",
+      "reported": 0.008182715732394322,
+      "recomputed": 0.008182715732394322,
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 43,
+      "eid": "PH0004",
+      "metric": "false_positive_pixels",
+      "reported": 2677,
+      "recomputed": 2677,
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 43,
+      "eid": "PH0004",
+      "metric": "boundary_f1",
+      "reported": 0.01456566100116033,
+      "recomputed": 0.01456566100116033,
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 43,
+      "eid": "PH0004",
+      "metric": "crop_id_sha256",
+      "reported": "ecc13793bfbd227070b76e617fc0e7fcb6537812612b8957be9ccf5ed6417538",
+      "recomputed": "ecc13793bfbd227070b76e617fc0e7fcb6537812612b8957be9ccf5ed6417538",
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 43,
+      "eid": "US0001",
+      "metric": "threshold",
+      "reported": 0.35000000000000003,
+      "recomputed": 0.35000000000000003,
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 43,
+      "eid": "US0001",
+      "metric": "f1",
+      "reported": 0.0031762202978455637,
+      "recomputed": 0.0031762202978455637,
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 43,
+      "eid": "US0001",
+      "metric": "iou",
+      "reported": 0.0015906362545018008,
+      "recomputed": 0.0015906362545018008,
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 43,
+      "eid": "US0001",
+      "metric": "precision",
+      "reported": 0.0017076392692592713,
+      "recomputed": 0.0017076392692592713,
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 43,
+      "eid": "US0001",
+      "metric": "recall",
+      "reported": 0.02268835616438355,
+      "recomputed": 0.02268835616438355,
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 43,
+      "eid": "US0001",
+      "metric": "background_fpr",
+      "reported": 0.11925729769676069,
+      "recomputed": 0.11925729769676069,
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 43,
+      "eid": "US0001",
+      "metric": "false_positive_pixels",
+      "reported": 30984,
+      "recomputed": 30984,
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 43,
+      "eid": "US0001",
+      "metric": "boundary_f1",
+      "reported": 0.0071632572712398805,
+      "recomputed": 0.0071632572712398805,
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 43,
+      "eid": "US0001",
+      "metric": "crop_id_sha256",
+      "reported": "ad4824315ec4bc64bb1fe14091b7dd01839360fc5b5a46e10ded8ecead9004af",
+      "recomputed": "ad4824315ec4bc64bb1fe14091b7dd01839360fc5b5a46e10ded8ecead9004af",
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 44,
+      "eid": "CA0002",
+      "metric": "threshold",
+      "reported": 0.35000000000000003,
+      "recomputed": 0.35000000000000003,
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 44,
+      "eid": "CA0002",
+      "metric": "f1",
+      "reported": 0.14439808690342934,
+      "recomputed": 0.14439808690342934,
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 44,
+      "eid": "CA0002",
+      "metric": "iou",
+      "reported": 0.07781738415135728,
+      "recomputed": 0.07781738415135728,
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 44,
+      "eid": "CA0002",
+      "metric": "precision",
+      "reported": 0.17655841731989547,
+      "recomputed": 0.17655841731989547,
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 44,
+      "eid": "CA0002",
+      "metric": "recall",
+      "reported": 0.12214857536369113,
+      "recomputed": 0.12214857536369113,
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 44,
+      "eid": "CA0002",
+      "metric": "background_fpr",
+      "reported": 0.006382123111907028,
+      "recomputed": 0.006382123111907028,
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 44,
+      "eid": "CA0002",
+      "metric": "false_positive_pixels",
+      "reported": 6618,
+      "recomputed": 6618,
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 44,
+      "eid": "CA0002",
+      "metric": "boundary_f1",
+      "reported": 0.7951469094622448,
+      "recomputed": 0.7951469094622448,
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 44,
+      "eid": "CA0002",
+      "metric": "crop_id_sha256",
+      "reported": "7158df6c23080a13070eb5485566175cea93feb99ca7372732605cb3f0bc00bf",
+      "recomputed": "7158df6c23080a13070eb5485566175cea93feb99ca7372732605cb3f0bc00bf",
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 44,
+      "eid": "CN0002",
+      "metric": "threshold",
+      "reported": 0.35000000000000003,
+      "recomputed": 0.35000000000000003,
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 44,
+      "eid": "CN0002",
+      "metric": "f1",
+      "reported": 0.0,
+      "recomputed": 0.0,
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 44,
+      "eid": "CN0002",
+      "metric": "iou",
+      "reported": 0.0,
+      "recomputed": 0.0,
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 44,
+      "eid": "CN0002",
+      "metric": "precision",
+      "reported": 0.0,
+      "recomputed": 0.0,
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 44,
+      "eid": "CN0002",
+      "metric": "recall",
+      "reported": 0.0,
+      "recomputed": 0.0,
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 44,
+      "eid": "CN0002",
+      "metric": "background_fpr",
+      "reported": 0.00019750830923629092,
+      "recomputed": 0.00019750830923629092,
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 44,
+      "eid": "CN0002",
+      "metric": "false_positive_pixels",
+      "reported": 64,
+      "recomputed": 64,
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 44,
+      "eid": "CN0002",
+      "metric": "boundary_f1",
+      "reported": 0.55,
+      "recomputed": 0.55,
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 44,
+      "eid": "CN0002",
+      "metric": "crop_id_sha256",
+      "reported": "19616c010a6c709bd8e291851be4afb080628ca255cef52ed445c1ebb7ed6a25",
+      "recomputed": "19616c010a6c709bd8e291851be4afb080628ca255cef52ed445c1ebb7ed6a25",
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 44,
+      "eid": "IR0002",
+      "metric": "threshold",
+      "reported": 0.35000000000000003,
+      "recomputed": 0.35000000000000003,
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 44,
+      "eid": "IR0002",
+      "metric": "f1",
+      "reported": 0.0,
+      "recomputed": 0.0,
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 44,
+      "eid": "IR0002",
+      "metric": "iou",
+      "reported": 0.0,
+      "recomputed": 0.0,
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 44,
+      "eid": "IR0002",
+      "metric": "precision",
+      "reported": 0.0,
+      "recomputed": 0.0,
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 44,
+      "eid": "IR0002",
+      "metric": "recall",
+      "reported": 0.0,
+      "recomputed": 0.0,
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 44,
+      "eid": "IR0002",
+      "metric": "background_fpr",
+      "reported": 2.449561987697075e-05,
+      "recomputed": 2.449561987697075e-05,
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 44,
+      "eid": "IR0002",
+      "metric": "false_positive_pixels",
+      "reported": 8,
+      "recomputed": 8,
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 44,
+      "eid": "IR0002",
+      "metric": "boundary_f1",
+      "reported": 0.75,
+      "recomputed": 0.75,
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 44,
+      "eid": "IR0002",
+      "metric": "crop_id_sha256",
+      "reported": "b580398bc0f552695c18ed3bdc6b66b85e0977b6b8712d081bcb0b3abdeee85d",
+      "recomputed": "b580398bc0f552695c18ed3bdc6b66b85e0977b6b8712d081bcb0b3abdeee85d",
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 44,
+      "eid": "PH0001",
+      "metric": "threshold",
+      "reported": 0.35000000000000003,
+      "recomputed": 0.35000000000000003,
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 44,
+      "eid": "PH0001",
+      "metric": "f1",
+      "reported": 0.798827994939069,
+      "recomputed": 0.798827994939069,
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 44,
+      "eid": "PH0001",
+      "metric": "iou",
+      "reported": 0.6650404701186383,
+      "recomputed": 0.6650404701186383,
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 44,
+      "eid": "PH0001",
+      "metric": "precision",
+      "reported": 0.8933571641346439,
+      "recomputed": 0.8933571641346439,
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 44,
+      "eid": "PH0001",
+      "metric": "recall",
+      "reported": 0.7223894977718895,
+      "recomputed": 0.7223894977718895,
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 44,
+      "eid": "PH0001",
+      "metric": "background_fpr",
+      "reported": 0.001231253901406828,
+      "recomputed": 0.001231253901406828,
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 44,
+      "eid": "PH0001",
+      "metric": "false_positive_pixels",
+      "reported": 716,
+      "recomputed": 716,
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 44,
+      "eid": "PH0001",
+      "metric": "boundary_f1",
+      "reported": 0.7735266006466143,
+      "recomputed": 0.7735266006466143,
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 44,
+      "eid": "PH0001",
+      "metric": "crop_id_sha256",
+      "reported": "839f3e4b7a63ee714d63f0c85c9de2cec76f5e37e99f33d7e275637e4c6bc1b7",
+      "recomputed": "839f3e4b7a63ee714d63f0c85c9de2cec76f5e37e99f33d7e275637e4c6bc1b7",
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 44,
+      "eid": "PH0004",
+      "metric": "threshold",
+      "reported": 0.35000000000000003,
+      "recomputed": 0.35000000000000003,
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 44,
+      "eid": "PH0004",
+      "metric": "f1",
+      "reported": 0.6439114391143906,
+      "recomputed": 0.6439114391143906,
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 44,
+      "eid": "PH0004",
+      "metric": "iou",
+      "reported": 0.47482993197278844,
+      "recomputed": 0.47482993197278844,
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 44,
+      "eid": "PH0004",
+      "metric": "precision",
+      "reported": 0.6265709156193885,
+      "recomputed": 0.6265709156193885,
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 44,
+      "eid": "PH0004",
+      "metric": "recall",
+      "reported": 0.6622390891840594,
+      "recomputed": 0.6622390891840594,
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 44,
+      "eid": "PH0004",
+      "metric": "background_fpr",
+      "reported": 0.0006357881480530517,
+      "recomputed": 0.0006357881480530517,
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 44,
+      "eid": "PH0004",
+      "metric": "false_positive_pixels",
+      "reported": 208,
+      "recomputed": 208,
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 44,
+      "eid": "PH0004",
+      "metric": "boundary_f1",
+      "reported": 0.6754556809445661,
+      "recomputed": 0.6754556809445661,
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 44,
+      "eid": "PH0004",
+      "metric": "crop_id_sha256",
+      "reported": "ecc13793bfbd227070b76e617fc0e7fcb6537812612b8957be9ccf5ed6417538",
+      "recomputed": "ecc13793bfbd227070b76e617fc0e7fcb6537812612b8957be9ccf5ed6417538",
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 44,
+      "eid": "US0001",
+      "metric": "threshold",
+      "reported": 0.35000000000000003,
+      "recomputed": 0.35000000000000003,
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 44,
+      "eid": "US0001",
+      "metric": "f1",
+      "reported": 0.11356466876971605,
+      "recomputed": 0.11356466876971605,
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 44,
+      "eid": "US0001",
+      "metric": "iou",
+      "reported": 0.060200668896321044,
+      "recomputed": 0.060200668896321044,
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 44,
+      "eid": "US0001",
+      "metric": "precision",
+      "reported": 0.7199999999999964,
+      "recomputed": 0.7199999999999964,
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 44,
+      "eid": "US0001",
+      "metric": "recall",
+      "reported": 0.06164383561643833,
+      "recomputed": 0.06164383561643833,
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 44,
+      "eid": "US0001",
+      "metric": "background_fpr",
+      "reported": 0.0002155437861805641,
+      "recomputed": 0.0002155437861805641,
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 44,
+      "eid": "US0001",
+      "metric": "false_positive_pixels",
+      "reported": 56,
+      "recomputed": 56,
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 44,
+      "eid": "US0001",
+      "metric": "boundary_f1",
+      "reported": 0.7842923145116767,
+      "recomputed": 0.7842923145116767,
+      "matched": true
+    },
+    {
+      "loss_mode": "base",
+      "seed": 44,
+      "eid": "US0001",
+      "metric": "crop_id_sha256",
+      "reported": "ad4824315ec4bc64bb1fe14091b7dd01839360fc5b5a46e10ded8ecead9004af",
+      "recomputed": "ad4824315ec4bc64bb1fe14091b7dd01839360fc5b5a46e10ded8ecead9004af",
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 42,
+      "eid": "CA0002",
+      "metric": "threshold",
+      "reported": 0.15000000000000002,
+      "recomputed": 0.15000000000000002,
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 42,
+      "eid": "CA0002",
+      "metric": "f1",
+      "reported": 0.02191487776282243,
+      "recomputed": 0.02191487776282243,
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 42,
+      "eid": "CA0002",
+      "metric": "iou",
+      "reported": 0.011078834533691406,
+      "recomputed": 0.011078834533691406,
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 42,
+      "eid": "CA0002",
+      "metric": "precision",
+      "reported": 0.011078834533691406,
+      "recomputed": 0.011078834533691406,
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 42,
+      "eid": "CA0002",
+      "metric": "recall",
+      "reported": 0.9999999999999999,
+      "recomputed": 0.9999999999999999,
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 42,
+      "eid": "CA0002",
+      "metric": "background_fpr",
+      "reported": 1.0,
+      "recomputed": 1.0,
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 42,
+      "eid": "CA0002",
+      "metric": "false_positive_pixels",
+      "reported": 1036959,
+      "recomputed": 1036959,
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 42,
+      "eid": "CA0002",
+      "metric": "boundary_f1",
+      "reported": 0.013175397740729677,
+      "recomputed": 0.013175397740729677,
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 42,
+      "eid": "CA0002",
+      "metric": "crop_id_sha256",
+      "reported": "7158df6c23080a13070eb5485566175cea93feb99ca7372732605cb3f0bc00bf",
+      "recomputed": "7158df6c23080a13070eb5485566175cea93feb99ca7372732605cb3f0bc00bf",
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 42,
+      "eid": "CN0002",
+      "metric": "threshold",
+      "reported": 0.15000000000000002,
+      "recomputed": 0.15000000000000002,
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 42,
+      "eid": "CN0002",
+      "metric": "f1",
+      "reported": 0.0219906254621623,
+      "recomputed": 0.0219906254621623,
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 42,
+      "eid": "CN0002",
+      "metric": "iou",
+      "reported": 0.0111175537109375,
+      "recomputed": 0.0111175537109375,
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 42,
+      "eid": "CN0002",
+      "metric": "precision",
+      "reported": 0.0111175537109375,
+      "recomputed": 0.0111175537109375,
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 42,
+      "eid": "CN0002",
+      "metric": "recall",
+      "reported": 0.9999999999999998,
+      "recomputed": 0.9999999999999998,
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 42,
+      "eid": "CN0002",
+      "metric": "background_fpr",
+      "reported": 1.0,
+      "recomputed": 1.0,
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 42,
+      "eid": "CN0002",
+      "metric": "false_positive_pixels",
+      "reported": 324037,
+      "recomputed": 324037,
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 42,
+      "eid": "CN0002",
+      "metric": "boundary_f1",
+      "reported": 0.02920444090453772,
+      "recomputed": 0.02920444090453772,
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 42,
+      "eid": "CN0002",
+      "metric": "crop_id_sha256",
+      "reported": "19616c010a6c709bd8e291851be4afb080628ca255cef52ed445c1ebb7ed6a25",
+      "recomputed": "19616c010a6c709bd8e291851be4afb080628ca255cef52ed445c1ebb7ed6a25",
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 42,
+      "eid": "IR0002",
+      "metric": "threshold",
+      "reported": 0.15000000000000002,
+      "recomputed": 0.15000000000000002,
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 42,
+      "eid": "IR0002",
+      "metric": "f1",
+      "reported": 0.006636838407280447,
+      "recomputed": 0.006636838407280447,
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 42,
+      "eid": "IR0002",
+      "metric": "iou",
+      "reported": 0.0033294677734375,
+      "recomputed": 0.0033294677734375,
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 42,
+      "eid": "IR0002",
+      "metric": "precision",
+      "reported": 0.0033294677734375,
+      "recomputed": 0.0033294677734375,
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 42,
+      "eid": "IR0002",
+      "metric": "recall",
+      "reported": 0.9999999999999991,
+      "recomputed": 0.9999999999999991,
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 42,
+      "eid": "IR0002",
+      "metric": "background_fpr",
+      "reported": 1.0,
+      "recomputed": 1.0,
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 42,
+      "eid": "IR0002",
+      "metric": "false_positive_pixels",
+      "reported": 326589,
+      "recomputed": 326589,
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 42,
+      "eid": "IR0002",
+      "metric": "boundary_f1",
+      "reported": 0.027357619344182016,
+      "recomputed": 0.027357619344182016,
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 42,
+      "eid": "IR0002",
+      "metric": "crop_id_sha256",
+      "reported": "b580398bc0f552695c18ed3bdc6b66b85e0977b6b8712d081bcb0b3abdeee85d",
+      "recomputed": "b580398bc0f552695c18ed3bdc6b66b85e0977b6b8712d081bcb0b3abdeee85d",
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 42,
+      "eid": "PH0001",
+      "metric": "threshold",
+      "reported": 0.15000000000000002,
+      "recomputed": 0.15000000000000002,
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 42,
+      "eid": "PH0001",
+      "metric": "f1",
+      "reported": 0.027763334542664015,
+      "recomputed": 0.027763334542664015,
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 42,
+      "eid": "PH0001",
+      "metric": "iou",
+      "reported": 0.014077080620659722,
+      "recomputed": 0.014077080620659722,
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 42,
+      "eid": "PH0001",
+      "metric": "precision",
+      "reported": 0.014077080620659722,
+      "recomputed": 0.014077080620659722,
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 42,
+      "eid": "PH0001",
+      "metric": "recall",
+      "reported": 0.9999999999999998,
+      "recomputed": 0.9999999999999998,
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 42,
+      "eid": "PH0001",
+      "metric": "background_fpr",
+      "reported": 1.0,
+      "recomputed": 1.0,
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 42,
+      "eid": "PH0001",
+      "metric": "false_positive_pixels",
+      "reported": 581521,
+      "recomputed": 581521,
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 42,
+      "eid": "PH0001",
+      "metric": "boundary_f1",
+      "reported": 0.027757682377401362,
+      "recomputed": 0.027757682377401362,
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 42,
+      "eid": "PH0001",
+      "metric": "crop_id_sha256",
+      "reported": "839f3e4b7a63ee714d63f0c85c9de2cec76f5e37e99f33d7e275637e4c6bc1b7",
+      "recomputed": "839f3e4b7a63ee714d63f0c85c9de2cec76f5e37e99f33d7e275637e4c6bc1b7",
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 42,
+      "eid": "PH0004",
+      "metric": "threshold",
+      "reported": 0.15000000000000002,
+      "recomputed": 0.15000000000000002,
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 42,
+      "eid": "PH0004",
+      "metric": "f1",
+      "reported": 0.003211387935053183,
+      "recomputed": 0.003211387935053183,
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 42,
+      "eid": "PH0004",
+      "metric": "iou",
+      "reported": 0.0016082763671875,
+      "recomputed": 0.0016082763671875,
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 42,
+      "eid": "PH0004",
+      "metric": "precision",
+      "reported": 0.0016082763671875,
+      "recomputed": 0.0016082763671875,
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 42,
+      "eid": "PH0004",
+      "metric": "recall",
+      "reported": 0.9999999999999981,
+      "recomputed": 0.9999999999999981,
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 42,
+      "eid": "PH0004",
+      "metric": "background_fpr",
+      "reported": 1.0,
+      "recomputed": 1.0,
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 42,
+      "eid": "PH0004",
+      "metric": "false_positive_pixels",
+      "reported": 327153,
+      "recomputed": 327153,
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 42,
+      "eid": "PH0004",
+      "metric": "boundary_f1",
+      "reported": 0.01459337068539259,
+      "recomputed": 0.01459337068539259,
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 42,
+      "eid": "PH0004",
+      "metric": "crop_id_sha256",
+      "reported": "ecc13793bfbd227070b76e617fc0e7fcb6537812612b8957be9ccf5ed6417538",
+      "recomputed": "ecc13793bfbd227070b76e617fc0e7fcb6537812612b8957be9ccf5ed6417538",
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 42,
+      "eid": "US0001",
+      "metric": "threshold",
+      "reported": 0.15000000000000002,
+      "recomputed": 0.15000000000000002,
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 42,
+      "eid": "US0001",
+      "metric": "f1",
+      "reported": 0.017664851784634,
+      "recomputed": 0.017664851784634,
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 42,
+      "eid": "US0001",
+      "metric": "iou",
+      "reported": 0.0089111328125,
+      "recomputed": 0.0089111328125,
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 42,
+      "eid": "US0001",
+      "metric": "precision",
+      "reported": 0.0089111328125,
+      "recomputed": 0.0089111328125,
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 42,
+      "eid": "US0001",
+      "metric": "recall",
+      "reported": 0.9999999999999996,
+      "recomputed": 0.9999999999999996,
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 42,
+      "eid": "US0001",
+      "metric": "background_fpr",
+      "reported": 1.0,
+      "recomputed": 1.0,
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 42,
+      "eid": "US0001",
+      "metric": "false_positive_pixels",
+      "reported": 259808,
+      "recomputed": 259808,
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 42,
+      "eid": "US0001",
+      "metric": "boundary_f1",
+      "reported": 0.04432734180980565,
+      "recomputed": 0.04432734180980565,
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 42,
+      "eid": "US0001",
+      "metric": "crop_id_sha256",
+      "reported": "ad4824315ec4bc64bb1fe14091b7dd01839360fc5b5a46e10ded8ecead9004af",
+      "recomputed": "ad4824315ec4bc64bb1fe14091b7dd01839360fc5b5a46e10ded8ecead9004af",
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 43,
+      "eid": "CA0002",
+      "metric": "threshold",
+      "reported": 0.35000000000000003,
+      "recomputed": 0.35000000000000003,
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 43,
+      "eid": "CA0002",
+      "metric": "f1",
+      "reported": 0.008169105997884996,
+      "recomputed": 0.008169105997884996,
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 43,
+      "eid": "CA0002",
+      "metric": "iou",
+      "reported": 0.004101304996565799,
+      "recomputed": 0.004101304996565799,
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 43,
+      "eid": "CA0002",
+      "metric": "precision",
+      "reported": 0.004280017795646658,
+      "recomputed": 0.004280017795646658,
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 43,
+      "eid": "CA0002",
+      "metric": "recall",
+      "reported": 0.08943789274339328,
+      "recomputed": 0.08943789274339328,
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 43,
+      "eid": "CA0002",
+      "metric": "background_fpr",
+      "reported": 0.23310179090976596,
+      "recomputed": 0.23310179090976596,
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 43,
+      "eid": "CA0002",
+      "metric": "false_positive_pixels",
+      "reported": 241717,
+      "recomputed": 241717,
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 43,
+      "eid": "CA0002",
+      "metric": "boundary_f1",
+      "reported": 0.014801508200968911,
+      "recomputed": 0.014801508200968911,
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 43,
+      "eid": "CA0002",
+      "metric": "crop_id_sha256",
+      "reported": "7158df6c23080a13070eb5485566175cea93feb99ca7372732605cb3f0bc00bf",
+      "recomputed": "7158df6c23080a13070eb5485566175cea93feb99ca7372732605cb3f0bc00bf",
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 43,
+      "eid": "CN0002",
+      "metric": "threshold",
+      "reported": 0.35000000000000003,
+      "recomputed": 0.35000000000000003,
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 43,
+      "eid": "CN0002",
+      "metric": "f1",
+      "reported": 0.016152205146066436,
+      "recomputed": 0.016152205146066436,
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 43,
+      "eid": "CN0002",
+      "metric": "iou",
+      "reported": 0.008141857045669014,
+      "recomputed": 0.008141857045669014,
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 43,
+      "eid": "CN0002",
+      "metric": "precision",
+      "reported": 0.008771722425818656,
+      "recomputed": 0.008771722425818656,
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 43,
+      "eid": "CN0002",
+      "metric": "recall",
+      "reported": 0.1018391435629975,
+      "recomputed": 0.1018391435629975,
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 43,
+      "eid": "CN0002",
+      "metric": "background_fpr",
+      "reported": 0.12938028681909783,
+      "recomputed": 0.12938028681909783,
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 43,
+      "eid": "CN0002",
+      "metric": "false_positive_pixels",
+      "reported": 41924,
+      "recomputed": 41924,
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 43,
+      "eid": "CN0002",
+      "metric": "boundary_f1",
+      "reported": 0.021990852962175275,
+      "recomputed": 0.021990852962175275,
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 43,
+      "eid": "CN0002",
+      "metric": "crop_id_sha256",
+      "reported": "19616c010a6c709bd8e291851be4afb080628ca255cef52ed445c1ebb7ed6a25",
+      "recomputed": "19616c010a6c709bd8e291851be4afb080628ca255cef52ed445c1ebb7ed6a25",
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 43,
+      "eid": "IR0002",
+      "metric": "threshold",
+      "reported": 0.35000000000000003,
+      "recomputed": 0.35000000000000003,
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 43,
+      "eid": "IR0002",
+      "metric": "f1",
+      "reported": 0.009813542688910697,
+      "recomputed": 0.009813542688910697,
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 43,
+      "eid": "IR0002",
+      "metric": "iou",
+      "reported": 0.004930966469428008,
+      "recomputed": 0.004930966469428008,
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 43,
+      "eid": "IR0002",
+      "metric": "precision",
+      "reported": 0.004988947562323468,
+      "recomputed": 0.004988947562323468,
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 43,
+      "eid": "IR0002",
+      "metric": "recall",
+      "reported": 0.29789184234647087,
+      "recomputed": 0.29789184234647087,
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 43,
+      "eid": "IR0002",
+      "metric": "background_fpr",
+      "reported": 0.19847269810067086,
+      "recomputed": 0.19847269810067086,
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 43,
+      "eid": "IR0002",
+      "metric": "false_positive_pixels",
+      "reported": 64819,
+      "recomputed": 64819,
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 43,
+      "eid": "IR0002",
+      "metric": "boundary_f1",
+      "reported": 0.009709029005530096,
+      "recomputed": 0.009709029005530096,
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 43,
+      "eid": "IR0002",
+      "metric": "crop_id_sha256",
+      "reported": "b580398bc0f552695c18ed3bdc6b66b85e0977b6b8712d081bcb0b3abdeee85d",
+      "recomputed": "b580398bc0f552695c18ed3bdc6b66b85e0977b6b8712d081bcb0b3abdeee85d",
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 43,
+      "eid": "PH0001",
+      "metric": "threshold",
+      "reported": 0.35000000000000003,
+      "recomputed": 0.35000000000000003,
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 43,
+      "eid": "PH0001",
+      "metric": "f1",
+      "reported": 0.007191259853408933,
+      "recomputed": 0.007191259853408933,
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 43,
+      "eid": "PH0001",
+      "metric": "iou",
+      "reported": 0.0036086051353226923,
+      "recomputed": 0.0036086051353226923,
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 43,
+      "eid": "PH0001",
+      "metric": "precision",
+      "reported": 0.0084429290469232,
+      "recomputed": 0.0084429290469232,
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 43,
+      "eid": "PH0001",
+      "metric": "recall",
+      "reported": 0.006262796579549559,
+      "recomputed": 0.006262796579549559,
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 43,
+      "eid": "PH0001",
+      "metric": "background_fpr",
+      "reported": 0.010501770357390361,
+      "recomputed": 0.010501770357390361,
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 43,
+      "eid": "PH0001",
+      "metric": "false_positive_pixels",
+      "reported": 6107,
+      "recomputed": 6107,
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 43,
+      "eid": "PH0001",
+      "metric": "boundary_f1",
+      "reported": 0.014463132798221713,
+      "recomputed": 0.014463132798221713,
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 43,
+      "eid": "PH0001",
+      "metric": "crop_id_sha256",
+      "reported": "839f3e4b7a63ee714d63f0c85c9de2cec76f5e37e99f33d7e275637e4c6bc1b7",
+      "recomputed": "839f3e4b7a63ee714d63f0c85c9de2cec76f5e37e99f33d7e275637e4c6bc1b7",
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 43,
+      "eid": "PH0004",
+      "metric": "threshold",
+      "reported": 0.35000000000000003,
+      "recomputed": 0.35000000000000003,
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 43,
+      "eid": "PH0004",
+      "metric": "f1",
+      "reported": 0.011075949367088604,
+      "recomputed": 0.011075949367088604,
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 43,
+      "eid": "PH0004",
+      "metric": "iou",
+      "reported": 0.005568814638027047,
+      "recomputed": 0.005568814638027047,
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 43,
+      "eid": "PH0004",
+      "metric": "precision",
+      "reported": 0.006431852986217456,
+      "recomputed": 0.006431852986217456,
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 43,
+      "eid": "PH0004",
+      "metric": "recall",
+      "reported": 0.039848197343453434,
+      "recomputed": 0.039848197343453434,
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 43,
+      "eid": "PH0004",
+      "metric": "background_fpr",
+      "reported": 0.009915849770596633,
+      "recomputed": 0.009915849770596633,
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 43,
+      "eid": "PH0004",
+      "metric": "false_positive_pixels",
+      "reported": 3244,
+      "recomputed": 3244,
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 43,
+      "eid": "PH0004",
+      "metric": "boundary_f1",
+      "reported": 0.01198062435641744,
+      "recomputed": 0.01198062435641744,
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 43,
+      "eid": "PH0004",
+      "metric": "crop_id_sha256",
+      "reported": "ecc13793bfbd227070b76e617fc0e7fcb6537812612b8957be9ccf5ed6417538",
+      "recomputed": "ecc13793bfbd227070b76e617fc0e7fcb6537812612b8957be9ccf5ed6417538",
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 43,
+      "eid": "US0001",
+      "metric": "threshold",
+      "reported": 0.35000000000000003,
+      "recomputed": 0.35000000000000003,
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 43,
+      "eid": "US0001",
+      "metric": "f1",
+      "reported": 0.0037948546235839053,
+      "recomputed": 0.0037948546235839053,
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 43,
+      "eid": "US0001",
+      "metric": "iou",
+      "reported": 0.0019010343863572826,
+      "recomputed": 0.0019010343863572826,
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 43,
+      "eid": "US0001",
+      "metric": "precision",
+      "reported": 0.002029729568383977,
+      "recomputed": 0.002029729568383977,
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 43,
+      "eid": "US0001",
+      "metric": "recall",
+      "reported": 0.02910958904109588,
+      "recomputed": 0.02910958904109588,
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 43,
+      "eid": "US0001",
+      "metric": "background_fpr",
+      "reported": 0.12868733834216037,
+      "recomputed": 0.12868733834216037,
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 43,
+      "eid": "US0001",
+      "metric": "false_positive_pixels",
+      "reported": 33434,
+      "recomputed": 33434,
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 43,
+      "eid": "US0001",
+      "metric": "boundary_f1",
+      "reported": 0.008021458179578608,
+      "recomputed": 0.008021458179578608,
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 43,
+      "eid": "US0001",
+      "metric": "crop_id_sha256",
+      "reported": "ad4824315ec4bc64bb1fe14091b7dd01839360fc5b5a46e10ded8ecead9004af",
+      "recomputed": "ad4824315ec4bc64bb1fe14091b7dd01839360fc5b5a46e10ded8ecead9004af",
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 44,
+      "eid": "CA0002",
+      "metric": "threshold",
+      "reported": 0.45,
+      "recomputed": 0.45,
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 44,
+      "eid": "CA0002",
+      "metric": "f1",
+      "reported": 0.0012392426850258173,
+      "recomputed": 0.0012392426850258173,
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 44,
+      "eid": "CA0002",
+      "metric": "iou",
+      "reported": 0.0006200055111600991,
+      "recomputed": 0.0006200055111600991,
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 44,
+      "eid": "CA0002",
+      "metric": "precision",
+      "reported": 0.003094910591471801,
+      "recomputed": 0.003094910591471801,
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 44,
+      "eid": "CA0002",
+      "metric": "recall",
+      "reported": 0.000774726693638633,
+      "recomputed": 0.000774726693638633,
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 44,
+      "eid": "CA0002",
+      "metric": "background_fpr",
+      "reported": 0.0027956746602324683,
+      "recomputed": 0.0027956746602324683,
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 44,
+      "eid": "CA0002",
+      "metric": "false_positive_pixels",
+      "reported": 2899,
+      "recomputed": 2899,
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 44,
+      "eid": "CA0002",
+      "metric": "boundary_f1",
+      "reported": 0.8474987504165242,
+      "recomputed": 0.8474987504165242,
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 44,
+      "eid": "CA0002",
+      "metric": "crop_id_sha256",
+      "reported": "7158df6c23080a13070eb5485566175cea93feb99ca7372732605cb3f0bc00bf",
+      "recomputed": "7158df6c23080a13070eb5485566175cea93feb99ca7372732605cb3f0bc00bf",
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 44,
+      "eid": "CN0002",
+      "metric": "threshold",
+      "reported": 0.45,
+      "recomputed": 0.45,
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 44,
+      "eid": "CN0002",
+      "metric": "f1",
+      "reported": 0.0,
+      "recomputed": 0.0,
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 44,
+      "eid": "CN0002",
+      "metric": "iou",
+      "reported": 0.0,
+      "recomputed": 0.0,
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 44,
+      "eid": "CN0002",
+      "metric": "precision",
+      "reported": 0.0,
+      "recomputed": 0.0,
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 44,
+      "eid": "CN0002",
+      "metric": "recall",
+      "reported": 0.0,
+      "recomputed": 0.0,
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 44,
+      "eid": "CN0002",
+      "metric": "background_fpr",
+      "reported": 2.160247132271932e-05,
+      "recomputed": 2.160247132271932e-05,
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 44,
+      "eid": "CN0002",
+      "metric": "false_positive_pixels",
+      "reported": 7,
+      "recomputed": 7,
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 44,
+      "eid": "CN0002",
+      "metric": "boundary_f1",
+      "reported": 0.65,
+      "recomputed": 0.65,
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 44,
+      "eid": "CN0002",
+      "metric": "crop_id_sha256",
+      "reported": "19616c010a6c709bd8e291851be4afb080628ca255cef52ed445c1ebb7ed6a25",
+      "recomputed": "19616c010a6c709bd8e291851be4afb080628ca255cef52ed445c1ebb7ed6a25",
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 44,
+      "eid": "IR0002",
+      "metric": "threshold",
+      "reported": 0.45,
+      "recomputed": 0.45,
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 44,
+      "eid": "IR0002",
+      "metric": "f1",
+      "reported": 0.0,
+      "recomputed": 0.0,
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 44,
+      "eid": "IR0002",
+      "metric": "iou",
+      "reported": 0.0,
+      "recomputed": 0.0,
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 44,
+      "eid": "IR0002",
+      "metric": "precision",
+      "reported": 0.0,
+      "recomputed": 0.0,
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 44,
+      "eid": "IR0002",
+      "metric": "recall",
+      "reported": 0.0,
+      "recomputed": 0.0,
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 44,
+      "eid": "IR0002",
+      "metric": "background_fpr",
+      "reported": 3.980538230007747e-05,
+      "recomputed": 3.980538230007747e-05,
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 44,
+      "eid": "IR0002",
+      "metric": "false_positive_pixels",
+      "reported": 13,
+      "recomputed": 13,
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 44,
+      "eid": "IR0002",
+      "metric": "boundary_f1",
+      "reported": 0.75,
+      "recomputed": 0.75,
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 44,
+      "eid": "IR0002",
+      "metric": "crop_id_sha256",
+      "reported": "b580398bc0f552695c18ed3bdc6b66b85e0977b6b8712d081bcb0b3abdeee85d",
+      "recomputed": "b580398bc0f552695c18ed3bdc6b66b85e0977b6b8712d081bcb0b3abdeee85d",
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 44,
+      "eid": "PH0001",
+      "metric": "threshold",
+      "reported": 0.45,
+      "recomputed": 0.45,
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 44,
+      "eid": "PH0001",
+      "metric": "f1",
+      "reported": 0.46737425011536676,
+      "recomputed": 0.46737425011536676,
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 44,
+      "eid": "PH0001",
+      "metric": "iou",
+      "reported": 0.3049500180657593,
+      "recomputed": 0.3049500180657593,
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 44,
+      "eid": "PH0001",
+      "metric": "precision",
+      "reported": 0.9999999999999997,
+      "recomputed": 0.9999999999999997,
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 44,
+      "eid": "PH0001",
+      "metric": "recall",
+      "reported": 0.3049500180657593,
+      "recomputed": 0.3049500180657593,
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 44,
+      "eid": "PH0001",
+      "metric": "background_fpr",
+      "reported": 0.0,
+      "recomputed": 0.0,
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 44,
+      "eid": "PH0001",
+      "metric": "false_positive_pixels",
+      "reported": 0,
+      "recomputed": 0,
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 44,
+      "eid": "PH0001",
+      "metric": "boundary_f1",
+      "reported": 0.8086105364899782,
+      "recomputed": 0.8086105364899782,
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 44,
+      "eid": "PH0001",
+      "metric": "crop_id_sha256",
+      "reported": "839f3e4b7a63ee714d63f0c85c9de2cec76f5e37e99f33d7e275637e4c6bc1b7",
+      "recomputed": "839f3e4b7a63ee714d63f0c85c9de2cec76f5e37e99f33d7e275637e4c6bc1b7",
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 44,
+      "eid": "PH0004",
+      "metric": "threshold",
+      "reported": 0.45,
+      "recomputed": 0.45,
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 44,
+      "eid": "PH0004",
+      "metric": "f1",
+      "reported": 0.3243243243243238,
+      "recomputed": 0.3243243243243238,
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 44,
+      "eid": "PH0004",
+      "metric": "iou",
+      "reported": 0.19354838709677383,
+      "recomputed": 0.19354838709677383,
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 44,
+      "eid": "PH0004",
+      "metric": "precision",
+      "reported": 0.9999999999999902,
+      "recomputed": 0.9999999999999902,
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 44,
+      "eid": "PH0004",
+      "metric": "recall",
+      "reported": 0.19354838709677383,
+      "recomputed": 0.19354838709677383,
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 44,
+      "eid": "PH0004",
+      "metric": "background_fpr",
+      "reported": 0.0,
+      "recomputed": 0.0,
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 44,
+      "eid": "PH0004",
+      "metric": "false_positive_pixels",
+      "reported": 0,
+      "recomputed": 0,
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 44,
+      "eid": "PH0004",
+      "metric": "boundary_f1",
+      "reported": 0.8198966408268495,
+      "recomputed": 0.8198966408268495,
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 44,
+      "eid": "PH0004",
+      "metric": "crop_id_sha256",
+      "reported": "ecc13793bfbd227070b76e617fc0e7fcb6537812612b8957be9ccf5ed6417538",
+      "recomputed": "ecc13793bfbd227070b76e617fc0e7fcb6537812612b8957be9ccf5ed6417538",
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 44,
+      "eid": "US0001",
+      "metric": "threshold",
+      "reported": 0.45,
+      "recomputed": 0.45,
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 44,
+      "eid": "US0001",
+      "metric": "f1",
+      "reported": 0.0,
+      "recomputed": 0.0,
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 44,
+      "eid": "US0001",
+      "metric": "iou",
+      "reported": 0.0,
+      "recomputed": 0.0,
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 44,
+      "eid": "US0001",
+      "metric": "precision",
+      "reported": 0.0,
+      "recomputed": 0.0,
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 44,
+      "eid": "US0001",
+      "metric": "recall",
+      "reported": 0.0,
+      "recomputed": 0.0,
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 44,
+      "eid": "US0001",
+      "metric": "background_fpr",
+      "reported": 0.0,
+      "recomputed": 0.0,
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 44,
+      "eid": "US0001",
+      "metric": "false_positive_pixels",
+      "reported": 0,
+      "recomputed": 0,
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 44,
+      "eid": "US0001",
+      "metric": "boundary_f1",
+      "reported": 0.75,
+      "recomputed": 0.75,
+      "matched": true
+    },
+    {
+      "loss_mode": "boundary",
+      "seed": 44,
+      "eid": "US0001",
+      "metric": "crop_id_sha256",
+      "reported": "ad4824315ec4bc64bb1fe14091b7dd01839360fc5b5a46e10ded8ecead9004af",
+      "recomputed": "ad4824315ec4bc64bb1fe14091b7dd01839360fc5b5a46e10ded8ecead9004af",
+      "matched": true
+    },
+    {
+      "loss_mode": "contrast",
+      "seed": 42,
+      "eid": "event-macro",
+      "metric": "event_macro_delta_f1",
+      "reported": 0.009773071622679227,
+      "recomputed": 0.009773071622679227,
+      "matched": true
+    },
+    {
+      "loss_mode": "contrast",
+      "seed": 42,
+      "eid": "event-macro",
+      "metric": "event_macro_delta_boundary_f1",
+      "reported": -0.7719077427671693,
+      "recomputed": -0.7719077427671693,
+      "matched": true
+    },
+    {
+      "loss_mode": "contrast",
+      "seed": 43,
+      "eid": "event-macro",
+      "metric": "event_macro_delta_f1",
+      "reported": -0.00039219094374985707,
+      "recomputed": -0.00039219094374985707,
+      "matched": true
+    },
+    {
+      "loss_mode": "contrast",
+      "seed": 43,
+      "eid": "event-macro",
+      "metric": "event_macro_delta_boundary_f1",
+      "reported": -0.0005900948950603929,
+      "recomputed": -0.0005900948950603929,
+      "matched": true
+    },
+    {
+      "loss_mode": "contrast",
+      "seed": 44,
+      "eid": "event-macro",
+      "metric": "event_macro_delta_f1",
+      "reported": -0.1512940621003148,
+      "recomputed": -0.1512940621003148,
+      "matched": true
+    },
+    {
+      "loss_mode": "contrast",
+      "seed": 44,
+      "eid": "event-macro",
+      "metric": "event_macro_delta_boundary_f1",
+      "reported": 0.04959740369470835,
+      "recomputed": 0.04959740369470835,
+      "matched": true
+    }
+  ],
+  "failed": [],
+  "status": "passed"
+}

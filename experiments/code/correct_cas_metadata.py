@@ -31,8 +31,6 @@ NUMERIC_KEYS = (
     "mean_event_macro_delta_f1",
     "mean_event_macro_delta_boundary_f1",
     "pass_conditions",
-    "verdict",
-    "scope",
 )
 
 
@@ -71,9 +69,18 @@ def main() -> None:
             ),
             "pass_conditions_scope": "four quantitative conditions",
             "process_condition": process_condition,
+            "analysis_classification": (
+                "post-hoc designated-region sensitivity analysis"
+            ),
+            "verdict": "failed-sensitivity-criteria",
             "verdict_basis": (
                 "Three of four quantitative conditions failed; the separate "
                 "process condition is not independently time-verifiable."
+            ),
+            "scope": (
+                "Post-hoc sensitivity analysis on three designated CAS "
+                "regions; no confirmation, population, sensor-invariant, "
+                "operational, or global claim."
             ),
         }
     )

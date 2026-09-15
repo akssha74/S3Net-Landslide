@@ -5,12 +5,25 @@ from __future__ import annotations
 import numpy as np
 import torch
 
-from data_semantics import BAND_ORDER, BLUE, GREEN, NIR, RED, numpy_ndvi, torch_ndvi
+from data_semantics import (
+    BAND_ORDER,
+    BAND_ORDER_ID,
+    BLUE,
+    GREEN,
+    NIR,
+    RED,
+    SUPPORTED_BAND_ORDERS,
+    numpy_ndvi,
+    torch_ndvi,
+)
 
 
 def main() -> None:
-    assert BAND_ORDER == ("red", "green", "blue", "nir")
-    assert (RED, GREEN, BLUE, NIR) == (0, 1, 2, 3)
+    assert BAND_ORDER == SUPPORTED_BAND_ORDERS[BAND_ORDER_ID]
+    expected_indices = (
+        (0, 1, 2, 3) if BAND_ORDER_ID == "RGBN" else (2, 1, 0, 3)
+    )
+    assert (RED, GREEN, BLUE, NIR) == expected_indices
 
     nhwc = np.zeros((1, 1, 1, 4), dtype=np.float32)
     nhwc[..., RED] = 0.20
@@ -27,7 +40,10 @@ def main() -> None:
         rtol=0,
         atol=1e-7,
     )
-    print("PASS: HR-GLDD arrays are Red, Green, Blue, NIR = 0, 1, 2, 3")
+    print(
+        f"PASS: explicit {BAND_ORDER_ID} candidate order {BAND_ORDER}; "
+        f"indices R/G/B/N={(RED, GREEN, BLUE, NIR)}"
+    )
 
 
 if __name__ == "__main__":

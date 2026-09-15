@@ -21,7 +21,7 @@ import torch.nn.functional as F
 from scipy.ndimage import binary_dilation, binary_erosion
 from torch.utils.data import DataLoader, TensorDataset
 
-from data_semantics import BAND_ORDER, validate_nhwc
+from data_semantics import BAND_ORDER, BAND_ORDER_ID, validate_nhwc
 from revised_models import (
     ControlledPixelLoss,
     ControlledS3Net,
@@ -33,8 +33,23 @@ from revised_models import (
 SCRIPT_DIR = Path(__file__).resolve().parent
 STUDY_DIR = SCRIPT_DIR.parent.parent
 DATA_DIR = STUDY_DIR / "experiments/raw/hr_gldd"
-RESULTS_DIR = STUDY_DIR / "experiments/derived/results/reviewer_remediation"
-CHECKPOINT_DIR = STUDY_DIR / "experiments/derived/checkpoints/reviewer_remediation"
+RESULT_VARIANT = os.environ.get(
+    "REMEDIATION_VARIANT", BAND_ORDER_ID.lower()
+).lower()
+if RESULT_VARIANT == "rgbn":
+    RESULTS_DIR = STUDY_DIR / "experiments/derived/results/reviewer_remediation"
+    CHECKPOINT_DIR = (
+        STUDY_DIR / "experiments/derived/checkpoints/reviewer_remediation"
+    )
+else:
+    RESULTS_DIR = (
+        STUDY_DIR
+        / f"experiments/derived/results/reviewer_remediation_{RESULT_VARIANT}"
+    )
+    CHECKPOINT_DIR = (
+        STUDY_DIR
+        / f"experiments/derived/checkpoints/reviewer_remediation_{RESULT_VARIANT}"
+    )
 RESULTS_DIR.mkdir(parents=True, exist_ok=True)
 CHECKPOINT_DIR.mkdir(parents=True, exist_ok=True)
 

@@ -160,6 +160,11 @@ def main() -> None:
             and payload["process_condition"]["included_in_quantitative_verdict"]
             is False
         ),
+        "post_hoc_sensitivity_classification": (
+            payload["analysis_classification"]
+            == "post-hoc designated-region sensitivity analysis"
+            and payload["verdict"] == "failed-sensitivity-criteria"
+        ),
         "fold_provenance_is_post_execution": (
             folds["first_committed_after_execution"] is True
             and folds["prospective_identity"]

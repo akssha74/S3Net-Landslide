@@ -927,8 +927,9 @@
     "reason": "The only surviving protocol was first committed after execution; run logs are retained but cannot establish a pre-run immutable lock.",
     "included_in_quantitative_verdict": false
   },
-  "verdict": "failed-confirmation",
+  "verdict": "failed-sensitivity-criteria",
   "verdict_basis": "Three of four quantitative conditions failed; the separate process condition is not independently time-verifiable.",
-  "scope": "Bounded replication on three held CAS regions; no population, sensor-invariant, operational, or global claim.",
-  "config_identity_scope": "Execution-only fields; post-run provenance prose is excluded from the hash."
+  "scope": "Post-hoc sensitivity analysis on three designated CAS regions; no confirmation, population, sensor-invariant, operational, or global claim.",
+  "config_identity_scope": "Execution-only fields; post-run provenance prose is excluded from the hash.",
+  "analysis_classification": "post-hoc designated-region sensitivity analysis"
 }

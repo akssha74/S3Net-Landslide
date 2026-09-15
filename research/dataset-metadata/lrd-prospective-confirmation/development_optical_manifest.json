@@ -1,0 +1,473 @@
+{
+  "schema_version": 1,
+  "source_url": "https://zenodo.org/api/records/17007637/files/s1s2_landslide_reference_data.zip/content",
+  "fold": "development",
+  "eids": [
+    "CA0001",
+    "CL0001",
+    "CN0001",
+    "CO0001",
+    "IE0001",
+    "IN0002",
+    "IN0004",
+    "IR0001",
+    "IS0001",
+    "IT0001",
+    "JP0001",
+    "KG0001",
+    "KG0002",
+    "KR0001",
+    "PH0003",
+    "PK0001"
+  ],
+  "records": [
+    {
+      "eid": "CA0001",
+      "member": "s1s2_landslide_reference_data/original_scenes/CA0001/CA0001__S2L2A__2021-04-22__B02.tif",
+      "path": "experiments/raw/external/lrd-optical/development/CA0001/CA0001__S2L2A__2021-04-22__B02.tif",
+      "bytes": 2420318,
+      "sha256": "8f08262c5ddba8f2090b41b6065543bb7cd2c6c8929f1a20a94f8d3d43397e90"
+    },
+    {
+      "eid": "CA0001",
+      "member": "s1s2_landslide_reference_data/original_scenes/CA0001/CA0001__S2L2A__2021-04-22__B03.tif",
+      "path": "experiments/raw/external/lrd-optical/development/CA0001/CA0001__S2L2A__2021-04-22__B03.tif",
+      "bytes": 2402469,
+      "sha256": "1c2b1752cdbf2e9b5292683178e6f0f2201e3f07d1e2bfaa1891423391c4acf9"
+    },
+    {
+      "eid": "CA0001",
+      "member": "s1s2_landslide_reference_data/original_scenes/CA0001/CA0001__S2L2A__2021-04-22__B04.tif",
+      "path": "experiments/raw/external/lrd-optical/development/CA0001/CA0001__S2L2A__2021-04-22__B04.tif",
+      "bytes": 2391030,
+      "sha256": "536cb0b0c5bb0e091ddc3b2e01e4012a0f89736c2dc868dfe5f60e990af3af0d"
+    },
+    {
+      "eid": "CA0001",
+      "member": "s1s2_landslide_reference_data/original_scenes/CA0001/CA0001__None__None__MASK.tif",
+      "path": "experiments/raw/external/lrd-optical/development/CA0001/CA0001__None__None__MASK.tif",
+      "bytes": 127400,
+      "sha256": "451e71ef3461de759f373fd8f52eefa32cd8db89035b5c2bfb2a48aafe690810"
+    },
+    {
+      "eid": "CL0001",
+      "member": "s1s2_landslide_reference_data/original_scenes/CL0001/CL0001__S2L2A__2018-02-05__B02.tif",
+      "path": "experiments/raw/external/lrd-optical/development/CL0001/CL0001__S2L2A__2018-02-05__B02.tif",
+      "bytes": 9274819,
+      "sha256": "629f314228d746aa9463d44a77597552a5e8ca59303fc7190f7c8a1cdbafa7d0"
+    },
+    {
+      "eid": "CL0001",
+      "member": "s1s2_landslide_reference_data/original_scenes/CL0001/CL0001__S2L2A__2018-02-05__B03.tif",
+      "path": "experiments/raw/external/lrd-optical/development/CL0001/CL0001__S2L2A__2018-02-05__B03.tif",
+      "bytes": 9497297,
+      "sha256": "fe2d096f23295b893966c055088e9e6a0e243752871bc3cb8434d24a0a25e20b"
+    },
+    {
+      "eid": "CL0001",
+      "member": "s1s2_landslide_reference_data/original_scenes/CL0001/CL0001__S2L2A__2018-02-05__B04.tif",
+      "path": "experiments/raw/external/lrd-optical/development/CL0001/CL0001__S2L2A__2018-02-05__B04.tif",
+      "bytes": 9323213,
+      "sha256": "4afe126c763762ca70434ac437dc20fbe38a8f003916c3e3340dda3dd1c74b0b"
+    },
+    {
+      "eid": "CL0001",
+      "member": "s1s2_landslide_reference_data/original_scenes/CL0001/CL0001__None__None__MASK.tif",
+      "path": "experiments/raw/external/lrd-optical/development/CL0001/CL0001__None__None__MASK.tif",
+      "bytes": 454405,
+      "sha256": "c11ac2775c5b7c74b3ed912cde2c00242b4ef79e6f14946863d0035222204f81"
+    },
+    {
+      "eid": "CN0001",
+      "member": "s1s2_landslide_reference_data/original_scenes/CN0001/CN0001__S2L2A__2017-08-13__B02.tif",
+      "path": "experiments/raw/external/lrd-optical/development/CN0001/CN0001__S2L2A__2017-08-13__B02.tif",
+      "bytes": 1207068,
+      "sha256": "e7e9f8aae2be1b053eb25dc210833eca6ffbef1630c87bde47803ec56099e52f"
+    },
+    {
+      "eid": "CN0001",
+      "member": "s1s2_landslide_reference_data/original_scenes/CN0001/CN0001__S2L2A__2017-08-13__B03.tif",
+      "path": "experiments/raw/external/lrd-optical/development/CN0001/CN0001__S2L2A__2017-08-13__B03.tif",
+      "bytes": 1277416,
+      "sha256": "6360f554e5d97ae32258fee9228974b36bcefb80890f1507092409bc79268b5a"
+    },
+    {
+      "eid": "CN0001",
+      "member": "s1s2_landslide_reference_data/original_scenes/CN0001/CN0001__S2L2A__2017-08-13__B04.tif",
+      "path": "experiments/raw/external/lrd-optical/development/CN0001/CN0001__S2L2A__2017-08-13__B04.tif",
+      "bytes": 1233839,
+      "sha256": "f705f13f514a8cf4690937bb3f1193d57bdc3ace2539d2fbe38a23432a96bfb0"
+    },
+    {
+      "eid": "CN0001",
+      "member": "s1s2_landslide_reference_data/original_scenes/CN0001/CN0001__None__None__MASK.tif",
+      "path": "experiments/raw/external/lrd-optical/development/CN0001/CN0001__None__None__MASK.tif",
+      "bytes": 68069,
+      "sha256": "6b2813ef917b0df91bdeda3f428a09b45fb85d3abff6179103781a9d1690e4af"
+    },
+    {
+      "eid": "CO0001",
+      "member": "s1s2_landslide_reference_data/original_scenes/CO0001/CO0001__S2L2A__2022-07-20__B02.tif",
+      "path": "experiments/raw/external/lrd-optical/development/CO0001/CO0001__S2L2A__2022-07-20__B02.tif",
+      "bytes": 458574,
+      "sha256": "94e50fabfaf726ace34c92499bb71011ce9c676d1b9195e2ccadc9004f0fb922"
+    },
+    {
+      "eid": "CO0001",
+      "member": "s1s2_landslide_reference_data/original_scenes/CO0001/CO0001__S2L2A__2022-07-20__B03.tif",
+      "path": "experiments/raw/external/lrd-optical/development/CO0001/CO0001__S2L2A__2022-07-20__B03.tif",
+      "bytes": 473462,
+      "sha256": "9fbafb9382f26a49b1477531af52ae273f950d2cc6c9bab6da0c37250b1bc6c8"
+    },
+    {
+      "eid": "CO0001",
+      "member": "s1s2_landslide_reference_data/original_scenes/CO0001/CO0001__S2L2A__2022-07-20__B04.tif",
+      "path": "experiments/raw/external/lrd-optical/development/CO0001/CO0001__S2L2A__2022-07-20__B04.tif",
+      "bytes": 476533,
+      "sha256": "4c0ffc2d7fe88ccf36084bdc1d21cf352c5d3cd0316ef91e1d76e70f7d84e5c4"
+    },
+    {
+      "eid": "CO0001",
+      "member": "s1s2_landslide_reference_data/original_scenes/CO0001/CO0001__None__None__MASK.tif",
+      "path": "experiments/raw/external/lrd-optical/development/CO0001/CO0001__None__None__MASK.tif",
+      "bytes": 20986,
+      "sha256": "8e9bbd898717893bc1c24ef6aad3a53fd3808eb32bb5927c94093bac96af7735"
+    },
+    {
+      "eid": "IE0001",
+      "member": "s1s2_landslide_reference_data/original_scenes/IE0001/IE0001__S2L2A__2021-07-17__B02.tif",
+      "path": "experiments/raw/external/lrd-optical/development/IE0001/IE0001__S2L2A__2021-07-17__B02.tif",
+      "bytes": 1519504,
+      "sha256": "83dc14ccc61baeaabf62971546d541741921a6eef61ec8deb31f436bf689c423"
+    },
+    {
+      "eid": "IE0001",
+      "member": "s1s2_landslide_reference_data/original_scenes/IE0001/IE0001__S2L2A__2021-07-17__B03.tif",
+      "path": "experiments/raw/external/lrd-optical/development/IE0001/IE0001__S2L2A__2021-07-17__B03.tif",
+      "bytes": 1652759,
+      "sha256": "da0455c1afca6c3c4fc364e0b0240048c6d4e58dcccb959543c0d999264cc575"
+    },
+    {
+      "eid": "IE0001",
+      "member": "s1s2_landslide_reference_data/original_scenes/IE0001/IE0001__S2L2A__2021-07-17__B04.tif",
+      "path": "experiments/raw/external/lrd-optical/development/IE0001/IE0001__S2L2A__2021-07-17__B04.tif",
+      "bytes": 1672145,
+      "sha256": "ebaa1d66dc4408882501c6f01e7996ad5e5a568efb58433905600f6177b671fe"
+    },
+    {
+      "eid": "IE0001",
+      "member": "s1s2_landslide_reference_data/original_scenes/IE0001/IE0001__None__None__MASK.tif",
+      "path": "experiments/raw/external/lrd-optical/development/IE0001/IE0001__None__None__MASK.tif",
+      "bytes": 85274,
+      "sha256": "33b388aff43a3e9f354e3f2fb76243147ab170765afa5e96aca2d67b605dbe7d"
+    },
+    {
+      "eid": "IN0002",
+      "member": "s1s2_landslide_reference_data/original_scenes/IN0002/IN0002__S2L2A__2018-09-09__B02.tif",
+      "path": "experiments/raw/external/lrd-optical/development/IN0002/IN0002__S2L2A__2018-09-09__B02.tif",
+      "bytes": 430653,
+      "sha256": "ffb5f6ae4d80b2f36a7ab90af72772cd726548eb26d77cf7d60b6ae20dc48dd7"
+    },
+    {
+      "eid": "IN0002",
+      "member": "s1s2_landslide_reference_data/original_scenes/IN0002/IN0002__S2L2A__2018-09-09__B03.tif",
+      "path": "experiments/raw/external/lrd-optical/development/IN0002/IN0002__S2L2A__2018-09-09__B03.tif",
+      "bytes": 451623,
+      "sha256": "32135b2eb6ed131e556cfa54cadbf0b4dfbf9fc580b5ea82475e815cfcf75f1b"
+    },
+    {
+      "eid": "IN0002",
+      "member": "s1s2_landslide_reference_data/original_scenes/IN0002/IN0002__S2L2A__2018-09-09__B04.tif",
+      "path": "experiments/raw/external/lrd-optical/development/IN0002/IN0002__S2L2A__2018-09-09__B04.tif",
+      "bytes": 446340,
+      "sha256": "2519f401517b05df4a215feb55b41de6b76f147273c97fb5351f39bdc648a1e6"
+    },
+    {
+      "eid": "IN0002",
+      "member": "s1s2_landslide_reference_data/original_scenes/IN0002/IN0002__None__None__MASK.tif",
+      "path": "experiments/raw/external/lrd-optical/development/IN0002/IN0002__None__None__MASK.tif",
+      "bytes": 21597,
+      "sha256": "b9f7eaa1034a6431be6d1be8b17cde5f695704cf556c469fb3f3dafe0fa1f5e2"
+    },
+    {
+      "eid": "IN0004",
+      "member": "s1s2_landslide_reference_data/original_scenes/IN0004/IN0004__S2L2A__2022-09-30__B02.tif",
+      "path": "experiments/raw/external/lrd-optical/development/IN0004/IN0004__S2L2A__2022-09-30__B02.tif",
+      "bytes": 417576,
+      "sha256": "cc284bc29f72503e1dc4ef6717ce966b8356979f98978b1b6376aa22ee5fb310"
+    },
+    {
+      "eid": "IN0004",
+      "member": "s1s2_landslide_reference_data/original_scenes/IN0004/IN0004__S2L2A__2022-09-30__B03.tif",
+      "path": "experiments/raw/external/lrd-optical/development/IN0004/IN0004__S2L2A__2022-09-30__B03.tif",
+      "bytes": 426946,
+      "sha256": "bb51991129395d9c73cfd0eecbcc3d891d995a68920ded3055957ee0a1cd9763"
+    },
+    {
+      "eid": "IN0004",
+      "member": "s1s2_landslide_reference_data/original_scenes/IN0004/IN0004__S2L2A__2022-09-30__B04.tif",
+      "path": "experiments/raw/external/lrd-optical/development/IN0004/IN0004__S2L2A__2022-09-30__B04.tif",
+      "bytes": 421189,
+      "sha256": "4437713e134001df037c5593ba5022ac737d15cedb55ec033219dc57149eb815"
+    },
+    {
+      "eid": "IN0004",
+      "member": "s1s2_landslide_reference_data/original_scenes/IN0004/IN0004__None__None__MASK.tif",
+      "path": "experiments/raw/external/lrd-optical/development/IN0004/IN0004__None__None__MASK.tif",
+      "bytes": 21444,
+      "sha256": "b48ce608eb4d311a1a9476c034b6d34b5db68b7d4586c0fafd297a9edd853438"
+    },
+    {
+      "eid": "IR0001",
+      "member": "s1s2_landslide_reference_data/original_scenes/IR0001/IR0001__S2L2A__2019-03-23__B02.tif",
+      "path": "experiments/raw/external/lrd-optical/development/IR0001/IR0001__S2L2A__2019-03-23__B02.tif",
+      "bytes": 473466,
+      "sha256": "78bf8b93d249134f6274ca8e627fd820c285ed81ef61b12d3a1f4f9da683e0f5"
+    },
+    {
+      "eid": "IR0001",
+      "member": "s1s2_landslide_reference_data/original_scenes/IR0001/IR0001__S2L2A__2019-03-23__B03.tif",
+      "path": "experiments/raw/external/lrd-optical/development/IR0001/IR0001__S2L2A__2019-03-23__B03.tif",
+      "bytes": 496606,
+      "sha256": "3f5665ba96647fc4f9587d30b6d046e54c528eab0d438a0a5ada7efb89efec45"
+    },
+    {
+      "eid": "IR0001",
+      "member": "s1s2_landslide_reference_data/original_scenes/IR0001/IR0001__S2L2A__2019-03-23__B04.tif",
+      "path": "experiments/raw/external/lrd-optical/development/IR0001/IR0001__S2L2A__2019-03-23__B04.tif",
+      "bytes": 513587,
+      "sha256": "c0a7e6103856c175cd2ee384b2f14ac5cba62233b430ad60b9f8c636f4b4b223"
+    },
+    {
+      "eid": "IR0001",
+      "member": "s1s2_landslide_reference_data/original_scenes/IR0001/IR0001__None__None__MASK.tif",
+      "path": "experiments/raw/external/lrd-optical/development/IR0001/IR0001__None__None__MASK.tif",
+      "bytes": 25635,
+      "sha256": "950c2fe0bf0cbe1511d27a548d28e974361c0b1d1f532d54b753e32ce8d84cd3"
+    },
+    {
+      "eid": "IS0001",
+      "member": "s1s2_landslide_reference_data/original_scenes/IS0001/IS0001__S2L2A__2018-07-17__B02.tif",
+      "path": "experiments/raw/external/lrd-optical/development/IS0001/IS0001__S2L2A__2018-07-17__B02.tif",
+      "bytes": 1086080,
+      "sha256": "a142875285653412bb26f95bd1f6a7a07a12497a851c5b295c54326ac2125e26"
+    },
+    {
+      "eid": "IS0001",
+      "member": "s1s2_landslide_reference_data/original_scenes/IS0001/IS0001__S2L2A__2018-07-17__B03.tif",
+      "path": "experiments/raw/external/lrd-optical/development/IS0001/IS0001__S2L2A__2018-07-17__B03.tif",
+      "bytes": 1119999,
+      "sha256": "9bd1d37bfef4516453085006e2f3e96daf8c4aa04ce50cae0bdfd8ee362ef95c"
+    },
+    {
+      "eid": "IS0001",
+      "member": "s1s2_landslide_reference_data/original_scenes/IS0001/IS0001__S2L2A__2018-07-17__B04.tif",
+      "path": "experiments/raw/external/lrd-optical/development/IS0001/IS0001__S2L2A__2018-07-17__B04.tif",
+      "bytes": 1184570,
+      "sha256": "f0ddd300e67ff5c94b47add90b1773eaecc7105de4ea8b9afb7781308cd1af46"
+    },
+    {
+      "eid": "IS0001",
+      "member": "s1s2_landslide_reference_data/original_scenes/IS0001/IS0001__None__None__MASK.tif",
+      "path": "experiments/raw/external/lrd-optical/development/IS0001/IS0001__None__None__MASK.tif",
+      "bytes": 65543,
+      "sha256": "8eff1d58bd913125db2dcf297eebe87c9e5455dc0e3b75a8b20fd9766ec4523a"
+    },
+    {
+      "eid": "IT0001",
+      "member": "s1s2_landslide_reference_data/original_scenes/IT0001/IT0001__S2L2A__2019-02-07__B02.tif",
+      "path": "experiments/raw/external/lrd-optical/development/IT0001/IT0001__S2L2A__2019-02-07__B02.tif",
+      "bytes": 451750,
+      "sha256": "acc0a58108cff40e30c314aaefa71c2f7358fe27888d5ee7071109062bf14265"
+    },
+    {
+      "eid": "IT0001",
+      "member": "s1s2_landslide_reference_data/original_scenes/IT0001/IT0001__S2L2A__2019-02-07__B03.tif",
+      "path": "experiments/raw/external/lrd-optical/development/IT0001/IT0001__S2L2A__2019-02-07__B03.tif",
+      "bytes": 474380,
+      "sha256": "e86efbe6f426bd85e467406be44918049d3d5574e21e283c997c236ed8d4355f"
+    },
+    {
+      "eid": "IT0001",
+      "member": "s1s2_landslide_reference_data/original_scenes/IT0001/IT0001__S2L2A__2019-02-07__B04.tif",
+      "path": "experiments/raw/external/lrd-optical/development/IT0001/IT0001__S2L2A__2019-02-07__B04.tif",
+      "bytes": 485226,
+      "sha256": "ac3246952e51d07415b1c31b905628b13243fd72464950675a44510891ddc861"
+    },
+    {
+      "eid": "IT0001",
+      "member": "s1s2_landslide_reference_data/original_scenes/IT0001/IT0001__None__None__MASK.tif",
+      "path": "experiments/raw/external/lrd-optical/development/IT0001/IT0001__None__None__MASK.tif",
+      "bytes": 20865,
+      "sha256": "009f3d0a705db8f0a59c3bc22fd7a4115f132c72740dee6e2376425841f4a4c5"
+    },
+    {
+      "eid": "JP0001",
+      "member": "s1s2_landslide_reference_data/original_scenes/JP0001/JP0001__S2L2A__2021-08-10__B02.tif",
+      "path": "experiments/raw/external/lrd-optical/development/JP0001/JP0001__S2L2A__2021-08-10__B02.tif",
+      "bytes": 427957,
+      "sha256": "878755b07f5a2b1209ec53ece4f4e14e62a8fbb3ce540aa2e9a1a795da5a32cf"
+    },
+    {
+      "eid": "JP0001",
+      "member": "s1s2_landslide_reference_data/original_scenes/JP0001/JP0001__S2L2A__2021-08-10__B03.tif",
+      "path": "experiments/raw/external/lrd-optical/development/JP0001/JP0001__S2L2A__2021-08-10__B03.tif",
+      "bytes": 434857,
+      "sha256": "8d72e29520c0618078cd521eea9a6dd3bd43b06a0b4ad87e67dac92434ad30ca"
+    },
+    {
+      "eid": "JP0001",
+      "member": "s1s2_landslide_reference_data/original_scenes/JP0001/JP0001__S2L2A__2021-08-10__B04.tif",
+      "path": "experiments/raw/external/lrd-optical/development/JP0001/JP0001__S2L2A__2021-08-10__B04.tif",
+      "bytes": 431437,
+      "sha256": "fd5232b766066132b075e4e3d6df3d6c867bb6a57a515e70c1168e441c6d3faa"
+    },
+    {
+      "eid": "JP0001",
+      "member": "s1s2_landslide_reference_data/original_scenes/JP0001/JP0001__None__None__MASK.tif",
+      "path": "experiments/raw/external/lrd-optical/development/JP0001/JP0001__None__None__MASK.tif",
+      "bytes": 20316,
+      "sha256": "7395f1fe1c86f92d1c9d88423ce498a5f88d044b0b78b32403c07aa1b0e43427"
+    },
+    {
+      "eid": "KG0001",
+      "member": "s1s2_landslide_reference_data/original_scenes/KG0001/KG0001__S2L2A__2020-09-17__B02.tif",
+      "path": "experiments/raw/external/lrd-optical/development/KG0001/KG0001__S2L2A__2020-09-17__B02.tif",
+      "bytes": 472881,
+      "sha256": "a8d96adc7b39a8c3f91db12ed59430285c654cdd07160a894b1715820e77a121"
+    },
+    {
+      "eid": "KG0001",
+      "member": "s1s2_landslide_reference_data/original_scenes/KG0001/KG0001__S2L2A__2020-09-17__B03.tif",
+      "path": "experiments/raw/external/lrd-optical/development/KG0001/KG0001__S2L2A__2020-09-17__B03.tif",
+      "bytes": 474315,
+      "sha256": "a7fb5c92efbb7febd2bf0e3588abd29802ae6e09a7529adca4d00a2507514532"
+    },
+    {
+      "eid": "KG0001",
+      "member": "s1s2_landslide_reference_data/original_scenes/KG0001/KG0001__S2L2A__2020-09-17__B04.tif",
+      "path": "experiments/raw/external/lrd-optical/development/KG0001/KG0001__S2L2A__2020-09-17__B04.tif",
+      "bytes": 482432,
+      "sha256": "62dc3af2df0fec4a4242bb33e922fe34fdc82a69a89596c5a36b395caa7e206a"
+    },
+    {
+      "eid": "KG0001",
+      "member": "s1s2_landslide_reference_data/original_scenes/KG0001/KG0001__None__None__MASK.tif",
+      "path": "experiments/raw/external/lrd-optical/development/KG0001/KG0001__None__None__MASK.tif",
+      "bytes": 21394,
+      "sha256": "f1c26f9631b822000b1ee4cb1d484d90d45a55732cd5820adbc4f60aa3b8332d"
+    },
+    {
+      "eid": "KG0002",
+      "member": "s1s2_landslide_reference_data/original_scenes/KG0002/KG0002__S2L2A__2017-06-08__B02.tif",
+      "path": "experiments/raw/external/lrd-optical/development/KG0002/KG0002__S2L2A__2017-06-08__B02.tif",
+      "bytes": 11562524,
+      "sha256": "64163731a15e2b26f27c7d87c1ab9a36bc6fca79e260ad9ebc1d5faca2113e67"
+    },
+    {
+      "eid": "KG0002",
+      "member": "s1s2_landslide_reference_data/original_scenes/KG0002/KG0002__S2L2A__2017-06-08__B03.tif",
+      "path": "experiments/raw/external/lrd-optical/development/KG0002/KG0002__S2L2A__2017-06-08__B03.tif",
+      "bytes": 11513178,
+      "sha256": "49ca906755a0118cc22fc1fee7cdb75fa1b4fe313b58d9848cde35eaa94b9d94"
+    },
+    {
+      "eid": "KG0002",
+      "member": "s1s2_landslide_reference_data/original_scenes/KG0002/KG0002__S2L2A__2017-06-08__B04.tif",
+      "path": "experiments/raw/external/lrd-optical/development/KG0002/KG0002__S2L2A__2017-06-08__B04.tif",
+      "bytes": 12500239,
+      "sha256": "e23d1cd88de3fdcb90b84bb1df48f98b37509fd79451b31c9344e3cec2b6a3c5"
+    },
+    {
+      "eid": "KG0002",
+      "member": "s1s2_landslide_reference_data/original_scenes/KG0002/KG0002__None__None__MASK.tif",
+      "path": "experiments/raw/external/lrd-optical/development/KG0002/KG0002__None__None__MASK.tif",
+      "bytes": 533333,
+      "sha256": "3fcfb25040a369cec0f8580096b9d7f7815fde49e7303f5158f66da7461eeccd"
+    },
+    {
+      "eid": "KR0001",
+      "member": "s1s2_landslide_reference_data/original_scenes/KR0001/KR0001__S2L2A__2020-08-20__B02.tif",
+      "path": "experiments/raw/external/lrd-optical/development/KR0001/KR0001__S2L2A__2020-08-20__B02.tif",
+      "bytes": 406164,
+      "sha256": "704de563e3be34fc59d2b128bd4af95841391df5d18b541e7e30b1f5fe261178"
+    },
+    {
+      "eid": "KR0001",
+      "member": "s1s2_landslide_reference_data/original_scenes/KR0001/KR0001__S2L2A__2020-08-20__B03.tif",
+      "path": "experiments/raw/external/lrd-optical/development/KR0001/KR0001__S2L2A__2020-08-20__B03.tif",
+      "bytes": 430539,
+      "sha256": "472b430cee8dbe4d41cb7e3049d1fc0627166356940a5da1548f8fed6096b6ab"
+    },
+    {
+      "eid": "KR0001",
+      "member": "s1s2_landslide_reference_data/original_scenes/KR0001/KR0001__S2L2A__2020-08-20__B04.tif",
+      "path": "experiments/raw/external/lrd-optical/development/KR0001/KR0001__S2L2A__2020-08-20__B04.tif",
+      "bytes": 407101,
+      "sha256": "ed9915fcb957a2ad9f6a81d9ae48141c396d48845cb600523847c325999ab578"
+    },
+    {
+      "eid": "KR0001",
+      "member": "s1s2_landslide_reference_data/original_scenes/KR0001/KR0001__None__None__MASK.tif",
+      "path": "experiments/raw/external/lrd-optical/development/KR0001/KR0001__None__None__MASK.tif",
+      "bytes": 20906,
+      "sha256": "fa1e1fb99c52be0202aee2fedd666278c1c8e1866412004f3a560c13ad2e804c"
+    },
+    {
+      "eid": "PH0003",
+      "member": "s1s2_landslide_reference_data/original_scenes/PH0003/PH0003__S2L2A__2022-04-16__B02.tif",
+      "path": "experiments/raw/external/lrd-optical/development/PH0003/PH0003__S2L2A__2022-04-16__B02.tif",
+      "bytes": 405618,
+      "sha256": "aff9c360bd6ab1834b84b5eb8961991e19c5dd5dc6e4e7234265669089af62c4"
+    },
+    {
+      "eid": "PH0003",
+      "member": "s1s2_landslide_reference_data/original_scenes/PH0003/PH0003__S2L2A__2022-04-16__B03.tif",
+      "path": "experiments/raw/external/lrd-optical/development/PH0003/PH0003__S2L2A__2022-04-16__B03.tif",
+      "bytes": 427734,
+      "sha256": "560fb34b583afaa23650e2baeefffe101ebf518bafabb300ec1d5b95ba233a46"
+    },
+    {
+      "eid": "PH0003",
+      "member": "s1s2_landslide_reference_data/original_scenes/PH0003/PH0003__S2L2A__2022-04-16__B04.tif",
+      "path": "experiments/raw/external/lrd-optical/development/PH0003/PH0003__S2L2A__2022-04-16__B04.tif",
+      "bytes": 415214,
+      "sha256": "3eb972353570836dd5b41417398a41964889584579ff9c49575abc1ab9a7865f"
+    },
+    {
+      "eid": "PH0003",
+      "member": "s1s2_landslide_reference_data/original_scenes/PH0003/PH0003__None__None__MASK.tif",
+      "path": "experiments/raw/external/lrd-optical/development/PH0003/PH0003__None__None__MASK.tif",
+      "bytes": 21125,
+      "sha256": "3a5483a8f47448062420bf6aefc6ae4e93639ad3687a1ecdfa97eb388969def8"
+    },
+    {
+      "eid": "PK0001",
+      "member": "s1s2_landslide_reference_data/original_scenes/PK0001/PK0001__S2L2A__2021-07-09__B02.tif",
+      "path": "experiments/raw/external/lrd-optical/development/PK0001/PK0001__S2L2A__2021-07-09__B02.tif",
+      "bytes": 678179,
+      "sha256": "e31867182b3e7dddea018aafa99c4b4b80fd8761edb55bb725c9d187ed8700e7"
+    },
+    {
+      "eid": "PK0001",
+      "member": "s1s2_landslide_reference_data/original_scenes/PK0001/PK0001__S2L2A__2021-07-09__B03.tif",
+      "path": "experiments/raw/external/lrd-optical/development/PK0001/PK0001__S2L2A__2021-07-09__B03.tif",
+      "bytes": 665952,
+      "sha256": "0974de674db8fb43bae7f6a7d2949c1eabe186eb85308452d710efeb15e86fa9"
+    },
+    {
+      "eid": "PK0001",
+      "member": "s1s2_landslide_reference_data/original_scenes/PK0001/PK0001__S2L2A__2021-07-09__B04.tif",
+      "path": "experiments/raw/external/lrd-optical/development/PK0001/PK0001__S2L2A__2021-07-09__B04.tif",
+      "bytes": 673358,
+      "sha256": "4e98e1757b98e92ece7a8ebdd31de0ab34350f83c8acfe67142a3a14517f86bf"
+    },
+    {
+      "eid": "PK0001",
+      "member": "s1s2_landslide_reference_data/original_scenes/PK0001/PK0001__None__None__MASK.tif",
+      "path": "experiments/raw/external/lrd-optical/development/PK0001/PK0001__None__None__MASK.tif",
+      "bytes": 35067,
+      "sha256": "db763f3239d606f79961c4dbb251b7c0010a615715ba19958169e4be236d0e3a"
+    }
+  ]
+}

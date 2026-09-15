@@ -1,0 +1,124 @@
+{
+  "schema_version": 1,
+  "status": "unresolved-two-candidate-order-sensitivity-required",
+  "array_artifact": "HR-GLDD Zenodo record 7189381 NumPy X arrays",
+  "fixed_semantics": {
+    "green_index": 1,
+    "nir_index": 3
+  },
+  "candidate_orders": {
+    "RGBN": {
+      "order": [
+        "red",
+        "green",
+        "blue",
+        "nir"
+      ],
+      "support": "The official notebook passes columns 0:3 directly to matplotlib.imshow, and the paper lists selected bands as Red, Green, Blue, NIR."
+    },
+    "BGRN": {
+      "order": [
+        "blue",
+        "green",
+        "red",
+        "nir"
+      ],
+      "support": "Native four-band PlanetScope products use Blue, Green, Red, NIR; no released array-construction/reordering code was found."
+    }
+  },
+  "official_notebook": {
+    "path": "research/dataset-metadata/hrgldd-official/Unet_v1.ipynb",
+    "sha256": "5fc43a5af9f97a115190d3866a6806f3445f4e8f8f66d4042aac6b4e62ad8c1a",
+    "direct_display_statement": "imshow(X_train[i][:,:,:3])",
+    "limitation": "Display intent does not prove the physical identity of stored columns without array-construction metadata."
+  },
+  "dataset_paper_limitation": "The paper names the four selected bands but does not explicitly bind those names to NumPy column indices.",
+  "split_statistics": {
+    "train": {
+      "shape": [
+        1119,
+        128,
+        128,
+        4
+      ],
+      "channel_means": {
+        "all_pixels": [
+          0.10652255416588945,
+          0.14764248318700024,
+          0.13709592420028535,
+          0.500185397871481
+        ],
+        "landslide_pixels": [
+          0.25351621165803295,
+          0.31064606279923934,
+          0.3350324480261758,
+          0.5190736483828527
+        ],
+        "background_pixels": [
+          0.09001913493339689,
+          0.12934158193293394,
+          0.1148729964232639,
+          0.49806475728007193
+        ]
+      }
+    },
+    "val": {
+      "shape": [
+        284,
+        128,
+        128,
+        4
+      ],
+      "channel_means": {
+        "all_pixels": [
+          0.10805605535342758,
+          0.14852230047523637,
+          0.13875723408750784,
+          0.4952074826518852
+        ],
+        "landslide_pixels": [
+          0.2352968940242084,
+          0.292397879874823,
+          0.3188358383770214,
+          0.5106910219609765
+        ],
+        "background_pixels": [
+          0.09364753952418729,
+          0.1322300975561424,
+          0.11836546798852549,
+          0.4934541554688969
+        ]
+      }
+    },
+    "test": {
+      "shape": [
+        355,
+        128,
+        128,
+        4
+      ],
+      "channel_means": {
+        "all_pixels": [
+          0.10882627638925194,
+          0.1505137096820208,
+          0.1398145618534783,
+          0.5034989657060148
+        ],
+        "landslide_pixels": [
+          0.23115992147559902,
+          0.2928721608856658,
+          0.31917863732796753,
+          0.5080380276574631
+        ],
+        "background_pixels": [
+          0.09383039088072662,
+          0.13306314623388646,
+          0.11782778022640084,
+          0.5029425590585062
+        ]
+      }
+    }
+  },
+  "statistical_limitation": "Channel means are descriptive and cannot identify wavelengths without land-cover or calibration references.",
+  "decision": "Do not declare either order authoritative. Execute and report both candidate-order analyses; retain only order-robust claims."
+}

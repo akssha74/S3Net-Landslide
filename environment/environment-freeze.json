@@ -1,0 +1,140 @@
+{
+  "schema_version": 1,
+  "python": "3.10.20 (main, Mar  3 2026, 00:49:35) [Clang 21.0.0 (clang-2100.0.123.102)]",
+  "platform": "macOS-26.6.2-arm64-arm-64bit",
+  "machine": "arm64",
+  "direct_requirements_sha256": "82f8c0207245e4fbe4a7d68aaf23308fc6a97a3f010ebeaf3b3afd9987101cc5",
+  "direct_distributions": [
+    "imagecodecs",
+    "matplotlib",
+    "numpy",
+    "pillow",
+    "scipy",
+    "tifffile",
+    "torch"
+  ],
+  "transitive_distribution_count": 24,
+  "distributions": [
+    {
+      "name": "contourpy",
+      "version": "1.3.2",
+      "record_sha256": "8dcdbabcf199089accbbb814de07eb66443c20e54655e6d1017b126481a061bf"
+    },
+    {
+      "name": "cycler",
+      "version": "0.12.1",
+      "record_sha256": "cc7e94d56e5f6d77f3fc63948b54dccb481f6970595ee8ab6eda43d868e22261"
+    },
+    {
+      "name": "filelock",
+      "version": "3.32.4",
+      "record_sha256": "d974ea4c4d05ec021209f7132d212f3ff039ec9626d6ff27ca47a7c022ea4a0b"
+    },
+    {
+      "name": "fonttools",
+      "version": "4.64.0",
+      "record_sha256": "23045b399da7a9f5ff67b1b05d5700f856f2f3fb2601409eec8113b8294068e7"
+    },
+    {
+      "name": "fsspec",
+      "version": "2026.7.0",
+      "record_sha256": "eda3028cbb124322c8d7cd103470d6bbfbc0018d85393a970076df503bd16803"
+    },
+    {
+      "name": "imagecodecs",
+      "version": "2025.3.30",
+      "record_sha256": "8e29822c6181eac46b4ca8619d65304be74aaae02907864e6dd437174b59887e"
+    },
+    {
+      "name": "jinja2",
+      "version": "3.1.6",
+      "record_sha256": "9b5a86efc4f4a4d9fce05c6586c1d7d36358add798cfd99135247a2e4908ab09"
+    },
+    {
+      "name": "kiwisolver",
+      "version": "1.5.1",
+      "record_sha256": "b6bfc9d320938cd0d069cf63d25f9be92083d54c683634ff624fed34f913f9dc"
+    },
+    {
+      "name": "markupsafe",
+      "version": "3.0.3",
+      "record_sha256": "e53de6b09172345388aa483b482625291253eedaf41bcf4c753059a3efcd3111"
+    },
+    {
+      "name": "matplotlib",
+      "version": "3.10.9",
+      "record_sha256": "57734d2bb13d611ef8c132d3fbe5e7f5f17c0516713a9059566f8018709db0ac"
+    },
+    {
+      "name": "mpmath",
+      "version": "1.3.0",
+      "record_sha256": "205c72eaa5058bc221713222d6533b28218df8104321e6fb945137b639a06527"
+    },
+    {
+      "name": "networkx",
+      "version": "3.4.2",
+      "record_sha256": "441c9c9d2aeac36e6e07f100f389b7b266d885482602bdda189ea2463353299f"
+    },
+    {
+      "name": "numpy",
+      "version": "2.2.6",
+      "record_sha256": "c11680f63e5e844aa8cbda27a5ceeb8b93be24af4a270cf93cba544bf629b8e0"
+    },
+    {
+      "name": "packaging",
+      "version": "26.3",
+      "record_sha256": "7baca0e0efaf39249a489df533dc050bf24ce413f4f56efceeb4e5b3cb209741"
+    },
+    {
+      "name": "pillow",
+      "version": "12.3.0",
+      "record_sha256": "f16692fb49139fa6d27963bf1a69de0bd42dd43c37f6314e77d28ae7af0591fb"
+    },
+    {
+      "name": "pyparsing",
+      "version": "3.3.2",
+      "record_sha256": "2fe4f51753672db483d3b2246d113b5f53111e8fa8de59edb2334da2465b8df5"
+    },
+    {
+      "name": "python-dateutil",
+      "version": "2.9.0.post0",
+      "record_sha256": "1876f5982b4e1f1137988181f354b10fe2f28886dbe4ee638a96f5ed0e02a70e"
+    },
+    {
+      "name": "scipy",
+      "version": "1.15.3",
+      "record_sha256": "26a2441e93afef043e40ef2bdd73acad7322a9481633e59123ab2770183f605a"
+    },
+    {
+      "name": "setuptools",
+      "version": "83.0.0",
+      "record_sha256": "c91d539553bb4694be80f91f5d4600e2fa2a66a0c4d0a554af2cdb81e45293df"
+    },
+    {
+      "name": "six",
+      "version": "1.17.0",
+      "record_sha256": "5fa0bbc20b0426d59bd09f011e1c92cdc63216baa92ca252550d3518a6ce4f2d"
+    },
+    {
+      "name": "sympy",
+      "version": "1.14.0",
+      "record_sha256": "71d2f311529e4b4abc76232b3d6682d0ec2a384fa2645ddcda9bba8e790a5240"
+    },
+    {
+      "name": "tifffile",
+      "version": "2025.5.10",
+      "record_sha256": "796aea77d3c302ef9337ac8c2386d0b9ead12e246e31040589eaeab055a96c61"
+    },
+    {
+      "name": "torch",
+      "version": "2.14.0",
+      "record_sha256": "a14d20cb0dbaf4d5c18a3f3c58e74fb84d9458da84545cdb2d79ba86d12772c6"
+    },
+    {
+      "name": "typing-extensions",
+      "version": "4.16.0",
+      "record_sha256": "64951562feccc6ed53bc5bab5a8a471e7bff2fa704eb84308e1bcb5255f4121d"
+    }
+  ],
+  "scope": "Installed macOS arm64 environment; RECORD hashes bind installed files and complement exact direct version pins."
+}

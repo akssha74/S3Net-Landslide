@@ -1,0 +1,183 @@
+{
+  "schema_version": 1,
+  "source_url": "https://zenodo.org/api/records/17007637/files/s1s2_landslide_reference_data.zip/content",
+  "fold": "protected",
+  "eids": [
+    "CA0002",
+    "CN0002",
+    "IR0002",
+    "PH0001",
+    "PH0004",
+    "US0001"
+  ],
+  "records": [
+    {
+      "eid": "CA0002",
+      "member": "s1s2_landslide_reference_data/original_scenes/CA0002/CA0002__S2L2A__2019-05-26__B02.tif",
+      "path": "experiments/raw/external/lrd-optical/protected/CA0002/CA0002__S2L2A__2019-05-26__B02.tif",
+      "bytes": 2652811,
+      "sha256": "868ab3b7668a2fea41499563bdd14dc529b714c430cc563e215d9e135d61b8be"
+    },
+    {
+      "eid": "CA0002",
+      "member": "s1s2_landslide_reference_data/original_scenes/CA0002/CA0002__S2L2A__2019-05-26__B03.tif",
+      "path": "experiments/raw/external/lrd-optical/protected/CA0002/CA0002__S2L2A__2019-05-26__B03.tif",
+      "bytes": 2684347,
+      "sha256": "561551ce1184da6c1047182ec52e0265acf52f25f4e08521fc4962741d2f021a"
+    },
+    {
+      "eid": "CA0002",
+      "member": "s1s2_landslide_reference_data/original_scenes/CA0002/CA0002__S2L2A__2019-05-26__B04.tif",
+      "path": "experiments/raw/external/lrd-optical/protected/CA0002/CA0002__S2L2A__2019-05-26__B04.tif",
+      "bytes": 2697070,
+      "sha256": "fcfb42d9a20eca38b72aeecb51140fe08532382b9f52defa1acd61895d0e70df"
+    },
+    {
+      "eid": "CA0002",
+      "member": "s1s2_landslide_reference_data/original_scenes/CA0002/CA0002__None__None__MASK.tif",
+      "path": "experiments/raw/external/lrd-optical/protected/CA0002/CA0002__None__None__MASK.tif",
+      "bytes": 151035,
+      "sha256": "f70cd51d535a453b8a7d3422bd9e41dee0c8d1d322aae63ae4de3dc69dd15a49"
+    },
+    {
+      "eid": "CN0002",
+      "member": "s1s2_landslide_reference_data/original_scenes/CN0002/CN0002__S2L2A__2020-08-28__B02.tif",
+      "path": "experiments/raw/external/lrd-optical/protected/CN0002/CN0002__S2L2A__2020-08-28__B02.tif",
+      "bytes": 474685,
+      "sha256": "9ebd59494b7d7176f0148251524859f69cfb90e56933528443eaa2b0635a16c8"
+    },
+    {
+      "eid": "CN0002",
+      "member": "s1s2_landslide_reference_data/original_scenes/CN0002/CN0002__S2L2A__2020-08-28__B03.tif",
+      "path": "experiments/raw/external/lrd-optical/protected/CN0002/CN0002__S2L2A__2020-08-28__B03.tif",
+      "bytes": 494687,
+      "sha256": "275e3b3e1c6885077b644e8dc97c3966c7255a6ecf700836dd99009f6be2be54"
+    },
+    {
+      "eid": "CN0002",
+      "member": "s1s2_landslide_reference_data/original_scenes/CN0002/CN0002__S2L2A__2020-08-28__B04.tif",
+      "path": "experiments/raw/external/lrd-optical/protected/CN0002/CN0002__S2L2A__2020-08-28__B04.tif",
+      "bytes": 492416,
+      "sha256": "2241b7670ca528dcad2370ada033b64b0e2ec1a9d8c0e2576798b785662acb59"
+    },
+    {
+      "eid": "CN0002",
+      "member": "s1s2_landslide_reference_data/original_scenes/CN0002/CN0002__None__None__MASK.tif",
+      "path": "experiments/raw/external/lrd-optical/protected/CN0002/CN0002__None__None__MASK.tif",
+      "bytes": 23359,
+      "sha256": "b79e152753e98f20fd5de9e725561d28bfcbf0522f98c5772cdf7a5a74a52576"
+    },
+    {
+      "eid": "IR0002",
+      "member": "s1s2_landslide_reference_data/original_scenes/IR0002/IR0002__S2L2A__2018-06-17__B02.tif",
+      "path": "experiments/raw/external/lrd-optical/protected/IR0002/IR0002__S2L2A__2018-06-17__B02.tif",
+      "bytes": 446555,
+      "sha256": "666d563f40f2b71187e1cc9dae9a71fc86d86ce75d680e4848f265f793ae6e31"
+    },
+    {
+      "eid": "IR0002",
+      "member": "s1s2_landslide_reference_data/original_scenes/IR0002/IR0002__S2L2A__2018-06-17__B03.tif",
+      "path": "experiments/raw/external/lrd-optical/protected/IR0002/IR0002__S2L2A__2018-06-17__B03.tif",
+      "bytes": 452911,
+      "sha256": "90ea4c2ee057abf50b9d35a867d84abb50572e60d286f1fd938c354d713fcdaa"
+    },
+    {
+      "eid": "IR0002",
+      "member": "s1s2_landslide_reference_data/original_scenes/IR0002/IR0002__S2L2A__2018-06-17__B04.tif",
+      "path": "experiments/raw/external/lrd-optical/protected/IR0002/IR0002__S2L2A__2018-06-17__B04.tif",
+      "bytes": 479496,
+      "sha256": "c810f0049a71735d1da19a4a477c43d3829dc0a071d168afcded364f5905fe60"
+    },
+    {
+      "eid": "IR0002",
+      "member": "s1s2_landslide_reference_data/original_scenes/IR0002/IR0002__None__None__MASK.tif",
+      "path": "experiments/raw/external/lrd-optical/protected/IR0002/IR0002__None__None__MASK.tif",
+      "bytes": 21070,
+      "sha256": "7d2b8e6c307b60a39a27e171626733032888e44483803034bf6c833cc925f7b7"
+    },
+    {
+      "eid": "PH0001",
+      "member": "s1s2_landslide_reference_data/original_scenes/PH0001/PH0001__S2L2A__2022-05-16__B02.tif",
+      "path": "experiments/raw/external/lrd-optical/protected/PH0001/PH0001__S2L2A__2022-05-16__B02.tif",
+      "bytes": 714598,
+      "sha256": "87f3f2669a26e523b12c1892a4d3240dab3feeb9edb4da9f940b54c18f503ede"
+    },
+    {
+      "eid": "PH0001",
+      "member": "s1s2_landslide_reference_data/original_scenes/PH0001/PH0001__S2L2A__2022-05-16__B03.tif",
+      "path": "experiments/raw/external/lrd-optical/protected/PH0001/PH0001__S2L2A__2022-05-16__B03.tif",
+      "bytes": 731929,
+      "sha256": "b8815c65295a4b7dfbb9a7d08cb1a4c164b7f3a56110555b8441ca12e5fd96d7"
+    },
+    {
+      "eid": "PH0001",
+      "member": "s1s2_landslide_reference_data/original_scenes/PH0001/PH0001__S2L2A__2022-05-16__B04.tif",
+      "path": "experiments/raw/external/lrd-optical/protected/PH0001/PH0001__S2L2A__2022-05-16__B04.tif",
+      "bytes": 728924,
+      "sha256": "34a568516a601fab742e7a75eb86ee2ba0e580221a91a281e439ebec5a5db01a"
+    },
+    {
+      "eid": "PH0001",
+      "member": "s1s2_landslide_reference_data/original_scenes/PH0001/PH0001__None__None__MASK.tif",
+      "path": "experiments/raw/external/lrd-optical/protected/PH0001/PH0001__None__None__MASK.tif",
+      "bytes": 37248,
+      "sha256": "a9f6e985c78a9ec52d23f39d7b957f1155e77dbd78ec3bacd5356c2678bc0a92"
+    },
+    {
+      "eid": "PH0004",
+      "member": "s1s2_landslide_reference_data/original_scenes/PH0004/PH0004__S2L2A__2022-05-16__B02.tif",
+      "path": "experiments/raw/external/lrd-optical/protected/PH0004/PH0004__S2L2A__2022-05-16__B02.tif",
+      "bytes": 393775,
+      "sha256": "84f851428ae3eb430c2aa6b80c68eb125040cc852bef6ebb82bf418046611917"
+    },
+    {
+      "eid": "PH0004",
+      "member": "s1s2_landslide_reference_data/original_scenes/PH0004/PH0004__S2L2A__2022-05-16__B03.tif",
+      "path": "experiments/raw/external/lrd-optical/protected/PH0004/PH0004__S2L2A__2022-05-16__B03.tif",
+      "bytes": 419778,
+      "sha256": "1fa2365482354eac87cca6e303b9e63db117b0c8cc0cded66e20b54a847f0f69"
+    },
+    {
+      "eid": "PH0004",
+      "member": "s1s2_landslide_reference_data/original_scenes/PH0004/PH0004__S2L2A__2022-05-16__B04.tif",
+      "path": "experiments/raw/external/lrd-optical/protected/PH0004/PH0004__S2L2A__2022-05-16__B04.tif",
+      "bytes": 394340,
+      "sha256": "98dbbd89ef112d669a6d98223ea85ee252814399dc026d70d9d83e6ee0874823"
+    },
+    {
+      "eid": "PH0004",
+      "member": "s1s2_landslide_reference_data/original_scenes/PH0004/PH0004__None__None__MASK.tif",
+      "path": "experiments/raw/external/lrd-optical/protected/PH0004/PH0004__None__None__MASK.tif",
+      "bytes": 20553,
+      "sha256": "ed1aa5d23f45d3f5d748ddc9542019cb069ded5a3c6ebaaffe106aebca914dc2"
+    },
+    {
+      "eid": "US0001",
+      "member": "s1s2_landslide_reference_data/original_scenes/US0001/US0001__S2L2A__2017-05-27__B02.tif",
+      "path": "experiments/raw/external/lrd-optical/protected/US0001/US0001__S2L2A__2017-05-27__B02.tif",
+      "bytes": 426703,
+      "sha256": "9ea43a36aa51ef7a66ff1f15bd4e368206831cb91f1727cf3e1e6b2b986583a0"
+    },
+    {
+      "eid": "US0001",
+      "member": "s1s2_landslide_reference_data/original_scenes/US0001/US0001__S2L2A__2017-05-27__B03.tif",
+      "path": "experiments/raw/external/lrd-optical/protected/US0001/US0001__S2L2A__2017-05-27__B03.tif",
+      "bytes": 438757,
+      "sha256": "5ceab1e5098e2654bd263888c7d520ad82d57b93470a1ff5b27e2a976596b501"
+    },
+    {
+      "eid": "US0001",
+      "member": "s1s2_landslide_reference_data/original_scenes/US0001/US0001__S2L2A__2017-05-27__B04.tif",
+      "path": "experiments/raw/external/lrd-optical/protected/US0001/US0001__S2L2A__2017-05-27__B04.tif",
+      "bytes": 446305,
+      "sha256": "82fb17a6e7463d31516fa641d35f29508462788413df8941af51ab9849433b04"
+    },
+    {
+      "eid": "US0001",
+      "member": "s1s2_landslide_reference_data/original_scenes/US0001/US0001__None__None__MASK.tif",
+      "path": "experiments/raw/external/lrd-optical/protected/US0001/US0001__None__None__MASK.tif",
+      "bytes": 20922,
+      "sha256": "5b13da586598b91608c06d3892dc10484f5b604304288894658d9dcc9c862cc9"
+    }
+  ]
+}

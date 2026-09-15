@@ -1,0 +1,56 @@
+Device=mps; epochs=15; batch=32; bands=('blue', 'green', 'red', 'nir')
+Training unet_base, seed 42
+  F1=0.6776; boundary=0.4913; FPR=0.0222; 44.5s
+Training resunet_base, seed 42
+  F1=0.6934; boundary=0.5379; FPR=0.0239; 52.6s
+Training s3_none_base, seed 42
+  F1=0.6894; boundary=0.5289; FPR=0.0226; 66.7s
+Training s3_raw_base, seed 42
+  F1=0.6941; boundary=0.5321; FPR=0.0233; 97.8s
+Training s3_ndvi_base, seed 42
+  F1=0.6933; boundary=0.5315; FPR=0.0232; 95.6s
+Training s3_ndvi_boundary, seed 42
+  F1=0.7024; boundary=0.5642; FPR=0.0255; 98.5s
+Training s3_none_boundary, seed 42
+  F1=0.7041; boundary=0.5631; FPR=0.0257; 82.3s
+Training s3_raw_boundary, seed 42
+  F1=0.7016; boundary=0.5612; FPR=0.0263; 81.6s
+Training s3_ndvi_biophysical, seed 42
+  F1=0.6966; boundary=0.5643; FPR=0.0256; 80.5s
+Training unet_base, seed 43
+  F1=0.6691; boundary=0.5051; FPR=0.0210; 56.8s
+Training resunet_base, seed 43
+  F1=0.6813; boundary=0.5188; FPR=0.0221; 67.3s
+Training s3_none_base, seed 43
+  F1=0.6955; boundary=0.5350; FPR=0.0225; 79.6s
+Training s3_raw_base, seed 43
+  F1=0.6922; boundary=0.5328; FPR=0.0225; 77.9s
+Training s3_ndvi_base, seed 43
+  F1=0.6919; boundary=0.5318; FPR=0.0234; 78.5s
+Training s3_ndvi_boundary, seed 43
+  F1=0.7026; boundary=0.5644; FPR=0.0255; 85.8s
+Training s3_none_boundary, seed 43
+  F1=0.7030; boundary=0.5638; FPR=0.0255; 80.0s
+Training s3_raw_boundary, seed 43
+  F1=0.7058; boundary=0.5667; FPR=0.0253; 79.1s
+Training s3_ndvi_biophysical, seed 43
+  F1=0.7012; boundary=0.5629; FPR=0.0260; 79.3s
+Training unet_base, seed 44
+  F1=0.6609; boundary=0.4921; FPR=0.0225; 56.2s
+Training resunet_base, seed 44
+  F1=0.6818; boundary=0.5311; FPR=0.0231; 67.1s
+Training s3_none_base, seed 44
+  F1=0.6814; boundary=0.5312; FPR=0.0219; 79.0s
+Training s3_raw_base, seed 44
+  F1=0.6875; boundary=0.5295; FPR=0.0216; 78.4s
+Training s3_ndvi_base, seed 44
+  F1=0.6823; boundary=0.5215; FPR=0.0215; 78.0s
+Training s3_ndvi_boundary, seed 44
+  F1=0.6984; boundary=0.5573; FPR=0.0241; 82.3s
+Training s3_none_boundary, seed 44
+  F1=0.6927; boundary=0.5544; FPR=0.0239; 90.8s
+Training s3_raw_boundary, seed 44
+  F1=0.6984; boundary=0.5567; FPR=0.0235; 88.6s
+Training s3_ndvi_biophysical, seed 44
+  F1=0.6957; boundary=0.5574; FPR=0.0233; 83.7s
+Saved /Users/akshay.sharma/Projects/paper-activities/studies/disaster-hrgldd-landslide/experiments/derived/results/reviewer_remediation_bgrn/reviewer_remediation_summary.json

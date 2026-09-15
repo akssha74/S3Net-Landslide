@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Hash every frozen R016/R011 probability array and checkpoint."""
+"""Hash every frozen HR-GLDD, CAS, and LRD probability/checkpoint artifact."""
 
 from __future__ import annotations
 
@@ -15,8 +15,12 @@ OUTPUT = (
 ROOTS = (
     STUDY / "experiments/derived/checkpoints/reviewer_remediation",
     STUDY / "experiments/derived/results/reviewer_remediation",
+    STUDY / "experiments/derived/checkpoints/reviewer_remediation_bgrn",
+    STUDY / "experiments/derived/results/reviewer_remediation_bgrn",
     STUDY / "experiments/derived/checkpoints/cas_boundary_confirmation",
     STUDY / "experiments/derived/results/cas_boundary_confirmation",
+    STUDY / "experiments/derived/checkpoints/lrd_boundary_confirmation",
+    STUDY / "experiments/derived/results/lrd_boundary_confirmation",
 )
 
 
@@ -50,28 +54,64 @@ def main() -> None:
         for path in files
     ]
     counts = {
-        "hr_gldd_checkpoints": sum(
-            "checkpoints/reviewer_remediation" in record["path"]
+        "hr_gldd_rgbn_checkpoints": sum(
+            record["path"].startswith(
+                "experiments/derived/checkpoints/reviewer_remediation/"
+            )
             for record in records
         ),
-        "hr_gldd_probability_arrays": sum(
-            "results/reviewer_remediation" in record["path"]
+        "hr_gldd_rgbn_probability_arrays": sum(
+            record["path"].startswith(
+                "experiments/derived/results/reviewer_remediation/"
+            )
+            for record in records
+        ),
+        "hr_gldd_bgrn_checkpoints": sum(
+            record["path"].startswith(
+                "experiments/derived/checkpoints/reviewer_remediation_bgrn/"
+            )
+            for record in records
+        ),
+        "hr_gldd_bgrn_probability_arrays": sum(
+            record["path"].startswith(
+                "experiments/derived/results/reviewer_remediation_bgrn/"
+            )
             for record in records
         ),
         "cas_checkpoints": sum(
-            "checkpoints/cas_boundary_confirmation" in record["path"]
+            record["path"].startswith(
+                "experiments/derived/checkpoints/cas_boundary_confirmation/"
+            )
             for record in records
         ),
         "cas_probability_arrays": sum(
-            "results/cas_boundary_confirmation" in record["path"]
+            record["path"].startswith(
+                "experiments/derived/results/cas_boundary_confirmation/"
+            )
+            for record in records
+        ),
+        "lrd_checkpoints": sum(
+            record["path"].startswith(
+                "experiments/derived/checkpoints/lrd_boundary_confirmation/"
+            )
+            for record in records
+        ),
+        "lrd_probability_arrays": sum(
+            record["path"].startswith(
+                "experiments/derived/results/lrd_boundary_confirmation/"
+            )
             for record in records
         ),
     }
     expected = {
-        "hr_gldd_checkpoints": 27,
-        "hr_gldd_probability_arrays": 81,
+        "hr_gldd_rgbn_checkpoints": 27,
+        "hr_gldd_rgbn_probability_arrays": 81,
+        "hr_gldd_bgrn_checkpoints": 27,
+        "hr_gldd_bgrn_probability_arrays": 81,
         "cas_checkpoints": 6,
         "cas_probability_arrays": 24,
+        "lrd_checkpoints": 6,
+        "lrd_probability_arrays": 42,
     }
     if counts != expected:
         raise RuntimeError(
@@ -81,7 +121,8 @@ def main() -> None:
         "schema_version": 1,
         "purpose": (
             "Portable identity for every frozen per-seed probability array "
-            "and checkpoint supporting the R016/R011 summaries."
+            "and checkpoint supporting the dual-order HR-GLDD, CAS, and "
+            "prospective LRD summaries."
         ),
         "assets_redistributed": False,
         "redistribution_note": (

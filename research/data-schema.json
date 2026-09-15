@@ -5,108 +5,139 @@
       "dataset_id": "hr-gldd-planetscope-v1",
       "artifact_pattern": "experiments/raw/hr_gldd/{train,val,test}X.npy",
       "version": "Zenodo record 7189381, MD5-verified local arrays",
-      "authoritative_source": "Array-specific evidence: the official HR-GLDD notebook at repository commit e164986c5cd9292b76655788c68f46bf460dfb65 (blob d2434266e71521c5c90d5070a14d499053b385dd; local SHA-256 5fc43a5af9f97a115190d3866a6806f3445f4e8f8f66d4042aac6b4e62ad8c1a) loads the released trainX.npy/valX.npy/testX.npy arrays and renders X_train[i][:,:,:3] directly with matplotlib.imshow, establishing RGB for columns 0:3; the dataset paper names the prepared bands Red, Green, Blue, NIR.",
+      "authoritative_source": "No released array-construction metadata binds physical wavelengths to columns 0 and 2. The official notebook direct-display supports RGBN; native four-band PlanetScope supports BGRN.",
       "feature_axis": 3,
-      "fields": [
-        {
-          "name": "red",
-          "index": 0,
-          "semantic_role": "PlanetScope red surface reflectance and NDVI denominator/numerator term",
-          "unit": "scaled surface reflectance"
-        },
+      "fixed_fields": [
         {
           "name": "green",
           "index": 1,
-          "semantic_role": "PlanetScope green surface reflectance",
-          "unit": "scaled surface reflectance"
-        },
-        {
-          "name": "blue",
-          "index": 2,
-          "semantic_role": "PlanetScope blue surface reflectance",
+          "semantic_role": "Green under both candidate orders",
           "unit": "scaled surface reflectance"
         },
         {
           "name": "nir",
           "index": 3,
-          "semantic_role": "PlanetScope near-infrared surface reflectance and NDVI denominator/numerator term",
+          "semantic_role": "Near-infrared under both candidate orders",
           "unit": "scaled surface reflectance"
         }
       ],
+      "ambiguous_fields": [
+        {
+          "index": 0,
+          "candidates": [
+            "red",
+            "blue"
+          ],
+          "unit": "scaled surface reflectance"
+        },
+        {
+          "index": 2,
+          "candidates": [
+            "blue",
+            "red"
+          ],
+          "unit": "scaled surface reflectance"
+        }
+      ],
+      "candidate_orders": {
+        "RGBN": {
+          "order": [
+            "red",
+            "green",
+            "blue",
+            "nir"
+          ],
+          "red_index": 0,
+          "blue_index": 2,
+          "evidence": "Official notebook passes columns 0:3 directly to matplotlib.imshow; dataset paper lists Red, Green, Blue, NIR."
+        },
+        "BGRN": {
+          "order": [
+            "blue",
+            "green",
+            "red",
+            "nir"
+          ],
+          "red_index": 2,
+          "blue_index": 0,
+          "evidence": "Native four-band PlanetScope order; no released reordering code."
+        }
+      },
       "transforms": [
         "NHWC arrays are permuted to NCHW for PyTorch",
-        "NDVI=(NIR-Red)/(NIR+Red+1e-6)",
-        "Natural-color display uses array channels 0:3 directly as [Red,Green,Blue]"
+        "Candidate NDVI=(index3-candidate Red)/(index3+candidate Red+1e-6)",
+        "Natural-color rendering is candidate-order dependent"
       ],
       "central_semantics_path": "experiments/code/data_semantics.py",
       "hard_coded_semantic_positions_absent": true,
       "bindings": [
         {
-          "path": "experiments/code/train_eval.py",
-          "locator": "S3Net.extract_scarp_features -> data_semantics.torch_ndvi",
-          "field_name": "red",
-          "position_source": "data_semantics.RED",
+          "path": "experiments/code/data_semantics.py",
+          "locator": "SUPPORTED_BAND_ORDERS and BAND_ORDER_ID",
+          "field_name": "visible_channel_0",
+          "position_source": "candidate-order map",
           "observed_position": 0,
-          "status": "passed",
-          "evidence": [
-            "experiments/logs/R010a-rgbn-semantics.log"
-          ]
+          "status": "passed"
+        },
+        {
+          "path": "experiments/code/data_semantics.py",
+          "locator": "SUPPORTED_BAND_ORDERS and BAND_ORDER_ID",
+          "field_name": "visible_channel_2",
+          "position_source": "candidate-order map",
+          "observed_position": 2,
+          "status": "passed"
         },
         {
           "path": "experiments/code/revised_models.py",
           "locator": "ControlledS3Net.controls and ControlledPixelLoss.forward",
-          "field_name": "red",
-          "position_source": "data_semantics.RED",
-          "observed_position": 0,
-          "status": "passed",
-          "evidence": [
-            "experiments/code/test_revised_models.py"
-          ]
-        },
-        {
-          "path": "experiments/code/run_multi_index_ablation.py",
-          "locator": "MultiIndexS3Net.extract_index_and_gradient",
-          "field_name": "red",
-          "position_source": "data_semantics.RED",
-          "observed_position": 0,
-          "status": "passed",
-          "evidence": [
-            "experiments/logs/R010a-rgbn-semantics.log"
-          ]
-        },
-        {
-          "path": "experiments/code/run_loro_and_false_alarms.py",
-          "locator": "spectral fingerprint and numpy_ndvi construction",
-          "field_name": "red",
-          "position_source": "data_semantics.RED",
-          "observed_position": 0,
-          "status": "passed",
-          "evidence": [
-            "experiments/logs/R010a-rgbn-semantics.log"
-          ]
-        },
-        {
-          "path": "experiments/code/make_figures.py",
-          "locator": "natural-color rendering and numpy_ndvi",
-          "field_name": "red",
-          "position_source": "data_semantics.RED",
-          "observed_position": 0,
-          "status": "passed",
-          "evidence": [
-            "experiments/logs/R010a-rgbn-semantics.log"
-          ]
+          "field_name": "nir",
+          "position_source": "data_semantics.NIR",
+          "observed_position": 3,
+          "status": "passed"
         }
       ],
-      "sentinel_test": {
-        "command": "/opt/homebrew/bin/python3.10 experiments/code/test_data_semantics.py",
-        "exit_code": 0,
-        "evidence": [
-          "experiments/logs/R010a-rgbn-semantics.log",
-          "log SHA-256 4af6a62b39bdea2c42dcc78d9df03e751b82a9f8f0947dd85c37644bd46e3054",
-          "test SHA-256 074112c3aa5902da0bc2a162f2c6a3cf915c09fd7c7191c1c171d1fc5d8d3aff"
-        ]
-      },
-      "status": "verified-array-specific-rgbn"
+      "sentinel_tests": [
+        {
+          "command": "HRGLDD_ARRAY_ORDER=RGBN /opt/homebrew/bin/python3.10 experiments/code/test_data_semantics.py",
+          "exit_code": 0
+        },
+        {
+          "command": "HRGLDD_ARRAY_ORDER=BGRN /opt/homebrew/bin/python3.10 experiments/code/test_data_semantics.py",
+          "exit_code": 0
+        }
+      ],
+      "evidence": [
+        "research/dataset-metadata/hrgldd-official/band-order-evidence.json",
+        "research/dataset-metadata/hrgldd-official/band-order-audit.json",
+        "experiments/logs/R019-band-order-ambiguity-audit.log"
+      ],
+      "status": "ambiguous-two-candidate-order-sensitivity",
+      "fields": [
+        {
+          "name": "visible_channel_0",
+          "index": 0,
+          "semantic_role": "Red under RGBN candidate; Blue under BGRN candidate",
+          "unit": "scaled surface reflectance"
+        },
+        {
+          "name": "green",
+          "index": 1,
+          "semantic_role": "Green under both candidates",
+          "unit": "scaled surface reflectance"
+        },
+        {
+          "name": "visible_channel_2",
+          "index": 2,
+          "semantic_role": "Blue under RGBN candidate; Red under BGRN candidate",
+          "unit": "scaled surface reflectance"
+        },
+        {
+          "name": "nir",
+          "index": 3,
+          "semantic_role": "Near-infrared under both candidates",
+          "unit": "scaled surface reflectance"
+        }
+      ]
     }
   ]
 }

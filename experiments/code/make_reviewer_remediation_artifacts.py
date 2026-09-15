@@ -37,11 +37,11 @@ LABELS = {
     "resunet_base": "ResU-Net/base",
     "s3_none_base": "Attn-zero/base",
     "s3_raw_base": "Attn-raw/base",
-    "s3_ndvi_base": "Attn-NDVI/base",
+    "s3_ndvi_base": "Attn-index/base",
     "s3_none_boundary": "Attn-zero/plain-boundary",
     "s3_raw_boundary": "Attn-raw/plain-boundary",
-    "s3_ndvi_boundary": "Attn-NDVI/plain-boundary",
-    "s3_ndvi_biophysical": "Attn-NDVI/NDVI-boundary",
+    "s3_ndvi_boundary": "Attn-index/plain-boundary",
+    "s3_ndvi_biophysical": "Attn-index/index-boundary",
 }
 
 
@@ -181,9 +181,9 @@ def write_contrasts(payload: dict) -> str:
         "recommended_arm_by_mean_f1_then_boundary_f1": recommended,
         "contrasts": contrasts,
         "interpretation_rule": (
-            "Input specificity requires NDVI to exceed the raw-edge control on "
+            "Candidate-index specificity requires the index to exceed the raw-edge control on "
             "the same endpoint. Segmentation-F1 loss specificity requires the "
-            "NDVI-modulated arm to exceed plain boundary weighting on F1; "
+            "index-modulated arm to exceed plain boundary weighting on F1; "
             "boundary F1 is reported separately. No equivalence margin or "
             "tile-level inference is used because it was not prespecified and "
             "event/spatial IDs are absent."

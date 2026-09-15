@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "status": "all-decisions-frozen",
+  "protocol_commit": "97b107836a3737436b973adb28d0f5c5be6c3d63",
+  "fit_decisions": "experiments/derived/results/lrd_boundary_confirmation/fit_decisions.json",
+  "fit_decisions_sha256": "77697768e2eb5f5b5c964caa5fc10cf6119c495a122194404ee62f1a88fa626d",
+  "checkpoints": [
+    {
+      "path": "experiments/derived/checkpoints/lrd_boundary_confirmation/base_seed42.pt",
+      "sha256": "5a58313e029bb4e580b10f48642ac8ed43b3356eb69071d5787da17c221ef28f",
+      "threshold": 0.45
+    },
+    {
+      "path": "experiments/derived/checkpoints/lrd_boundary_confirmation/base_seed43.pt",
+      "sha256": "ef654e1623defef72f48322e20af0e6daa33983f07b77d1f10747f12db8edde8",
+      "threshold": 0.35000000000000003
+    },
+    {
+      "path": "experiments/derived/checkpoints/lrd_boundary_confirmation/base_seed44.pt",
+      "sha256": "4db355c5a8ddc76977212eb5f645badb85bf53ee1f6afd9db1616607be03ca26",
+      "threshold": 0.35000000000000003
+    },
+    {
+      "path": "experiments/derived/checkpoints/lrd_boundary_confirmation/boundary_seed42.pt",
+      "sha256": "1d0b3a9acbf366063d5ea20b94c01ebcb13b044827573724b4991d94dcc64644",
+      "threshold": 0.15000000000000002
+    },
+    {
+      "path": "experiments/derived/checkpoints/lrd_boundary_confirmation/boundary_seed43.pt",
+      "sha256": "1a104f17c6f48958451deb9a2dad0cb9b5c2d52350c1ff0575d762b682be3513",
+      "threshold": 0.35000000000000003
+    },
+    {
+      "path": "experiments/derived/checkpoints/lrd_boundary_confirmation/boundary_seed44.pt",
+      "sha256": "f55ea03706c11251cdbbba9a3d90e7271e16c5ce9ebbc44a18d58efccecace7c",
+      "threshold": 0.45
+    }
+  ]
+}

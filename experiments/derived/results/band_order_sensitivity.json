@@ -1,0 +1,119 @@
+{
+  "schema_version": 1,
+  "question": "Are mechanism conclusions stable to the two plausible HR-GLDD visible-band orders?",
+  "orders": {
+    "RGBN": {
+      "band_order": [
+        "red",
+        "green",
+        "blue",
+        "nir"
+      ],
+      "base_control_mean_f1": {
+        "s3_none_base": 0.6887725724299574,
+        "s3_raw_base": 0.690488142101514,
+        "s3_ndvi_base": 0.690380991036263
+      },
+      "index_input_specificity_supported_on_f1": false,
+      "plain_boundary_f1_effects_by_seed_points": {
+        "s3_none": [
+          1.4693861978744116,
+          0.7525357122405762,
+          1.1214392043718435
+        ],
+        "s3_raw": [
+          0.984461328076025,
+          1.0753463320658407,
+          0.4248429844361912
+        ],
+        "s3_index": [
+          1.1147110963224849,
+          1.1777785775278993,
+          0.5377062258606569
+        ]
+      },
+      "plain_boundary_positive_all_seeds": true,
+      "index_modulated_vs_plain_index": {
+        "mean_f1_points": -0.4062174516744399,
+        "mean_boundary_f1_points": 0.3830729679567546,
+        "f1_effects_by_seed_points": [
+          -0.3009447595083037,
+          0.10813164417772247,
+          -1.0258392396927163
+        ],
+        "boundary_f1_effects_by_seed_points": [
+          0.28413739282432404,
+          0.5633007769096143,
+          0.30178073413631434
+        ]
+      }
+    },
+    "BGRN": {
+      "band_order": [
+        "blue",
+        "green",
+        "red",
+        "nir"
+      ],
+      "base_control_mean_f1": {
+        "s3_none_base": 0.6887725724299574,
+        "s3_raw_base": 0.6912690999930966,
+        "s3_ndvi_base": 0.6891612185637435
+      },
+      "index_input_specificity_supported_on_f1": false,
+      "plain_boundary_f1_effects_by_seed_points": {
+        "s3_none": [
+          1.4693861978744116,
+          0.7525357122405762,
+          1.1214392043718435
+        ],
+        "s3_raw": [
+          0.7530080663854188,
+          1.3575297222667482,
+          1.0860422977092443
+        ],
+        "s3_index": [
+          0.9140233373045925,
+          1.0684560446892477,
+          1.6176962818440943
+        ]
+      },
+      "plain_boundary_positive_all_seeds": true,
+      "index_modulated_vs_plain_index": {
+        "mean_f1_points": -0.3316432779656653,
+        "mean_boundary_f1_points": -0.04718684021937092,
+        "f1_effects_by_seed_points": [
+          -0.5808638757357598,
+          -0.1443264876370698,
+          -0.26973947052419955
+        ],
+        "boundary_f1_effects_by_seed_points": [
+          0.004750204843728678,
+          -0.1526344939352109,
+          0.006323768433336152
+        ]
+      }
+    }
+  },
+  "order_robust": {
+    "index_input_specificity_not_supported_on_f1": true,
+    "plain_boundary_positive_all_seeds": true,
+    "index_modulated_f1_not_better_than_plain": true,
+    "index_modulated_boundary_effect_direction_stable": false
+  },
+  "combined_operating_ranges_percent": {
+    "matched_fpr": [
+      1.97,
+      2.01
+    ],
+    "matched_precision": [
+      78.41,
+      78.74
+    ],
+    "controlled_resolution_f1_drop_points": [
+      4.33,
+      5.2
+    ]
+  },
+  "scope": "Corrective sensitivity analysis; does not establish which order is physically authoritative."
+}

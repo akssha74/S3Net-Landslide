@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "protocol_commit": "97b107836a3737436b973adb28d0f5c5be6c3d63",
+  "protected_access_authorization": "experiments/derived/results/lrd_boundary_confirmation/protected_access_authorization.json",
+  "protected_access_authorization_sha256": "d8410ea2d4d420304b452427025e9b073f8720eef84052f7170c46f310cceb34",
+  "protected_fetch_log": "experiments/logs/R026-lrd-protected-fetch.log",
+  "protected_fetch_log_sha256": "2a544694bd332d98ee4a795f777e1863b85deb2e35a306d462cedd99e58a03b9",
+  "protected_manifest": "research/dataset-metadata/lrd-prospective-confirmation/protected_optical_manifest.json",
+  "protected_manifest_sha256": "0039e148caea216075f2436d879b6705f55b35294df86b10b86b6dc3f7b38436",
+  "evaluation_log": "experiments/logs/R027-lrd-prospective-evaluation.log",
+  "evaluation_log_sha256": "84e1f183740c22880d9c78cbd458af916b660e89a56079e7b8e1313ae2acea34",
+  "code_protocol_folds_changed_after_protocol_commit": false,
+  "test_driven_retuning": false,
+  "status": "valid-prospective-protected-access"
+}

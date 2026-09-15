@@ -1,0 +1,12 @@
+{
+  "destination": "/Users/akshay.sharma/Projects/paper-activities/studies/disaster-hrgldd-landslide/experiments/derived/results/lrd_boundary_confirmation/lrd_confirmation_summary.json",
+  "verdict": "failed-confirmation",
+  "mean_event_macro_delta_f1": -0.047304393807128475,
+  "mean_event_macro_delta_boundary_f1": -0.2409668113225071,
+  "conditions": {
+    "mean_event_macro_boundary_f1_gain_ge_0_015": false,
+    "all_test_events_positive_boundary_effect": false,
+    "event_macro_f1_noninferior_ge_minus_0_010": false,
+    "at_least_two_seeds_nonnegative_f1_effect": false
+  }
+}
