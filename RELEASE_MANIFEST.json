@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "source_repository": "akssha74/paper-activities",
-  "source_scientific_commit": "fa0a466d108180f195f4b61d5a8bb5e7a724e056",
+  "source_scientific_commit": "6f5b1b2392c46dab225f12fe4e02eb55860421d6",
   "study": "studies/disaster-hrgldd-landslide",
   "files": [
     {
@@ -10,7 +10,7 @@
     },
     {
       "path": "README.md",
-      "sha256": "c02f119a605474c8be7ad2b7a76c99cf55d26b2df8ba7fc52a68f3040f7f448e"
+      "sha256": "ccc8e65c76a04bf0f962def5e9fe0ba38c842b6184318accbbd698d197939a2e"
     },
     {
       "path": "environment/README.md",
@@ -54,7 +54,7 @@
     },
     {
       "path": "experiments/code/count_manuscript_words.py",
-      "sha256": "26e8dde5978339de9aa418517d26b3ad59182a5c4c3097e49a6ef0fc416870d0"
+      "sha256": "ad5425b175c3b2bccf020c5a939fdf830e74e716bed176fba3a8da710baebf23"
     },
     {
       "path": "experiments/code/data_semantics.py",
@@ -94,7 +94,7 @@
     },
     {
       "path": "experiments/code/register_r036_certificate.py",
-      "sha256": "b261862989aaae9922a01991f87536e6108f85269586e2083ec8af452cb31d6e"
+      "sha256": "6e61d3bc93e905da939020680693a5af8b8b2310dc719f5671054df2fdd47434"
     },
     {
       "path": "experiments/code/revised_models.py",
@@ -166,7 +166,7 @@
     },
     {
       "path": "experiments/derived/results/manuscript_word_count.json",
-      "sha256": "1f5ba77c56da2b4ced439794fc76b62fca2f0d76a4168d46ad281caa6ccd3e1f"
+      "sha256": "d839104edc13bc77b9c212e6087bfaa27df2a7c91d43e925991ae7eda3cb5081"
     },
     {
       "path": "experiments/derived/results/reviewer_remediation/mechanism_contrasts.json",
@@ -329,6 +329,10 @@
       "sha256": "1408827e7da98a14c8091bcea886feba4c206277442a4cb99813516249267010"
     },
     {
+      "path": "experiments/logs/R038-scope-correct-word-count.log",
+      "sha256": "60181e434a2b27f131f7d7670169a4a7eda64acb3fa9d7a5656a8bb324ed1c4f"
+    },
+    {
       "path": "paper/figures/fig_false_positive_atlas.pdf",
       "sha256": "e714b29bfa7102d27bce53f027ef8a00715e2a4d9a81e17474acd48e067ba52f"
     },
@@ -338,15 +342,15 @@
     },
     {
       "path": "paper/main.tex",
-      "sha256": "3c1ed0b476f89a232791572a9a963ee3f32b2b5fc8154f5d1ff18a79b46f6eeb"
+      "sha256": "271a6c52503e90ac75f7477edcfe33e42eab76e670622a4a9de35d6c035c5c25"
     },
     {
       "path": "paper/references.bib",
-      "sha256": "3c7ffe27862f0ddfc4d6acf8af3bbf1e2fc7a8b108ff68700fd33da8ea7daa05"
+      "sha256": "c3245ea071ce8c7eaf1d0f3d8db634e95c2a7f32106320dfd9a5d903b9015336"
     },
     {
       "path": "paper/sections/abstract.tex",
-      "sha256": "8e4073a08fb3390ca60944dc22d8872d6f5a45cfbf6d33e8768abfe7c1c85d9c"
+      "sha256": "2819f61b26e833f9349481018c0dcc9e602dd4ba42101e4e817bccf0f2478b0f"
     },
     {
       "path": "paper/sections/conclusion.tex",
@@ -354,7 +358,7 @@
     },
     {
       "path": "paper/sections/discussion.tex",
-      "sha256": "3ce5adf765c08189619eaf6bbe6f9fdf5fd0b446de3d5255efc8aa15a0a7a04c"
+      "sha256": "3cf5a6b549f7ab281b243b73fd4c141a9a84da3998084daf233241a2fec7afd7"
     },
     {
       "path": "paper/sections/experimental-setup.tex",
@@ -362,7 +366,7 @@
     },
     {
       "path": "paper/sections/introduction.tex",
-      "sha256": "3a10276c1166ada87775d0014e27b1a686506c0758abdff1a5cbef2c6a92e971"
+      "sha256": "c22afc321bc32350ec1a6b8642471a41ff85f26bfa6f1b3301b90eff075ad2f8"
     },
     {
       "path": "paper/sections/limitations.tex",
@@ -374,7 +378,7 @@
     },
     {
       "path": "paper/sections/related-work.tex",
-      "sha256": "8b66816c064af4fe4a486de687b70825cd7a3c2963721b6a401e85752d9abaa9"
+      "sha256": "a86f927eee29f288f347efec35a53af6347d9f2f9b418d04b6b60c68c6e36038"
     },
     {
       "path": "paper/sections/results.tex",
@@ -382,7 +386,7 @@
     },
     {
       "path": "paper/supplement.tex",
-      "sha256": "6467e1b1e0f8321de04dcd0ccdd817b3338082804246418324bb641106fe3e99"
+      "sha256": "85090f73ba618329d388e1283278008ead47f7c81838ec539913ebf325f38e2d"
     },
     {
       "path": "paper/tables/tab_band_order_sensitivity.tex",
@@ -594,7 +598,7 @@
     },
     {
       "path": "research/semantic-identifiability-certificate.md",
-      "sha256": "8c85b3a98f122240e9aa1be689b79b5c67da6be8a0f69eaffabdd5d17af5faf5"
+      "sha256": "904977ad7c0897fb3562955123e080183b0ad59d7419ec279ff7d948b944d44b"
     },
     {
       "path": "reviews/verified-bgrn-sensitivity.json",

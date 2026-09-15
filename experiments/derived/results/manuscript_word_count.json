@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "count": 3100,
-  "scope": "abstract through conclusion; excludes captions, tables, references, and declarations",
+  "count": 2873,
+  "scope": "abstract through conclusion; excludes table/figure environments, displayed equations, references, and declarations",
   "source_files": [
     "sections/abstract.tex",
     "sections/introduction.tex",
@@ -16,5 +16,13 @@
   "converter": "pandoc 3.10.1",
   "converter_command": "pandoc <source_files> -f latex -t plain -o <temporary.txt>",
   "token_pattern": "\\b(?:[A-Za-z0-9]+(?:[-'\u2019][A-Za-z0-9]+)*)\\b",
+  "excluded_environments": [
+    "table",
+    "table*",
+    "figure",
+    "figure*",
+    "equation",
+    "align"
+  ],
   "printed_count_matches": true
 }

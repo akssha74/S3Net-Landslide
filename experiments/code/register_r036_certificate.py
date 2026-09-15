@@ -147,14 +147,14 @@ def main() -> None:
                 "claim_id": "C-r037-word-count",
                 "claim": (
                     "The Pandoc token count over abstract through conclusion "
-                    "is 3,100 under the printed scope."
+                    "is 2,873 under the printed exclusion scope."
                 ),
                 "status": "verified",
                 "analysis_command": (
                     "/opt/homebrew/bin/python3.10 "
                     "experiments/code/count_manuscript_words.py"
                 ),
-                "run_ids": ["R037-manuscript-word-count"],
+                "run_ids": ["R038-scope-correct-word-count"],
                 "source_artifacts": [
                     {
                         "path": str(WORD_COUNT.relative_to(STUDY)),
@@ -206,6 +206,22 @@ def main() -> None:
     )
     write_jsonl(REGISTRY, registry)
 
+    superseded_word_run = run_record(
+        "R037-manuscript-word-count",
+        "Generate the earlier word count before scope correction.",
+        (
+            "/opt/homebrew/bin/python3.10 "
+            "experiments/code/count_manuscript_words.py"
+        ),
+        "experiments/logs/R037-manuscript-word-count.log",
+        [],
+    )
+    superseded_word_run["superseded_outputs"] = [
+        {
+            "path": "experiments/derived/results/manuscript_word_count.json",
+            "rewritten_by": "R038-scope-correct-word-count",
+        }
+    ]
     new_runs = [
         run_record(
             "R036-semantic-identifiability-certificate",
@@ -234,14 +250,15 @@ def main() -> None:
             ),
             ["reviews/verified-semantic-identifiability.json"],
         ),
+        superseded_word_run,
         run_record(
-            "R037-manuscript-word-count",
-            "Generate and check the tool-scoped manuscript word count.",
+            "R038-scope-correct-word-count",
+            "Generate and check the scope-correct manuscript word count.",
             (
                 "/opt/homebrew/bin/python3.10 "
                 "experiments/code/count_manuscript_words.py"
             ),
-            "experiments/logs/R037-manuscript-word-count.log",
+            "experiments/logs/R038-scope-correct-word-count.log",
             ["experiments/derived/results/manuscript_word_count.json"],
         ),
     ]
@@ -253,6 +270,7 @@ def main() -> None:
             "R036-semantic-identifiability-certificate",
             "R036b-semantic-identifiability-verification",
             "R037-manuscript-word-count",
+            "R038-scope-correct-word-count",
         }
     ]
     runs.extend(new_runs)

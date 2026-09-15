@@ -28,6 +28,11 @@ The certificate was formalized after the dual-order runs. It reorganizes the
 frozen contrasts without selecting or fitting a new model and receives no
 prospective-confirmation credit.
 
+The finite min--max/zero-exclusion rule is an application of established
+multiverse and partial-identification logic, not a new general mathematical
+primitive. The paper's delta is restricted to the HR-GLDD physical-schema
+construction, matched neural reruns, and hash-bound claim record.
+
 ## HR-GLDD binding
 
 The admissible set is `{RGBN, BGRN}` because Green/NIR are fixed while released
