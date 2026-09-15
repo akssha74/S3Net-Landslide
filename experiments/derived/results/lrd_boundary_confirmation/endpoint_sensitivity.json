@@ -1,0 +1,151 @@
+{
+  "schema_version": 1,
+  "analysis_classification": "post-hoc diagnostic of a failed internally precommitted LRD run",
+  "empty_crop_counts": {
+    "development": {
+      "empty": 471,
+      "total": 546,
+      "fraction": 0.8626373626373627
+    },
+    "validation": {
+      "empty": 138,
+      "total": 160,
+      "fraction": 0.8625
+    },
+    "protected": {
+      "empty": 148,
+      "total": 176,
+      "fraction": 0.8409090909090909
+    }
+  },
+  "absolute_performance": {
+    "base-seed42": {
+      "threshold": 0.45,
+      "maximum_validation_f1": 0.0955088118249005,
+      "protected_event_macro_f1": 0.006757247693090169,
+      "protected_event_macro_boundary_f1_frozen": 0.7979770515775106
+    },
+    "base-seed43": {
+      "threshold": 0.35000000000000003,
+      "maximum_validation_f1": 0.018069987775061126,
+      "protected_event_macro_f1": 0.00975834388990712,
+      "protected_event_macro_boundary_f1_frozen": 0.014084529145542401
+    },
+    "base-seed44": {
+      "threshold": 0.35000000000000003,
+      "maximum_validation_f1": 0.15145831379536714,
+      "protected_event_macro_f1": 0.28345036495443415,
+      "protected_event_macro_boundary_f1_frozen": 0.7214035842608503
+    },
+    "boundary-seed42": {
+      "threshold": 0.15000000000000002,
+      "maximum_validation_f1": 0.007623872731259436,
+      "protected_event_macro_f1": 0.016530319315769395,
+      "protected_event_macro_boundary_f1_frozen": 0.0260693088103415
+    },
+    "boundary-seed43": {
+      "threshold": 0.35000000000000003,
+      "maximum_validation_f1": 0.016705790621863517,
+      "protected_event_macro_f1": 0.009366152946157263,
+      "protected_event_macro_boundary_f1_frozen": 0.01349443425048201
+    },
+    "boundary-seed44": {
+      "threshold": 0.45,
+      "maximum_validation_f1": 0.11807334291247577,
+      "protected_event_macro_f1": 0.1321563028541194,
+      "protected_event_macro_boundary_f1_frozen": 0.7710009879555586
+    }
+  },
+  "event_family_audit": {
+    "compromised_protected_eids": [
+      "PH0001",
+      "PH0004"
+    ],
+    "valid_nonoverlapping_protected_eids": [
+      "CA0002",
+      "CN0002",
+      "IR0002",
+      "US0001"
+    ]
+  },
+  "boundary_endpoint_sensitivity": {
+    "frozen_crop_macro_empty_one_selected_threshold": {
+      "seed_macro_effects_points": {
+        "42": -77.19077427671694,
+        "43": -0.059009489506039285,
+        "44": 4.959740369470835
+      },
+      "event_mean_effects_points": {
+        "CA0002": -25.562603340664143,
+        "CN0002": -22.37519167608941,
+        "IR0002": -25.774807592132063,
+        "PH0001": -24.778901588931994,
+        "PH0004": -21.451690202568898,
+        "US0001": -24.63689239311774
+      },
+      "all_eid_mean_effect_points": -24.09668113225071,
+      "valid_nonoverlap_eid_mean_effect_points": -24.587373750500838,
+      "positive_all_eids": false,
+      "positive_valid_nonoverlap_eids": false
+    },
+    "crop_macro_empty_zero_selected_threshold": {
+      "seed_macro_effects_points": {
+        "42": 2.5372349825423366,
+        "43": -0.059009489506039285,
+        "44": -2.9337781490476833
+      },
+      "event_mean_effects_points": {
+        "CA0002": -0.04177000733081194,
+        "CN0002": 0.9581416572439201,
+        "IR0002": 0.8918590745346018,
+        "PH0001": -1.6307534407838449,
+        "PH0004": -1.451690202568894,
+        "US0001": 0.36310760688225785
+      },
+      "all_eid_mean_effect_points": -0.15185088533712857,
+      "valid_nonoverlap_eid_mean_effect_points": 0.542834582832492,
+      "positive_all_eids": false,
+      "positive_valid_nonoverlap_eids": false
+    },
+    "pooled_boundary_selected_threshold": {
+      "seed_macro_effects_points": {
+        "42": 2.805018290023326,
+        "43": -0.11009093153006384,
+        "44": -17.466880664784792
+      },
+      "event_mean_effects_points": {
+        "CA0002": -4.751222507606698,
+        "CN0002": 1.4189016610843033,
+        "IR0002": 1.0705515049601972,
+        "PH0001": -14.41687021073852,
+        "PH0004": -8.783313876024124,
+        "US0001": -4.0819531842582215
+      },
+      "all_eid_mean_effect_points": -4.923984435430509,
+      "valid_nonoverlap_eid_mean_effect_points": -1.585930631455105,
+      "positive_all_eids": false,
+      "positive_valid_nonoverlap_eids": false
+    },
+    "pooled_boundary_common_0_5": {
+      "seed_macro_effects_points": {
+        "42": 0.0,
+        "43": -0.22492768896623777,
+        "44": -1.411415741472846
+      },
+      "event_mean_effects_points": {
+        "CA0002": -0.5175579788552704,
+        "CN0002": 0.0677026009227949,
+        "IR0002": 0.0,
+        "PH0001": 0.0,
+        "PH0004": -2.822831482945692,
+        "US0001": 0.0
+      },
+      "all_eid_mean_effect_points": -0.5454478101463613,
+      "valid_nonoverlap_eid_mean_effect_points": -0.11246384448311889,
+      "positive_all_eids": false,
+      "positive_valid_nonoverlap_eids": false
+    }
+  },
+  "frozen_f1_effect_points": -4.7304393807128475,
+  "conclusion": "The frozen rule fails arithmetically, but the boundary magnitude and EID direction are not stable to the empty-crop convention, threshold, or trigger-family audit. Treat external evidence as failed/indeterminate, not a robust transfer rejection."
+}

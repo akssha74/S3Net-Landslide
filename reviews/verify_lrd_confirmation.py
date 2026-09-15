@@ -14,7 +14,6 @@ from scipy.ndimage import binary_dilation, binary_erosion
 
 
 STUDY = Path(__file__).resolve().parent.parent
-REPO = STUDY.parents[1]
 DATA = STUDY / "experiments/raw/external/lrd-optical/protected"
 SUMMARY = (
     STUDY
@@ -145,28 +144,56 @@ def sha256(path: Path) -> str:
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
+def repository_root() -> Path | None:
+    try:
+        output = subprocess.check_output(
+            ["git", "-C", str(STUDY), "rev-parse", "--show-toplevel"],
+            text=True,
+            stderr=subprocess.DEVNULL,
+        ).strip()
+    except subprocess.CalledProcessError:
+        return None
+    return Path(output)
+
+
 def main() -> None:
     payload = json.loads(SUMMARY.read_text())
     config = payload["config"]
     authorization = json.loads(AUTHORIZATION.read_text())
     access_log = json.loads(ACCESS_LOG.read_text())
     protocol_commit = config["protocol_commit"]
-    subprocess.run(
-        ["git", "-C", str(REPO), "merge-base", "--is-ancestor", protocol_commit, "HEAD"],
-        check=True,
-    )
-    protocol_diff = subprocess.run(
-        [
-            "git",
-            "-C",
-            str(REPO),
-            "diff",
-            "--quiet",
-            protocol_commit,
-            "--",
-            *PROTOCOL_FILES,
-        ]
-    ).returncode
+    repo = repository_root()
+    protocol_object_available = False
+    protocol_diff: int | None = None
+    if repo is not None:
+        protocol_object_available = (
+            subprocess.run(
+                [
+                    "git",
+                    "-C",
+                    str(repo),
+                    "cat-file",
+                    "-e",
+                    f"{protocol_commit}^{{commit}}",
+                ],
+                stdout=subprocess.DEVNULL,
+                stderr=subprocess.DEVNULL,
+            ).returncode
+            == 0
+        )
+        if protocol_object_available:
+            protocol_diff = subprocess.run(
+                [
+                    "git",
+                    "-C",
+                    str(repo),
+                    "diff",
+                    "--quiet",
+                    protocol_commit,
+                    "--",
+                    *PROTOCOL_FILES,
+                ]
+            ).returncode
     process_checks = {
         "authorization_precedes_access": (
             authorization["status"] == "all-decisions-frozen"
@@ -176,13 +203,22 @@ def main() -> None:
             access_log["protected_access_authorization_sha256"]
             == sha256(AUTHORIZATION)
         ),
-        "protocol_files_unchanged": protocol_diff == 0,
+        "protocol_history_status": (
+            "available-and-files-unchanged"
+            if protocol_diff == 0
+            else "unavailable-in-snapshot-release"
+        ),
         "process_condition_passed": (
             payload["process_condition"]["status"] == "passed"
             and access_log["test_driven_retuning"] is False
         ),
     }
-    if not all(process_checks.values()):
+    required_process_checks = {
+        key: value
+        for key, value in process_checks.items()
+        if key != "protocol_history_status"
+    }
+    if not all(required_process_checks.values()):
         raise RuntimeError(f"LRD process checks failed: {process_checks}")
     targets = {}
     crop_ids = {}

@@ -30,6 +30,16 @@ LRD = (
     "lrd_confirmation_summary.json"
 )
 LRD_VERIFIED = STUDY / "reviews/verified-lrd-confirmation.json"
+LRD_ENDPOINT = (
+    STUDY
+    / "experiments/derived/results/lrd_boundary_confirmation/"
+    "endpoint_sensitivity.json"
+)
+LRD_FAMILIES = (
+    STUDY
+    / "research/dataset-metadata/lrd-prospective-confirmation/"
+    "event_family_audit.json"
+)
 INVENTORY = STUDY / "experiments/derived/results/frozen-output-inventory.json"
 CAS_SUMMARY = (
     STUDY
@@ -108,7 +118,9 @@ def main() -> None:
     claims = [
         row
         for row in read_jsonl(CLAIMS)
-        if not str(row.get("claim_id", "")).startswith(("C-r020", "C-r027"))
+        if not str(row.get("claim_id", "")).startswith(
+            ("C-r020", "C-r027", "C-r032", "C-r033")
+        )
     ]
     claims.extend(
         [
@@ -185,11 +197,17 @@ def main() -> None:
             {
                 "claim_id": "C-r027-lrd-prospective-failure",
                 "claim": (
-                    "The preregistered LRD confirmation failed all four "
-                    "conditions across six protected EIDs: mean event-macro F1 "
-                    "and boundary F1 changed by -4.73 and -24.10 points."
+                    "Under the frozen local rule, the LRD run failed all four "
+                    "criteria across six released EIDs."
                 ),
-                "status": "verified",
+                "status": "superseded",
+                "superseded_by": "C-r033-lrd-indeterminate",
+                "supersession_reason": (
+                    "No independent pre-access timestamp exists; two protected "
+                    "EIDs share a trigger family with development; validation "
+                    "is weak; and boundary magnitude changes with empty-crop "
+                    "and threshold conventions."
+                ),
                 "analysis_command": (
                     "/opt/homebrew/bin/python3.10 "
                     "reviews/verify_lrd_confirmation.py"
@@ -222,6 +240,54 @@ def main() -> None:
                     },
                 ],
             },
+            {
+                "claim_id": "C-r032-lrd-event-family-leakage",
+                "claim": (
+                    "PH0003 development and PH0001/PH0004 protected share the "
+                    "Philippines 2022-04-10 trigger family; only four protected "
+                    "EIDs remain non-overlapping under the minimum family rule."
+                ),
+                "status": "verified",
+                "analysis_command": (
+                    "/opt/homebrew/bin/python3.10 "
+                    "experiments/code/audit_lrd_event_families.py"
+                ),
+                "run_ids": ["R032-lrd-event-family-audit"],
+                "source_artifacts": [
+                    {
+                        "path": str(LRD_FAMILIES.relative_to(STUDY)),
+                        "sha256": digest(LRD_FAMILIES),
+                    }
+                ],
+            },
+            {
+                "claim_id": "C-r033-lrd-indeterminate",
+                "claim": (
+                    "The internally precommitted LRD run is failed/indeterminate: "
+                    "validation F1 is 0.008-0.151, the boundary effect changes "
+                    "from -24.10 to -0.15 points under empty/empty scoring, and "
+                    "trigger-family leakage reduces valid protected EIDs to four."
+                ),
+                "status": "verified",
+                "analysis_command": (
+                    "/opt/homebrew/bin/python3.10 "
+                    "experiments/code/analyze_lrd_endpoint_sensitivity.py"
+                ),
+                "run_ids": [
+                    "R032-lrd-event-family-audit",
+                    "R033-lrd-endpoint-sensitivity",
+                ],
+                "source_artifacts": [
+                    {
+                        "path": str(LRD_ENDPOINT.relative_to(STUDY)),
+                        "sha256": digest(LRD_ENDPOINT),
+                    },
+                    {
+                        "path": str(LRD_FAMILIES.relative_to(STUDY)),
+                        "sha256": digest(LRD_FAMILIES),
+                    },
+                ],
+            },
         ]
     )
     write_jsonl(CLAIMS, claims)
@@ -229,7 +295,9 @@ def main() -> None:
     registry = [
         row
         for row in read_jsonl(REGISTRY)
-        if not str(row.get("result_id", "")).startswith(("R020", "R027"))
+        if not str(row.get("result_id", "")).startswith(
+            ("R020", "R027", "R032", "R033")
+        )
     ]
     arm_metadata = {
         "unet_base": ("unet", "base"),
@@ -327,9 +395,40 @@ def main() -> None:
                         "anchor": f"{loss_mode} comparator effects",
                     },
                 ],
-                "status": "current",
+                "status": "superseded-as-confirmation",
             }
         )
+    registry.append(
+        {
+            "result_id": "R033-lrd-endpoint-family-sensitivity",
+            "configuration_id": f"{lrd['config_id']}-posthoc-sensitivity",
+            "method_id": "lrd-external-evidence-diagnostic",
+            "loss_id": "base-vs-plain-boundary",
+            "code_commit": args.lrd_protocol_commit,
+            "dataset_id": "lrd-v3-eid-family-audited",
+            "split": (
+                "16 development, 6 validation, 6 designated EIDs; "
+                "4 protected EIDs nonoverlapping by minimum trigger family"
+            ),
+            "generator": (
+                "/opt/homebrew/bin/python3.10 "
+                "experiments/code/analyze_lrd_endpoint_sensitivity.py"
+            ),
+            "metrics_artifact": str(LRD_ENDPOINT.relative_to(STUDY)),
+            "artifact_sha256": digest(LRD_ENDPOINT),
+            "manuscript_quantitative_claims": [
+                {
+                    "path": "paper/sections/results.tex",
+                    "anchor": "Internally precommitted LRD stress-test paragraph",
+                },
+                {
+                    "path": "paper/supplement.tex",
+                    "anchor": "Supplementary Method S2",
+                },
+            ],
+            "status": "current",
+        }
+    )
     write_jsonl(REGISTRY, registry)
 
     new_runs = [
@@ -573,7 +672,62 @@ def main() -> None:
                 ),
             ],
         ),
+        run_record(
+            "R032-lrd-event-family-audit",
+            "N024-lrd-prospective-confirmation",
+            "Group released EIDs by country and trigger date to audit leakage.",
+            (
+                "/opt/homebrew/bin/python3.10 "
+                "experiments/code/audit_lrd_event_families.py"
+            ),
+            "experiments/logs/R032-lrd-event-family-audit.log",
+            [str(LRD_FAMILIES.relative_to(STUDY))],
+        ),
+        run_record(
+            "R033-lrd-endpoint-sensitivity",
+            "N024-lrd-prospective-confirmation",
+            "Diagnose empty-crop, threshold, and trigger-family sensitivity.",
+            (
+                "/opt/homebrew/bin/python3.10 "
+                "experiments/code/analyze_lrd_endpoint_sensitivity.py"
+            ),
+            "experiments/logs/R033-lrd-endpoint-sensitivity.log",
+            [str(LRD_ENDPOINT.relative_to(STUDY))],
+        ),
+        run_record(
+            "R034-figure-title-removal",
+            "N010-rgbn-correction",
+            "Regenerate publication artifacts without the duplicate figure title.",
+            (
+                "/opt/homebrew/bin/python3.10 "
+                "experiments/code/make_reviewer_remediation_artifacts.py"
+            ),
+            "experiments/logs/R034-figure-title-removal.log",
+            [
+                "experiments/derived/results/reviewer_remediation/"
+                "mechanism_contrasts.json",
+                "paper/tables/tab_reviewer_remediation.tex",
+                "paper/tables/tab_cas_seed_effects.tex",
+                "paper/figures/fig_false_positive_atlas.pdf",
+            ],
+        ),
     ]
+    for row in new_runs:
+        if row["run_id"] == "R029-rgbn-candidate-artifacts":
+            row["output_artifacts"] = []
+            row["superseded_outputs"] = [
+                {
+                    "path": path,
+                    "rewritten_by": "R034-figure-title-removal",
+                }
+                for path in (
+                    "experiments/derived/results/reviewer_remediation/"
+                    "mechanism_contrasts.json",
+                    "paper/tables/tab_reviewer_remediation.tex",
+                    "paper/tables/tab_cas_seed_effects.tex",
+                    "paper/figures/fig_false_positive_atlas.pdf",
+                )
+            ]
     new_ids = {row["run_id"] for row in new_runs}
     runs = [row for row in read_jsonl(RUNS) if row.get("run_id") not in new_ids]
     runs.extend(new_runs)
@@ -621,7 +775,10 @@ def main() -> None:
             },
             {
                 "artifact_id": "A-tab-lrd-r027",
-                "claim_ids": ["C-r027-lrd-prospective-failure"],
+                "claim_ids": [
+                    "C-r027-lrd-prospective-failure",
+                    "C-r033-lrd-indeterminate",
+                ],
                 "generator_code": (
                     "experiments/code/make_lrd_confirmation_table.py"
                 ),
@@ -632,8 +789,8 @@ def main() -> None:
                 "path": "paper/tables/tab_lrd_confirmation.tex",
                 "latex_reference": "tables/tab_lrd_confirmation.tex",
                 "justification": (
-                    "Reports every protected-EID and seed-macro effect from "
-                    "the preregistered LRD confirmation."
+                    "Reports every designated-EID and seed-macro effect under "
+                    "the frozen local LRD rule; sensitivity is separate."
                 ),
                 "run_ids": ["R027c-lrd-table"],
                 "sha256": digest(
@@ -667,6 +824,7 @@ def main() -> None:
                     "R029b-rgbn-candidate-verification",
                     "R030-environment-freeze",
                     "R031-dual-order-semantics",
+                    "R034-figure-title-removal",
                 }
             )
             node["outcome"] = (
@@ -676,11 +834,14 @@ def main() -> None:
             )
         if node.get("node_id") == "N024-lrd-prospective-confirmation":
             node["status"] = "succeeded"
-            node["decision"] = "failed-confirmation-stop-transfer-claim"
+            node["confirmatory"] = False
+            node["stage"] = "internally-precommitted-failed-indeterminate"
+            node["decision"] = "failed-indeterminate-no-transfer-inference"
             node["outcome"] = (
-                "All four preregistered conditions failed across six protected "
-                "EIDs; mean event-macro F1 and boundary F1 changed by -4.73 "
-                "and -24.10 points."
+                "All four frozen criteria failed arithmetically, but no public "
+                "pre-access timestamp exists, trigger-family leakage reduces "
+                "nonoverlapping protected EIDs to four, and the boundary effect "
+                "is unstable to empty-crop and threshold conventions."
             )
             node["run_ids"] = [
                 "R023-lrd-development-fetch",
@@ -691,6 +852,8 @@ def main() -> None:
                 "R027b-lrd-independent-verification",
                 "R027c-lrd-table",
                 "R028-frozen-output-inventory",
+                "R032-lrd-event-family-audit",
+                "R033-lrd-endpoint-sensitivity",
             ]
             node["artifacts"] = [
                 "research/lrd-boundary-confirmation-preregistration.md",

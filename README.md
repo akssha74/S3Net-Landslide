@@ -11,9 +11,10 @@ both orders; plain boundary weighting improves every HR-GLDD comparison, while
 the boundary effect of index modulation changes sign across orders.
 
 CAS is a post-hoc designated-region sensitivity analysis and carries no
-confirmation credit. A separate LRD experiment was preregistered before
-validation/protected optical access; all four conditions failed across six
-protected EIDs.
+confirmation credit. The LRD experiment was internally precommitted before
+validation/protected optical access, but lacks an external timestamp, contains
+trigger-family leakage, and has unstable empty-crop boundary scoring. It is
+classified as failed/indeterminate sensitivity evidence.
 
 ## Reproduce
 
@@ -45,11 +46,10 @@ python experiments/code/run_cas_boundary_confirmation.py
 python reviews/verify_cas_boundary_confirmation.py
 ```
 
-For the prospective confirmation, download Landslide Reference Data v3 from
-https://doi.org/10.5281/zenodo.17007637. Follow the immutable sequence in
-`research/lrd-boundary-confirmation-preregistration.md`; the released
-`fit_decisions.json`, protected authorization, logs, and verifier preserve the
-executed outcome.
+For the LRD stress test, download Landslide Reference Data v3 from
+https://doi.org/10.5281/zenodo.17007637. The original local protocol, current
+status, fit decisions, authorization, endpoint/family sensitivity artifacts,
+logs, and standalone numeric verifier are included.
 
 The released HR-GLDD arrays do not include event IDs or coordinates. The study
 therefore reports descriptive multi-seed results and makes no tile-independence,

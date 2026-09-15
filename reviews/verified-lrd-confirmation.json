@@ -13,7 +13,7 @@
   "process_checks": {
     "authorization_precedes_access": true,
     "authorization_hash_matches": true,
-    "protocol_files_unchanged": true,
+    "protocol_history_status": "available-and-files-unchanged",
     "process_condition_passed": true
   },
   "checks": [

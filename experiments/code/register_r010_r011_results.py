@@ -66,9 +66,9 @@ def supersede(records: list[dict[str, Any]], key: str, prefix: str) -> None:
             record["status"] = "superseded"
             record["superseded_by"] = "N010-rgbn-correction"
             record["supersession_reason"] = (
-                "The official released-array notebook establishes RGBN. "
-                "R009 used an incorrect BGRN interpretation and cannot support "
-                "the current manuscript."
+                "R009 is a BGRN-candidate analysis that predates the exact-mass "
+                "correction and complete dual-order sensitivity. It is retained "
+                "as archived evidence but cannot alone support current claims."
             )
 
 
@@ -202,7 +202,7 @@ def main() -> None:
                     "/opt/homebrew/bin/python3.10 "
                     "experiments/code/make_reviewer_remediation_artifacts.py"
                 ),
-                "run_ids": ["R029-rgbn-candidate-artifacts"],
+                "run_ids": ["R034-figure-title-removal"],
                 "source_artifacts": [
                     {"path": str(R010_SUMMARY.relative_to(STUDY)), "sha256": r010_sha},
                     {
@@ -227,7 +227,7 @@ def main() -> None:
                 ),
                 "run_ids": [
                     "R016-equal-mass-rerun",
-                    "R029-rgbn-candidate-artifacts",
+                    "R034-figure-title-removal",
                     "R029b-rgbn-candidate-verification",
                 ],
                 "source_artifacts": [
@@ -271,6 +271,11 @@ def main() -> None:
 
     registry = read_jsonl(REGISTRY)
     supersede(registry, "result_id", "R009")
+    for record in registry:
+        if str(record.get("result_id", "")).startswith("R009"):
+            record["metrics_artifact"] = (
+                "evidence/archive/r009/reviewer_remediation_summary.json"
+            )
     registry = [
         record
         for record in registry
@@ -823,7 +828,7 @@ def main() -> None:
             ),
             "latex_reference": "tables/tab_reviewer_remediation.tex",
             "path": "paper/tables/tab_reviewer_remediation.tex",
-            "run_ids": ["R029-rgbn-candidate-artifacts"],
+            "run_ids": ["R034-figure-title-removal"],
             "sha256": digest(
                 STUDY / "paper/tables/tab_reviewer_remediation.tex"
             ),
@@ -853,7 +858,7 @@ def main() -> None:
             ),
             "latex_reference": "figures/fig_false_positive_atlas.pdf",
             "path": "paper/figures/fig_false_positive_atlas.pdf",
-            "run_ids": ["R029-rgbn-candidate-artifacts"],
+            "run_ids": ["R034-figure-title-removal"],
             "sha256": digest(
                 STUDY / "paper/figures/fig_false_positive_atlas.pdf"
             ),
@@ -882,7 +887,7 @@ def main() -> None:
             ),
             "latex_reference": "tables/tab_cas_seed_effects.tex",
             "path": "paper/tables/tab_cas_seed_effects.tex",
-            "run_ids": ["R029-rgbn-candidate-artifacts"],
+            "run_ids": ["R034-figure-title-removal"],
             "sha256": digest(
                 STUDY / "paper/tables/tab_cas_seed_effects.tex"
             ),

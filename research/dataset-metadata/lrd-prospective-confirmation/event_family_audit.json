@@ -1,0 +1,324 @@
+{
+  "schema_version": 1,
+  "family_rule": "country + documented trigger date; EIDs sharing both are one minimum trigger family",
+  "families": {
+    "Brazil|2019-01-25": [
+      {
+        "eid": "BR0001",
+        "fold": "validation",
+        "country": "Brazil",
+        "region": "Brumadinho",
+        "date": "2019-01-25",
+        "trigger": "complex"
+      }
+    ],
+    "Canada|2019-05-16": [
+      {
+        "eid": "CA0002",
+        "fold": "protected",
+        "country": "Canada",
+        "region": "British Columbia",
+        "date": "2019-05-16",
+        "trigger": "snowmelt"
+      }
+    ],
+    "Canada|2021-04-22": [
+      {
+        "eid": "CA0001",
+        "fold": "development",
+        "country": "Canada",
+        "region": "Quebec",
+        "date": "2021-04-22",
+        "trigger": "snowmelt"
+      }
+    ],
+    "Chile|2017-12-16": [
+      {
+        "eid": "CL0001",
+        "fold": "development",
+        "country": "Chile",
+        "region": "Villa Santa Lucia",
+        "date": "2017-12-16",
+        "trigger": "rainfall"
+      }
+    ],
+    "Chile|2021-11-09": [
+      {
+        "eid": "CL0002",
+        "fold": "validation",
+        "country": "Chile",
+        "region": "Ministro Hales",
+        "date": "2021-11-09",
+        "trigger": "complex"
+      }
+    ],
+    "China|2017-06-24": [
+      {
+        "eid": "CN0001",
+        "fold": "development",
+        "country": "China",
+        "region": "Sichuan",
+        "date": "2017-06-24",
+        "trigger": "rainfall"
+      }
+    ],
+    "China|2020-07-20": [
+      {
+        "eid": "CN0002",
+        "fold": "protected",
+        "country": "China",
+        "region": "Hubei",
+        "date": "2020-07-20",
+        "trigger": "rainfall"
+      }
+    ],
+    "Columbia|2022-07-13": [
+      {
+        "eid": "CO0001",
+        "fold": "development",
+        "country": "Columbia",
+        "region": "San Antonio de Prado",
+        "date": "2022-07-13",
+        "trigger": "complex"
+      }
+    ],
+    "Guatemala|2020-11-05": [
+      {
+        "eid": "GT0001",
+        "fold": "validation",
+        "country": "Guatemala",
+        "region": "San Christobal Verapaz",
+        "date": "2020-11-05",
+        "trigger": "rainfall"
+      }
+    ],
+    "Iceland|2018-07-07": [
+      {
+        "eid": "IS0001",
+        "fold": "development",
+        "country": "Iceland",
+        "region": "Hitardalur",
+        "date": "2018-07-07",
+        "trigger": "rainfall"
+      }
+    ],
+    "India|2018-08-16": [
+      {
+        "eid": "IN0002",
+        "fold": "development",
+        "country": "India",
+        "region": "Kerala",
+        "date": "2018-08-16",
+        "trigger": "rainfall"
+      }
+    ],
+    "India|2020-08-06": [
+      {
+        "eid": "IN0003",
+        "fold": "validation",
+        "country": "India",
+        "region": "Kerala",
+        "date": "2020-08-06",
+        "trigger": "rainfall"
+      }
+    ],
+    "India|2021-08-13": [
+      {
+        "eid": "IN0001",
+        "fold": "validation",
+        "country": "India",
+        "region": "Nalda",
+        "date": "2021-08-13",
+        "trigger": "complex"
+      }
+    ],
+    "India|2022-06-30": [
+      {
+        "eid": "IN0004",
+        "fold": "development",
+        "country": "India",
+        "region": "Maripur",
+        "date": "2022-06-30",
+        "trigger": null
+      }
+    ],
+    "Iran|2018-06-16": [
+      {
+        "eid": "IR0002",
+        "fold": "protected",
+        "country": "Iran",
+        "region": "Gilan",
+        "date": "2018-06-16",
+        "trigger": null
+      }
+    ],
+    "Iran|2019-03-22": [
+      {
+        "eid": "IR0001",
+        "fold": "development",
+        "country": "Iran",
+        "region": "Golestan",
+        "date": "2019-03-22",
+        "trigger": null
+      }
+    ],
+    "Irland|2021-07-04": [
+      {
+        "eid": "IE0001",
+        "fold": "development",
+        "country": "Irland",
+        "region": "Benbrack",
+        "date": "2021-07-04",
+        "trigger": "rainfall"
+      }
+    ],
+    "Italy|2019-01-29": [
+      {
+        "eid": "IT0001",
+        "fold": "development",
+        "country": "Italy",
+        "region": "Pomarico",
+        "date": "2019-01-29",
+        "trigger": null
+      }
+    ],
+    "Japan|2021-07-03": [
+      {
+        "eid": "JP0001",
+        "fold": "development",
+        "country": "Japan",
+        "region": "Atomi Izu",
+        "date": "2021-07-03",
+        "trigger": "rainfall"
+      }
+    ],
+    "Kyrgyzstan|2017-04-19": [
+      {
+        "eid": "KG0002",
+        "fold": "development",
+        "country": "Kyrgyzstan",
+        "region": "Osh",
+        "date": "2017-04-19",
+        "trigger": "rainfall"
+      }
+    ],
+    "Kyrgyzstan|2020-09-14": [
+      {
+        "eid": "KG0001",
+        "fold": "development",
+        "country": "Kyrgyzstan",
+        "region": "Kara-Keche",
+        "date": "2020-09-14",
+        "trigger": null
+      }
+    ],
+    "New Zealand|2018-02-24": [
+      {
+        "eid": "NZ0001",
+        "fold": "validation",
+        "country": "New Zealand",
+        "region": "Mangapoike",
+        "date": "2018-02-24",
+        "trigger": null
+      }
+    ],
+    "Pakistan|2021-07-05": [
+      {
+        "eid": "PK0001",
+        "fold": "development",
+        "country": "Pakistan",
+        "region": "Naltar Valley",
+        "date": "2021-07-05",
+        "trigger": null
+      }
+    ],
+    "Philippines|2022-04-10": [
+      {
+        "eid": "PH0001",
+        "fold": "protected",
+        "country": "Philippines",
+        "region": "Baybay City",
+        "date": "2022-04-10",
+        "trigger": "rainfall"
+      },
+      {
+        "eid": "PH0003",
+        "fold": "development",
+        "country": "Philippines",
+        "region": "Pilar",
+        "date": "2022-04-10",
+        "trigger": "storm"
+      },
+      {
+        "eid": "PH0004",
+        "fold": "protected",
+        "country": "Philippines",
+        "region": "Bunga",
+        "date": "2022-04-10",
+        "trigger": "Storm"
+      }
+    ],
+    "South Korea|2020-08-07": [
+      {
+        "eid": "KR0001",
+        "fold": "development",
+        "country": "South Korea",
+        "region": "Gokseong County",
+        "date": "2020-08-07",
+        "trigger": "rainfall"
+      }
+    ],
+    "USA|2017-05-20": [
+      {
+        "eid": "US0001",
+        "fold": "protected",
+        "country": "USA",
+        "region": "California",
+        "date": "2017-05-20",
+        "trigger": "rainfall"
+      }
+    ]
+  },
+  "cross_fold_families": {
+    "Philippines|2022-04-10": [
+      {
+        "eid": "PH0001",
+        "fold": "protected",
+        "country": "Philippines",
+        "region": "Baybay City",
+        "date": "2022-04-10",
+        "trigger": "rainfall"
+      },
+      {
+        "eid": "PH0003",
+        "fold": "development",
+        "country": "Philippines",
+        "region": "Pilar",
+        "date": "2022-04-10",
+        "trigger": "storm"
+      },
+      {
+        "eid": "PH0004",
+        "fold": "protected",
+        "country": "Philippines",
+        "region": "Bunga",
+        "date": "2022-04-10",
+        "trigger": "Storm"
+      }
+    ]
+  },
+  "compromised_protected_eids": [
+    "PH0001",
+    "PH0004"
+  ],
+  "valid_nonoverlapping_protected_eids": [
+    "CA0002",
+    "CN0002",
+    "IR0002",
+    "US0001"
+  ],
+  "released_protected_eid_count": 6,
+  "minimum_independent_protected_trigger_count": 4,
+  "finding": "PH0003 development and PH0001/PH0004 protected share the Philippines 2022-04-10 trigger family. The preregistered EID split does not establish six independent triggers.",
+  "decision": "Reclassify the LRD run as internally precommitted but independence-compromised; report four nonoverlapping EIDs only as post-hoc sensitivity."
+}

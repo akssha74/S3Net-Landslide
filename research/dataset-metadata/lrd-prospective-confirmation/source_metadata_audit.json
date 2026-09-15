@@ -1,0 +1,300 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-09-14T17:33:27.063988+00:00",
+  "dataset": "Landslide Reference Data v3",
+  "zenodo_record": 17007637,
+  "license": "CC BY 4.0",
+  "archive_bytes": 5991736566,
+  "inventory_path": "research/dataset-metadata/landslide-reference-data/archive-metadata/landslide_inventory.gpkg",
+  "inventory_sha256": "413304690fd54cb23ec62119ee1591d249af071fba1033c55e174616d61be6ef",
+  "n_inventory_features": 66,
+  "n_unique_eids": 28,
+  "countries": {
+    "Brazil": 1,
+    "Canada": 2,
+    "Chile": 2,
+    "China": 2,
+    "Columbia": 1,
+    "Guatemala": 1,
+    "Irland": 1,
+    "India": 4,
+    "Iran": 2,
+    "Iceland": 1,
+    "Italy": 1,
+    "Japan": 1,
+    "Kyrgyzstan": 2,
+    "South Korea": 1,
+    "New Zealand": 1,
+    "Philippines": 3,
+    "Pakistan": 1,
+    "USA": 1
+  },
+  "triggers": {
+    "complex": 4,
+    "snowmelt": 2,
+    "rainfall": 13,
+    "None": 7,
+    "storm": 1,
+    "Storm": 1
+  },
+  "events": [
+    {
+      "eid": "BR0001",
+      "country": "Brazil",
+      "region": "Brumadinho",
+      "date": "2019-01-25",
+      "trigger": "complex",
+      "landslide_type": "mudflow",
+      "inventory_feature_count": 1
+    },
+    {
+      "eid": "CA0001",
+      "country": "Canada",
+      "region": "Quebec",
+      "date": "2021-04-22",
+      "trigger": "snowmelt",
+      "landslide_type": "mudflow",
+      "inventory_feature_count": 1
+    },
+    {
+      "eid": "CA0002",
+      "country": "Canada",
+      "region": "British Columbia",
+      "date": "2019-05-16",
+      "trigger": "snowmelt",
+      "landslide_type": "rock avalanches",
+      "inventory_feature_count": 1
+    },
+    {
+      "eid": "CL0001",
+      "country": "Chile",
+      "region": "Villa Santa Lucia",
+      "date": "2017-12-16",
+      "trigger": "rainfall",
+      "landslide_type": "earthflow",
+      "inventory_feature_count": 1
+    },
+    {
+      "eid": "CL0002",
+      "country": "Chile",
+      "region": "Ministro Hales",
+      "date": "2021-11-09",
+      "trigger": "complex",
+      "landslide_type": "rockslide",
+      "inventory_feature_count": 1
+    },
+    {
+      "eid": "CN0001",
+      "country": "China",
+      "region": "Sichuan",
+      "date": "2017-06-24",
+      "trigger": "rainfall",
+      "landslide_type": "rockslide",
+      "inventory_feature_count": 1
+    },
+    {
+      "eid": "CN0002",
+      "country": "China",
+      "region": "Hubei",
+      "date": "2020-07-20",
+      "trigger": "rainfall",
+      "landslide_type": "earthflow",
+      "inventory_feature_count": 1
+    },
+    {
+      "eid": "CO0001",
+      "country": "Columbia",
+      "region": "San Antonio de Prado",
+      "date": "2022-07-13",
+      "trigger": "complex",
+      "landslide_type": null,
+      "inventory_feature_count": 1
+    },
+    {
+      "eid": "GT0001",
+      "country": "Guatemala",
+      "region": "San Christobal Verapaz",
+      "date": "2020-11-05",
+      "trigger": "rainfall",
+      "landslide_type": null,
+      "inventory_feature_count": 1
+    },
+    {
+      "eid": "IE0001",
+      "country": "Irland",
+      "region": "Benbrack",
+      "date": "2021-07-04",
+      "trigger": "rainfall",
+      "landslide_type": "peat landslide",
+      "inventory_feature_count": 4
+    },
+    {
+      "eid": "IN0001",
+      "country": "India",
+      "region": "Nalda",
+      "date": "2021-08-13",
+      "trigger": "complex",
+      "landslide_type": "rockfall",
+      "inventory_feature_count": 1
+    },
+    {
+      "eid": "IN0002",
+      "country": "India",
+      "region": "Kerala",
+      "date": "2018-08-16",
+      "trigger": "rainfall",
+      "landslide_type": null,
+      "inventory_feature_count": 2
+    },
+    {
+      "eid": "IN0003",
+      "country": "India",
+      "region": "Kerala",
+      "date": "2020-08-06",
+      "trigger": "rainfall",
+      "landslide_type": null,
+      "inventory_feature_count": 1
+    },
+    {
+      "eid": "IN0004",
+      "country": "India",
+      "region": "Maripur",
+      "date": "2022-06-30",
+      "trigger": null,
+      "landslide_type": null,
+      "inventory_feature_count": 1
+    },
+    {
+      "eid": "IR0001",
+      "country": "Iran",
+      "region": "Golestan",
+      "date": "2019-03-22",
+      "trigger": null,
+      "landslide_type": null,
+      "inventory_feature_count": 2
+    },
+    {
+      "eid": "IR0002",
+      "country": "Iran",
+      "region": "Gilan",
+      "date": "2018-06-16",
+      "trigger": null,
+      "landslide_type": null,
+      "inventory_feature_count": 1
+    },
+    {
+      "eid": "IS0001",
+      "country": "Iceland",
+      "region": "Hitardalur",
+      "date": "2018-07-07",
+      "trigger": "rainfall",
+      "landslide_type": "earthflow",
+      "inventory_feature_count": 1
+    },
+    {
+      "eid": "IT0001",
+      "country": "Italy",
+      "region": "Pomarico",
+      "date": "2019-01-29",
+      "trigger": null,
+      "landslide_type": null,
+      "inventory_feature_count": 1
+    },
+    {
+      "eid": "JP0001",
+      "country": "Japan",
+      "region": "Atomi Izu",
+      "date": "2021-07-03",
+      "trigger": "rainfall",
+      "landslide_type": "mudflow",
+      "inventory_feature_count": 1
+    },
+    {
+      "eid": "KG0001",
+      "country": "Kyrgyzstan",
+      "region": "Kara-Keche",
+      "date": "2020-09-14",
+      "trigger": null,
+      "landslide_type": "earthflow",
+      "inventory_feature_count": 1
+    },
+    {
+      "eid": "KG0002",
+      "country": "Kyrgyzstan",
+      "region": "Osh",
+      "date": "2017-04-19",
+      "trigger": "rainfall",
+      "landslide_type": null,
+      "inventory_feature_count": 34
+    },
+    {
+      "eid": "KR0001",
+      "country": "South Korea",
+      "region": "Gokseong County",
+      "date": "2020-08-07",
+      "trigger": "rainfall",
+      "landslide_type": "landslide",
+      "inventory_feature_count": 1
+    },
+    {
+      "eid": "NZ0001",
+      "country": "New Zealand",
+      "region": "Mangapoike",
+      "date": "2018-02-24",
+      "trigger": null,
+      "landslide_type": null,
+      "inventory_feature_count": 1
+    },
+    {
+      "eid": "PH0001",
+      "country": "Philippines",
+      "region": "Baybay City",
+      "date": "2022-04-10",
+      "trigger": "rainfall",
+      "landslide_type": "",
+      "inventory_feature_count": 1
+    },
+    {
+      "eid": "PH0003",
+      "country": "Philippines",
+      "region": "Pilar",
+      "date": "2022-04-10",
+      "trigger": "storm",
+      "landslide_type": null,
+      "inventory_feature_count": 1
+    },
+    {
+      "eid": "PH0004",
+      "country": "Philippines",
+      "region": "Bunga",
+      "date": "2022-04-10",
+      "trigger": "Storm",
+      "landslide_type": null,
+      "inventory_feature_count": 1
+    },
+    {
+      "eid": "PK0001",
+      "country": "Pakistan",
+      "region": "Naltar Valley",
+      "date": "2021-07-05",
+      "trigger": null,
+      "landslide_type": "rock avalanche",
+      "inventory_feature_count": 1
+    },
+    {
+      "eid": "US0001",
+      "country": "USA",
+      "region": "California",
+      "date": "2017-05-20",
+      "trigger": "rainfall",
+      "landslide_type": null,
+      "inventory_feature_count": 1
+    }
+  ],
+  "binding_findings": [
+    "The release has 28 explicit EIDs across multiple countries.",
+    "Several EIDs contain multiple inventory polygons; polygons are nested within EID.",
+    "EID, not patch or polygon, is the minimum resampling unit.",
+    "Only development EIDs may be used for terrain-flow headroom checks."
+  ]
+}

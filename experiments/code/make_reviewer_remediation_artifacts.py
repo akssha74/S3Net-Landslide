@@ -299,12 +299,7 @@ def make_false_positive_atlas(payload: dict, arm: str) -> None:
             )
             axes[row, column].set_title(title, fontsize=8)
             axes[row, column].axis("off")
-    figure.suptitle(
-        "High-false-positive, low-prevalence HR-GLDD tiles at validation-matched recall\n"
-        "Red overlay marks false-positive pixels; background categories are not annotated.",
-        fontsize=9,
-    )
-    figure.tight_layout(rect=(0, 0, 1, 0.95))
+    figure.tight_layout()
     figure.savefig(
         PAPER_FIGURES / "fig_false_positive_atlas.pdf",
         metadata={"CreationDate": None, "ModDate": None},
