@@ -43,6 +43,7 @@ ACCESS_AUDIT = STUDY / "research/sen12-s2-access-audit.json"
 REQUIREMENTS = STUDY / "environment/requirements-sen12.txt"
 AUTHORIZATION = OUTPUT / "protected_access_authorization.json"
 PUBLIC_RECEIPT = METADATA / "public_authorization_receipt.json"
+EXECUTION_CORRECTION_RECEIPT = METADATA / "public_execution_correction_receipt.json"
 VALIDATION_PREDICTIONS = OUTPUT / "validation_predictions"
 DATASET_REVISION = "40af2dd6b4e568edb6640d6e14dc67ebd01038a4"
 PUBLIC_REPOSITORY = "akssha74/S3Net-Landslide"
@@ -73,15 +74,30 @@ SOURCE_ARTIFACTS = (
     "research/sen12-s2-access-audit.json",
     "research/sen12-v3-fit-status.md",
     "research/sen12-v4-fit-status.md",
+    "research/sen12-v5-execution-status.md",
+    "research/sen12-scl-255-evidence.md",
     "research/dataset-metadata/sen12-s2-confirmation/archive_manifest.json",
     (
         "research/dataset-metadata/sen12-s2-confirmation/"
         "s12ls_ld_s2_membership.json"
     ),
     "research/dataset-metadata/sen12-s2-confirmation/member_index.json",
+    (
+        "research/dataset-metadata/sen12-s2-confirmation/"
+        "protected_access_started.json"
+    ),
+    (
+        "research/dataset-metadata/sen12-s2-confirmation/"
+        "protected_extraction_manifest.json"
+    ),
+    (
+        "research/dataset-metadata/sen12-s2-confirmation/"
+        "public_authorization_receipt.json"
+    ),
     "experiments/code/prepare_sen12_s2.py",
     "experiments/code/run_sen12_s2_confirmation.py",
     "experiments/code/test_sen12_s2_confirmation.py",
+    "experiments/code/audit_sen12_protected_scl.py",
     "experiments/code/analyze_sen12_v3_thresholds.py",
     "experiments/code/explore_sen12_v4.py",
     "experiments/code/explore_sen12_v4_mixed_matrix.py",
@@ -92,6 +108,9 @@ SOURCE_ARTIFACTS = (
     "experiments/derived/results/sen12_v3_threshold_diagnostic.json",
     "experiments/derived/results/sen12_v4_development_exploration.json",
     "experiments/derived/results/sen12_v4_mixed_matrix_exploration.json",
+    "experiments/derived/results/sen12_v5_protected_scl_diagnostic.json",
+    "experiments/logs/R063-sen12-v5-protected-evaluate.log",
+    "experiments/logs/R064-sen12-v5-protected-scl-audit.log",
     "experiments/logs/R055-sen12-v5-numeric-recheck.log",
     "environment/requirements-sen12.txt",
 )
@@ -293,8 +312,19 @@ def load_file(path: Path) -> dict[str, Any]:
         if dataset["SCL"].dims != ("time", "x", "y"):
             raise RuntimeError(f"{path}: unexpected SCL dimensions")
         scl = np.asarray(dataset["SCL"].isel(time=post).values)
-        if not set(np.unique(scl)).issubset(set(range(12))):
+        if not set(np.unique(scl)).issubset(set(range(12)) | {255}):
             raise RuntimeError(f"{path}: unexpected SCL class")
+        scl_valid = scl != 255
+        cloud_fraction = (
+            float(np.mean(np.isin(scl[scl_valid], [8, 9, 10])))
+            if np.any(scl_valid)
+            else float("nan")
+        )
+        cloud_or_shadow_fraction = (
+            float(np.mean(np.isin(scl[scl_valid], [3, 8, 9, 10])))
+            if np.any(scl_valid)
+            else float("nan")
+        )
         time_value = np.asarray(dataset["time"].values)[post]
         post_date = str(np.datetime_as_string(time_value, unit="D"))
         x_coordinates = np.asarray(dataset["x"].values, dtype=float)
@@ -356,8 +386,9 @@ def load_file(path: Path) -> dict[str, Any]:
         "scl_histogram": {
             str(code): int(np.sum(scl == code)) for code in sorted(set(scl.flat))
         },
-        "cloud_fraction": float(np.mean(np.isin(scl, [8, 9, 10]))),
-        "cloud_or_shadow_fraction": float(np.mean(np.isin(scl, [3, 8, 9, 10]))),
+        "scl_valid_fraction": float(np.mean(scl_valid)),
+        "cloud_fraction": cloud_fraction,
+        "cloud_or_shadow_fraction": cloud_or_shadow_fraction,
         "crs": crs,
         "native_pixel_edge_bounds": native_bounds,
         "epsg4326_footprint": geographic_footprint,
@@ -399,6 +430,9 @@ def load_fold(fold: str) -> dict[str, Any]:
         ),
         "epsg4326_footprints": [row["epsg4326_footprint"] for row in rows],
         "scl_histograms": [row["scl_histogram"] for row in rows],
+        "scl_valid_fractions": np.array(
+            [row["scl_valid_fraction"] for row in rows], dtype=np.float64
+        ),
         "cloud_fractions": np.array(
             [row["cloud_fraction"] for row in rows], dtype=np.float64
         ),
@@ -1045,6 +1079,125 @@ def record_public_authorization_receipt(public_authorization_commit: str) -> Non
     print("recorded and verified public authorization receipt")
 
 
+def record_execution_correction_receipt(
+    public_execution_correction_commit: str,
+) -> None:
+    if EXECUTION_CORRECTION_RECEIPT.exists():
+        raise RuntimeError("execution correction receipt already exists")
+    if not (METADATA / "protected_access_started.json").exists():
+        raise RuntimeError("protected access-start record is missing")
+    if not (METADATA / "protected_extraction_manifest.json").exists():
+        raise RuntimeError("protected extraction manifest is missing")
+    if (OUTPUT / "probabilities").exists() or (
+        OUTPUT / "sen12_s2_confirmation_summary.json"
+    ).exists():
+        raise RuntimeError("model outcomes exist before execution correction")
+    current_sources = source_artifact_hashes()
+    evidence = github_commit_evidence(public_execution_correction_commit)
+    verify_public_sources(public_execution_correction_commit, current_sources)
+    payload = {
+        "schema_version": 1,
+        "status": "public-post-access-execution-correction",
+        "public_execution_correction_commit": (
+            public_execution_correction_commit
+        ),
+        "public_execution_correction_commit_time": evidence["commit_record"][
+            "commit"
+        ]["committer"]["date"],
+        "public_execution_correction_api_observed_at": evidence[
+            "api_observed_at"
+        ],
+        "public_execution_correction_push_event_id": evidence["push_event_id"],
+        "public_execution_correction_push_event_time": evidence[
+            "push_event_time"
+        ],
+        "v5_authorization_sha256": sha256(AUTHORIZATION),
+        "v5_public_authorization_commit": json.loads(
+            PUBLIC_RECEIPT.read_text()
+        )["public_authorization_commit"],
+        "protected_access_started_sha256": sha256(
+            METADATA / "protected_access_started.json"
+        ),
+        "protected_extraction_manifest_sha256": sha256(
+            METADATA / "protected_extraction_manifest.json"
+        ),
+        "failed_evaluation_log_sha256": sha256(
+            STUDY / "experiments/logs/R063-sen12-v5-protected-evaluate.log"
+        ),
+        "scl_diagnostic_sha256": sha256(
+            STUDY
+            / "experiments/derived/results/"
+            "sen12_v5_protected_scl_diagnostic.json"
+        ),
+        "model_inference_before_correction": False,
+        "observed_during_diagnosis": {
+            "scl_255_files": 1,
+            "scl_255_pixels": 16384,
+            "indonesia_s2_165_mask_positive_pixels": 748,
+            "model_predictions_or_performance": False,
+        },
+        "correction_scope": (
+            "Treat dataset-specific SCL 255 as unavailable only for "
+            "descriptive SCL denominators; retain file and histogram count."
+        ),
+        "source_artifacts": current_sources,
+    }
+    EXECUTION_CORRECTION_RECEIPT.write_text(
+        json.dumps(payload, indent=2) + "\n"
+    )
+    verify_authorization_state()
+    print("recorded and verified public execution correction receipt")
+
+
+def verify_execution_correction(
+    current_sources: dict[str, str],
+    authorization: dict[str, Any],
+    authorization_receipt: dict[str, Any],
+) -> dict[str, Any]:
+    if not EXECUTION_CORRECTION_RECEIPT.exists():
+        raise RuntimeError(
+            "source changed after authorization without a public correction receipt"
+        )
+    correction = json.loads(EXECUTION_CORRECTION_RECEIPT.read_text())
+    if correction.get("status") != "public-post-access-execution-correction":
+        raise RuntimeError("execution correction is not authorized")
+    if correction["v5_authorization_sha256"] != sha256(AUTHORIZATION):
+        raise RuntimeError("execution correction authorization hash mismatch")
+    if (
+        correction["v5_public_authorization_commit"]
+        != authorization_receipt["public_authorization_commit"]
+    ):
+        raise RuntimeError("execution correction authorization commit mismatch")
+    if correction["source_artifacts"] != current_sources:
+        raise RuntimeError("execution correction source identity mismatch")
+    correction_commit = correction["public_execution_correction_commit"]
+    evidence = github_commit_evidence(correction_commit)
+    recorded_observation = dt.datetime.fromisoformat(
+        correction["public_execution_correction_api_observed_at"].replace(
+            "Z", "+00:00"
+        )
+    )
+    current_observation = dt.datetime.fromisoformat(
+        evidence["api_observed_at"].replace("Z", "+00:00")
+    )
+    access_started = json.loads(
+        (METADATA / "protected_access_started.json").read_text()
+    )
+    access_time = dt.datetime.fromisoformat(
+        access_started["started_at"].replace("Z", "+00:00")
+    )
+    if not access_time < recorded_observation <= current_observation:
+        raise RuntimeError("execution correction chronology is invalid")
+    if correction.get("model_inference_before_correction") is not False:
+        raise RuntimeError("execution correction does not certify pre-inference stop")
+    verify_public_sources(correction_commit, current_sources)
+    verify_public_sources(
+        authorization["public_protocol_commit"],
+        authorization["source_artifacts"],
+    )
+    return correction
+
+
 def verify_authorization_state() -> tuple[dict[str, Any], dict[str, Any]]:
     authorization = json.loads(AUTHORIZATION.read_text())
     receipt = json.loads(PUBLIC_RECEIPT.read_text())
@@ -1101,9 +1254,12 @@ def verify_authorization_state() -> tuple[dict[str, Any], dict[str, Any]]:
         )
     verify_extraction_manifest("development")
     current_sources = source_artifact_hashes()
-    if authorization["source_artifacts"] != current_sources:
-        raise RuntimeError("source artifacts changed after authorization")
-    verify_public_sources(authorization["public_protocol_commit"], current_sources)
+    if authorization["source_artifacts"] == current_sources:
+        verify_public_sources(
+            authorization["public_protocol_commit"], current_sources
+        )
+    else:
+        verify_execution_correction(current_sources, authorization, receipt)
     for row in authorization["checkpoints"]:
         if sha256(STUDY / row["path"]) != row["sha256"]:
             raise RuntimeError(f"checkpoint changed: {row['path']}")
@@ -1166,6 +1322,11 @@ def cross_inventory_overlaps(fold: dict[str, Any]) -> list[dict[str, str]]:
 
 def evaluate() -> None:
     authorization, receipt = verify_authorization_state()
+    execution_correction = (
+        json.loads(EXECUTION_CORRECTION_RECEIPT.read_text())
+        if EXECUTION_CORRECTION_RECEIPT.exists()
+        else None
+    )
     protected_manifest_path = METADATA / "protected_extraction_manifest.json"
     protected_manifest = verify_extraction_manifest("protected")
     protected_manifest_hash = sha256(protected_manifest_path)
@@ -1207,6 +1368,12 @@ def evaluate() -> None:
             for code, count in histogram.items():
                 scl_histogram[code] = scl_histogram.get(code, 0) + int(count)
         truth = protected["y"][selected]
+        cloud_values = protected["cloud_fractions"][selected]
+        cloud_or_shadow_values = protected["cloud_or_shadow_fractions"][
+            selected
+        ]
+        valid_cloud = np.isfinite(cloud_values)
+        valid_cloud_or_shadow = np.isfinite(cloud_or_shadow_values)
         inventory_metadata[inventory] = {
             "n": int(np.sum(selected)),
             "positive_fraction": float(np.mean(truth)),
@@ -1218,11 +1385,23 @@ def evaluate() -> None:
                 set(np.asarray(protected["post_dates"])[selected].tolist())
             ),
             "scl_histogram": dict(sorted(scl_histogram.items())),
-            "mean_cloud_fraction_scl_8_9_10": float(
-                np.mean(protected["cloud_fractions"][selected])
+            "mean_scl_valid_fraction": float(
+                np.mean(protected["scl_valid_fractions"][selected])
             ),
-            "mean_cloud_or_shadow_fraction_scl_3_8_9_10": float(
-                np.mean(protected["cloud_or_shadow_fractions"][selected])
+            "scl_unavailable_patch_count": int(np.sum(~valid_cloud)),
+            "mean_cloud_fraction_scl_8_9_10_among_valid_scl": (
+                float(np.mean(cloud_values[valid_cloud]))
+                if np.any(valid_cloud)
+                else None
+            ),
+            "mean_cloud_or_shadow_fraction_scl_3_8_9_10_among_valid_scl": (
+                float(
+                    np.mean(
+                        cloud_or_shadow_values[valid_cloud_or_shadow]
+                    )
+                )
+                if np.any(valid_cloud_or_shadow)
+                else None
             ),
         }
     for fit_row in fit_payload["runs"]:
@@ -1501,6 +1680,16 @@ def evaluate() -> None:
         for run in runs
         for event in run["protected"].values()
     )
+    current_sources = source_artifact_hashes()
+    execution_source_identity_pass = (
+        authorization["source_artifacts"] == current_sources
+        or (
+            execution_correction is not None
+            and execution_correction["source_artifacts"] == current_sources
+            and execution_correction["v5_authorization_sha256"]
+            == sha256(AUTHORIZATION)
+        )
+    )
     registered_checks = [
         {
             "name": "public_protocol_and_authorization_byte_identity",
@@ -1508,17 +1697,23 @@ def evaluate() -> None:
                 len(authorization["public_protocol_commit"]) == 40
                 and len(receipt["public_authorization_commit"]) == 40
                 and receipt["authorization_sha256"] == sha256(AUTHORIZATION)
-                and authorization["source_artifacts"] == source_artifact_hashes()
+                and execution_source_identity_pass
             ),
             "evidence": (
                 f"protocol={authorization['public_protocol_commit']}; "
-                f"authorization={receipt['public_authorization_commit']}"
+                f"authorization={receipt['public_authorization_commit']}; "
+                "execution_correction="
+                + (
+                    execution_correction["public_execution_correction_commit"]
+                    if execution_correction is not None
+                    else "none"
+                )
             ),
         },
         {
             "name": "authorized_source_fit_checkpoint_validation_identity",
             "passed": (
-                authorization["source_artifacts"] == source_artifact_hashes()
+                execution_source_identity_pass
                 and authorization["fit_decisions_sha256"]
                 == sha256(OUTPUT / "fit_decisions.json")
                 and len(authorization["checkpoints"]) == 21
@@ -1613,6 +1808,7 @@ def evaluate() -> None:
         "dataset_revision": DATASET_REVISION,
         "protocol_sha256": sha256(PROTOCOL),
         "authorization_sha256": sha256(AUTHORIZATION),
+        "execution_correction": execution_correction,
         "protected_extraction_manifest_sha256": protected_manifest_hash,
         "protected_file_content_identity_sha256": (
             protected_content_identity_hash
@@ -1641,8 +1837,9 @@ def evaluate() -> None:
         "conditions": conditions,
         "all_conditions_pass": all(conditions.values()),
         "scope": (
-            "Inventory-level confirmation on ten untouched public Sen12 "
-            "Sentinel-2 inventories with authoritative named bands."
+            "Inventory-level analysis on ten v5-authorized protected public "
+            "Sen12 Sentinel-2 inventories with authoritative named bands and "
+            "a disclosed post-access descriptive-SCL execution correction."
         ),
     }
     (OUTPUT / "sen12_s2_confirmation_summary.json").write_text(
@@ -1655,11 +1852,18 @@ def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument(
         "--stage",
-        choices=("fit", "authorize", "receipt", "evaluate"),
+        choices=(
+            "fit",
+            "authorize",
+            "receipt",
+            "correction-receipt",
+            "evaluate",
+        ),
         required=True,
     )
     parser.add_argument("--public-protocol-commit")
     parser.add_argument("--public-authorization-commit")
+    parser.add_argument("--public-execution-correction-commit")
     args = parser.parse_args()
     OUTPUT.mkdir(parents=True, exist_ok=True)
     if args.stage == "fit":
@@ -1672,6 +1876,14 @@ def main() -> None:
         if not args.public_authorization_commit:
             raise RuntimeError("--public-authorization-commit is required")
         record_public_authorization_receipt(args.public_authorization_commit)
+    elif args.stage == "correction-receipt":
+        if not args.public_execution_correction_commit:
+            raise RuntimeError(
+                "--public-execution-correction-commit is required"
+            )
+        record_execution_correction_receipt(
+            args.public_execution_correction_commit
+        )
     else:
         evaluate()
 

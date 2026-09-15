@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "started_at": "2026-09-15T20:47:50Z",
+  "authorization_sha256": "18847a8681dbcff2222795495206fef9fed0c9fa70bc279ea283adbd5a93b37d",
+  "public_authorization_receipt_sha256": "f910b7af75addb9b14984b66b51eb5c0a27edbff07ff253b463f68153a8d84c8",
+  "selected_count": 1889,
+  "inventories": [
+    "hiroshima",
+    "hokkaido",
+    "indonesia",
+    "italy",
+    "itogon",
+    "kyrgyzstan1",
+    "kyrgyzstan2",
+    "newzealand",
+    "thrissur",
+    "usa"
+  ]
+}

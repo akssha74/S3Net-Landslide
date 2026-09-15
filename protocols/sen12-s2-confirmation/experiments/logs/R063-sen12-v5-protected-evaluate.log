@@ -1,0 +1,12 @@
+Traceback (most recent call last):
+  File "/Users/akshay.sharma/Projects/paper-activities/studies/disaster-hrgldd-landslide/experiments/code/run_sen12_s2_confirmation.py", line 1680, in <module>
+    main()
+  File "/Users/akshay.sharma/Projects/paper-activities/studies/disaster-hrgldd-landslide/experiments/code/run_sen12_s2_confirmation.py", line 1676, in main
+    evaluate()
+  File "/Users/akshay.sharma/Projects/paper-activities/studies/disaster-hrgldd-landslide/experiments/code/run_sen12_s2_confirmation.py", line 1182, in evaluate
+    protected = load_fold("protected")
+  File "/Users/akshay.sharma/Projects/paper-activities/studies/disaster-hrgldd-landslide/experiments/code/run_sen12_s2_confirmation.py", line 377, in load_fold
+    record = load_file(path)
+  File "/Users/akshay.sharma/Projects/paper-activities/studies/disaster-hrgldd-landslide/experiments/code/run_sen12_s2_confirmation.py", line 297, in load_file
+    raise RuntimeError(f"{path}: unexpected SCL class")
+RuntimeError: /Users/akshay.sharma/Projects/paper-activities/studies/disaster-hrgldd-landslide/experiments/raw/external/sen12-s2/protected/indonesia/indonesia_s2_165.nc: unexpected SCL class

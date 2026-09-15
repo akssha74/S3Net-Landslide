@@ -2,10 +2,11 @@
 
 ## Status and purpose
 
-This corrected version-5 protocol is frozen before any Sentinel-2 NetCDF from
-the ten protected inventories is extracted or opened. It tests whether the HR-GLDD mechanism
+Version 6 is a post-access semantic execution correction to the publicly locked
+and authorized version-5 design. It tests whether the HR-GLDD mechanism
 conclusions recur with authoritative named bands and inventory-level evaluation.
-It does not test HR-GLDD's physical band order.
+It does not test HR-GLDD's physical band order, and it does not claim a new
+pristine preregistration.
 
 Version 1 was publicly timestamped at commit
 `18d2da8c16b6b45ebee506e09b9b4ea027bd4db4` before protected access, but its
@@ -36,14 +37,26 @@ Version 4 was stopped without authorization or protected access. Version 5
 replaces only that numerical reproducibility criterion with NumPy `allclose`
 using absolute tolerance `2*float32_eps`, relative tolerance `1e-6`, and exact
 threshold-classification identity, uses pristine v5 output paths, and supersedes
-versions 1--4.
+versions 1--4. Version 5 was publicly sealed at commit
+`a4fc49723d2305a9acdd580ad22b04cff1a0acf3`, authorized at public commit
+`3f390776a37660ccab45d5f16ef6f21585313be2`, and used to extract exactly 1,889
+protected files. Its first evaluation stopped during dataset loading, before
+model inference, when one selected Indonesia post image contained SCL value 255
+at all pixels. Official SCL classes are 0--11 and the dataset supplies no
+`_FillValue` metadata. An authorization-verified SCL-only audit found 255 in
+exactly this one file. Version 6 retains 255 in the histogram, treats it as
+unavailable only for descriptive SCL denominators, and changes no model input,
+MASK, prediction, endpoint, condition, or analysis population.
 
 During version-2 remediation, the upstream task file exposed inventory
 membership counts and one protected-file `pixel_annotated` example. These values
 cannot affect the already fixed filename selection, arms, endpoints, thresholds,
 or conditions, but the study is not fully blind to protected task-definition
-metadata. Its holdout claim is restricted to protected NetCDF content, imagery,
-MASK arrays, model predictions, and model performance.
+metadata. Before authorized v5 extraction, the holdout claim was restricted to
+protected NetCDF content, imagery, MASK arrays, model predictions, and model
+performance. The post-access scope and one observed MASK count are disclosed in
+`research/sen12-v5-execution-status.md`; no model output was observed before the
+version-6 correction.
 
 ## Frozen data identity
 
@@ -188,14 +201,16 @@ zero. Conditions are not changed after protected access.
 - Report per-inventory results without respondent/patch weighting.
 - Report the result with empty/empty boundary F1 scored both one and zero if any
   protected empty mask is encountered.
-- Report first-post image dates, all SCL class counts, SCL 8/9/10 cloud
-  prevalence, and SCL 3/8/9/10 cloud-or-shadow prevalence descriptively;
-  neither can exclude a protected inventory or patch.
+- Report first-post image dates; all SCL counts including 255; valid-SCL
+  coverage; SCL 8/9/10 cloud prevalence; and SCL 3/8/9/10 cloud-or-shadow
+  prevalence descriptively. Cloud denominators use only official codes 0--11;
+  255 is retained as unavailable and cannot exclude an inventory or patch.
 
 ## Claims prohibited regardless of outcome
 
 - causal vegetation, trigger-time, operational, or geographic-population claims;
 - treating patches or individual polygons as independent;
 - claiming that a failed condition confirms the opposite mechanism;
-- calling the analysis preregistered unless public commit chronology verifies;
+- calling version 6 pre-access or preregistered; only the unchanged v5
+  scientific design has verified pre-access chronology;
 - changing folds, arms, thresholds, endpoints, or conditions after access.

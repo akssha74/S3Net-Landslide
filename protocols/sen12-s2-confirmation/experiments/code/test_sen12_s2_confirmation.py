@@ -210,6 +210,14 @@ def main() -> None:
             raise AssertionError("out-of-bounds DN was accepted")
         except RuntimeError:
             pass
+        unavailable_scl = dataset.copy(deep=True)
+        unavailable_scl["SCL"].values[1] = 255
+        unavailable_scl_path = Path(temporary) / "unavailable-scl.nc"
+        unavailable_scl.to_netcdf(unavailable_scl_path, engine="h5netcdf")
+        unavailable_record = confirmation.load_file(unavailable_scl_path)
+        assert unavailable_record["scl_histogram"] == {"255": 16}
+        assert unavailable_record["scl_valid_fraction"] == 0.0
+        assert np.isnan(unavailable_record["cloud_fraction"])
     assert image.shape == (4, 4, 4)
     assert np.allclose(image[:, 0, 0], [0.1, 0.2, 0.3, 0.8])
     assert mask.shape == (4, 4)
@@ -290,7 +298,7 @@ def main() -> None:
         json.dumps(
             {
                 "schema_version": 1,
-                "test": "sen12-s2-preaccess-sentinel",
+                "test": "sen12-s2-integrity-sentinel",
                 "status": "pass",
                 "executed_at": dt.datetime.now(dt.timezone.utc)
                 .isoformat()

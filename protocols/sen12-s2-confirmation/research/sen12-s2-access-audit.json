@@ -77,16 +77,21 @@
     "confirmation_credit": false
   },
   "current_campaign_protected_access": {
-    "netcdf_accessed": false,
-    "mask_accessed": false,
-    "imagery_accessed": false,
+    "authorized_under_version": 5,
+    "selected_files_extracted": 1889,
+    "netcdf_accessed": true,
+    "mask_accessed": true,
+    "imagery_accessed": true,
     "predictions_accessed": false,
-    "performance_accessed": false
+    "performance_accessed": false,
+    "first_evaluation_status": "stopped during load before checkpoint loading or model inference on unexpected SCL value 255",
+    "descriptive_scl_diagnostic": "all 1889 post-image SCL arrays scanned; codes 1-11 and 255; one file and 16384 pixels had 255",
+    "additional_diagnostic_disclosure": "one Indonesia MASK positive-pixel count (748) and four optical-band summaries were observed; no model outcome was computed"
   },
   "limitations": [
     "An inventory can contain multiple trigger dates; inventory is used as the conservative independence unit.",
     "Some event dates were NDVI-assisted; a predeclared high-confidence-date sensitivity is required.",
     "The supplied random patch split is invalid for event/site inference and will not be used."
   ],
-  "status": "ten-inventory-protected-set-available-pending-v5-public-lock"
+  "status": "authorized-protected-access-complete-v6-post-access-scl-correction-pending"
 }
