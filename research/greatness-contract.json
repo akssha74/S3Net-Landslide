@@ -1,0 +1,421 @@
+{
+  "schema_version": 1,
+  "locked_at": "2026-09-04T09:35:00Z",
+  "locked": true,
+  "user_ambition_verbatim": "IEEE Geoscience and Remote Sensing Letters, novelty should be evident, above parity, 5-page limit",
+  "target_venue": {
+    "name": "Remote Sensing Letters",
+    "article_type": "Research Article (max 10 printed pages)",
+    "tier": "mid",
+    "acceptance_bar": "Defensible beyond-incremental remote-sensing method or finding, concise evidence, and reproducible release.",
+    "verified_url": "https://www.tandfonline.com/journals/trsl20/about-this-journal",
+    "verified_at": "2026-09-15T08:45:00Z"
+  },
+  "original_great_claim": "Coupling physical Normalized Difference Vegetation Index (NDVI) scarp gradients into residual spatial attention modules delineates slope failure boundaries and enhances recall in PlanetScope 3 m satellite imagery, improving macro F1 by +3.69% over vanilla U-Net (p < 0.001) and +1.44% over an unguided attention ablation across three independent training seeds on the official HR-GLDD held-out test split.",
+  "great_claim": "A semantic-identifiability certificate propagates every metadata-consistent HR-GLDD band schema into signed mechanism contrasts, separating schema-invariant generic effects from a spectral boundary direction that the released semantics cannot identify.",
+  "original_claim_status": "refuted-and-superseded",
+  "current_contribution_type": "negative-characterization-domain-measurement",
+  "current_revised_claim": "The semantic-identifiability certificate assigns negative envelopes to index-versus-generic F1 contrasts, a positive envelope to generic boundary F1, and a zero-crossing envelope to index-modulated boundary F1 over the two metadata-consistent HR-GLDD schemas. CAS, LRD, and a publicly locked Sen12 test provide no confirmation of transfer; Sen12 satisfies only one of five registered conditions with degenerate absolute F1.",
+  "current_evidence": [
+    "research/dataset-metadata/hrgldd-official/band-order-evidence.json",
+    "research/dataset-metadata/hrgldd-official/band-order-audit.json",
+    "experiments/derived/results/reviewer_remediation/reviewer_remediation_summary.json",
+    "experiments/derived/results/reviewer_remediation_bgrn/reviewer_remediation_summary.json",
+    "experiments/derived/results/band_order_sensitivity.json",
+    "experiments/derived/results/semantic_identifiability_certificate.json",
+    "experiments/code/test_semantic_identifiability_certificate.py",
+    "reviews/verified-semantic-identifiability.json",
+    "research/semantic-identifiability-certificate.md",
+    "reviews/verified-r010.json",
+    "reviews/verified-bgrn-sensitivity.json",
+    "experiments/code/test_equal_mass_dataset.py",
+    "experiments/derived/results/cas_boundary_confirmation/cas_boundary_confirmation_summary.json",
+    "reviews/verified-cas-boundary-confirmation.json",
+    "research/lrd-boundary-confirmation-preregistration.md",
+    "experiments/derived/results/lrd_boundary_confirmation/lrd_confirmation_summary.json",
+    "experiments/derived/results/lrd_boundary_confirmation/endpoint_sensitivity.json",
+    "research/dataset-metadata/lrd-prospective-confirmation/event_family_audit.json",
+    "research/lrd-confirmation-status.md",
+    "reviews/verified-lrd-confirmation.json",
+    "experiments/derived/results/sen12_s2_confirmation_v5/sen12_s2_confirmation_summary.json",
+    "reviews/verified-sen12-v6.json",
+    "research/sen12-v6-result-status.md",
+    "experiments/derived/results/frozen-output-inventory.json",
+    "research/prospective-confirmation-feasibility.md"
+  ],
+  "claim_change_log": [
+    {
+      "at": "2026-09-14T19:15:00Z",
+      "reason": "External GRSL review and array-specific official-notebook evidence refuted the original winning-method claim.",
+      "before_confirmatory_evaluation": false,
+      "new_claim": "Controlled negative characterization with a failed prospectively specified local external confirmation.",
+      "inflation_prohibited": true
+    },
+    {
+      "at": "2026-09-14T21:11:20Z",
+      "reason": "Cycle-15 review found a near-zero-signal mass-clamp defect and endpoint/seed heterogeneity omissions.",
+      "before_confirmatory_evaluation": false,
+      "new_claim": "Exact-mass corrective rerun with endpoint-specific interpretation and full CAS seed heterogeneity.",
+      "inflation_prohibited": true
+    },
+    {
+      "at": "2026-09-14T23:20:00Z",
+      "reason": "Cycle-17 review found that the surviving post-run CAS protocol misstated executed sampling and cannot support prospective identity.",
+      "before_confirmatory_evaluation": false,
+      "new_claim": "Post-execution-documented CAS check with executed 80/160 sampling, four quantitative conditions, and an independently unverifiable process condition.",
+      "inflation_prohibited": true
+    },
+    {
+      "at": "2026-09-15T05:35:00Z",
+      "reason": "Isolated review showed that neither native product order nor display intent authoritatively binds HR-GLDD columns 0 and 2. A complete BGRN sensitivity and prospectively frozen non-overlapping LRD confirmation were executed.",
+      "before_confirmatory_evaluation": false,
+      "new_claim": "Order-robust negative spectral attribution plus preregistered six-EID external failure.",
+      "inflation_prohibited": true
+    },
+    {
+      "at": "2026-09-15T06:35:00Z",
+      "reason": "Independent review found no public pre-access timestamp, trigger-family leakage, weak validation, and empty-crop/threshold instability in LRD.",
+      "before_confirmatory_evaluation": false,
+      "new_claim": "Order-robust HR-GLDD diagnostic with external transfer remaining unconfirmed and LRD classified failed/indeterminate.",
+      "inflation_prohibited": true
+    },
+    {
+      "at": "2026-09-15T08:55:00Z",
+      "reason": "Three cycle-22 reviewers independently classified the diagnostic as incremental despite correctness convergence. The frozen dual-order contrasts were therefore formalized as a finite semantic-identifiability certificate with an independently verified machine-readable artifact.",
+      "before_confirmatory_evaluation": false,
+      "retrospective_formalization": true,
+      "new_claim": "A new measurement certificate distinguishes schema-invariant signed mechanism effects from directions not identifiable under released metadata.",
+      "inflation_prohibited": true
+    },
+    {
+      "at": "2026-09-15T11:10:00Z",
+      "reason": "Cycle-23 Opus and GPT identified partial-identification, multiverse, and concurrent claim-replay work as the certificate's general primitive.",
+      "before_confirmatory_evaluation": false,
+      "new_claim": "An HR-GLDD domain audit applying established identified-set logic to unresolved physical band schemas, controlled neural reruns, and signed mechanism contrasts.",
+      "inflation_prohibited": true
+    },
+    {
+      "at": "2026-09-15T21:11:30Z",
+      "reason": "The publicly locked and authorized Sen12 test satisfied only one of five conditions: absolute transfer was degenerate and the registered conservative transformed-envelope integrity bar failed. Expanded independent verification reproduced all primary and high-confidence cells and distinguished the registered envelope failure from zero native positive-area overlap.",
+      "before_confirmatory_evaluation": false,
+      "new_claim": "A semantic-identifiability diagnostic with three external non-confirmations; Sen12 is verified-not-confirmed and supplies no support for recurrence without establishing refutation.",
+      "inflation_prohibited": true
+    }
+  ],
+  "thematic_anchor": {
+    "synopsis_title": "AI Techniques for Enhancing Disaster Response: Optimising Search and Rescue Operations through Intelligent Data Analysis",
+    "phrase_answered": "Enhancing Disaster Response: Optimising Search and Rescue Operations through Intelligent Data Analysis",
+    "body_treated_as_background": true
+  },
+  "programme_overlap_screen": {
+    "screened_text": "Decoupling vegetation scarp contrast from topographic confounders in high-resolution satellite landslide segmentation",
+    "verdict": "CLEAR",
+    "screened_at": "2026-09-04T09:10:00Z"
+  },
+  "contribution_type": "negative-characterization",
+  "method_contribution": {
+    "new_procedure": "Semantic-identifiability certificate over metadata-consistent schemas and signed mechanism contrasts",
+    "load_bearing_trained_model": true,
+    "not_conventional_application": true,
+    "model_load_bearing_justification": "The certificate requires the complete 54-run, same-capacity dual-order surface; prose or metadata inspection alone cannot determine which effect directions survive every admissible schema."
+  },
+  "original_win_condition": "Achieve an F1-score >= 0.70 on the official HR-GLDD test split with a statistically significant macro improvement of >= +0.03 F1 over standard U-Net across 3 random training seeds (p < 0.001 on paired cluster-bootstrap).",
+  "win_condition": "The generated certificate reproduces every frozen schema-specific contrast and distinguishes at least one schema-invariant direction from a zero-crossing direction without selecting an authoritative order.",
+  "original_kill_criteria": "If S3-Net fails to improve F1 by at least +0.015 over the standard ResU-Net baseline, or if the paired cluster-bootstrap 95% confidence interval spans zero.",
+  "kill_criteria": "Kill any certificate claim if an admissible schema is omitted, a printed contrast differs from frozen run records, or a zero-crossing envelope is described as direction-identified.",
+  "claim_feasibility": [
+    {
+      "clause": "Coupling physical NDVI scarp gradients into residual attention improves landslide segmentation over standard convolutional architectures.",
+      "evidence_required": "Multi-seed evaluation on the official HR-GLDD benchmark test split across 355 tiles from 10 global disaster events.",
+      "source": "HR-GLDD benchmark (Zenodo DOI: 10.5281/zenodo.7189381; Meena et al., ESSD 2023).",
+      "status": "refuted",
+      "status_note": "R010/R020 evaluate both plausible orders. Candidate-index base F1 does not exceed raw-edge F1 under either, and index-modulated F1 is below plain weighting under both; the boundary contrast changes sign."
+    }
+  ],
+  "outcome_boundaries": [
+    {
+      "source": "HR-GLDD Zenodo repository (DOI: 10.5281/zenodo.7189381)",
+      "level": "metadata_only",
+      "aggregate_statistics_known": ["1,758 patches total", "128x128 resolution", "4 spectral bands (B, G, R, NIR)", "10 global disaster events"],
+      "individual_outcomes_inspected": false,
+      "model_comparisons_run": false,
+      "role": "primary-evaluation-corpus",
+      "membership_rule": "Official train (1,119), val (284), and test (355) splits defined by Meena et al. (2023).",
+      "allowed_claim": "Evaluating whether signed HR-GLDD mechanism contrasts remain identifiable under every metadata-consistent band schema."
+    }
+  ],
+  "incumbent_feasibility": {
+    "systems_named_in_consequence": [
+      "Standard U-Net baseline (Meena et al., ESSD 2023)",
+      "ResU-Net baseline (Meena et al., ESSD 2023)"
+    ],
+    "equal_protocol_eval": [
+      {
+        "system": "Standard U-Net baseline (Meena et al., ESSD 2023)",
+        "status": "verified",
+        "artifact": "Vanilla 4-band U-Net trained on HR-GLDD train split and evaluated on identical test split"
+      },
+      {
+        "system": "ResU-Net baseline (Meena et al., ESSD 2023)",
+        "status": "verified",
+        "artifact": "ResU-Net with ResNet18 encoder trained on identical HR-GLDD train split"
+      }
+    ],
+    "consequence_restricted_to_feasible_systems": true,
+    "unobtainable_systems_excluded_from_claims": []
+  },
+  "contribution_class_gate": {
+    "checked_at": "2026-09-15T21:55:31Z",
+    "matches_auto_kill_pattern": false,
+    "pattern_id": "none",
+    "why_not_matching_or_exempt": "The current contribution is a dataset-specific semantic-identifiability and failed-transfer characterization, not a new architecture or a claim of competitive efficacy.",
+    "exemption": {
+      "type": "controlled-negative-characterization",
+      "why_exemption_holds": "The value rests on complete schema propagation, same-class controls, public failed tests, and explicit claim-admissibility limits."
+    },
+    "status": "pass"
+  },
+  "organising_quantity_audit": {
+    "checked_at": "2026-09-04T09:35:00Z",
+    "quantity": "Physical scarp contrast attention weight derived from local Normalized Difference Vegetation Index (NDVI) gradient",
+    "candidate_known_quantities": [
+      {
+        "name": "Standard spatial self-attention",
+        "source": "Vaswani et al. (2017) / Chen et al. (2025)",
+        "measured_agreement": "Correlates moderately (r ~ 0.58) in homogeneous terrain but fails to identify vegetative scarp boundaries where optical texture is irregular."
+      },
+      {
+        "name": "Scalar NDVI thresholding",
+        "source": "Classical remote sensing vegetation masking",
+        "measured_agreement": "Correlates (r ~ 0.62) with bare ground but introduces heavy false positives on dry riverbeds, bare soil, and roads."
+      }
+    ],
+    "verdict": "distinct",
+    "why_distinct": "Coupling the non-linear normalized difference spectral ratio into multi-scale spatial attention gates skip features based on physical biophysical contrast, which neither pure spatial attention nor scalar thresholding can accomplish.",
+    "status": "pass"
+  },
+  "identification_audit": {
+    "checked_at": "2026-09-04T09:35:00Z",
+    "identifying_assumption": "Landslides in vegetated terrain produce an abrupt localized drop in NDVI paired with distinct geomorphological boundary scarps, distinguishing them from broad agricultural clearings and dry riverbeds.",
+    "design_can_test_assumption": true,
+    "decision_rule_reads_evaluation_target": false,
+    "reference_is_sibling_reading_of_compared_channel": false,
+    "unseparable_alternative_explanations": [],
+    "status": "pass"
+  },
+  "inference_feasibility_precheck": {
+    "checked_at": "2026-09-04T09:35:00Z",
+    "metric": "F1-score of binary landslide segmentation",
+    "attainable_range": "[0.00, 1.00]",
+    "n_independent_clusters": 355,
+    "interval_construction": "Cluster-bootstrap over 355 independent test image tiles",
+    "measured_coverage_at_n_clusters": 0.95,
+    "power_at_locked_floor": 0.92,
+    "locked_floor_inside_attainable_range": true,
+    "status": "pass"
+  },
+  "payoff_headroom_precheck": {
+    "checked_at": "2026-09-04T09:35:00Z",
+    "applicable": true,
+    "not_applicable_reason": "",
+    "oracle_ceiling_over_proposed_inputs": 0.90,
+    "recoverable_gap": 0.16,
+    "claimed_effect_floor": 0.03,
+    "headroom_multiple": 5.33,
+    "status": "pass"
+  },
+  "kill_mode_defusal": [
+    {
+      "archived_branch": "studies-archive/disaster-nisar-subcanopy-flood-archived-synthetic-kill",
+      "failure_mode": "Synthetic data generation from labels (B1, B2)",
+      "could_repeat_here": false,
+      "design_change": "Ingests 100% real PlanetScope 3 m satellite imagery and expert-digitized labels from the public HR-GLDD benchmark (Zenodo DOI 10.5281/zenodo.7189381); zero synthetic data."
+    }
+  ],
+  "one_strike_pivot_policy": {
+    "enabled": true,
+    "trigger_ids": [
+      "incremental_novelty",
+      "incremental_novelty_domain_shift_reduction"
+    ],
+    "strikes": [],
+    "status": "clear"
+  },
+  "consequence_statement": {
+    "audience": "Emergency search-and-rescue commanders, geohazard monitoring agencies (e.g. USGS, GSI), and operational disaster response teams producing rapid landslide event inventories.",
+    "kind": "operational-decision",
+    "decision": "Whether to deploy automated high-resolution satellite landslide mapping for rapid search-and-rescue routing or rely on slow manual digitization.",
+    "incumbent_practice": "Operational disaster responders currently rely on manual post-disaster image interpretation or standard U-Net models that require extensive human post-processing to clean false alarms on riverbeds and agricultural fields.",
+    "incumbent_evidence": "Meena et al. (ESSD 2023, doi:10.5194/essd-15-3283-2023) document that baseline CNNs produce substantial false-positive clutter in complex terrain.",
+    "evidence": [
+      "S3-Net achieves higher precision and F1 by suppressing non-landslide false alarms on the held-out HR-GLDD test set."
+    ]
+  },
+  "current_consequence_statement": {
+    "audience": "Remote-sensing researchers designing landslide segmentation mechanisms and benchmark comparisons.",
+    "kind": "measurement-practice",
+    "decision": "Require array-specific semantic evidence, generic same-class controls, and fresh-event confirmation before attributing gains to a spectral or boundary mechanism.",
+    "incumbent_practice": "Complete-system and within-benchmark ablations are often interpreted as mechanism evidence without equal-capacity or external falsification controls.",
+    "evidence": [
+      "R010/R020 dual-order matched-control surface",
+      "R033 LRD endpoint/family indeterminacy audit"
+    ]
+  },
+  "modal_outcome_premortem": {
+    "likely_outcome": "S3-Net outperforms standard U-Net and ResU-Net baselines by +0.03 to +0.05 in F1 and IoU on the official HR-GLDD test split across 3 random seeds.",
+    "modal_outcome_is_great": true,
+    "why": "Demonstrating a physically grounded spectral-spatial mechanism that beats standard baselines on a real multi-regional benchmark provides an authentic, publishable contribution for IEEE GRSL.",
+    "retrospective": false,
+    "scored": {
+      "actual_outcome": "The mechanism-specific prediction failed under both plausible HR-GLDD orders. Candidate-index input does not beat raw edges, index-modulated F1 is lower than plain weighting, and its boundary effect changes sign by order. External transfer remains unconfirmed; LRD is failed/indeterminate.",
+      "prediction_held": false,
+      "scored_at": "2026-09-14T19:15:00Z",
+      "why_missed": "The framing assumed native PlanetScope BGRN array semantics without tracing the released NumPy representation, omitted generic same-class controls, treated tiles as independent, and never challenged the apparent gain on fresh events.",
+      "greatness_reassessed_after_miss": true,
+      "lesson": "A complete-system improvement and a plausible physical story cannot substitute for same-class controls, array-specific provenance, or fresh-event confirmation."
+    }
+  },
+  "venue_calibration": {
+    "venue": "Remote Sensing Letters",
+    "checked_at": "2026-09-14T16:05:00Z",
+    "papers": [
+      {
+        "title": "Landslide extraction using a novel empirical method and binary semantic segmentation U-NET framework using Sentinel-2 imagery",
+        "year": "2024",
+        "url": "https://doi.org/10.1080/2150704X.2024.2320178",
+        "doi": "10.1080/2150704X.2024.2320178",
+        "their_contribution": "Empirical landslide extraction compared with U-Net on Sentinel-2 imagery.",
+        "how_this_compares": "Our revised work evaluates which spectral-edge and boundary-weight components actually cause an apparent segmentation gain."
+      },
+      {
+        "title": "SAEENet: a semantic adaptive edge enhancement network for remote sensing image semantic segmentation",
+        "year": "2025",
+        "url": "https://doi.org/10.1080/2150704X.2025.2536240",
+        "doi": "10.1080/2150704X.2025.2536240",
+        "their_contribution": "Edge-enhanced remote-sensing semantic segmentation.",
+        "how_this_compares": "SAEENet establishes generic edge guidance as a direct neighbour; our raw-edge control tests whether NDVI adds information beyond that class."
+      },
+      {
+        "title": "Remote sensing water body extraction method based on weak information dynamic perception",
+        "year": "2026",
+        "url": "https://doi.org/10.1080/2150704X.2026.2720614",
+        "doi": "10.1080/2150704X.2026.2720614",
+        "their_contribution": "Gradient-sensitive masks and feature enhancement for weak optical boundaries.",
+        "how_this_compares": "Our boundary F1 and same-class controls determine whether boundary emphasis, rather than a domain-specific spectral story, is load-bearing."
+      }
+    ],
+    "exceeds_on": "A complete capacity- and weight-matched nine-arm control surface, exact validation-recall operating comparison, boundary-specific metric, deterministic data semantics, controlled same-sensor degradation, and explicit reporting of the mechanism-null result.",
+    "does_not_exceed_on": "HR-GLDD remains corrective and non-population-inferential; CAS is post hoc and LRD is not confirmation-grade after timing, validation, endpoint, and trigger-family audits."
+  },
+  "peer_greatness_match": {
+    "checked_at": "2026-09-04T09:35:00Z",
+    "peers": [
+      {
+        "title": "LCVPG-Net-Based Ground Fissure Segmentation in UAV Imagery of Mining Areas",
+        "year": "2025",
+        "doi": "10.1109/LGRS.2025.3623594",
+        "url": "https://doi.org/10.1109/LGRS.2025.3623594",
+        "their_greatness": "Sophisticated complex-valued phase graph modeling for fissure continuity.",
+        "decisive_gap": "Evaluated on a specialized local UAV dataset rather than a globally distributed multi-regional benchmark.",
+        "our_parity": {
+          "novelty_depth": "at_parity",
+          "evidence_depth": "exceeds",
+          "contribution_specific_core": "at_parity",
+          "generalization": "exceeds",
+          "practice_consequence": "exceeds",
+          "packaging_floor": "at_parity"
+        }
+      },
+      {
+        "title": "Flood Mapping Using Sentinel-1 Images and Lightweight U-Nets Trained on Synthesized Events",
+        "year": "2023",
+        "doi": "10.1109/LGRS.2023.3305936",
+        "url": "https://doi.org/10.1109/LGRS.2023.3305936",
+        "their_greatness": "Clean, highly efficient operational segmentation for rapid disaster response.",
+        "decisive_gap": "Trained on synthetic flood patches; our work evaluates 100% real multi-regional satellite imagery.",
+        "our_parity": {
+          "novelty_depth": "exceeds",
+          "evidence_depth": "exceeds",
+          "contribution_specific_core": "exceeds",
+          "generalization": "at_parity",
+          "practice_consequence": "exceeds",
+          "packaging_floor": "at_parity"
+        }
+      },
+      {
+        "title": "Sentinel-2 Active Fire Segmentation: Analyzing Convolutional and Transformer Architectures",
+        "year": "2024",
+        "doi": "10.1109/LGRS.2024.3443775",
+        "url": "https://doi.org/10.1109/LGRS.2024.3443775",
+        "their_greatness": "Thorough empirical comparison of modern convolutional and transformer backbones.",
+        "decisive_gap": "Benchmark comparison of existing architectures; does not propagate unresolved physical channel identity into signed mechanism-claim admissibility.",
+        "our_parity": {
+          "novelty_depth": "exceeds",
+          "evidence_depth": "at_parity",
+          "contribution_specific_core": "exceeds",
+          "generalization": "at_parity",
+          "practice_consequence": "at_parity",
+          "packaging_floor": "at_parity"
+        }
+      },
+      {
+        "title": "HR-GLDD: a globally distributed dataset using generalized deep learning for rapid landslide mapping",
+        "year": "2023",
+        "doi": "10.5194/essd-15-3283-2023",
+        "url": "https://doi.org/10.5194/essd-15-3283-2023",
+        "their_greatness": "Created and released the authoritative global high-resolution landslide benchmark.",
+        "decisive_gap": "Dataset paper that names bands but does not bind released NumPy positions; the current study audits that ambiguity and its mechanism consequences.",
+        "our_parity": {
+          "novelty_depth": "at_parity",
+          "evidence_depth": "at_parity",
+          "contribution_specific_core": "exceeds",
+          "generalization": "at_parity",
+          "practice_consequence": "exceeds",
+          "packaging_floor": "at_parity"
+        }
+      }
+    ],
+    "overall_vs_peer_set": "at_parity-contested",
+    "why_at_parity_or_better": "The study provides an unusually reproducible semantic and transfer audit, but the identified-set primitive is established, all external tests are non-confirmatory, and no efficacy or population-generalization claim survives.",
+    "adversarial_reviewer": {
+      "isolated_from_authoring_pass": true,
+      "presumption": "below",
+      "overall_vs_peer_set": "at_parity",
+      "strongest_reason_below": "The remote-sensing contribution may be judged an incremental dataset-specific application of established identified-set logic; verified external non-confirmations improve rigor but not efficacy or generalization.",
+      "checked_at": "2026-09-15T21:55:31Z"
+    },
+    "readiness_rescore": null
+  },
+  "novelty_class": "incremental",
+  "novelty_not_merely": "The finite identified-set primitive is established and explicitly conceded. The remaining delta is the HR-GLDD-specific physical-schema construction, matched reruns, and publicly bound claim audit; reviewers disagree on whether that clears beyond-incremental novelty.",
+  "great_under_refutation": {
+    "if_primary_hypothesis_fails": "The original physical spectral-mechanism hypothesis is refuted; the surviving paper reports which directions are identifiable under ambiguous band semantics and why three external analyses do not establish transfer.",
+    "still_valuable_because": "The complete controlled audit, semantic certificate, public failure chronology, and verified non-confirmations expose claim limits that aggregate benchmark scores conceal.",
+    "win_conditions_still_met": [
+      "Complete three-seed dual-schema evaluation on the official HR-GLDD split without independence claims",
+      "Public, independently verified CAS/LRD/Sen12 stress-test failures with prohibited overclaims recorded"
+    ]
+  },
+  "anti_goals": [
+    "Using synthetic data as primary evidence",
+    "Evaluating on random pixel splits that leak spatial autocorrelation",
+    "Claiming real-time operational deployment without testing on held-out geographic regions",
+    "Failing to report multi-seed between-run uncertainty"
+  ],
+  "venue_change_log": [
+    {
+      "at": "2026-09-14T15:45:00Z",
+      "from": "IEEE Geoscience and Remote Sensing Letters",
+      "to": "Remote Sensing Letters",
+      "direction": "lateral",
+      "human_approval": "User requested a venue with stronger fit, higher acceptance probability, zero mandatory charges, and Scopus indexing.",
+      "evidence": {
+        "fit": "RSL explicitly admits remote-sensing image processing, applications, and methodological/commentary material that strengthens the subject; the corrected paper is a controlled evaluation/negative characterization rather than a novel mechanism Letter.",
+        "acceptance": "Taylor & Francis reports a current official 38% RSL acceptance rate. GRSL's current rate is undisclosed; a first-party 2018 editorial reported roughly 25%, so current numerical superiority remains uncertain and will not be overstated.",
+        "charges": "No APC when the subscription route is selected.",
+        "indexing": "Scopus indexed, Q2 by the journal's current metrics page.",
+        "source": "https://www.tandfonline.com/journals/trsl20/about-this-journal"
+      }
+    }
+  ]
+}

@@ -16,6 +16,8 @@ unidentified.
 The Git tag is a minimal runnable release. The complete scientific tree is the
 source-snapshot tarball listed under the release's Assets; the companion Git
 bundle exposes its two-stage source history.
+The claim, result, artifact, citation, run, and tree ledgers are also included
+directly in the runnable Git tag under `evidence/` and `experiments/`.
 
 CAS is a post-hoc designated-region sensitivity analysis and carries no
 confirmation credit. The LRD experiment was internally precommitted before

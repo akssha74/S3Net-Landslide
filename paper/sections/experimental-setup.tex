@@ -11,7 +11,7 @@ The official test set had also been inspected during earlier method development.
 
 The residual-attention surface crosses zero, raw-edge, and candidate-index controls with base and plain boundary-weighted losses; one additional index arm uses equal-mass index-modulated weighting. U-Net and ResU-Net bring the total to nine configurations. We train all nine with three seeds under both RGBN and BGRN candidates (54 runs).
 
-All arms use AdamW with learning rate $1.5\times10^{-3}$, weight decay $10^{-4}$, cosine decay to $10^{-5}$, batch size 32, and 15 epochs. Validation F1 selects the epoch. Seeds 42, 43, and 44 use identical schedules and deterministic data-loader seeds. Probabilities are stored as float32 arrays; an independent script recomputes the reported default-threshold metrics without importing the training or reporting functions.
+All arms use AdamW \citep{loshchilov2019adamw} with learning rate $1.5\times10^{-3}$, weight decay $10^{-4}$, cosine decay to $10^{-5}$, batch size 32, and 15 epochs. Validation F1 selects the epoch. Seeds 42, 43, and 44 use identical schedules and deterministic data-loader seeds. Probabilities are stored as float32 arrays; an independent script recomputes the reported default-threshold metrics without importing the training or reporting functions.
 
 \subsection{Post-hoc CAS sensitivity}
 
