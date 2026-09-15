@@ -14,8 +14,8 @@ four signed contrasts and marks each direction positive, negative, or
 unidentified.
 
 The Git tag is a minimal runnable release. The complete scientific tree is the
-`hrgldd-v50-source-<commit>.tar.gz` asset attached to the release; the companion
-Git bundle exposes its two-stage source history.
+source-snapshot tarball listed under the release's Assets; the companion Git
+bundle exposes its two-stage source history.
 
 CAS is a post-hoc designated-region sensitivity analysis and carries no
 confirmation credit. The LRD experiment was internally precommitted before

@@ -7,7 +7,7 @@ U-Net and residual-block U-Net architectures provide standard segmentation basel
 
 \subsection{Spectral and edge guidance}
 
-NDVI is defined from Red and NIR reflectance and can reduce a shared multiplicative illumination factor under an idealized model \citep{matsushita2007sensitivity}. Soares et al. report NDVI-assisted cross-location balance \citep{soares2022generalization}, while TriGEFNet reports an NDVI-guided benefit \citep{trigefnet2026}. Spectral indices have also been combined directly with edge extraction \citep{zhang2023boosting}, while feature selection can exclude engineered features \citep{ahmad2026sequential}. SAEENet and weak-boundary extraction add generic boundary guidance \citep{wang2025saeenet,wang2026water}. Li et al. deliberately permute six known HLS bands to test foundation-model adaptability \citep{li2025bandadaptability}; we instead retain unresolved released-array identity and test attribution with zero, raw, and equal-mass controls.
+NDVI is defined from Red and NIR reflectance and can reduce a shared multiplicative illumination factor under an idealized model \citep{matsushita2007sensitivity}, while TriGEFNet reports an NDVI-guided benefit \citep{trigefnet2026}. Spectral indices have also been combined directly with edge extraction \citep{zhang2023boosting}. SAEENet and weak-boundary extraction add generic boundary guidance \citep{wang2025saeenet,wang2026water}. Li et al. deliberately permute six known HLS bands to test foundation-model adaptability \citep{li2025bandadaptability}; we instead retain unresolved released-array identity and test attribution with zero, raw, and equal-mass controls.
 
 \subsection{Finite sensitivity and identified sets}
 
@@ -15,4 +15,4 @@ Multiverse analysis propagates reasonable coding choices \citep{steegen2016multi
 
 \subsection{Boundary weighting and evaluation}
 
-Pixel-wise boundary emphasis predates this application in U-Net \citep{ronneberger2015unet}. We do not claim the first boundary-aware landslide method. Our domain contribution reports which attribution directions survive every metadata-consistent schema, using dual-order and equal-mass same-class controls.
+Pixel-wise boundary emphasis predates this application in U-Net \citep{ronneberger2015unet}. LSL-SS-Net uses a landslide-specific level-set loss, while E-MSLDNet reports edge-aware CAS segmentation with boundary metrics \citep{yang2024lslssnet,zhao2025emsldnet}. We do not propose another boundary architecture or loss; we test whether index-specific attribution survives plain-boundary same-class control and unresolved physical schema.

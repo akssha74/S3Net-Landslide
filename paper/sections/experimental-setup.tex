@@ -15,11 +15,11 @@ All arms use AdamW \citep{loshchilov2019adamw} with learning rate $1.5\times10^{
 
 \subsection{Post-hoc CAS sensitivity}
 
-We ran an RGB sensitivity analysis on eight CAS subdatasets \citep{xu2024cas}: four development, one validation, and three designated evaluation regions. The executed code limits each development region to 80 source tiles and each validation/evaluation region to 160, partitioned into 16 non-overlapping crops per tile. The same zero-control model uses base or plain boundary loss across three seeds with hashed sampling and validation-only thresholds. The only surviving protocol was corrected and committed after execution, so this is a post-hoc sensitivity analysis, not independently verifiable evidence of prospective specification, preregistration, or untouched confirmation. Supplementary Method~S1 gives details and deviations.
+We compare base and plain-boundary loss for the same RGB zero-control model on designated CAS regions \citep{xu2024cas}. The protocol was corrected after execution, so this is post-hoc sensitivity without confirmation credit; Supplementary Method~S1 gives sampling and deviations.
 
 \subsection{Internally precommitted LRD stress test}
 
-LRD provides 28 EIDs with named Sentinel-2 bands \citep{orynbaikyzy2025lrd}. Before validation or protected optical access, we locally committed a 16/6/6 EID split, code, crop rule, outcomes, and criteria; no public third-party pre-access timestamp exists. Each EID contributes at most 64 coordinate-hashed POST1 RGB crops. Six base-versus-plain-boundary runs use the same architecture, seeds, budget, and validation grid; checkpoints and thresholds were hashed before protected fetch. A post-hoc family audit later found that development PH0003 and protected PH0001/PH0004 share one trigger family. Supplementary Method~S2 gives the protocol and diagnostic limitations.
+LRD supplies named Sentinel-2 bands and 28 EIDs \citep{orynbaikyzy2025lrd}. A local 16/6/6 protocol preceded validation/protected access, but no third-party timestamp exists and PH0003 shares a trigger family with protected PH0001/PH0004. Supplementary Method~S2 gives the frozen design and limitations.
 
 \subsection{Interpretation rules}
 
