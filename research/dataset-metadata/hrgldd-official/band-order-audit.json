@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "status": "unresolved-two-candidate-order-sensitivity-required",
+  "status": "rgbn-supported-bgrn-conservative-sensitivity",
   "array_artifact": "HR-GLDD Zenodo record 7189381 NumPy X arrays",
   "fixed_semantics": {
     "green_index": 1,
@@ -120,5 +120,5 @@
     }
   },
   "statistical_limitation": "Channel means are descriptive and cannot identify wavelengths without land-cover or calibration references.",
-  "decision": "Do not declare either order authoritative. Execute and report both candidate-order analyses; retain only order-robust claims."
+  "decision": "Record RGBN as the better-supported release interpretation and BGRN as a lower-support native-product sensitivity. Retain only directions that survive both, without describing the candidates as equally evidenced."
 }

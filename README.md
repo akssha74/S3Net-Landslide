@@ -4,14 +4,14 @@ This is the corrected implementation and result release for:
 
 **Semantic Identifiability under Band-Order Ambiguity in PlanetScope Landslide Segmentation**
 
-The released HR-GLDD arrays do not authoritatively identify columns 0 and 2 as
-Red or Blue. The complete nine-configuration, three-seed analysis is therefore
-run under both RGBN and BGRN candidates. Index-input specificity fails under
-both orders; plain boundary weighting improves every HR-GLDD comparison, while
-the boundary effect of index modulation changes sign across orders. A generated
-semantic-identifiability certificate propagates both admissible schemas into
-four signed contrasts and marks each direction positive, negative, or
-unidentified.
+The HR-GLDD paper and notebook give RGBN stronger release-internal support, but
+released array-construction/reordering provenance is absent. The complete
+nine-configuration, three-seed analysis therefore retains native-product BGRN
+as a lower-support conservative sensitivity, not an equally documented mapping.
+Index-input specificity fails under both candidates; plain boundary weighting
+improves every comparison, while index-modulated boundary direction changes
+sign. A generated certificate propagates this evidentially asymmetric audit set
+into four signed contrasts.
 
 The Git tag is a minimal runnable release. The complete scientific tree is the
 source-snapshot tarball listed under the release's Assets; the companion Git

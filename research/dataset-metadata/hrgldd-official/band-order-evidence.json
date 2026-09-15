@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "dataset": "HR-GLDD Zenodo record 7189381",
-  "conclusion": "The released NumPy column order is not authoritatively established; RGBN and BGRN remain plausible candidates.",
+  "conclusion": "RGBN has stronger release-internal support from the paper's band listing and notebook display. BGRN is retained only as a conservative native-product sensitivity because no released array-construction or reordering provenance binds physical bands to NumPy indices; the mappings are not equally supported.",
   "official_repository": "https://github.com/kushanavbhuyan/HR-GLDD-A-Global-Landslide-Mapping-Data-Repository",
   "repository_commit": "e164986c5cd9292b76655788c68f46bf460dfb65",
   "notebook_path": "Codes/Unet_v1.ipynb",
@@ -24,5 +24,5 @@
   "array_construction_code_available": false,
   "native_product_caveat": "Native four-band PlanetScope products use BGRN. A conversion to RGBN is possible, but no released construction or reordering code proves that it occurred.",
   "independent_audit": "research/dataset-metadata/hrgldd-official/band-order-audit.json",
-  "scientific_consequence": "Do not declare one order authoritative. Evaluate both candidate orders and retain only conclusions that are stable across them."
+  "scientific_consequence": "Use RGBN as the better-supported release interpretation, retain BGRN as a lower-support conservative sensitivity, and report whether conclusions survive both without assigning equal plausibility."
 }

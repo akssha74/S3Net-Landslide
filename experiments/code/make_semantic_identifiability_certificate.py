@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Certify which mechanism-effect directions survive admissible schemas."""
+"""Certify directions surviving an evidentially asymmetric mapping audit."""
 
 from __future__ import annotations
 
@@ -88,7 +88,7 @@ def main() -> None:
             input_effect(bgrn),
             (
                 "The candidate index is not superior to the same-capacity raw "
-                "edge control under either admissible schema."
+                "edge control under either declared candidate mapping."
             ),
         ),
         certificate(
@@ -97,8 +97,8 @@ def main() -> None:
             modulation_effect(rgbn, "mean_f1_points"),
             modulation_effect(bgrn, "mean_f1_points"),
             (
-                "Index modulation is inferior on mean F1 under both admissible "
-                "schemas."
+                "Index modulation is inferior on mean F1 under both declared "
+                "candidate mappings."
             ),
         ),
         certificate(
@@ -123,7 +123,7 @@ def main() -> None:
             rgbn_boundary_mean,
             bgrn_boundary_mean,
             (
-                "The generic boundary effect is positive under both schemas "
+                "The generic boundary effect is positive under both mappings "
                 "and in all 18 individual comparisons."
             ),
             individual_effect_envelope_points=[
@@ -143,17 +143,22 @@ def main() -> None:
         "schema_version": 1,
         "name": "semantic-identifiability certificate",
         "definition": (
-            "For admissible metadata-consistent schemas O and a signed "
-            "contrast delta(o), the semantic envelope is "
+            "For a declared finite candidate-mapping audit set O and a signed "
+            "contrast delta(o), the envelope is "
             "[min_o delta(o), max_o delta(o)]. Effect direction is identified "
             "only when this interval excludes zero."
         ),
         "admissible_schemas": ["RGBN", "BGRN"],
         "schema_basis": (
-            "The released arrays do not authoritatively bind visible columns "
-            "0 and 2; the official display and native product order support "
-            "the two candidates."
+            "The paper band listing and official display give RGBN stronger "
+            "release-internal support. BGRN is retained as a lower-support "
+            "native-product sensitivity because array-construction/reordering "
+            "provenance is absent; equal plausibility is not assigned."
         ),
+        "candidate_evidence_hierarchy": {
+            "RGBN": "better-supported release interpretation",
+            "BGRN": "lower-support conservative native-product sensitivity",
+        },
         "source_artifact": str(SOURCE.relative_to(STUDY)),
         "source_sha256": sha256(SOURCE),
         "contrasts": contrasts,
@@ -161,8 +166,9 @@ def main() -> None:
             row["contrast_id"]: row["direction_status"] for row in contrasts
         },
         "scope": (
-            "Finite sensitivity certificate for the stated candidate schemas; "
-            "not a population interval or proof that no other schema exists."
+            "Finite sensitivity certificate for two evidentially asymmetric "
+            "candidate mappings; not a population interval, equal-plausibility "
+            "claim, or proof that the set is exhaustive."
         ),
     }
     OUTPUT.write_text(json.dumps(output, indent=2) + "\n")

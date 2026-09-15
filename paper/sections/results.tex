@@ -5,9 +5,8 @@
 
 \begin{table}[htbp]
 \centering
-\caption{Three-seed mean performance under both plausible HR-GLDD orders.
-BF1 is boundary F1 with one-pixel Chebyshev tolerance. Neither order is
-declared authoritative.}
+\caption{Three-seed means under release-supported RGBN and conservative
+native-order BGRN sensitivity. BF1 uses one-pixel Chebyshev tolerance.}
 \label{tab:controlled}
 \input{tables/tab_band_order_sensitivity.tex}
 \end{table}
@@ -33,7 +32,8 @@ order-stable result is generic boundary emphasis, not spectral identity.
 
 The index-input-versus-raw F1 envelope is $[-0.21,-0.01]$ points and the
 index-versus-plain-loss F1 envelope $[-0.41,-0.33]$, identifying negative
-directions over the two admissible schemas. The corresponding boundary-F1
+directions over the two declared candidates without assigning equal
+plausibility. The corresponding boundary-F1
 envelope $[-0.05,+0.38]$ crosses zero and is direction-unidentified. Generic
 plain-boundary F1 has envelope $[+0.96,+1.13]$; all 18 individual effects lie
 between $+0.42$ and $+1.62$ points. Supplementary Table~S5 is the generated

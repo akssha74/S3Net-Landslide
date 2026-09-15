@@ -97,7 +97,8 @@ def main() -> None:
             {
                 "claim_id": "C-r036-semantic-identifiability",
                 "claim": (
-                    "Across the two metadata-consistent HR-GLDD schemas, "
+                    "Across release-supported RGBN and conservative "
+                    "native-order BGRN sensitivity, "
                     "index-input-versus-raw F1 has envelope [-0.21,-0.01] "
                     "points, equal-mass index-versus-plain F1 "
                     "[-0.41,-0.33], index-versus-plain boundary F1 "
@@ -147,14 +148,14 @@ def main() -> None:
                 "claim_id": "C-r037-word-count",
                 "claim": (
                     "The Pandoc token count over abstract through conclusion "
-                    "is 2,795 under the printed exclusion scope."
+                    "is 2,780 under the printed exclusion scope."
                 ),
                 "status": "verified",
                 "analysis_command": (
                     "/opt/homebrew/bin/python3.10 "
                     "experiments/code/count_manuscript_words.py"
                 ),
-                "run_ids": ["R071-cycle27-word-count"],
+                "run_ids": ["R074-cycle28-word-count"],
                 "source_artifacts": [
                     {
                         "path": str(WORD_COUNT.relative_to(STUDY)),
@@ -345,9 +346,9 @@ def main() -> None:
             "confirmatory": False,
             "exploratory": True,
             "hypothesis": (
-                "Propagating every metadata-consistent schema into signed "
-                "mechanism contrasts distinguishes schema-invariant directions "
-                "from a zero-crossing unidentified direction."
+                "Propagating the evidentially asymmetric RGBN/BGRN audit set "
+                "into signed mechanism contrasts distinguishes mapping-robust "
+                "directions from a zero-crossing direction."
             ),
             "commands": [row["command"] for row in new_runs],
             "artifacts": [

@@ -7,7 +7,14 @@ U-Net and residual-block U-Net architectures provide standard segmentation basel
 
 \subsection{Spectral and edge guidance}
 
-NDVI is defined from Red and NIR reflectance and can reduce a shared multiplicative illumination factor under an idealized model \citep{matsushita2007sensitivity}, while TriGEFNet reports an NDVI-guided benefit \citep{trigefnet2026}. Spectral indices have also been combined directly with edge extraction \citep{zhang2023boosting}, and SAEENet adds generic boundary guidance \citep{wang2025saeenet}. Li et al. deliberately permute six known HLS bands to test foundation-model adaptability \citep{li2025bandadaptability}; we instead retain unresolved released-array identity and test attribution with zero, raw, and equal-mass controls.
+NDVI is a Red/NIR ratio, so a shared multiplicative term cancels algebraically;
+real mountain illumination still produces documented topographic sensitivity
+\citep{matsushita2007sensitivity}. TriGEFNet reports an NDVI-guided benefit
+\citep{trigefnet2026}; spectral indices have also been combined with edge
+extraction \citep{zhang2023boosting}, and SAEENet adds generic boundary guidance
+\citep{wang2025saeenet}. Li et al. permute known HLS bands to test adaptability
+\citep{li2025bandadaptability}; we instead audit unresolved released-array
+provenance with zero, raw, and equal-mass controls.
 
 \subsection{Finite sensitivity and identified sets}
 

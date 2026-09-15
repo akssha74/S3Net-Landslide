@@ -3,7 +3,7 @@
 
 \subsection{Band semantics and spectral controls}
 
-Let $\mathbf{X}\in\mathbb{R}^{B\times4\times H\times W}$ denote the released HR-GLDD arrays. Green and NIR occupy columns 1 and 3 under both plausible orders; Red is column 0 under RGBN and column 2 under native-product BGRN. The paper names the selected bands but not their NumPy positions, while the official notebook directly displays columns 0--2 as RGB without exposing array construction. We therefore run the full matrix for each candidate order $o\in\{\mathrm{RGBN},\mathrm{BGRN}\}$ and define the candidate normalized-difference index
+Let $\mathbf{X}\in\mathbb{R}^{B\times4\times H\times W}$ denote the released HR-GLDD arrays. The paper lists Red, Green, Blue, and NIR, and the notebook directly displays columns 0--2 as RGB; RGBN therefore has stronger release-internal support. Neither source binds names to NumPy indices through array-construction or reordering code. We retain native-product BGRN as a lower-support conservative sensitivity, not an equally documented mapping. Green/NIR occupy columns 1/3 in both; Red is column 0 under RGBN and 2 under BGRN. For $o\in\{\mathrm{RGBN},\mathrm{BGRN}\}$, define
 \begin{equation}
 V_o=\frac{X_{\mathrm{NIR}}-X_{\mathrm{Red}(o)}}
         {X_{\mathrm{NIR}}+X_{\mathrm{Red}(o)}+10^{-6}}.
@@ -18,7 +18,7 @@ The zero control preserves attention parameters while removing external spectral
 
 \subsection{Semantic-identifiability certificate}
 
-Let $\mathcal{O}$ be the finite set of metadata-consistent schemas and
+Let $\mathcal{O}$ be the finite audit set of declared candidate mappings and
 $\delta(o)$ a signed contrast under schema $o$. We define its semantic envelope
 \begin{equation}
 \mathcal{E}_{\delta}=
@@ -27,9 +27,9 @@ $\delta(o)$ a signed contrast under schema $o$. We define its semantic envelope
 \end{equation}
 The effect direction is semantically identified only when
 $0\notin\mathcal{E}_{\delta}$; otherwise it is direction-unidentified. Here
-$\mathcal{O}=\{\mathrm{RGBN},\mathrm{BGRN}\}$. This is a finite schema
-sensitivity certificate over descriptive means, not a confidence interval or
-a claim that no unlisted schema exists.
+$\mathcal{O}=\{\mathrm{RGBN},\mathrm{BGRN}\}$. This conservative sensitivity
+certificate neither assigns equal plausibility nor claims that BGRN is
+release-documented; it is not a confidence interval or an exhaustive schema set.
 
 \subsection{Capacity-matched residual attention}
 

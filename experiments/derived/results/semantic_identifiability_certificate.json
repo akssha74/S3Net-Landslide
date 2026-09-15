@@ -1,12 +1,16 @@
 {
   "schema_version": 1,
   "name": "semantic-identifiability certificate",
-  "definition": "For admissible metadata-consistent schemas O and a signed contrast delta(o), the semantic envelope is [min_o delta(o), max_o delta(o)]. Effect direction is identified only when this interval excludes zero.",
+  "definition": "For a declared finite candidate-mapping audit set O and a signed contrast delta(o), the envelope is [min_o delta(o), max_o delta(o)]. Effect direction is identified only when this interval excludes zero.",
   "admissible_schemas": [
     "RGBN",
     "BGRN"
   ],
-  "schema_basis": "The released arrays do not authoritatively bind visible columns 0 and 2; the official display and native product order support the two candidates.",
+  "schema_basis": "The paper band listing and official display give RGBN stronger release-internal support. BGRN is retained as a lower-support native-product sensitivity because array-construction/reordering provenance is absent; equal plausibility is not assigned.",
+  "candidate_evidence_hierarchy": {
+    "RGBN": "better-supported release interpretation",
+    "BGRN": "lower-support conservative native-product sensitivity"
+  },
   "source_artifact": "experiments/derived/results/band_order_sensitivity.json",
   "source_sha256": "21f94efc1ba8f368d4f7445bd788852331ab7f8c30052b997951101320bf9052",
   "contrasts": [
@@ -22,7 +26,7 @@
         -0.010715106525094331
       ],
       "direction_status": "negative-identified",
-      "interpretation": "The candidate index is not superior to the same-capacity raw edge control under either admissible schema."
+      "interpretation": "The candidate index is not superior to the same-capacity raw edge control under either declared candidate mapping."
     },
     {
       "contrast_id": "index-modulation-vs-plain-f1",
@@ -36,7 +40,7 @@
         -0.3316432779656653
       ],
       "direction_status": "negative-identified",
-      "interpretation": "Index modulation is inferior on mean F1 under both admissible schemas."
+      "interpretation": "Index modulation is inferior on mean F1 under both declared candidate mappings."
     },
     {
       "contrast_id": "index-modulation-vs-plain-boundary-f1",
@@ -64,7 +68,7 @@
         1.1266796516317976
       ],
       "direction_status": "positive-identified",
-      "interpretation": "The generic boundary effect is positive under both schemas and in all 18 individual comparisons.",
+      "interpretation": "The generic boundary effect is positive under both mappings and in all 18 individual comparisons.",
       "individual_effect_envelope_points": [
         0.4248429844361912,
         1.6176962818440943
@@ -79,5 +83,5 @@
     "index-modulation-vs-plain-boundary-f1": "direction-unidentified",
     "plain-boundary-vs-base-f1": "positive-identified"
   },
-  "scope": "Finite sensitivity certificate for the stated candidate schemas; not a population interval or proof that no other schema exists."
+  "scope": "Finite sensitivity certificate for two evidentially asymmetric candidate mappings; not a population interval, equal-plausibility claim, or proof that the set is exhaustive."
 }
