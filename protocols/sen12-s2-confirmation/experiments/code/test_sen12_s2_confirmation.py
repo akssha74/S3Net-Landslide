@@ -109,6 +109,34 @@ def main() -> None:
         raise AssertionError("incomplete fit matrix was accepted")
     except RuntimeError:
         pass
+    saved_probability = np.array([0.25], dtype=np.float32)
+    reproduced_probability = saved_probability.copy()
+    for _ in range(3):
+        reproduced_probability = np.nextafter(
+            reproduced_probability, np.float32(1.0)
+        )
+    reproduction = confirmation.verify_float32_prediction_reproduction(
+        saved_probability, reproduced_probability
+    )
+    assert reproduction["maximum_prediction_ulp"] == 3
+    outside_tolerance = saved_probability + np.float32(1e-5)
+    try:
+        confirmation.verify_float32_prediction_reproduction(
+            saved_probability, outside_tolerance
+        )
+        raise AssertionError("out-of-tolerance reproduction error was accepted")
+    except RuntimeError:
+        pass
+    below = np.nextafter(
+        np.array([0.5], dtype=np.float32), np.float32(0.0)
+    )
+    try:
+        confirmation.verify_float32_prediction_reproduction(
+            below, np.array([0.5], dtype=np.float32)
+        )
+        raise AssertionError("changed threshold classification was accepted")
+    except RuntimeError:
+        pass
     with tempfile.TemporaryDirectory() as temporary:
         path = Path(temporary) / "sentinel_s2_1.nc"
         shape = (2, 4, 4)

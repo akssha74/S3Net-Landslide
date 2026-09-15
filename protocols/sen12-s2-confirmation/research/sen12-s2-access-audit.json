@@ -72,6 +72,8 @@
     "first_access_version": 3,
     "v3_fit_gate": "failed: 21 China-held-out validation F1 values ranged from 0.0216 to 0.0520 against an every-run 0.25 floor",
     "v4_development_use": "deterministic mixed-inventory calibration split selected after disclosed development-only exploration",
+    "v4_fit_gate": "scientific floors passed, but the pre-authorization absolute 1e-7 checkpoint-reproduction tolerance failed on 15 runs with maximum absolute errors 1.19e-7 to 1.79e-7 (up to 24 local float32 ULPs) and identical classifications/F1",
+    "v4_authorized": false,
     "confirmation_credit": false
   },
   "current_campaign_protected_access": {
@@ -86,5 +88,5 @@
     "Some event dates were NDVI-assisted; a predeclared high-confidence-date sensitivity is required.",
     "The supplied random patch split is invalid for event/site inference and will not be used."
   ],
-  "status": "ten-inventory-protected-set-available-pending-v4-public-lock"
+  "status": "ten-inventory-protected-set-available-pending-v5-public-lock"
 }

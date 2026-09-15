@@ -2,7 +2,7 @@
 
 ## Status and purpose
 
-This corrected version-4 protocol is frozen before any Sentinel-2 NetCDF from
+This corrected version-5 protocol is frozen before any Sentinel-2 NetCDF from
 the ten protected inventories is extracted or opened. It tests whether the HR-GLDD mechanism
 conclusions recur with authoritative named bands and inventory-level evaluation.
 It does not test HR-GLDD's physical band order.
@@ -25,7 +25,18 @@ cross-inventory fit gate then failed: all 21 `china`-held-out F1 values were
 any above 0.0791. Version 3 was stopped without authorization or protected
 access. Development-only mixed-inventory exploration subsequently found
 individual F1 0.2123--0.3290 and arm-level seed means 0.2662--0.3166. Version 4
-uses that disclosed calibration design and supersedes versions 1--3.
+used that disclosed calibration design and was publicly sealed at commit
+`f2f12a7989027ff9daca182be9b125546eb671df`. Its final fit passed both
+development floors. Before authorization, independent re-inference found
+maximum absolute probability differences of `1.19e-7`--`1.79e-7` in 15 of 21
+runs; exact bit-level checking later showed up to 24 local float32 ULPs.
+Classifications and F1 were identical, but the frozen absolute tolerance of
+`1e-7` rejected them.
+Version 4 was stopped without authorization or protected access. Version 5
+replaces only that numerical reproducibility criterion with NumPy `allclose`
+using absolute tolerance `2*float32_eps`, relative tolerance `1e-6`, and exact
+threshold-classification identity, uses pristine v5 output paths, and supersedes
+versions 1--4.
 
 During version-2 remediation, the upstream task file exposed inventory
 membership counts and one protected-file `pixel_annotated` example. These values
@@ -101,6 +112,9 @@ before protected extraction. Protected access is forbidden unless:
 
 - every arm/seed has validation F1 at least 0.20 and every arm's three-seed mean
   validation F1 is at least 0.25;
+- each saved validation probability array is reproduced from its checkpoint
+  under `allclose(atol=2*float32_eps, rtol=1e-6)` and yields an exactly
+  identical threshold-0.5 classification array;
 - all checkpoints and fit decisions have SHA-256 identities;
 - the member index, official task membership, pinned Sen12 requirements, recorded
   runtime versions, model, loss, semantic-loader, preparation, execution, and

@@ -1,2 +1,0 @@
-{"train": 464, "validation": 113, "validation_by_inventory": {"chimanimani": 56, "china": 12, "dominicamaria": 45}}
-{"selected_epoch": 8, "validation_f1": 0.29711627906976745}

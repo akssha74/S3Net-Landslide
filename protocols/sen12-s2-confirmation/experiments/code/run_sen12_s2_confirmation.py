@@ -34,8 +34,8 @@ from revised_models import ControlledPixelLoss, ControlledS3Net
 
 STUDY = Path(__file__).resolve().parents[2]
 DATA = STUDY / "experiments/raw/external/sen12-s2"
-OUTPUT = STUDY / "experiments/derived/results/sen12_s2_confirmation_v4"
-CHECKPOINTS = STUDY / "experiments/derived/checkpoints/sen12_s2_confirmation_v4"
+OUTPUT = STUDY / "experiments/derived/results/sen12_s2_confirmation_v5"
+CHECKPOINTS = STUDY / "experiments/derived/checkpoints/sen12_s2_confirmation_v5"
 METADATA = STUDY / "research/dataset-metadata/sen12-s2-confirmation"
 MEMBER_INDEX = METADATA / "member_index.json"
 PROTOCOL = STUDY / "research/sen12-s2-confirmation-protocol.md"
@@ -49,7 +49,7 @@ PUBLIC_REPOSITORY = "akssha74/S3Net-Landslide"
 PUBLIC_PROTOCOL_PREFIX = "protocols/sen12-s2-confirmation"
 PUBLIC_AUTHORIZATION_PATH = (
     f"{PUBLIC_PROTOCOL_PREFIX}/experiments/derived/results/"
-    "sen12_s2_confirmation_v4/protected_access_authorization.json"
+    "sen12_s2_confirmation_v5/protected_access_authorization.json"
 )
 SEEDS = (42, 43, 44)
 EPOCHS = 15
@@ -72,6 +72,7 @@ SOURCE_ARTIFACTS = (
     "research/sen12-s2-confirmation-protocol.md",
     "research/sen12-s2-access-audit.json",
     "research/sen12-v3-fit-status.md",
+    "research/sen12-v4-fit-status.md",
     "research/dataset-metadata/sen12-s2-confirmation/archive_manifest.json",
     (
         "research/dataset-metadata/sen12-s2-confirmation/"
@@ -87,9 +88,11 @@ SOURCE_ARTIFACTS = (
     "experiments/code/revised_models.py",
     "experiments/code/data_semantics.py",
     "experiments/derived/results/sen12_s2_confirmation/fit_decisions.json",
+    "experiments/derived/results/sen12_s2_confirmation_v4/fit_decisions.json",
     "experiments/derived/results/sen12_v3_threshold_diagnostic.json",
     "experiments/derived/results/sen12_v4_development_exploration.json",
     "experiments/derived/results/sen12_v4_mixed_matrix_exploration.json",
+    "experiments/logs/R055-sen12-v5-numeric-recheck.log",
     "environment/requirements-sen12.txt",
 )
 
@@ -712,6 +715,51 @@ def validate_fit_matrix(runs: list[dict[str, Any]]) -> None:
         raise RuntimeError("fit does not contain the exact 21 arm-seed pairs")
 
 
+def verify_float32_prediction_reproduction(
+    saved: np.ndarray, inferred: np.ndarray
+) -> dict[str, Any]:
+    if (
+        saved.dtype != np.float32
+        or inferred.dtype != np.float32
+        or saved.shape != inferred.shape
+    ):
+        raise RuntimeError("checkpoint predictions are not matching float32 arrays")
+    saved_bits = np.ascontiguousarray(saved).view(np.uint32).astype(np.int64)
+    inferred_bits = (
+        np.ascontiguousarray(inferred).view(np.uint32).astype(np.int64)
+    )
+    maximum_ulp = int(np.max(np.abs(saved_bits - inferred_bits)))
+    classifications_equal = bool(
+        np.array_equal(saved >= THRESHOLD, inferred >= THRESHOLD)
+    )
+    maximum_absolute_error = float(np.max(np.abs(inferred - saved)))
+    absolute_tolerance = float(2 * np.finfo(np.float32).eps)
+    relative_tolerance = 1e-6
+    numerically_close = bool(
+        np.allclose(
+            saved,
+            inferred,
+            atol=absolute_tolerance,
+            rtol=relative_tolerance,
+        )
+    )
+    if not numerically_close or not classifications_equal:
+        raise RuntimeError(
+            "checkpoint/prediction reproduction mismatch: "
+            f"max_ulp={maximum_ulp}, "
+            f"maximum_absolute_error={maximum_absolute_error}, "
+            f"classifications_equal={classifications_equal}"
+        )
+    return {
+        "maximum_prediction_ulp": maximum_ulp,
+        "maximum_absolute_error": maximum_absolute_error,
+        "absolute_tolerance": absolute_tolerance,
+        "relative_tolerance": relative_tolerance,
+        "numerically_close": numerically_close,
+        "threshold_classifications_identical": classifications_equal,
+    }
+
+
 def validate_fit_for_authorization(
     fit_payload: dict[str, Any],
 ) -> dict[str, Any]:
@@ -794,20 +842,15 @@ def validate_fit_for_authorization(
         state = torch.load(checkpoint_path, map_location=DEVICE, weights_only=True)
         model.load_state_dict(state)
         inferred_probabilities = infer(model, validation_x)
-        maximum_prediction_error = float(
-            np.max(np.abs(inferred_probabilities - saved_probabilities))
+        reproduction = verify_float32_prediction_reproduction(
+            saved_probabilities, inferred_probabilities
         )
-        if maximum_prediction_error > 1e-7:
-            raise RuntimeError(
-                f"{arm} seed {seed}: checkpoint/prediction mismatch "
-                f"{maximum_prediction_error}"
-            )
         records.append(
             {
                 "arm": arm,
                 "seed": seed,
                 "recomputed_validation_f1": recomputed_f1,
-                "maximum_checkpoint_prediction_error": maximum_prediction_error,
+                **reproduction,
                 "passes_individual_floor": (
                     recomputed_f1 >= INDIVIDUAL_VALIDATION_FLOOR
                 ),
