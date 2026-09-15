@@ -1,9 +1,9 @@
 {
   "schema_version": 1,
-  "source_repository": "akssha74/S3Net-Landslide",
-  "source_scientific_commit": "0f40d1ac03f40d168035f66aa63a67c6f02d0f95",
+  "source_repository": "akssha74/paper-activities",
+  "source_scientific_commit": "acf760bdbfd2890acdb24eb5519f617a4ec2f14a",
   "source_origin_repository": "akssha74/paper-activities",
-  "source_origin_commit": "75a5b574b7413f7b88356477c0416b46caae0293",
+  "source_origin_commit": "acf760bdbfd2890acdb24eb5519f617a4ec2f14a",
   "study": "studies/disaster-hrgldd-landslide",
   "files": [
     {
@@ -96,7 +96,7 @@
     },
     {
       "path": "experiments/code/register_r036_certificate.py",
-      "sha256": "687ecc06f40b9a4de05736c60337fb6dda176db9097550f1d5968bbbe067106a"
+      "sha256": "3d43a915a437da6e9e94ae6303a0b11a69607456872f290064bb43c1330e3dfb"
     },
     {
       "path": "experiments/code/revised_models.py",
@@ -168,7 +168,7 @@
     },
     {
       "path": "experiments/derived/results/manuscript_word_count.json",
-      "sha256": "bff71860d445e671c3c6c48e3607f5bff5792f8bbfac134ecb8d82328df9babc"
+      "sha256": "7177163c962eff37f4e4fabff4cdc2a5550a9df246014b955b4d52a2381b310a"
     },
     {
       "path": "experiments/derived/results/reviewer_remediation/mechanism_contrasts.json",
@@ -343,6 +343,10 @@
       "sha256": "79027c9d1ee608f096b09e2bbc0bd7db2c81c6de1a254feca15499d67620daf5"
     },
     {
+      "path": "experiments/logs/R041-cycle25-presentation-word-count.log",
+      "sha256": "206bbbcd94313f6771249c86107501f9ec7da8307e0e79d325f5990e6710f751"
+    },
+    {
       "path": "paper/figures/fig_false_positive_atlas.pdf",
       "sha256": "e714b29bfa7102d27bce53f027ef8a00715e2a4d9a81e17474acd48e067ba52f"
     },
@@ -352,11 +356,11 @@
     },
     {
       "path": "paper/main.pdf",
-      "sha256": "5b23abfac068978a23c07a09314c5e309973b616e6fea88ec131719b8579dfac"
+      "sha256": "9593ce5fa984b373e33b9b0be0a98287bd3091bcc272845b8b551498cdcc7a6a"
     },
     {
       "path": "paper/main.tex",
-      "sha256": "f0fd948b44f15952c4703191c86971dc46e4cbc05a163d16c4fa5e772d7663ae"
+      "sha256": "e42740d45556b42896c7c8fc3e8190d257014c9606223c0b9dee6d7ae32196ba"
     },
     {
       "path": "paper/references.bib",
@@ -396,15 +400,15 @@
     },
     {
       "path": "paper/sections/results.tex",
-      "sha256": "7912e6cbec2bf4dab7cd83535348a6b777d1bb5715c8c2a80ca5784866c3b0a2"
+      "sha256": "bf9cf7e01ea15dace5380bc65cc8e2aa6dde8ebb26b89f00be099d4867c6b3ed"
     },
     {
       "path": "paper/supplement.pdf",
-      "sha256": "c51f0f65c4c4cbbd029cb18a6f8c3588f17c34bdc97173834d076d808598159a"
+      "sha256": "d2489cc9935bdbe44a9bebc0d58d9554eef24b914a5d67750bfb5276cc66eb04"
     },
     {
       "path": "paper/supplement.tex",
-      "sha256": "5e1d2d1025563107a1588eee93a664637f6a0cc41aadd92e53922974e57ea0e2"
+      "sha256": "9f08a9bcb579216a1b8f1a716563391c07964f2d8e2256f3732c06a155322f97"
     },
     {
       "path": "paper/tables/tab_band_order_sensitivity.tex",

@@ -147,14 +147,14 @@ def main() -> None:
                 "claim_id": "C-r037-word-count",
                 "claim": (
                     "The Pandoc token count over abstract through conclusion "
-                    "is 2,780 under the printed exclusion scope."
+                    "is 2,788 under the printed exclusion scope."
                 ),
                 "status": "verified",
                 "analysis_command": (
                     "/opt/homebrew/bin/python3.10 "
                     "experiments/code/count_manuscript_words.py"
                 ),
-                "run_ids": ["R040-cycle24-union-word-count"],
+                "run_ids": ["R041-cycle25-presentation-word-count"],
                 "source_artifacts": [
                     {
                         "path": str(WORD_COUNT.relative_to(STUDY)),
@@ -254,6 +254,22 @@ def main() -> None:
             "rewritten_by": "R040-cycle24-union-word-count",
         }
     ]
+    superseded_union_run = run_record(
+        "R040-cycle24-union-word-count",
+        "Generate the word count before cycle-25 presentation repairs.",
+        (
+            "/opt/homebrew/bin/python3.10 "
+            "experiments/code/count_manuscript_words.py"
+        ),
+        "experiments/logs/R040-cycle24-union-word-count.log",
+        [],
+    )
+    superseded_union_run["superseded_outputs"] = [
+        {
+            "path": "experiments/derived/results/manuscript_word_count.json",
+            "rewritten_by": "R041-cycle25-presentation-word-count",
+        }
+    ]
     new_runs = [
         run_record(
             "R036-semantic-identifiability-certificate",
@@ -285,14 +301,15 @@ def main() -> None:
         superseded_word_run,
         superseded_scope_run,
         superseded_cycle24_run,
+        superseded_union_run,
         run_record(
-            "R040-cycle24-union-word-count",
-            "Regenerate the scope-correct count after the cycle-24 union.",
+            "R041-cycle25-presentation-word-count",
+            "Regenerate the count after cycle-25 presentation repairs.",
             (
                 "/opt/homebrew/bin/python3.10 "
                 "experiments/code/count_manuscript_words.py"
             ),
-            "experiments/logs/R040-cycle24-union-word-count.log",
+            "experiments/logs/R041-cycle25-presentation-word-count.log",
             ["experiments/derived/results/manuscript_word_count.json"],
         ),
     ]
@@ -307,6 +324,7 @@ def main() -> None:
             "R038-scope-correct-word-count",
             "R039-cycle24-word-count",
             "R040-cycle24-union-word-count",
+            "R041-cycle25-presentation-word-count",
         }
     ]
     runs.extend(new_runs)

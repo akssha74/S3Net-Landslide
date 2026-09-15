@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "count": 2780,
+  "count": 2788,
   "scope": "abstract through conclusion; excludes table/figure environments, displayed equations, references, and declarations",
   "source_files": [
     "sections/abstract.tex",
