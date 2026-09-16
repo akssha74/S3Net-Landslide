@@ -39,26 +39,26 @@ def main() -> None:
         for row in summary["absolute_performance"].values()
     ]
     overlaps = len(summary["cross_inventory_spatial_overlaps"])
-    text = rf"""\begin{{tabular}}{{@{{}}p{{0.25\textwidth}}p{{0.24\textwidth}}p{{0.31\textwidth}}c@{{}}}}
+    text = rf"""\begin{{tabular}}{{@{{}}p{{0.22\textwidth}}p{{0.22\textwidth}}p{{0.36\textwidth}}c@{{}}}}
 \toprule
 Condition & Estimate & Registered requirement & Result \\
 \midrule
-NDVI attention minus raw edge F1 &
+Index attention -- raw F1 &
 {estimate(contrasts["ndvi_attention_vs_raw_edge_f1"])} &
-95\% upper endpoint $<+1.00$ pt & Fail \\
-NDVI-modulated minus plain-boundary F1 &
+Upper 95\% bound $<+1.00$ pt & Fail \\
+Index modulation -- plain F1 &
 {estimate(contrasts["ndvi_modulated_vs_plain_f1"])} &
-95\% upper endpoint $<+1.00$ pt & Pass \\
-Generic plain-boundary F1 &
+Upper 95\% bound $<+1.00$ pt & Pass \\
+Plain-boundary F1 &
 {estimate(generic)}; {positive}/10 positive &
-All control means $>0$; pooled lower endpoint $>0$; at least 8/10 positive &
+All control means $>0$; pooled lower bound $>0$; positive in at least 8/10 &
 Fail \\
-Absolute transfer &
+Absolute F1 &
 Arm means ${100 * min(arm_means):.2f}$--${100 * max(arm_means):.2f}\%$ F1 &
 Every arm mean at least $10\%$ F1 & Fail \\
-Registered spatial integrity &
-{overlaps} EPSG:4326 transformed-envelope overlap &
-Zero cross-inventory envelope overlaps & Fail \\
+Spatial integrity &
+{overlaps} transformed-envelope intersection &
+Zero cross-inventory intersections & Fail \\
 \bottomrule
 \end{{tabular}}
 """

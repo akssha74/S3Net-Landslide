@@ -71,10 +71,7 @@
     "table_cells_verified": 36
   },
   "ledger_graph": {
-    "artifacts": 8,
-    "claims": 14,
-    "references": 139,
-    "runs": 58
+    "status": "pass"
   },
   "runtime": "python-standard-library-only",
   "schema_version": 1,
@@ -102,14 +99,14 @@
       "ndvi_modulated_vs_plain_boundary_f1": {
         "interval": [
           -0.005297134542070158,
-          0.003420296066009608
+          0.0034202960660096086
         ],
         "inventories": 10,
         "mean": -0.0004258962419223892
       },
       "ndvi_modulated_vs_plain_f1": {
         "interval": [
-          -0.00412200780194908,
+          -0.004122007801949079,
           0.002608620567435417
         ],
         "inventories": 10,
@@ -118,20 +115,23 @@
     },
     "generic_boundary_average": {
       "interval": [
-        -0.0009220388324916989,
+        -0.0009220388324916997,
         0.01315247068042745
       ],
       "mean": 0.0060794800215704225,
       "positive_inventories": 5
     },
-    "protected_cells_verified": 420
+    "protected_boundary_f1_cells_recomputed": 210,
+    "protected_cells_verified": 420,
+    "protected_f1_cells_recomputed": 210
   },
   "source_artifacts": {
     "experiments/derived/results/cas_boundary_confirmation/cas_boundary_confirmation_summary.json": "c71298d02f40928852a99128e6f964ccf946b2701ba029d3b94b34e5389f46dd",
     "experiments/derived/results/lrd_boundary_confirmation/endpoint_sensitivity.json": "0422b1d2f539eb2dfe80ef09b304aa046bac2cbe6ca1c889800af5b328fa93cd",
     "experiments/derived/results/reviewer_remediation/reviewer_remediation_summary.json": "7bdb39ff462992e408788f9acd2fa3a77c8bd94874fa98bd76cf37a95a4ff01c",
     "experiments/derived/results/reviewer_remediation_bgrn/reviewer_remediation_summary.json": "3f801aee816738cd0173f23431565b059c8ca490e3b79736bede327f7732fe5e",
-    "experiments/derived/results/sen12_s2_confirmation_v5/sen12_s2_confirmation_summary.json": "35a26208788362b55ef5c62074aa6b1fc25b3a6f5948d6a30f74bbf6b54c232a"
+    "experiments/derived/results/sen12_s2_confirmation_v5/sen12_s2_confirmation_summary.json": "35a26208788362b55ef5c62074aa6b1fc25b3a6f5948d6a30f74bbf6b54c232a",
+    "research/dataset-metadata/sen12-s2-confirmation/protected_extraction_manifest.json": "cc8dfe60b6e6abb89fb6182e3de51238679d9e19ebd2cba85862f03d2f6f88e6"
   },
   "status": "pass"
 }

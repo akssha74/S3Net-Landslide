@@ -1,0 +1,1 @@
+{"bootstrap_series": 4, "draws_per_series": 10000, "output": "experiments/derived/results/public_claim_sufficient_statistics.json", "sha256": "10d471d2c63036df0e2f4208b8e275f0a9c0930938ac0e59b1931745571d0080", "status": "pass"}

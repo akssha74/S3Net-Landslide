@@ -1,0 +1,1 @@
+{"expected_verifier_outcome": "non-zero", "mutation": {"arm": "s3_ndvi_base", "delta": 0.25, "field": "boundary_f1_per_patch[0]", "inventory": "hiroshima", "seed": "42"}, "status": "pass"}

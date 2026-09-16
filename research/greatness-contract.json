@@ -190,9 +190,10 @@
         "measured_agreement": "Correlates (r ~ 0.62) with bare ground but introduces heavy false positives on dry riverbeds, bare soil, and roads."
       }
     ],
-    "verdict": "refuted-for-current-claim",
+    "verdict": "collision",
     "why_distinct": "This original mechanism interpretation was not supported after matched raw-edge, zero-input, and equal-mass controls plus dual-order reruns.",
-    "status": "superseded-refuted",
+    "status": "kill",
+    "current_state": false,
     "superseded_by": [
       "C-r020-order-robust-controls",
       "C-r036-semantic-identifiability"
@@ -209,7 +210,8 @@
       "unresolved physical channel identity",
       "optimization variation"
     ],
-    "status": "superseded-refuted",
+    "status": "kill",
+    "current_state": false,
     "superseded_by": [
       "C-r020-spectral-loss-order-instability",
       "C-r070-sen12-not-confirmed"
@@ -219,12 +221,13 @@
     "checked_at": "2026-09-04T09:35:00Z",
     "metric": "F1-score of binary landslide segmentation",
     "attainable_range": "[0.00, 1.00]",
-    "n_independent_clusters": null,
+    "n_independent_clusters": 1,
     "interval_construction": "Original tile-independence proposal withdrawn; event/scene identifiers are unavailable.",
     "measured_coverage_at_n_clusters": 0.95,
-    "power_at_locked_floor": null,
+    "power_at_locked_floor": 0.0,
     "locked_floor_inside_attainable_range": true,
-    "status": "superseded-refuted",
+    "status": "kill",
+    "current_state": false,
     "superseded_by": [
       "C-r010-scope"
     ]
@@ -237,7 +240,12 @@
     "recoverable_gap": 0.16,
     "claimed_effect_floor": 0.03,
     "headroom_multiple": 5.33,
-    "status": "pass"
+    "status": "kill",
+    "current_state": false,
+    "superseded_by": [
+      "C-r020-order-robust-controls",
+      "C-r070-sen12-not-confirmed"
+    ]
   },
   "kill_mode_defusal": [
     {

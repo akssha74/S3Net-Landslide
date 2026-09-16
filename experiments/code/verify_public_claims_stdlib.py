@@ -3,6 +3,7 @@
 
 from __future__ import annotations
 
+import base64
 import hashlib
 import json
 import math
@@ -40,6 +41,26 @@ def quantile(sorted_values: list[float], q: float) -> float:
         sorted_values[lower] * (1.0 - weight)
         + sorted_values[upper] * weight
     )
+
+
+def bootstrap_interval(
+    values: dict[str, float], record: dict
+) -> list[float]:
+    order = record["population_order"]
+    population = [float(values[key]) for key in order]
+    draw_count = int(record["draw_count"])
+    width = int(record["draw_width"])
+    raw = base64.b64decode(record["indices_uint8_base64"])
+    assert len(raw) == draw_count * width
+    draws = []
+    for offset in range(0, len(raw), width):
+        indices = raw[offset : offset + width]
+        assert all(index < len(population) for index in indices)
+        draws.append(
+            statistics.fmean(population[index] for index in indices)
+        )
+    draws.sort()
+    return [quantile(draws, 0.025), quantile(draws, 0.975)]
 
 
 def grouped_runs(payload: dict) -> dict[str, list[dict]]:
@@ -329,6 +350,33 @@ def verify_sen12(sufficient: dict) -> dict:
         (row["arm"], int(row["seed"])): row for row in sen12["runs"]
     }
     inventories = sorted(sen12["inventories"])
+    f1_cells = 0
+    boundary_f1_cells = 0
+    boundary_records = sufficient["sen12_boundary_f1_per_patch"]
+    for run in sen12["runs"]:
+        arm = run["arm"]
+        seed = str(run["seed"])
+        for inventory, reported in run["protected"].items():
+            counts = reported["confusion_counts"]
+            f1 = (
+                2
+                * counts["tp"]
+                / (
+                    2 * counts["tp"]
+                    + counts["fp"]
+                    + counts["fn"]
+                    + 1e-12
+                )
+            )
+            assert close(f1, reported["f1"])
+            f1_cells += 1
+            scores = boundary_records[arm][seed][inventory]
+            assert len(scores) == reported["n"]
+            assert close(
+                statistics.fmean(float(value) for value in scores),
+                reported["boundary_f1"],
+            )
+            boundary_f1_cells += 1
 
     def per_inventory(treatment: str, control: str, metric: str) -> dict[str, float]:
         return {
@@ -347,8 +395,9 @@ def verify_sen12(sufficient: dict) -> dict:
             assert close(value, row["per_inventory"][inventory])
         mean = statistics.fmean(values.values())
         assert close(mean, row["mean"])
-        draws = sufficient["sen12_bootstrap"][name]["draws_sorted"]
-        interval = [quantile(draws, 0.025), quantile(draws, 0.975)]
+        interval = bootstrap_interval(
+            values, sufficient["sen12_bootstrap"][name]
+        )
         assert all(close(a, b) for a, b in zip(interval, row["interval"]))
         recomputed[name] = {
             "mean": mean,
@@ -374,13 +423,10 @@ def verify_sen12(sufficient: dict) -> dict:
         assert close(value, pooled["per_inventory"][inventory])
     generic_mean = statistics.fmean(generic_average.values())
     assert close(generic_mean, pooled["mean"])
-    generic_draws = sufficient["sen12_bootstrap"]["generic_boundary_average"][
-        "draws_sorted"
-    ]
-    generic_interval = [
-        quantile(generic_draws, 0.025),
-        quantile(generic_draws, 0.975),
-    ]
+    generic_interval = bootstrap_interval(
+        generic_average,
+        sufficient["sen12_bootstrap"]["generic_boundary_average"],
+    )
     assert all(close(a, b) for a, b in zip(generic_interval, pooled["interval"]))
 
     absolute_f1 = {}
@@ -433,9 +479,9 @@ def verify_sen12(sufficient: dict) -> dict:
             max(absolute_f1.values()),
         ],
         "conditions": conditions,
-        "protected_cells_verified": (
-            len(sen12["runs"]) * len(inventories) * 2
-        ),
+        "protected_f1_cells_recomputed": f1_cells,
+        "protected_boundary_f1_cells_recomputed": boundary_f1_cells,
+        "protected_cells_verified": f1_cells + boundary_f1_cells,
     }
 
 
@@ -484,7 +530,12 @@ def verify_ledger_graph() -> dict:
         if row.get("status") != "succeeded":
             continue
         # Exclude this verifier's own row to avoid a self-hash cycle.
-        if row.get("run_id") == "R084-public-claims-ledger-verification":
+        if row.get("run_id") in {
+            "R084-public-claims-ledger-verification",
+            "R086-observation-level-stdlib-verification",
+            "R088-final-public-claims-verification",
+            "R090-sealed-public-claims-verification",
+        }:
             continue
         counts["runs"] += 1
         references = [
@@ -508,12 +559,13 @@ def main() -> None:
     sufficient = json.loads(SUFFICIENT.read_text())
     for relative, expected in sufficient["source_artifacts"].items():
         assert sha256(STUDY / relative) == expected, relative
+    ledger_counts = verify_ledger_graph()
     result = {
         "schema_version": 1,
         "status": "pass",
         "runtime": "python-standard-library-only",
         "source_artifacts": sufficient["source_artifacts"],
-        "ledger_graph": verify_ledger_graph(),
+        "ledger_graph": {"status": "pass"},
         "hrgldd": verify_hrgldd(),
         "external": verify_cas_lrd(),
         "sen12": verify_sen12(sufficient),
@@ -526,7 +578,7 @@ def main() -> None:
                 "output": str(OUTPUT.relative_to(STUDY)),
                 "sha256": sha256(OUTPUT),
                 "hrgldd_table_cells": result["hrgldd"]["table_cells_verified"],
-                "ledger_references": result["ledger_graph"]["references"],
+                "ledger_references": ledger_counts["references"],
                 "sen12_protected_cells": result["sen12"][
                     "protected_cells_verified"
                 ],
