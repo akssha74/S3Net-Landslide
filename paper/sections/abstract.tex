@@ -1,1 +1,13 @@
-Released HR-GLDD NumPy arrays lack authoritative channel-axis metadata. The paper's Red--Green--Blue--NIR listing and notebook display give RGBN stronger release-internal support; native PlanetScope BGRN is retained only as a conservative sensitivity because array-construction/reordering provenance is absent. We apply a finite candidate-mapping certificate: contrast direction is retained only when the RGBN/BGRN envelope excludes zero. Complete runs give index-input-versus-raw F1 envelope $[-0.21,-0.01]$ points and equal-mass index-versus-plain F1 envelope $[-0.41,-0.33]$, but boundary F1 $[-0.05,+0.38]$ crosses zero. Generic boundary weighting remains positive, $[+0.96,+1.13]$, with all 18 effects positive. CAS and LRD do not confirm transfer. A publicly locked Sen12Landslides test satisfies only one of five conditions: arm F1 is $1.21$--$3.14\%$, and a conservative transformed-envelope check fails despite zero native positive-area overlap. Sen12 provides no support for recurrence, but neither refutes the mechanism nor licenses ten-unit inference. HR-GLDD remains descriptive because event and coordinate identities are absent.
+Released HR-GLDD NumPy arrays do not state their channel order. The paper's
+Red--Green--Blue--NIR listing and notebook display support RGBN more strongly,
+but missing array-construction records leave native PlanetScope BGRN as a
+conservative sensitivity. For each contrast, we therefore report the range
+across both mappings and retain its direction only when that range excludes
+zero. Index-input-minus-raw and equal-mass-index-minus-plain F1 remain negative:
+$[-0.21,-0.01]$ and $[-0.41,-0.33]$ points. The boundary-F1 range
+$[-0.05,+0.38]$ crosses zero. Generic boundary weighting remains positive,
+$[+0.96,+1.13]$, in all 18 comparisons. CAS and LRD do not confirm transfer.
+A publicly locked Sen12Landslides test passes only its
+NDVI-attention-minus-raw-edge condition; all arm means are $1.21$--$3.14\%$
+F1. Sen12 provides no support for recurrence and does not refute the mechanism.
+HR-GLDD remains descriptive because event and coordinate identities are absent.

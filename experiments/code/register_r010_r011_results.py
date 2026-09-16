@@ -123,16 +123,17 @@ def main() -> None:
             {
                 "claim_id": "C-r010-array-semantics",
                 "claim": (
-                    "HR-GLDD fixes Green and NIR at columns 1 and 3, but released "
-                    "metadata do not authoritatively distinguish RGBN from native "
-                    "PlanetScope BGRN for columns 0 and 2; both require evaluation."
+                    "HR-GLDD fixes Green and NIR at columns 1 and 3. The paper "
+                    "and notebook support RGBN more strongly, while absent "
+                    "array-construction/reordering provenance requires retaining "
+                    "native PlanetScope BGRN as a conservative sensitivity."
                 ),
                 "status": "verified",
                 "analysis_command": (
                     "/opt/homebrew/bin/python3.10 "
-                    "experiments/code/audit_hrgldd_band_order.py"
+                    "experiments/code/verify_hrgldd_semantic_provenance.py"
                 ),
-                "run_ids": ["R019-band-order-ambiguity-audit"],
+                "run_ids": ["R075-semantic-provenance-refresh"],
                 "source_artifacts": [
                     {
                         "path": (

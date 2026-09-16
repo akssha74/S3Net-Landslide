@@ -127,15 +127,17 @@ def main() -> None:
             {
                 "claim_id": "C-r020-band-order-ambiguity",
                 "claim": (
-                    "Released HR-GLDD metadata do not authoritatively distinguish "
-                    "RGBN from BGRN; both candidate orders are evaluated."
+                    "RGBN is the better-supported HR-GLDD release interpretation; "
+                    "BGRN is evaluated as a lower-support conservative sensitivity "
+                    "because no released construction record authoritatively binds "
+                    "columns 0 and 2."
                 ),
                 "status": "verified",
                 "analysis_command": (
                     "/opt/homebrew/bin/python3.10 "
-                    "experiments/code/audit_hrgldd_band_order.py"
+                    "experiments/code/verify_hrgldd_semantic_provenance.py"
                 ),
-                "run_ids": ["R019-band-order-ambiguity-audit"],
+                "run_ids": ["R075-semantic-provenance-refresh"],
                 "source_artifacts": [
                     {
                         "path": (

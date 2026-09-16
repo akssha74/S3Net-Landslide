@@ -1,9 +1,9 @@
 {
   "schema_version": 1,
-  "source_repository": "akssha74/S3Net-Landslide",
-  "source_scientific_commit": "bd00edbda783a59589f6566f530c8a9264aa9032",
+  "source_repository": "akssha74/paper-activities",
+  "source_scientific_commit": "3ad11a4dd40d23e44290fe55c77485451c3d89c3",
   "source_origin_repository": "akssha74/paper-activities",
-  "source_origin_commit": "a4cdd1d338d532d23d14dd817c2b2afab2ee415e",
+  "source_origin_commit": "3ad11a4dd40d23e44290fe55c77485451c3d89c3",
   "study": "studies/disaster-hrgldd-landslide",
   "files": [
     {
@@ -12,7 +12,7 @@
     },
     {
       "path": "README.md",
-      "sha256": "8eb0d5619db757786de8f2c7a1f81feead5cacc6e273be42a3edfc66db230250"
+      "sha256": "21e26f3d45a1fb54a9737fba198ec5a171ac3b0407896ba8637878abd253b3e9"
     },
     {
       "path": "environment/README.md",
@@ -72,11 +72,11 @@
     },
     {
       "path": "evidence/citation-ledger.jsonl",
-      "sha256": "df52457b272915d72c451f112128555b4e29fb4f848cc05c361ce8ef869d5c9b"
+      "sha256": "9799d7f3c29eca97c7009e8d97be3c5c112a93a13020f195e3f8389fe86a3dd8"
     },
     {
       "path": "evidence/claim-ledger.jsonl",
-      "sha256": "2c961282be89e7510e1a93685f65d542d130cbff0fd17ae1b10f5b603773d4b9"
+      "sha256": "bb8af61af056635b7d622fe23cfa9963af12bc0b3377f33f5c94b3ed81b3d215"
     },
     {
       "path": "evidence/result-registry.jsonl",
@@ -176,15 +176,15 @@
     },
     {
       "path": "experiments/code/register_r010_r011_results.py",
-      "sha256": "a264f20e97e099a5c42b83fc651ff33cb61783a586d9df6f8e8579620270efae"
+      "sha256": "aa70f55ecd14d6b43ca24697450815b0c8d3ac9612ac2dda7a416488d0955d52"
     },
     {
       "path": "experiments/code/register_r020_r027_results.py",
-      "sha256": "0761a37ac7bd749f3bd7757245e7adbea52d824ee95a1fd72a7531a08065939d"
+      "sha256": "400b4f97c5ebb29a10d82924009a8dcb851f843df11cc85a7f79641ae3bc139a"
     },
     {
       "path": "experiments/code/register_r036_certificate.py",
-      "sha256": "ca214c0acaf419cb82ea3a264c504a3aef5536cc3ecd03fed033c1b67b83599b"
+      "sha256": "39cff5b13949bbc8b782416463067856d8d5fd46e20401a3af53b86df7012222"
     },
     {
       "path": "experiments/code/revised_models.py",
@@ -231,6 +231,10 @@
       "sha256": "ab8153eebac638f170869c4a0162de2c169f31925bcc7d868fbc00926d00d8ff"
     },
     {
+      "path": "experiments/code/verify_hrgldd_semantic_provenance.py",
+      "sha256": "525cca0eb437204dbbc8bd86be9fba2aff7d87a7107a42bc383de4d0b7d4737d"
+    },
+    {
       "path": "experiments/derived/results/band_order_sensitivity.json",
       "sha256": "21f94efc1ba8f368d4f7445bd788852331ab7f8c30052b997951101320bf9052"
     },
@@ -264,7 +268,7 @@
     },
     {
       "path": "experiments/derived/results/manuscript_word_count.json",
-      "sha256": "bff71860d445e671c3c6c48e3607f5bff5792f8bbfac134ecb8d82328df9babc"
+      "sha256": "79bf02960096c79304132c5b71a9871622da93cab11496cf5b764abcb1d9f6e3"
     },
     {
       "path": "experiments/derived/results/reviewer_remediation/mechanism_contrasts.json",
@@ -507,12 +511,28 @@
       "sha256": "6a298a9fff32b9c0e4b1a6deb3045f698c813af7776a6e93775b36c77b17f2e6"
     },
     {
+      "path": "experiments/logs/R073-cycle28-certificate-framing.log",
+      "sha256": "6dfdea067690a57441a71f296eaac63720c62aab162dbc04c1082d7a780a8214"
+    },
+    {
+      "path": "experiments/logs/R074-cycle28-word-count.log",
+      "sha256": "79027c9d1ee608f096b09e2bbc0bd7db2c81c6de1a254feca15499d67620daf5"
+    },
+    {
+      "path": "experiments/logs/R075-semantic-provenance-refresh.log",
+      "sha256": "7220a0346fc68e97d4ba8efda6f4354fa644c25e77a05f6ce58ddfe82444dffb"
+    },
+    {
+      "path": "experiments/logs/R076-cycle29-word-count.log",
+      "sha256": "ebf95db5f67cb46874e8ccc47bb243bf5769b53a95aaf19dccbcd178695a8594"
+    },
+    {
       "path": "experiments/run-ledger.jsonl",
-      "sha256": "353b16a8df42b1a9624b7a068324d410edd308a2431999764399ec9c3667d499"
+      "sha256": "c702c8954f1df8414440eeca9ba0cadefa07cd863c73327e95bb0d96336e6172"
     },
     {
       "path": "experiments/tree.jsonl",
-      "sha256": "86f938c9944639567129111d14ea9d14a08976b5cbea24d2392a21e8137391e9"
+      "sha256": "4a0a6799844fa3d9704fe2051bb3f11cb6a33ce8df68a644d1925c57255e673a"
     },
     {
       "path": "paper/figures/fig_false_positive_atlas.pdf",
@@ -524,19 +544,19 @@
     },
     {
       "path": "paper/main.pdf",
-      "sha256": "63ef9608670e75eb0f065bfe44df3935cd12b04728e9deb87a5b169707385362"
+      "sha256": "a1581a051ef20670f7c196a2762b7dc1a476275ec5dc438d33bb82468d89b6a5"
     },
     {
       "path": "paper/main.tex",
-      "sha256": "b0efb823061d0c7cabc62c6cde16e21fe50414e5cb83ad07c196aebbeb4c3e80"
+      "sha256": "3ec1e584e9fe16ce4d17675a6a1111535480e56250a918429be2618d9fa8e6d1"
     },
     {
       "path": "paper/references.bib",
-      "sha256": "3e6e7376d230503c77a9c60187aa9cd24f89ee3e136e9900c34869374f7807bd"
+      "sha256": "225f8a817c083b86b5e00bebf39a9614a62653bc4ca84f2993ac10668f9237d9"
     },
     {
       "path": "paper/sections/abstract.tex",
-      "sha256": "7123a3e1e1e888c75ea4a6c0a2bfc1cfffba9fee10f62b9dc5919c20f58b0f08"
+      "sha256": "cbcf246aac89885d1b94133e7a9d9e2bb5c5c2533ea51328357c0d1b61ed4af1"
     },
     {
       "path": "paper/sections/conclusion.tex",
@@ -564,15 +584,15 @@
     },
     {
       "path": "paper/sections/related-work.tex",
-      "sha256": "cbec3c70fe15b90437e1990952286ae2645b72bbeeec91333f97e470bc669541"
+      "sha256": "35edcb481c22b30d5096dc8f294e2ba2e3d4a91a6cfd19e7356b7b37a21218c5"
     },
     {
       "path": "paper/sections/results.tex",
-      "sha256": "014415e733b49664a90541a0d6a41c1ff365918ad729fad25de544681170d272"
+      "sha256": "45307134dc37596691e1622d35c3df63072f6b75460b2ec308540ba335810020"
     },
     {
       "path": "paper/supplement.pdf",
-      "sha256": "6a6c39dff4106d536ae62970d4724633c0b9526593d3f64d36f34599777eb7c9"
+      "sha256": "62d85aa378f6b2241c9ec71305923e1695fc2ddaab37ba6061b87488dafb59be"
     },
     {
       "path": "paper/supplement.tex",
@@ -824,7 +844,7 @@
     },
     {
       "path": "research/literature.jsonl",
-      "sha256": "09daf250506ec60502cf390f4030744e85f0295b98d677675b6de26eb179b143"
+      "sha256": "43a587427162e8fc559e93dfa3f877e07e8941dd586b4e59a99dc3424b436168"
     },
     {
       "path": "research/lrd-boundary-confirmation-preregistration.md",
