@@ -13,9 +13,9 @@ improves every comparison, while index-modulated boundary direction changes
 sign. A generated certificate propagates this evidentially asymmetric audit set
 into four signed contrasts.
 
-The Git tag is a minimal runnable release. The complete scientific tree is the
-source-snapshot tarball listed under the release's Assets; the companion Git
-bundle exposes its two-stage source history.
+The Git tag and source-snapshot tarball contain the same curated, claim-bearing
+runnable release; they do not mirror every research-development file tracked in
+the origin monorepo. The companion Git bundle exposes the public-release history.
 The claim, result, artifact, citation, run, and tree ledgers are also included
 directly in the runnable Git tag under `evidence/` and `experiments/`.
 
@@ -55,6 +55,7 @@ python experiments/code/make_band_order_sensitivity.py
 python experiments/code/make_semantic_identifiability_certificate.py
 python experiments/code/test_semantic_identifiability_certificate.py
 python experiments/code/verify_hrgldd_semantic_provenance.py
+python experiments/code/verify_manuscript_sen12_condition.py
 python experiments/code/count_manuscript_words.py
 python experiments/code/build_frozen_output_inventory.py
 ```

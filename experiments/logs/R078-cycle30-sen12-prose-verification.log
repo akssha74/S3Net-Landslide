@@ -1,0 +1,1 @@
+{"checked_files": ["paper/sections/abstract.tex", "paper/sections/results.tex"], "manuscript_label": "NDVI-modulated-minus-plain-boundary", "sole_passing_condition": "ndvi_modulated_vs_plain_upper_ci_below_1_point", "status": "pass"}

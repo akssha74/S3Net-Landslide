@@ -1,9 +1,9 @@
 {
   "schema_version": 1,
-  "source_repository": "akssha74/S3Net-Landslide",
-  "source_scientific_commit": "9361642209868df7ee04b99fa6ca8c83635d734c",
+  "source_repository": "akssha74/paper-activities",
+  "source_scientific_commit": "c597464b0acfd47644f755d6ca8f2786f16b0ffb",
   "source_origin_repository": "akssha74/paper-activities",
-  "source_origin_commit": "3ad11a4dd40d23e44290fe55c77485451c3d89c3",
+  "source_origin_commit": "c597464b0acfd47644f755d6ca8f2786f16b0ffb",
   "study": "studies/disaster-hrgldd-landslide",
   "files": [
     {
@@ -12,7 +12,7 @@
     },
     {
       "path": "README.md",
-      "sha256": "21e26f3d45a1fb54a9737fba198ec5a171ac3b0407896ba8637878abd253b3e9"
+      "sha256": "56aa5ee694f648c19972857786445e0bc293a9b6070bb67c820eef651c6a1f8f"
     },
     {
       "path": "environment/README.md",
@@ -76,7 +76,7 @@
     },
     {
       "path": "evidence/claim-ledger.jsonl",
-      "sha256": "bb8af61af056635b7d622fe23cfa9963af12bc0b3377f33f5c94b3ed81b3d215"
+      "sha256": "76a1b23993c8aaffe5213999f86d0ff7e99f86d58c3f7e9e4a913da08a78df9e"
     },
     {
       "path": "evidence/result-registry.jsonl",
@@ -184,7 +184,7 @@
     },
     {
       "path": "experiments/code/register_r036_certificate.py",
-      "sha256": "39cff5b13949bbc8b782416463067856d8d5fd46e20401a3af53b86df7012222"
+      "sha256": "02fc8d3c614a7645373fe03e7372a7eed3ffbda5ae89ca725c00bb2beab4def1"
     },
     {
       "path": "experiments/code/revised_models.py",
@@ -235,6 +235,10 @@
       "sha256": "525cca0eb437204dbbc8bd86be9fba2aff7d87a7107a42bc383de4d0b7d4737d"
     },
     {
+      "path": "experiments/code/verify_manuscript_sen12_condition.py",
+      "sha256": "9311bb5e618505066a743a37e5c6ffc58a23a7f975ef629671fbc516d538347c"
+    },
+    {
       "path": "experiments/derived/results/band_order_sensitivity.json",
       "sha256": "21f94efc1ba8f368d4f7445bd788852331ab7f8c30052b997951101320bf9052"
     },
@@ -268,7 +272,7 @@
     },
     {
       "path": "experiments/derived/results/manuscript_word_count.json",
-      "sha256": "79bf02960096c79304132c5b71a9871622da93cab11496cf5b764abcb1d9f6e3"
+      "sha256": "394fd498c82f13e5de2bc59abc900560da545b4063fcc7ddfbc0fa03851b2e51"
     },
     {
       "path": "experiments/derived/results/reviewer_remediation/mechanism_contrasts.json",
@@ -527,12 +531,20 @@
       "sha256": "ebf95db5f67cb46874e8ccc47bb243bf5769b53a95aaf19dccbcd178695a8594"
     },
     {
+      "path": "experiments/logs/R077-cycle30-word-count.log",
+      "sha256": "2a2d321b7a0a60b8731e9f9add48e35a43b91a782d9bd2f9728954c6f45236f7"
+    },
+    {
+      "path": "experiments/logs/R078-cycle30-sen12-prose-verification.log",
+      "sha256": "e015937fca229f5bd98519cb2b63b1e70dae9b92064c1115e51d9485359e3c98"
+    },
+    {
       "path": "experiments/run-ledger.jsonl",
-      "sha256": "c702c8954f1df8414440eeca9ba0cadefa07cd863c73327e95bb0d96336e6172"
+      "sha256": "c3ce677da880ac3f041fe9f582f6dff2ad9e20ad1945ed0bee334f84151d6e7e"
     },
     {
       "path": "experiments/tree.jsonl",
-      "sha256": "4a0a6799844fa3d9704fe2051bb3f11cb6a33ce8df68a644d1925c57255e673a"
+      "sha256": "44b357d3309f009277356827f963e03def0fad64fa254bdd543b77490e2833e8"
     },
     {
       "path": "paper/figures/fig_false_positive_atlas.pdf",
@@ -544,11 +556,11 @@
     },
     {
       "path": "paper/main.pdf",
-      "sha256": "a1581a051ef20670f7c196a2762b7dc1a476275ec5dc438d33bb82468d89b6a5"
+      "sha256": "622d4ac80619178735181eb84ae7016dda8e855301679e8e275c1efd2d5ef5c4"
     },
     {
       "path": "paper/main.tex",
-      "sha256": "3ec1e584e9fe16ce4d17675a6a1111535480e56250a918429be2618d9fa8e6d1"
+      "sha256": "552ec2f1dccdb37d28017735d24b601b544319747dd62dafe8ed9255aa150c4c"
     },
     {
       "path": "paper/references.bib",
@@ -556,7 +568,7 @@
     },
     {
       "path": "paper/sections/abstract.tex",
-      "sha256": "cbcf246aac89885d1b94133e7a9d9e2bb5c5c2533ea51328357c0d1b61ed4af1"
+      "sha256": "ad3f15bd4c27d4f3dc863c9ca6cbee0f182534849bf3d2ede13e88a2c649b2d5"
     },
     {
       "path": "paper/sections/conclusion.tex",
@@ -588,11 +600,11 @@
     },
     {
       "path": "paper/sections/results.tex",
-      "sha256": "45307134dc37596691e1622d35c3df63072f6b75460b2ec308540ba335810020"
+      "sha256": "5cc09784bf93d89ffdff2bbf1e113247ca95e7995ae5a72fb6c66f2b3f51958d"
     },
     {
       "path": "paper/supplement.pdf",
-      "sha256": "62d85aa378f6b2241c9ec71305923e1695fc2ddaab37ba6061b87488dafb59be"
+      "sha256": "4495dbe08be2ddb67af5cf3e43eb4bda4891b7cf26530608e080daf5c04871a9"
     },
     {
       "path": "paper/supplement.tex",
