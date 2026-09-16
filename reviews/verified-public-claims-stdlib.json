@@ -70,6 +70,12 @@
     },
     "table_cells_verified": 36
   },
+  "ledger_graph": {
+    "artifacts": 8,
+    "claims": 14,
+    "references": 139,
+    "runs": 58
+  },
   "runtime": "python-standard-library-only",
   "schema_version": 1,
   "sen12": {

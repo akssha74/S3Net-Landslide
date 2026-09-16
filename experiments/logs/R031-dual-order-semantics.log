@@ -1,0 +1,3 @@
+Wrote unresolved band-order audit to /Users/akshay.sharma/Projects/paper-activities/studies/disaster-hrgldd-landslide/research/dataset-metadata/hrgldd-official/band-order-audit.json
+PASS: explicit RGBN candidate order ('red', 'green', 'blue', 'nir'); indices R/G/B/N=(0, 1, 2, 3)
+PASS: explicit BGRN candidate order ('blue', 'green', 'red', 'nir'); indices R/G/B/N=(2, 1, 0, 3)

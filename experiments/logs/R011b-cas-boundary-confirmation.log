@@ -1,0 +1,4 @@
+device=mps; config_id=916ec7321afd7a8c
+base seed=42 epoch=1 loss=0.124327 val_f1=0.088341
+base seed=42 epoch=2 loss=0.090620 val_f1=0.112009
+base seed=42 epoch=3 loss=0.085776 val_f1=0.278328

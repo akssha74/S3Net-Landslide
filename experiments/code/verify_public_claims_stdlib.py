@@ -439,6 +439,71 @@ def verify_sen12(sufficient: dict) -> dict:
     }
 
 
+def verify_ledger_graph() -> dict:
+    counts = {"claims": 0, "artifacts": 0, "runs": 0, "references": 0}
+
+    claim_path = STUDY / "evidence/claim-ledger.jsonl"
+    for line_number, line in enumerate(claim_path.read_text().splitlines(), 1):
+        row = json.loads(line)
+        if row.get("status") != "verified":
+            continue
+        counts["claims"] += 1
+        for reference in row.get("source_artifacts", []):
+            path = STUDY / reference["path"]
+            assert path.is_file(), (claim_path, line_number, path)
+            assert sha256(path) == reference["sha256"], (
+                claim_path,
+                line_number,
+                path,
+            )
+            counts["references"] += 1
+
+    artifact_path = STUDY / "evidence/artifact-ledger.jsonl"
+    for line_number, line in enumerate(
+        artifact_path.read_text().splitlines(), 1
+    ):
+        row = json.loads(line)
+        counts["artifacts"] += 1
+        references = [
+            {"path": row["path"], "sha256": row["sha256"]},
+            *row.get("source_artifacts", []),
+        ]
+        for reference in references:
+            path = STUDY / reference["path"]
+            assert path.is_file(), (artifact_path, line_number, path)
+            assert sha256(path) == reference["sha256"], (
+                artifact_path,
+                line_number,
+                path,
+            )
+            counts["references"] += 1
+
+    run_path = STUDY / "experiments/run-ledger.jsonl"
+    for line_number, line in enumerate(run_path.read_text().splitlines(), 1):
+        row = json.loads(line)
+        if row.get("status") != "succeeded":
+            continue
+        # Exclude this verifier's own row to avoid a self-hash cycle.
+        if row.get("run_id") == "R084-public-claims-ledger-verification":
+            continue
+        counts["runs"] += 1
+        references = [
+            {"path": row["log_path"], "sha256": row["log_sha256"]},
+            *row.get("output_artifacts", []),
+        ]
+        for reference in references:
+            path = STUDY / reference["path"]
+            assert path.is_file(), (run_path, line_number, path)
+            assert sha256(path) == reference["sha256"], (
+                run_path,
+                line_number,
+                path,
+            )
+            counts["references"] += 1
+
+    return counts
+
+
 def main() -> None:
     sufficient = json.loads(SUFFICIENT.read_text())
     for relative, expected in sufficient["source_artifacts"].items():
@@ -448,6 +513,7 @@ def main() -> None:
         "status": "pass",
         "runtime": "python-standard-library-only",
         "source_artifacts": sufficient["source_artifacts"],
+        "ledger_graph": verify_ledger_graph(),
         "hrgldd": verify_hrgldd(),
         "external": verify_cas_lrd(),
         "sen12": verify_sen12(sufficient),
@@ -460,6 +526,7 @@ def main() -> None:
                 "output": str(OUTPUT.relative_to(STUDY)),
                 "sha256": sha256(OUTPUT),
                 "hrgldd_table_cells": result["hrgldd"]["table_cells_verified"],
+                "ledger_references": result["ledger_graph"]["references"],
                 "sen12_protected_cells": result["sen12"][
                     "protected_cells_verified"
                 ],
