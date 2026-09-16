@@ -56,6 +56,7 @@ python experiments/code/make_semantic_identifiability_certificate.py
 python experiments/code/test_semantic_identifiability_certificate.py
 python experiments/code/verify_hrgldd_semantic_provenance.py
 python experiments/code/verify_manuscript_sen12_condition.py
+python experiments/code/verify_public_claims_stdlib.py
 python experiments/code/count_manuscript_words.py
 python experiments/code/build_frozen_output_inventory.py
 ```

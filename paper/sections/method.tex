@@ -3,7 +3,11 @@
 
 \subsection{Band semantics and spectral controls}
 
-Let $\mathbf{X}\in\mathbb{R}^{B\times4\times H\times W}$ denote the released HR-GLDD arrays. The paper lists Red, Green, Blue, and NIR, and the notebook directly displays columns 0--2 as RGB; RGBN therefore has stronger release-internal support. Neither source binds names to NumPy indices through array-construction or reordering code. We retain native-product BGRN as a lower-support conservative sensitivity, not an equally documented mapping. Green/NIR occupy columns 1/3 in both; Red is column 0 under RGBN and 2 under BGRN. For $o\in\{\mathrm{RGBN},\mathrm{BGRN}\}$, define
+Let $\mathbf{X}\in\mathbb{R}^{B\times4\times H\times W}$ denote the released
+HR-GLDD arrays. The paper's band listing and notebook display support RGBN, but
+no construction code binds names to array indices. We therefore retain
+native-product BGRN as a lower-support sensitivity. Green/NIR occupy columns
+1/3 in both; Red is column 0 under RGBN and 2 under BGRN. Define
 \begin{equation}
 V_o=\frac{X_{\mathrm{NIR}}-X_{\mathrm{Red}(o)}}
         {X_{\mathrm{NIR}}+X_{\mathrm{Red}(o)}+10^{-6}}.
@@ -14,26 +18,26 @@ C_{\mathrm{zero}} &= (0,0),\\
 C_{\mathrm{raw},o} &= (|\nabla X_{\mathrm{Red}(o)}|,|\nabla X_{\mathrm{NIR}}|),\\
 C_{\mathrm{index},o} &= (V_o,|\nabla V_o|).
 \end{align}
-The zero control preserves attention parameters while removing external spectral information. The raw control tests whether generic optical edges explain any candidate-index advantage. Every recorded HR-GLDD output declares its candidate order; neither candidate is declared authoritative.
+The zero control preserves capacity without spectral input; the raw control
+tests whether optical edges explain any index advantage. Every output declares
+its candidate order.
 
-\subsection{Semantic-identifiability certificate}
+\subsection{Finite two-order sensitivity}
 
-Let $\mathcal{O}$ be the finite audit set of declared candidate mappings and
-$\delta(o)$ a signed contrast under schema $o$. We define its semantic envelope
+For finite mapping set $\mathcal{O}$ and contrast $\delta(o)$, define
 \begin{equation}
 \mathcal{E}_{\delta}=
 \left[\min_{o\in\mathcal{O}}\delta(o),\,
       \max_{o\in\mathcal{O}}\delta(o)\right].
 \end{equation}
-The effect direction is semantically identified only when
-$0\notin\mathcal{E}_{\delta}$; otherwise it is direction-unidentified. Here
-$\mathcal{O}=\{\mathrm{RGBN},\mathrm{BGRN}\}$. This conservative sensitivity
-certificate neither assigns equal plausibility nor claims that BGRN is
-release-documented; it is not a confidence interval or an exhaustive schema set.
+Direction is retained only if $0\notin\mathcal{E}_{\delta}$. Here
+$\mathcal{O}=\{\mathrm{RGBN},\mathrm{BGRN}\}$. This finite sensitivity neither
+assigns equal plausibility nor provides a confidence interval.
 
 \subsection{Capacity-matched residual attention}
 
-All controlled-attention models use the same residual encoder--decoder with channels $(32,64,128,256)$ and three skip gates. At scale $l$, the two control maps are bilinearly resized and concatenated with encoder features $F_l$:
+All controlled-attention models use one residual encoder--decoder with channels
+$(32,64,128,256)$ and three skip gates. Resized controls join encoder features:
 \begin{equation}
 M_l=\sigma\!\left[\operatorname{Conv}_{1\times1}
 \left(\operatorname{ReLU}\left(\operatorname{BN}
@@ -42,29 +46,33 @@ M_l=\sigma\!\left[\operatorname{Conv}_{1\times1}
 \begin{equation}
 F_{l,\mathrm{out}}=F_l\odot M_l+F_l.
 \end{equation}
-Every control mode therefore has 2,114,084 trainable parameters. U-Net and ResU-Net are included as architectural baselines.
+Every control has 2,114,084 parameters; U-Net and ResU-Net are baselines.
 
 \subsection{Loss controls}
 
-For pixel $i$, the unreduced base-loss map combines binary cross-entropy and focal loss \citep{lin2017focal}, with focal positive-class weight $\alpha=0.35$ and focusing exponent 2:
+For pixel $i$, the base map averages binary cross-entropy and focal loss
+\citep{lin2017focal} ($\alpha=0.35$, exponent 2):
 \begin{equation}
 \ell_{\mathrm{base},i}=\tfrac12\ell_{\mathrm{BCE},i}+\tfrac12\ell_{\mathrm{focal},i}.
 \end{equation}
-Let $B_{\mathrm{GT}}=\operatorname{Dilate}_{3\times3}(Y)-\operatorname{Erode}_{3\times3}(Y)$ denote the two-sided, one-pixel-radius Chebyshev morphological boundary band. We compare:
+Let $B_{\mathrm{GT}}=\operatorname{Dilate}_{3\times3}(Y)-
+\operatorname{Erode}_{3\times3}(Y)$ be the one-pixel boundary band:
 \begin{align}
 L_{\mathrm{plain}} &=
   \operatorname{mean}_i\{\ell_{\mathrm{base},i}[1+\gamma B_{\mathrm{GT},i}]\},\\
 L_{\mathrm{index},o} &=
   \operatorname{mean}_i\{\ell_{\mathrm{base},i}[1+\gamma \widetilde{B_{\mathrm{GT}}|\nabla V_o|}_i]\},
 \end{align}
-where $\gamma=2$. For an informative index-boundary signal, the tilde rescales it within each image to the mean mass of $B_{\mathrm{GT}}$; when its mean is at most $10^{-6}$, it falls back to $B_{\mathrm{GT}}$. Under both candidate orders, 8 of 1,119 training images use this fallback and the maximum mass mismatch is $2.98\times10^{-8}$. Thus $L_{\mathrm{plain}}$ versus $L_{\mathrm{index},o}$ changes spatial allocation without changing average added weight.
+where $\gamma=2$. The tilde rescales each informative index-boundary map to
+the mean mass of $B_{\mathrm{GT}}$ and falls back to $B_{\mathrm{GT}}$ below
+$10^{-6}$. Eight of 1,119 images fall back under each order; maximum mass
+mismatch is $2.98\times10^{-8}$. The comparison changes allocation, not mean
+added weight.
 
 \subsection{Evaluation quantities}
 
-We compute pooled and per-tile F1, intersection over union, precision, recall, FPR, and per-tile boundary F1 with one-pixel Chebyshev matching.
-
-For operating-point comparison, every arm uses the exact validation-score breakpoint nearest U-Net's threshold-$0.5$ validation recall; higher thresholds break ties. Test labels never select thresholds.
-
-For same-sensor spatial degradation, PlanetScope test patches are antialiased
-$128\!\rightarrow\!38\!\rightarrow\!128$ before inference. This measures
-information loss, not Sentinel-2 radiometry.
+We compute pooled/per-tile segmentation metrics and one-pixel-tolerance boundary
+F1. Operating points use the validation-score breakpoint nearest U-Net's
+threshold-$0.5$ validation recall; test labels never select thresholds.
+Antialiased $128\!\rightarrow\!38\!\rightarrow\!128$ PlanetScope evaluation
+measures spatial-information loss, not Sentinel-2 radiometry.

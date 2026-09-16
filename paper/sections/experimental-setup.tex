@@ -3,28 +3,38 @@
 
 \subsection{Dataset and scope of inference}
 
-We use the released HR-GLDD arrays \citep{meena2023hrgldd}: 1,119 training, 284 validation, and 355 test patches of $128\times128$ pixels at 3~m ground sampling distance. Landslide pixels comprise 10.09\%, 10.17\%, and 10.92\% of the three splits. The release contains imagery and masks but no event identifier, source-scene identifier, or coordinate for each array row. Separate patches therefore cannot be demonstrated to be independent. Results are descriptive across three training seeds; we do not calculate tile-bootstrap confidence intervals, p-values, spatial-block statistics, or event-held-out performance.
-
-The official test set had also been inspected during earlier method development. The present experiment is consequently treated as corrective evaluation rather than untouched confirmation. It can compare controlled configurations on the released benchmark but cannot establish population-level geographic generalization.
+HR-GLDD provides 1,119/284/355 train/validation/test patches
+\citep{meena2023hrgldd}; positive-pixel prevalence is
+10.09/10.17/10.92\%. It supplies no row-level event, scene, or coordinates, so
+patch independence is unverified. The test set was previously inspected.
+Results are therefore corrective and descriptive across seeds, without
+tile-bootstrap inference or geographic-generalization claims.
 
 \subsection{Factorial controls}
 
-The residual-attention surface crosses zero, raw-edge, and candidate-index controls with base and plain boundary-weighted losses; one additional index arm uses equal-mass index-modulated weighting. U-Net and ResU-Net bring the total to nine configurations. We train all nine with three seeds under both RGBN and BGRN candidates (54 runs).
+Zero, raw-edge, and candidate-index controls cross base and plain-boundary
+losses; one index arm uses equal-mass modulation. With U-Net and ResU-Net this
+gives nine configurations, each trained with seeds 42--44 under both mappings
+(54 runs). All use AdamW \citep{loshchilov2019adamw}, learning rate
+$1.5\times10^{-3}$, weight decay $10^{-4}$, cosine decay, batch size 32, and
+15 epochs; validation F1 selects the epoch.
 
-All arms use AdamW \citep{loshchilov2019adamw} with learning rate $1.5\times10^{-3}$, weight decay $10^{-4}$, cosine decay to $10^{-5}$, batch size 32, and 15 epochs. Validation F1 selects the epoch. Seeds 42, 43, and 44 use identical schedules and deterministic data-loader seeds. Probabilities are stored as float32 arrays; an independent script recomputes the reported default-threshold metrics without importing the training or reporting functions.
+\subsection{External analyses}
 
-\subsection{Post-hoc CAS sensitivity}
-
-We compare base and plain-boundary loss for the same RGB zero-control model on designated CAS regions \citep{xu2024cas}. The protocol was corrected after execution, so this is post-hoc sensitivity without confirmation credit; Supplementary Method~S1 gives sampling and deviations.
-
-\subsection{Internally precommitted LRD stress test}
-
-LRD supplies named Sentinel-2 bands and 28 EIDs \citep{orynbaikyzy2025lrd}. A local 16/6/6 protocol preceded validation/protected access, but no third-party timestamp exists and PH0003 shares a trigger family with protected PH0001/PH0004. Supplementary Method~S2 gives the frozen design and limitations.
-
-\subsection{Publicly locked Sen12 stress test}
-
-Sen12Landslides supplies named Sentinel-2 bands and inventories \citep{hohn2025sen12}. After development-only calibration, 21 checkpoints were frozen before authorized access to 1,889 patches from ten protected inventories. Five conditions covered two upper margins, generic-boundary recurrence, absolute non-degeneracy, and conservative transformed-envelope integrity. A public post-access correction treated one SCL-255 array as descriptively unavailable before inference; no input, mask, endpoint, or condition changed (Supplementary Method~S3).
+CAS compares base and plain-boundary loss post hoc without confirmation credit
+\citep{xu2024cas}. LRD uses named Sentinel-2 bands and 28 EIDs, but lacks a
+third-party pre-access timestamp and has trigger-family overlap
+\citep{orynbaikyzy2025lrd}. Sen12Landslides freezes 21 checkpoints before
+authorized evaluation of 1,889 patches from ten inventories
+\citep{hohn2025sen12}; its five conditions cover two margins, generic-boundary
+recurrence, absolute performance, and spatial integrity. A disclosed SCL-255
+correction changed no input, mask, endpoint, or condition. Supplementary
+Methods~S1--S3 give all protocols and deviations.
 
 \subsection{Interpretation rules}
 
-Input specificity requires the candidate index to outperform zero and raw controls on the same endpoint under both orders. Spectral loss specificity requires index modulation to beat equal-mass plain weighting and retain effect direction across orders; boundary F1 is separate. The certificate covers index-versus-raw F1, index-versus-plain F1 and boundary F1, and plain-boundary-versus-base F1. Complete-system improvement overrides neither control. Resolution attribution is restricted to same-sensor degradation. LRD is not confirmation-eligible; Sen12 recurrence requires all five registered conditions.
+Input specificity requires improvement over zero and raw controls under both
+orders. Loss specificity requires index modulation to beat equal-mass plain
+weighting with stable direction. Complete-system gains override neither
+control; LRD is ineligible for confirmation, and Sen12 requires all five
+registered conditions.

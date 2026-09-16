@@ -148,14 +148,14 @@ def main() -> None:
                 "claim_id": "C-r037-word-count",
                 "claim": (
                     "The Pandoc token count over abstract through conclusion "
-                    "is 2,856 under the printed exclusion scope."
+                    "is 2,199 under the printed exclusion scope."
                 ),
                 "status": "verified",
                 "analysis_command": (
                     "/opt/homebrew/bin/python3.10 "
                     "experiments/code/count_manuscript_words.py"
                 ),
-                "run_ids": ["R077-cycle30-word-count"],
+                "run_ids": ["R083-cycle31-abstract-word-count"],
                 "source_artifacts": [
                     {
                         "path": str(WORD_COUNT.relative_to(STUDY)),

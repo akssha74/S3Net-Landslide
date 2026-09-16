@@ -1,0 +1,131 @@
+{
+  "external": {
+    "cas": {
+      "mean_boundary_f1_points": -1.863255855018819,
+      "mean_f1_points": -2.193092678247501,
+      "nonnegative_seed_f1": 2
+    },
+    "lrd": {
+      "boundary_alternatives_points": [
+        -24.09668113225071,
+        -0.15185088533712857,
+        -4.923984435430509,
+        -0.5454478101463613
+      ],
+      "nonoverlap_eids": 4,
+      "protected_empty_percent": 84.1,
+      "selected_f1_effect_points": -4.7304393807128475,
+      "validation_f1_range": [
+        0.007623872731259436,
+        0.15145831379536714
+      ]
+    }
+  },
+  "hrgldd": {
+    "certificate": {
+      "index_input_vs_raw_f1": {
+        "BGRN": -0.21078814293531423,
+        "RGBN": -0.010715106525083229
+      },
+      "index_vs_plain_boundary_f1": {
+        "BGRN": -0.04718684021938202,
+        "RGBN": 0.3830729679567546
+      },
+      "index_vs_plain_f1": {
+        "BGRN": -0.3316432779656653,
+        "RGBN": -0.4062174516744288
+      },
+      "plain_boundary_vs_base_f1": {
+        "BGRN": 1.1266796516317976,
+        "RGBN": 0.9620230731973254
+      }
+    },
+    "generic_boundary_effects": {
+      "positive": 18,
+      "range_points": [
+        0.4248429844361912,
+        1.6176962818440943
+      ],
+      "total": 18
+    },
+    "operating": {
+      "boundary_weighted_default_fpr_percent": [
+        2.47,
+        2.5
+      ],
+      "degradation_drop_points": [
+        4.33,
+        5.2
+      ],
+      "exact_recall_matches": 53,
+      "matched_fpr_percent": [
+        1.97,
+        2.01
+      ],
+      "matched_precision_percent": [
+        78.41,
+        78.74
+      ],
+      "runs": 54
+    },
+    "table_cells_verified": 36
+  },
+  "runtime": "python-standard-library-only",
+  "schema_version": 1,
+  "sen12": {
+    "absolute_f1_range": [
+      0.0120630904094313,
+      0.03140320335996914
+    ],
+    "conditions": {
+      "all_arm_absolute_mean_f1_at_least_0_10": false,
+      "all_integrity_checks_pass": false,
+      "generic_boundary_all_control_means_positive_lower_ci_above_zero_8_of_10": false,
+      "ndvi_attention_vs_raw_edge_upper_ci_below_1_point": false,
+      "ndvi_modulated_vs_plain_upper_ci_below_1_point": true
+    },
+    "contrasts": {
+      "ndvi_attention_vs_raw_edge_f1": {
+        "interval": [
+          0.0028231243345463583,
+          0.01162087405220489
+        ],
+        "inventories": 10,
+        "mean": 0.007000112199518417
+      },
+      "ndvi_modulated_vs_plain_boundary_f1": {
+        "interval": [
+          -0.005297134542070158,
+          0.003420296066009608
+        ],
+        "inventories": 10,
+        "mean": -0.0004258962419223892
+      },
+      "ndvi_modulated_vs_plain_f1": {
+        "interval": [
+          -0.00412200780194908,
+          0.002608620567435417
+        ],
+        "inventories": 10,
+        "mean": -0.0005741347099292603
+      }
+    },
+    "generic_boundary_average": {
+      "interval": [
+        -0.0009220388324916989,
+        0.01315247068042745
+      ],
+      "mean": 0.0060794800215704225,
+      "positive_inventories": 5
+    },
+    "protected_cells_verified": 420
+  },
+  "source_artifacts": {
+    "experiments/derived/results/cas_boundary_confirmation/cas_boundary_confirmation_summary.json": "c71298d02f40928852a99128e6f964ccf946b2701ba029d3b94b34e5389f46dd",
+    "experiments/derived/results/lrd_boundary_confirmation/endpoint_sensitivity.json": "0422b1d2f539eb2dfe80ef09b304aa046bac2cbe6ca1c889800af5b328fa93cd",
+    "experiments/derived/results/reviewer_remediation/reviewer_remediation_summary.json": "7bdb39ff462992e408788f9acd2fa3a77c8bd94874fa98bd76cf37a95a4ff01c",
+    "experiments/derived/results/reviewer_remediation_bgrn/reviewer_remediation_summary.json": "3f801aee816738cd0173f23431565b059c8ca490e3b79736bede327f7732fe5e",
+    "experiments/derived/results/sen12_s2_confirmation_v5/sen12_s2_confirmation_summary.json": "35a26208788362b55ef5c62074aa6b1fc25b3a6f5948d6a30f74bbf6b54c232a"
+  },
+  "status": "pass"
+}

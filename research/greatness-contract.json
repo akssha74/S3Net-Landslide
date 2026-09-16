@@ -12,10 +12,10 @@
     "verified_at": "2026-09-15T08:45:00Z"
   },
   "original_great_claim": "Coupling physical Normalized Difference Vegetation Index (NDVI) scarp gradients into residual spatial attention modules delineates slope failure boundaries and enhances recall in PlanetScope 3 m satellite imagery, improving macro F1 by +3.69% over vanilla U-Net (p < 0.001) and +1.44% over an unguided attention ablation across three independent training seeds on the official HR-GLDD held-out test split.",
-  "great_claim": "A candidate-mapping certificate propagates release-supported RGBN and lower-support native-order BGRN sensitivity into signed mechanism contrasts, separating directions robust to this conservative audit from a spectral boundary direction that changes sign.",
+  "great_claim": "A two-order sensitivity envelope propagates release-supported RGBN and lower-support native-order BGRN sensitivity into signed mechanism contrasts, separating directions robust to this conservative audit from a spectral boundary direction that changes sign.",
   "original_claim_status": "refuted-and-superseded",
   "current_contribution_type": "negative-characterization-domain-measurement",
-  "current_revised_claim": "The candidate-mapping certificate assigns negative envelopes to index-versus-generic F1 contrasts, a positive envelope to generic boundary F1, and a zero-crossing envelope to index-modulated boundary F1 over release-supported RGBN and conservative native-order BGRN sensitivity without assigning equal plausibility. CAS, LRD, and Sen12 provide no confirmation of transfer.",
+  "current_revised_claim": "The two-order sensitivity analysis assigns negative envelopes to index-versus-generic F1 contrasts, a positive envelope to generic boundary F1, and a zero-crossing envelope to index-modulated boundary F1 over release-supported RGBN and conservative native-order BGRN sensitivity without assigning equal plausibility. CAS, LRD, and Sen12 provide no confirmation of transfer.",
   "current_evidence": [
     "research/dataset-metadata/hrgldd-official/band-order-evidence.json",
     "research/dataset-metadata/hrgldd-official/band-order-audit.json",
@@ -114,15 +114,15 @@
   },
   "contribution_type": "negative-characterization",
   "method_contribution": {
-    "new_procedure": "Candidate-mapping sensitivity certificate over evidentially asymmetric mappings and signed mechanism contrasts",
+    "new_procedure": "Two-order sensitivity envelopes over evidentially asymmetric mappings and signed mechanism contrasts",
     "load_bearing_trained_model": true,
     "not_conventional_application": true,
-    "model_load_bearing_justification": "The certificate requires the complete 54-run, same-capacity dual-mapping surface; prose inspection alone cannot determine which directions survive both the better-supported interpretation and conservative sensitivity."
+    "model_load_bearing_justification": "The envelope analysis requires the complete 54-run, same-capacity dual-mapping surface; prose inspection alone cannot determine which directions survive both the better-supported interpretation and conservative sensitivity."
   },
   "original_win_condition": "Achieve an F1-score >= 0.70 on the official HR-GLDD test split with a statistically significant macro improvement of >= +0.03 F1 over standard U-Net across 3 random training seeds (p < 0.001 on paired cluster-bootstrap).",
-  "win_condition": "The generated certificate reproduces every frozen schema-specific contrast and distinguishes at least one schema-invariant direction from a zero-crossing direction without selecting an authoritative order.",
+  "win_condition": "The generated envelope summary reproduces every frozen schema-specific contrast and distinguishes at least one schema-invariant direction from a zero-crossing direction without selecting an authoritative order.",
   "original_kill_criteria": "If S3-Net fails to improve F1 by at least +0.015 over the standard ResU-Net baseline, or if the paired cluster-bootstrap 95% confidence interval spans zero.",
-  "kill_criteria": "Kill any certificate claim if a declared candidate mapping is omitted, evidence asymmetry is hidden, a printed contrast differs from frozen records, or a zero-crossing envelope is described as direction-identified.",
+  "kill_criteria": "Kill any envelope claim if a declared candidate mapping is omitted, evidence asymmetry is hidden, a printed contrast differs from frozen records, or a zero-crossing envelope is described as direction-identified.",
   "claim_feasibility": [
     {
       "clause": "Coupling physical NDVI scarp gradients into residual attention improves landslide segmentation over standard convolutional architectures.",
@@ -190,9 +190,13 @@
         "measured_agreement": "Correlates (r ~ 0.62) with bare ground but introduces heavy false positives on dry riverbeds, bare soil, and roads."
       }
     ],
-    "verdict": "distinct",
-    "why_distinct": "Coupling the non-linear normalized difference spectral ratio into multi-scale spatial attention gates skip features based on physical biophysical contrast, which neither pure spatial attention nor scalar thresholding can accomplish.",
-    "status": "pass"
+    "verdict": "refuted-for-current-claim",
+    "why_distinct": "This original mechanism interpretation was not supported after matched raw-edge, zero-input, and equal-mass controls plus dual-order reruns.",
+    "status": "superseded-refuted",
+    "superseded_by": [
+      "C-r020-order-robust-controls",
+      "C-r036-semantic-identifiability"
+    ]
   },
   "identification_audit": {
     "checked_at": "2026-09-04T09:35:00Z",
@@ -200,19 +204,30 @@
     "design_can_test_assumption": true,
     "decision_rule_reads_evaluation_target": false,
     "reference_is_sibling_reading_of_compared_channel": false,
-    "unseparable_alternative_explanations": [],
-    "status": "pass"
+    "unseparable_alternative_explanations": [
+      "generic boundary emphasis",
+      "unresolved physical channel identity",
+      "optimization variation"
+    ],
+    "status": "superseded-refuted",
+    "superseded_by": [
+      "C-r020-spectral-loss-order-instability",
+      "C-r070-sen12-not-confirmed"
+    ]
   },
   "inference_feasibility_precheck": {
     "checked_at": "2026-09-04T09:35:00Z",
     "metric": "F1-score of binary landslide segmentation",
     "attainable_range": "[0.00, 1.00]",
-    "n_independent_clusters": 355,
-    "interval_construction": "Cluster-bootstrap over 355 independent test image tiles",
+    "n_independent_clusters": null,
+    "interval_construction": "Original tile-independence proposal withdrawn; event/scene identifiers are unavailable.",
     "measured_coverage_at_n_clusters": 0.95,
-    "power_at_locked_floor": 0.92,
+    "power_at_locked_floor": null,
     "locked_floor_inside_attainable_range": true,
-    "status": "pass"
+    "status": "superseded-refuted",
+    "superseded_by": [
+      "C-r010-scope"
+    ]
   },
   "payoff_headroom_precheck": {
     "checked_at": "2026-09-04T09:35:00Z",
@@ -256,7 +271,9 @@
     "incumbent_evidence": "Meena et al. (ESSD 2023, doi:10.5194/essd-15-3283-2023) document that baseline CNNs produce substantial false-positive clutter in complex terrain.",
     "evidence": [
       "S3-Net achieves higher precision and F1 by suppressing non-landslide false alarms on the held-out HR-GLDD test set."
-    ]
+    ],
+    "status": "superseded-refuted",
+    "superseded_by": "current_consequence_statement"
   },
   "current_consequence_statement": {
     "audience": "Remote-sensing researchers designing landslide segmentation mechanisms and benchmark comparisons.",
@@ -396,12 +413,12 @@
     },
     "readiness_rescore": null
   },
-  "novelty_class": "new-measurement",
-  "independent_novelty_classification": "contested: cycle-27 Opus incremental; cycle-27 GPT and GLM defensible-beyond-incremental",
+  "novelty_class": "incremental",
+  "independent_novelty_classification": "cycle-31 Opus, GPT, and GLM consensus: incremental",
   "novelty_not_merely": "The finite identified-set primitive is established and explicitly conceded. The candidate measurement is the HR-GLDD-specific physical-schema construction, matched reruns, and publicly bound claim audit; one independent panel judges this incremental, so the contract supplies no unanimous novelty clearance.",
   "great_under_refutation": {
     "if_primary_hypothesis_fails": "The original physical spectral-mechanism hypothesis is refuted; the surviving paper reports which directions are identifiable under ambiguous band semantics and why three external analyses do not establish transfer.",
-    "still_valuable_because": "The complete controlled audit, semantic certificate, public failure chronology, and verified non-confirmations expose claim limits that aggregate benchmark scores conceal.",
+    "still_valuable_because": "The complete controlled audit, two-order envelopes, public failure chronology, and verified non-confirmations expose claim limits that aggregate benchmark scores conceal.",
     "win_conditions_still_met": [
       "Complete three-seed dual-schema evaluation on the official HR-GLDD split without independence claims",
       "Public, independently verified CAS/LRD/Sen12 stress-test failures with prohibited overclaims recorded"

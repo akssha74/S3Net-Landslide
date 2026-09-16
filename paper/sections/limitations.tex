@@ -1,12 +1,18 @@
 \section{Limitations}
 \label{sec:limitations}
 
-HR-GLDD does not bind band names to NumPy indices through array-construction provenance. RGBN has stronger paper/notebook support; BGRN is a conservative native-order sensitivity, not an equally supported schema. The finite certificate neither identifies wavelengths nor supplies statistical uncertainty. Missing event, scene, and coordinate mappings preclude clustered inference; prior test inspection makes evaluation corrective.
+HR-GLDD lacks array-construction and row-level event/scene/coordinate
+provenance. Thus the finite two-mapping envelope neither identifies
+wavelengths nor supplies population uncertainty; prior test inspection makes
+evaluation corrective. Binary masks preclude category-specific error rates, and
+the 10-m control measures PlanetScope resampling rather than sensor transfer.
 
-Binary masks omit background categories, so Supplementary Figure~S1 supports visual inspection but not category-specific error rates. The 10-m control measures sensitivity to PlanetScope smoothing and resampling, not Sentinel-2 radiometry or geography.
+CAS changes several domains post hoc. LRD lacks an external timestamp, has
+trigger-family overlap, and is 84.1\% empty with weak validation. Sen12 used
+development calibration; arm F1 is below 3.2\%, and its conservative spatial
+bar fails for abutting tiles despite zero native positive-area overlap. These
+analyses permit neither confirmation nor refutation.
 
-The post-hoc CAS analysis jointly changes sensor, resolution, geography, and annotation. LRD has no independently timestamped pre-access record; two protected EIDs share a trigger family with development; 84.1\% of protected crops are empty; and validation F1 is weak. Its frozen criteria fail, but the external conclusion is indeterminate.
-
-Sen12 used development-driven calibration without confirmation credit; v6 corrected one descriptive SCL field after access but before inference. Arm F1 is below 3.2\%. Its registered transformed-envelope bar fails for abutting Kyrgyzstan tiles despite zero native positive-area overlap, precluding clean confirmation or refutation.
-
-Three seeds quantify optimization variation, not independent events. No regional mosaic, acquisition pipeline, geospatial reconstruction, hardware payload, or responder workflow was evaluated; operational deployment and broad geographic generalization remain outside scope.
+Three seeds measure optimization variation, not independent events. No mosaic,
+acquisition chain, payload, or responder workflow was evaluated; operational
+and geographic claims remain outside scope.

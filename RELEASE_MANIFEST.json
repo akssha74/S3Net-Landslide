@@ -1,9 +1,9 @@
 {
   "schema_version": 1,
-  "source_repository": "akssha74/S3Net-Landslide",
-  "source_scientific_commit": "d0d748e6bb7e1033d62c36286d84591012f0608e",
+  "source_repository": "akssha74/paper-activities",
+  "source_scientific_commit": "a7bab9b478448e86900b98fb9bee074de9ccf7ce",
   "source_origin_repository": "akssha74/paper-activities",
-  "source_origin_commit": "c597464b0acfd47644f755d6ca8f2786f16b0ffb",
+  "source_origin_commit": "a7bab9b478448e86900b98fb9bee074de9ccf7ce",
   "study": "studies/disaster-hrgldd-landslide",
   "files": [
     {
@@ -12,7 +12,7 @@
     },
     {
       "path": "README.md",
-      "sha256": "56aa5ee694f648c19972857786445e0bc293a9b6070bb67c820eef651c6a1f8f"
+      "sha256": "db68f3665df1bd55d4211b790d2e5c1e2e99533a80a724940d75eb6aeddb6264"
     },
     {
       "path": "environment/README.md",
@@ -68,7 +68,7 @@
     },
     {
       "path": "evidence/artifact-ledger.jsonl",
-      "sha256": "3ef3cd253ba6719c2f0a7d93c5931d8b43888c14a25c101e8db2d508d6b09a12"
+      "sha256": "df7a5de4d0a2095e9b19dbd55b3f342644d1620225e1cdd19f50d0b2d6f49c2f"
     },
     {
       "path": "evidence/citation-ledger.jsonl",
@@ -76,7 +76,7 @@
     },
     {
       "path": "evidence/claim-ledger.jsonl",
-      "sha256": "76a1b23993c8aaffe5213999f86d0ff7e99f86d58c3f7e9e4a913da08a78df9e"
+      "sha256": "b42abb87cacafc2dad082b0d00df5b908cbe86e5db1654cb748271369273de2e"
     },
     {
       "path": "evidence/result-registry.jsonl",
@@ -113,6 +113,10 @@
     {
       "path": "experiments/code/build_frozen_output_inventory.py",
       "sha256": "6ea5a84ad51a7a45275bfd73c841ff0dad3588d262b215a62452245a34f33d89"
+    },
+    {
+      "path": "experiments/code/build_public_claim_sufficient_statistics.py",
+      "sha256": "84848a605bc8714b7c63a78e70fcb8975c0d86fb2069ddd58ed2d098f089de36"
     },
     {
       "path": "experiments/code/build_scientific_source_snapshot.py",
@@ -184,7 +188,7 @@
     },
     {
       "path": "experiments/code/register_r036_certificate.py",
-      "sha256": "02fc8d3c614a7645373fe03e7372a7eed3ffbda5ae89ca725c00bb2beab4def1"
+      "sha256": "78c4a020efe11f793d12fe406cebfc72bcb80dfb3a05b3be6041d216c671cf2d"
     },
     {
       "path": "experiments/code/revised_models.py",
@@ -239,6 +243,10 @@
       "sha256": "9311bb5e618505066a743a37e5c6ffc58a23a7f975ef629671fbc516d538347c"
     },
     {
+      "path": "experiments/code/verify_public_claims_stdlib.py",
+      "sha256": "e339a57a3621cc22036e1d9cf5702e218f7fe7450fce78b4a50e58d9a95db2c3"
+    },
+    {
       "path": "experiments/derived/results/band_order_sensitivity.json",
       "sha256": "21f94efc1ba8f368d4f7445bd788852331ab7f8c30052b997951101320bf9052"
     },
@@ -272,7 +280,11 @@
     },
     {
       "path": "experiments/derived/results/manuscript_word_count.json",
-      "sha256": "394fd498c82f13e5de2bc59abc900560da545b4063fcc7ddfbc0fa03851b2e51"
+      "sha256": "1c807559912446479e0e2b50264414361b3fae352254e24df462255aaabae5d7"
+    },
+    {
+      "path": "experiments/derived/results/public_claim_sufficient_statistics.json",
+      "sha256": "8974d119eb2230599ace583e8377d6575bffe0760fdf2877c3ef908198cd8812"
     },
     {
       "path": "experiments/derived/results/reviewer_remediation/mechanism_contrasts.json",
@@ -539,12 +551,32 @@
       "sha256": "e015937fca229f5bd98519cb2b63b1e70dae9b92064c1115e51d9485359e3c98"
     },
     {
+      "path": "experiments/logs/R079-public-claim-sufficient-statistics.log",
+      "sha256": "32943a44d06396d048ca1221f8ef1b23d9d98ac4bf79d3844bc4761b06f2ec2b"
+    },
+    {
+      "path": "experiments/logs/R080-public-claims-stdlib-verification.log",
+      "sha256": "ace50b6219484107ab077ad413358c9c1d67a4e3a80d3d7291cf38784a1c74f8"
+    },
+    {
+      "path": "experiments/logs/R081-cycle31-word-count.log",
+      "sha256": "e37e913a32950fc0205f1ef871cefb88b767a792790d02828c031aa44198b242"
+    },
+    {
+      "path": "experiments/logs/R082-cycle31-final-word-count.log",
+      "sha256": "970e81a6b27a7c81c8deef1e6801770d7d0c561595c9746e4c189ba6ba41b699"
+    },
+    {
+      "path": "experiments/logs/R083-cycle31-abstract-word-count.log",
+      "sha256": "c8ad8552ca368ae9d6a23735822c35f0807587c3b33ec20776a679b43d88eb5b"
+    },
+    {
       "path": "experiments/run-ledger.jsonl",
-      "sha256": "c3ce677da880ac3f041fe9f582f6dff2ad9e20ad1945ed0bee334f84151d6e7e"
+      "sha256": "09291e230f8d10003701f54a4f4b79d9ba2444f3e746f485d009e3a785e94a97"
     },
     {
       "path": "experiments/tree.jsonl",
-      "sha256": "44b357d3309f009277356827f963e03def0fad64fa254bdd543b77490e2833e8"
+      "sha256": "f8b5d50560530fa80a7b9b42468349d7635887def9da6afca13b12084e587c93"
     },
     {
       "path": "paper/figures/fig_false_positive_atlas.pdf",
@@ -556,11 +588,11 @@
     },
     {
       "path": "paper/main.pdf",
-      "sha256": "622d4ac80619178735181eb84ae7016dda8e855301679e8e275c1efd2d5ef5c4"
+      "sha256": "067a93f9d1750fcb1ce6bb1fa95707fa44d46216beff94f7993cb8a5b8d54241"
     },
     {
       "path": "paper/main.tex",
-      "sha256": "552ec2f1dccdb37d28017735d24b601b544319747dd62dafe8ed9255aa150c4c"
+      "sha256": "ae834966d0681d6e6c380c31406acaa0cc2d074ac766c57f3f33e482ff22f935"
     },
     {
       "path": "paper/references.bib",
@@ -568,31 +600,31 @@
     },
     {
       "path": "paper/sections/abstract.tex",
-      "sha256": "ad3f15bd4c27d4f3dc863c9ca6cbee0f182534849bf3d2ede13e88a2c649b2d5"
+      "sha256": "20dd2ee92b36f99475848f69b160395e2804e46d86490ec8da889e5c5b044bc5"
     },
     {
       "path": "paper/sections/conclusion.tex",
-      "sha256": "4b1c69ed53d186a1fd929028cdb4b006d4c2957a3b5484857d98fcafd9ed5c3b"
+      "sha256": "f19746dbc2fc49aa3f3e7ec0af3632734b4779067ec393e7882a30da454afc15"
     },
     {
       "path": "paper/sections/discussion.tex",
-      "sha256": "af7c38b2ee62b4474cb8e10b36919d3538cb22a861f6fbfcca0438dc945027f8"
+      "sha256": "d0c9d551ce8d86b3ba3d5f75bd4b58b49f2605db19fb3e7c992669dad99d41e4"
     },
     {
       "path": "paper/sections/experimental-setup.tex",
-      "sha256": "f4c0e640cba17ed203f681cd8fb3e30af0e5cc625e5aaab6d797f65f4fbdb045"
+      "sha256": "8a1cfbdc039711b33e18bae82b99ff1e19707a6cea7db8dce2152967b9a901a5"
     },
     {
       "path": "paper/sections/introduction.tex",
-      "sha256": "f45235d3ed95c03767147a462f78be5088dd7d6f5938b243f13a02ef8f0cc6d1"
+      "sha256": "46e24e8fb70cf8437f9ca885e63101d31e0d707336df5f97454cc8f64a7389a8"
     },
     {
       "path": "paper/sections/limitations.tex",
-      "sha256": "6f505f39051ea2d01949cb66d2dcc0f5b54b0954f57104ab0aed6a07a17a0054"
+      "sha256": "86743851d4d2cc813c13877a09785ce7263fe7d56610f90eb955e39f3adc29c2"
     },
     {
       "path": "paper/sections/method.tex",
-      "sha256": "6a9edc619689d362dbdfd6b5dc5a328d6068ae235782e2b7b9bc88188eba1dca"
+      "sha256": "0a9fdb601a01dc27323f0d8fe711175dbae63cbec31761bc4ffc822a5b8e1155"
     },
     {
       "path": "paper/sections/related-work.tex",
@@ -600,15 +632,15 @@
     },
     {
       "path": "paper/sections/results.tex",
-      "sha256": "5cc09784bf93d89ffdff2bbf1e113247ca95e7995ae5a72fb6c66f2b3f51958d"
+      "sha256": "e79293574991d2618ff6b4a8436dddea6f2f7e5d12780f1a2731dc6ead835934"
     },
     {
       "path": "paper/supplement.pdf",
-      "sha256": "4495dbe08be2ddb67af5cf3e43eb4bda4891b7cf26530608e080daf5c04871a9"
+      "sha256": "873541965ff60e62138391808f9e27dabcff72b7cfa2705791122614e41a6eea"
     },
     {
       "path": "paper/supplement.tex",
-      "sha256": "c95962c0cb8abb93e06c798e1f202a533ca6acd9a41ab70003911e397ef1c40d"
+      "sha256": "ab305ca55a85f7096e1ea2756666fff57e9bce17e1c35dcc60aeae1fd0130f5e"
     },
     {
       "path": "paper/tables/tab_band_order_sensitivity.tex",
@@ -852,11 +884,11 @@
     },
     {
       "path": "research/greatness-contract.json",
-      "sha256": "8639ae5ae746dff6ab59e32c1d120a2cebc17bf4ee143dc9aea6d500ccb29e85"
+      "sha256": "212b5ecedf791d5d5a375f3261732bb41c8dbfed74ebdb0e2b87d10b45cceca0"
     },
     {
       "path": "research/literature.jsonl",
-      "sha256": "43a587427162e8fc559e93dfa3f877e07e8941dd586b4e59a99dc3424b436168"
+      "sha256": "30bbd894c1173634949cb491d81c44080e7ba14bde14b281c83095811a29c6b9"
     },
     {
       "path": "research/lrd-boundary-confirmation-preregistration.md",
@@ -909,6 +941,10 @@
     {
       "path": "reviews/verified-lrd-confirmation.json",
       "sha256": "d0d871c6e90393874084ad5f2ac043293a17caa966e4de52f8cbf59cf7e8fdc4"
+    },
+    {
+      "path": "reviews/verified-public-claims-stdlib.json",
+      "sha256": "a723a4a1b401935dea83c41d6e07ce133c921726eb203eee070178a60b95065e"
     },
     {
       "path": "reviews/verified-r010.json",

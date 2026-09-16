@@ -3,27 +3,39 @@
 
 \subsection{What the controls change}
 
-The semantic audit changes the evidentiary question. RGBN has stronger
-release-internal support, but absent array-construction provenance prevents
-treating its Red index as directly verified. BGRN is a conservative
-native-product sensitivity, not an equally evidenced mapping. Index-versus-generic
-F1 directions survive this audit set, whereas the index-modulated boundary
-envelope crosses zero.
+RGBN has stronger release support, but absent construction provenance prevents
+treating its Red index as verified. BGRN is a conservative sensitivity, not an
+equally evidenced mapping. Index-versus-generic F1 directions survive this
+audit; the index-modulated boundary direction does not.
 
-Generic boundary weighting is more stable within HR-GLDD: all 18 seed/control/order comparisons improve F1. None of three external analyses confirms transfer. CAS is post hoc with mixed seed signs; LRD has weak validation, endpoint instability, and trigger-family leakage. Sen12 has the strongest prospective pedigree, but fails four of five registered conditions: absolute F1 is degenerate and the conservative transformed-envelope integrity bar fails. Native rectangles only abut, so this is not evidence of duplication. Together these analyses leave transfer unsupported, not robustly refuted.
+Generic boundary weighting improves all 18 HR-GLDD comparisons, but no external
+analysis confirms transfer. CAS is post hoc; LRD has weak validation, endpoint
+instability, and trigger overlap. Sen12 fails four of five conditions, including
+absolute performance. Its transformed-envelope integrity failure reflects
+native rectangles that only abut, not duplicated samples. Transfer is
+unsupported, not refuted.
 
-This does not imply that NDVI is universally unhelpful. Devara et al. report useful spectral processing \citep{devara2024landslide}, and TriGEFNet reports an NDVI-guided multimodal benefit \citep{trigefnet2026}. Our contribution is diagnostic: explicit semantic uncertainty and same-class controls, not competitive performance or confirmed transfer.
+This does not make NDVI universally unhelpful: prior work reports useful
+spectral processing and NDVI guidance \citep{devara2024landslide,trigefnet2026}.
+Our result is diagnostic, not a competitive model claim.
 
 \subsection{Interpretation under incomplete observability}
 
-Band-ratio cancellation is exact only for a shared multiplicative irradiance term. Mountain scenes can additionally contain diffuse illumination, cast shadow, adjacency, bidirectional reflectance, and atmospheric effects. An NDVI gradient also responds to any vegetation discontinuity. The experiment contains no illumination labels or background-type annotations; it cannot validate topographic invariance or isolate scarps from roads and riverbanks.
+Band-ratio cancellation is exact only for shared multiplicative irradiance.
+Diffuse light, shadow, adjacency, reflectance, and atmosphere remain; an NDVI
+gradient also responds to any vegetation edge. Without illumination or
+background labels, the experiment cannot isolate scarps.
 
-Varotsos and Zhou describe incompletely observable remote-sensing systems whose operational use requires dataset-specific calibration \citep{varotsos2026information}. We apply analogous caution by separating
-same-sensor degradation from cross-dataset shift and withholding event-level
-inference where group metadata are absent.
+For incompletely observed remote-sensing systems, dataset-specific calibration
+is essential \citep{varotsos2026information}. We likewise separate same-sensor
+degradation from dataset shift and withhold event-level inference.
 
 \subsection{Implications for benchmark practice}
 
-Four practical recommendations follow. First, multispectral array releases should carry machine-readable channel names rather than relying on sensor conventions. Second, claims about geographic transfer or confidence intervals should be tied to event, scene, or spatial-block identifiers; a patch index is not an independence unit. Third, mechanism studies should include generic same-class controls. For spectral attention this means zero and raw-edge controls; for a specialized boundary loss it means ordinary boundary weighting with matched total mass. Fourth, unresolved schemas should be propagated into a machine-readable semantic envelope rather than collapsed to one convenient interpretation.
+Four recommendations follow: publish machine-readable channel names; bind
+transfer and uncertainty claims to event/scene/spatial units; include generic
+same-class controls (zero/raw-edge inputs and equal-mass plain boundary loss);
+and propagate unresolved schemas into a machine-readable envelope.
 
-The strongest HR-GLDD configuration is compact, but the external sensitivity failure prevents presenting it as a generally useful boundary-aware model. Parameter count characterizes implementation cost only; it is not evidence of an end-to-end emergency workflow.
+The compact HR-GLDD model is not a transferable operational system; parameter
+count alone says nothing about an emergency workflow.
